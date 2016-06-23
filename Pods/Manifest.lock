@@ -1,0 +1,21 @@
+PODS:
+  - JKNotificationPanel (0.2.0)
+  - Kingfisher (2.4.1)
+  - Mixpanel (2.9.9):
+    - Mixpanel/Mixpanel (= 2.9.9)
+  - Mixpanel/Mixpanel (2.9.9)
+  - ZAlertView (0.1.7)
+
+DEPENDENCIES:
+  - JKNotificationPanel
+  - Kingfisher (~> 2.4)
+  - Mixpanel
+  - ZAlertView
+
+SPEC CHECKSUMS:
+  JKNotificationPanel: c45f60e6548cda03752d35b4bf479f44c12886c1
+  Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
+  Mixpanel: 818d1940c2d9402453b349545022a86968097f57
+  ZAlertView: 13d57e062ee9a6ce384b753fa8fed8fd0dad3942
+
+COCOAPODS: 0.39.0

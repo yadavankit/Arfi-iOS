@@ -1,0 +1,6 @@
+framework module Pods_Udiva {
+  umbrella header "Pods-Udiva-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -2,11 +2,12 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "wardrobe-icon-0.png",
+      "filename" : "iTunesArtwork.png",
       "scale" : "1x"
     },
     {
       "idiom" : "universal",
+      "filename" : "iTunesArtwork@2x.png",
       "scale" : "2x"
     },
     {

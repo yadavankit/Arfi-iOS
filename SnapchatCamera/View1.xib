@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View1" customModule="Udiva" customModuleProvider="target">
+            <connections>
+                <outlet property="second" destination="uRm-Xz-Uk4" id="ljH-R8-5cp"/>
+                <outlet property="third" destination="hSd-8z-0Rh" id="Nrv-xJ-gE9"/>
+                <outlet property="userUploadedImage" destination="a0A-KS-4UF" id="Ld0-O1-mug"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="a0A-KS-4UF">
+                    <rect key="frame" x="180" y="24" width="241" height="232"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="232" id="NTp-DS-jc8"/>
+                        <constraint firstAttribute="width" constant="241" id="gCR-T8-h6h"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="uRm-Xz-Uk4">
+                    <rect key="frame" x="218" y="276" width="176" height="144"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="144" id="gHK-lb-q1h"/>
+                        <constraint firstAttribute="width" constant="176" id="io8-cF-J1U"/>
+                    </constraints>
+                </imageView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hSd-8z-0Rh">
+                    <rect key="frame" x="249" y="466" width="115" height="108"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="115" id="v5L-ax-fq0"/>
+                    </constraints>
+                </imageView>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="uRm-Xz-Uk4" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="218" id="CtD-42-i3e"/>
+                <constraint firstItem="a0A-KS-4UF" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-160" id="Jec-lM-brB"/>
+                <constraint firstItem="a0A-KS-4UF" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="PBW-Jv-Jt5"/>
+                <constraint firstAttribute="bottom" secondItem="hSd-8z-0Rh" secondAttribute="bottom" constant="26" id="Wzt-S7-ywq"/>
+                <constraint firstItem="uRm-Xz-Uk4" firstAttribute="top" secondItem="a0A-KS-4UF" secondAttribute="bottom" constant="20" id="ag2-gW-BAa"/>
+                <constraint firstItem="hSd-8z-0Rh" firstAttribute="centerX" secondItem="uRm-Xz-Uk4" secondAttribute="centerX" id="fh5-py-jlv"/>
+                <constraint firstItem="hSd-8z-0Rh" firstAttribute="top" secondItem="uRm-Xz-Uk4" secondAttribute="bottom" constant="46" id="nKo-2P-tS6"/>
+            </constraints>
+        </view>
+    </objects>
+</document>
