@@ -5,6 +5,8 @@
 //  Copyright (c) 2015 Guido Lodetti. All rights reserved.
 //
 
+import UIKit
+
 extension UIImage {
     
     // Resizes an input image (self) to a specified size
@@ -28,7 +30,7 @@ extension UIImage {
         // New CGImage reference based on the input image (self) and the specified rect
         let imageRef = CGImageCreateWithImageInRect(self.CGImage, scaledRect);
         // Gets an UIImage from the CGImage
-        let result = UIImage(CGImage: imageRef, scale: self.scale, orientation: self.imageOrientation)
+        let result = UIImage(CGImage: imageRef!, scale: self.scale, orientation: self.imageOrientation)
         // Returns the final image, or NULL on error
         return result;
     }

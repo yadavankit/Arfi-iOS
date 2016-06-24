@@ -7,12 +7,13 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View2" customModule="Udiva" customModuleProvider="target">
             <connections>
+                <outlet property="activityIndicator" destination="u2V-XH-HqZ" id="gby-an-NmW"/>
                 <outlet property="cameraButtonOutlet" destination="xUV-cS-W4k" id="dgH-zI-sjg"/>
+                <outlet property="cameraImage" destination="aLM-rG-o9c" id="wul-e3-giv"/>
                 <outlet property="cameraView" destination="BFv-jj-PTj" id="Kks-jO-8tK"/>
-                <outlet property="clickedPhoto" destination="aLM-rG-o9c" id="mcV-2j-3vl"/>
                 <outlet property="cross" destination="vdC-QL-GTv" id="1zW-dg-AWb"/>
                 <outlet property="perimeterOutlet" destination="7GL-Ef-N3g" id="7Po-SI-9Uj"/>
-                <outlet property="tempImageView" destination="q06-CJ-SOF" id="ATh-ZH-0Z5"/>
+                <outlet property="settingUpWardrobe" destination="YCb-14-gFu" id="p83-Za-4el"/>
                 <outlet property="tickmarkOutlet" destination="3cH-yJ-FfW" id="Gw7-jd-lVZ"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
@@ -24,18 +25,16 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BFv-jj-PTj">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q06-CJ-SOF">
-                            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        </imageView>
-                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aLM-rG-o9c">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cyan_box" translatesAutoresizingMaskIntoConstraints="NO" id="7GL-Ef-N3g">
-                    <rect key="frame" x="175" y="135" width="250" height="250"/>
+                    <rect key="frame" x="150" y="150" width="300" height="300"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="250" id="XoT-fS-lQ1"/>
-                        <constraint firstAttribute="width" constant="250" id="YGO-jt-IKX"/>
+                        <constraint firstAttribute="height" constant="300" id="0yH-6N-oTn"/>
+                        <constraint firstAttribute="width" constant="300" id="gZA-Mg-qcD"/>
                     </constraints>
                 </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xUV-cS-W4k">
@@ -46,7 +45,7 @@
                         <constraint firstAttribute="width" constant="80" id="pMT-Ww-WPh"/>
                     </constraints>
                     <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="circle_white"/>
+                    <state key="normal" image="cameraButton"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="35"/>
@@ -57,9 +56,6 @@
                         <action selector="clicked:" destination="-1" eventType="touchUpInside" id="RCV-ZL-lFg"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aLM-rG-o9c">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                </imageView>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdC-QL-GTv">
                     <rect key="frame" x="34" y="36" width="24" height="27"/>
                     <constraints>
@@ -90,45 +86,56 @@
                         <action selector="tickmarkAction:" destination="-1" eventType="touchUpInside" id="2A7-5m-VeQ"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YMu-ui-CiM">
-                    <rect key="frame" x="522" y="506.5" width="36" height="33"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are setting up your wardrobe." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YCb-14-gFu">
+                    <rect key="frame" x="136" y="378" width="328.5" height="29"/>
+                    <color key="backgroundColor" red="0.96078431369999995" green="0.95686274510000002" blue="0.94509803920000002" alpha="0.72273706900000001" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="33" id="ArH-Uz-KCE"/>
-                        <constraint firstAttribute="width" constant="36" id="HIp-qO-yqW"/>
+                        <constraint firstAttribute="width" constant="328.5" id="SHf-if-ljw"/>
                     </constraints>
-                    <state key="normal" image="wardrobe-icon-0"/>
-                </button>
+                    <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="21"/>
+                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2V-XH-HqZ" customClass="activityIndicator" customModule="Udiva" customModuleProvider="target">
+                    <rect key="frame" x="260" y="260" width="80" height="80"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="80" id="Tsg-Or-175"/>
+                        <constraint firstAttribute="height" constant="80" id="qPs-hr-Hiu"/>
+                    </constraints>
+                </view>
             </subviews>
             <color key="backgroundColor" red="1" green="0.33818916509733155" blue="0.3129381846844097" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
+                <constraint firstItem="aLM-rG-o9c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="1Hf-HD-Iap"/>
                 <constraint firstItem="vdC-QL-GTv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="4CT-P6-J7H"/>
-                <constraint firstItem="YMu-ui-CiM" firstAttribute="top" secondItem="3cH-yJ-FfW" secondAttribute="bottom" constant="-68.5" id="4Cs-Bp-pkT"/>
                 <constraint firstAttribute="bottom" secondItem="3cH-yJ-FfW" secondAttribute="bottom" constant="25" id="7G3-q5-19h"/>
+                <constraint firstItem="u2V-XH-HqZ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="A4m-xA-chn"/>
+                <constraint firstAttribute="bottom" secondItem="aLM-rG-o9c" secondAttribute="bottom" id="AdO-m4-yLo"/>
                 <constraint firstAttribute="centerY" secondItem="BFv-jj-PTj" secondAttribute="centerY" id="BGS-Lm-hDd"/>
                 <constraint firstItem="BFv-jj-PTj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CAE-Ix-255"/>
-                <constraint firstItem="aLM-rG-o9c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ovu-HY-tr9"/>
+                <constraint firstItem="3cH-yJ-FfW" firstAttribute="top" secondItem="YCb-14-gFu" secondAttribute="bottom" constant="67" id="HA8-JP-k1z"/>
+                <constraint firstItem="7GL-Ef-N3g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VXE-P8-NWf"/>
                 <constraint firstItem="BFv-jj-PTj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XQy-OO-zFI"/>
                 <constraint firstItem="3cH-yJ-FfW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="3" id="ZGZ-Mg-Egi"/>
                 <constraint firstAttribute="bottom" secondItem="BFv-jj-PTj" secondAttribute="bottom" id="Zws-y0-jPD"/>
                 <constraint firstItem="vdC-QL-GTv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="aFq-ej-fEA"/>
-                <constraint firstAttribute="trailing" secondItem="aLM-rG-o9c" secondAttribute="trailing" id="dPW-uZ-Qh5"/>
-                <constraint firstItem="YMu-ui-CiM" firstAttribute="leading" secondItem="aLM-rG-o9c" secondAttribute="trailing" constant="-78" id="eez-TT-o1i"/>
                 <constraint firstAttribute="bottom" secondItem="xUV-cS-W4k" secondAttribute="bottom" constant="38" id="fLd-x8-Vry"/>
+                <constraint firstItem="aLM-rG-o9c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hKL-il-YIu"/>
                 <constraint firstAttribute="centerX" secondItem="BFv-jj-PTj" secondAttribute="centerX" id="iTy-MC-ehG"/>
                 <constraint firstAttribute="trailing" secondItem="BFv-jj-PTj" secondAttribute="trailing" id="ixG-KO-QBV"/>
-                <constraint firstAttribute="bottom" secondItem="aLM-rG-o9c" secondAttribute="bottom" id="j33-yl-wil"/>
-                <constraint firstItem="7GL-Ef-N3g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="oZn-al-TA9"/>
+                <constraint firstItem="YCb-14-gFu" firstAttribute="centerX" secondItem="3cH-yJ-FfW" secondAttribute="centerX" constant="-2.25" id="l8W-Fe-Ihh"/>
+                <constraint firstAttribute="trailing" secondItem="aLM-rG-o9c" secondAttribute="trailing" id="qFf-0A-qnA"/>
                 <constraint firstItem="xUV-cS-W4k" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="2.5" id="r9D-Hc-3XH"/>
-                <constraint firstItem="7GL-Ef-N3g" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" constant="-40" id="sJj-Vn-oN1"/>
-                <constraint firstItem="aLM-rG-o9c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="zKd-3W-Uwx"/>
+                <constraint firstItem="u2V-XH-HqZ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="sIN-fA-b9L"/>
+                <constraint firstItem="7GL-Ef-N3g" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="uJp-6f-tgk"/>
             </constraints>
         </view>
     </objects>
     <resources>
-        <image name="circle_white" width="80" height="80"/>
+        <image name="cameraButton" width="80" height="80"/>
         <image name="cyan_box" width="292" height="294"/>
         <image name="letter-x" width="32" height="32"/>
         <image name="tick_mark" width="126" height="126"/>
-        <image name="wardrobe-icon-0" width="80" height="80"/>
     </resources>
 </document>

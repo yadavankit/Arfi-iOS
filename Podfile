@@ -8,7 +8,17 @@ pod 'ZAlertView'
 pod ‘Mixpanel’
 pod "JKNotificationPanel"
 pod 'Kingfisher', '~> 2.4'
-end
+pod 'Alamofire', '~> 3.4'
+pod 'Firebase'
+pod 'Petal', '~> 1.1.1'
+pod 'PopupController'
+pod "YBAlertController"
+pod 'AlamofireImage', '~> 2.0'
+pod 'ImageCropView', '~> 1.0'
+pod ’Toucan’
+
+
+end  
 
 target 'UdivaTests' do
 

@@ -119,7 +119,7 @@ public class JKNotificationPanel: NSObject {
         self.view.addGestureRecognizer(tapGesture)
         
         self.view.alpha = 1
-        self.view.frame = CGRectMake(0, top , width, height)
+        self.view.frame = CGRectMake(0, top , width, height + 5)
         self.view.backgroundColor = UIColor.clearColor()
         self.view.addSubview(view)
         self.view.bringSubviewToFront(view)

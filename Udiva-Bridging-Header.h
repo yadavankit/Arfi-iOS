@@ -9,7 +9,4 @@
 #ifndef Udiva_Bridging_Header_h
 #define Udiva_Bridging_Header_h
 
-#import "Cloudinary.h"
-
-
 #endif /* Udiva_Bridging_Header_h */

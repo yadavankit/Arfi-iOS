@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '83B6CAA6E816BDC0E62BF50E'
+               BlueprintIdentifier = 'F3BF4ADA680CC2881505BAAB'
                BlueprintName = 'JKNotificationPanel'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'JKNotificationPanel.framework'>

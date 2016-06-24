@@ -6,29 +6,65 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class View3: UIViewController {
-
+    
+    @IBOutlet var activity: activityIndicator!
+    
+    
+    
+    
+    
     override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        activity.hidden = true
     }
     
+    
+    
+    
+    
+    
+    
+    @IBAction func getAction(sender: AnyObject) {
+        
+        
+        
+        activity.strokeColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
+        activity.hidden = false
+        activity.startLoading()
+        
+            
+        
+        Alamofire.request(.GET, "http://ec2-52-40-182-97.us-west-2.compute.amazonaws.com:8081/GarmentUpload/receive")
+            .responseImage { response in
+                debugPrint(response)
+                
+                print(response.request)
+                print(response.response)
+                debugPrint(response.result)
+                
+                if let image = response.result.value {
+                    print("image downloaded: \(image)")
+                    
+                    self.activity.completeLoading(true)
+                    self.activity.hidden = true
+                    self.userImage.image = image
+                }
+        }
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
     }
-    */
+    
+    @IBOutlet var userImage: UIImageView!
+    
+    
+    
 
+    
+    
+    
+    
+
+   
 }

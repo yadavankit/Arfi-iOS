@@ -8,11 +8,18 @@
 
 /* Begin PBXBuildFile section */
 		0505CDF3D18ADBF04777F55D /* Pods_Udiva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BBA1E63EA3A06A91E1FCEF36 /* Pods_Udiva.framework */; };
+		481589081D168E3200B17A2A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 481589071D168E3200B17A2A /* GoogleService-Info.plist */; };
+		4824689E1D154FB400DAB95C /* Just.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824689D1D154FB400DAB95C /* Just.swift */; };
 		483575021D128D7000A0AEBE /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483575011D128D7000A0AEBE /* Mixpanel.framework */; };
+		484957551D1BC1530020519D /* garmentCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484957541D1BC1530020519D /* garmentCollectionViewCell.swift */; };
+		484957571D1BC1FA0020519D /* garmentCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484957561D1BC1FA0020519D /* garmentCollectionView.swift */; };
+		484957591D1BC2100020519D /* garmentCollectionView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 484957581D1BC2100020519D /* garmentCollectionView.xib */; };
+		484BDA161D17CEE7002D287E /* UIDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484BDA151D17CEE7002D287E /* UIDropDown.swift */; };
 		48DAA8C01D12C24700494180 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DAA8BF1D12C24700494180 /* ResultViewController.swift */; };
 		48DAA8C21D12C56300494180 /* nn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48DAA8C11D12C56300494180 /* nn.xib */; };
 		48DAA8C41D12C59300494180 /* nn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DAA8C31D12C59300494180 /* nn.swift */; };
-		48F4A11F1D13EE3600351FC5 /* libCloudinary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 48F4A11E1D13EE3600351FC5 /* libCloudinary.a */; };
+		48E8FF4F1D19403200506005 /* UIImage+ResizeAndCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E8FF4E1D19403200506005 /* UIImage+ResizeAndCrop.swift */; };
+		48EC04741D16A99C00026584 /* activityIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EC04731D16A99C00026584 /* activityIndicator.swift */; };
 		AC94AD611B8E40BF002D9AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */; };
 		AC94AD631B8E40BF002D9AD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94AD621B8E40BF002D9AD2 /* ViewController.swift */; };
 		AC94AD661B8E40BF002D9AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD641B8E40BF002D9AD2 /* Main.storyboard */; };
@@ -38,18 +45,19 @@
 
 /* Begin PBXFileReference section */
 		1DDAD27D2B12ADAEB68607D9 /* Pods-Udiva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udiva.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udiva/Pods-Udiva.release.xcconfig"; sourceTree = "<group>"; };
+		481589071D168E3200B17A2A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		4824689D1D154FB400DAB95C /* Just.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Just.swift; sourceTree = "<group>"; };
 		483575011D128D7000A0AEBE /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = "../../../Library/Developer/Xcode/DerivedData/Udiva-csqxvkfllsiotabbolfobeiborop/Build/Products/Debug-iphoneos/Mixpanel.framework"; sourceTree = "<group>"; };
 		483575031D128DE500A0AEBE /* Udiva-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Udiva-Bridging-Header.h"; sourceTree = "<group>"; };
+		484957541D1BC1530020519D /* garmentCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = garmentCollectionViewCell.swift; sourceTree = "<group>"; };
+		484957561D1BC1FA0020519D /* garmentCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = garmentCollectionView.swift; sourceTree = "<group>"; };
+		484957581D1BC2100020519D /* garmentCollectionView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = garmentCollectionView.xib; sourceTree = "<group>"; };
+		484BDA151D17CEE7002D287E /* UIDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIDropDown.swift; sourceTree = "<group>"; };
 		48DAA8BF1D12C24700494180 /* ResultViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		48DAA8C11D12C56300494180 /* nn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nn.xib; sourceTree = "<group>"; };
 		48DAA8C31D12C59300494180 /* nn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nn.swift; sourceTree = "<group>"; };
-		48F4A1181D13EE2400351FC5 /* CLCloudinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLCloudinary.h; sourceTree = "<group>"; };
-		48F4A1191D13EE2400351FC5 /* CLEagerTransformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLEagerTransformation.h; sourceTree = "<group>"; };
-		48F4A11A1D13EE2400351FC5 /* CLLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLLayer.h; sourceTree = "<group>"; };
-		48F4A11B1D13EE2400351FC5 /* Cloudinary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Cloudinary.h; sourceTree = "<group>"; };
-		48F4A11C1D13EE2400351FC5 /* CLTransformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLTransformation.h; sourceTree = "<group>"; };
-		48F4A11D1D13EE2400351FC5 /* CLUploader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CLUploader.h; sourceTree = "<group>"; };
-		48F4A11E1D13EE3600351FC5 /* libCloudinary.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libCloudinary.a; sourceTree = "<group>"; };
+		48E8FF4E1D19403200506005 /* UIImage+ResizeAndCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+ResizeAndCrop.swift"; sourceTree = "<group>"; };
+		48EC04731D16A99C00026584 /* activityIndicator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = activityIndicator.swift; sourceTree = "<group>"; };
 		AC94AD5B1B8E40BF002D9AD2 /* Udiva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udiva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC94AD5F1B8E40BF002D9AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -73,7 +81,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				48F4A11F1D13EE3600351FC5 /* libCloudinary.a in Frameworks */,
 				483575021D128D7000A0AEBE /* Mixpanel.framework in Frameworks */,
 				0505CDF3D18ADBF04777F55D /* Pods_Udiva.framework in Frameworks */,
 			);
@@ -97,6 +104,7 @@
 				AC94AD8B1B8E436D002D9AD2 /* View3.xib */,
 				AC94AD641B8E40BF002D9AD2 /* Main.storyboard */,
 				48DAA8C11D12C56300494180 /* nn.xib */,
+				484957581D1BC2100020519D /* garmentCollectionView.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -114,19 +122,13 @@
 			name = Controller;
 			sourceTree = "<group>";
 		};
-		48F4A1171D13EE2400351FC5 /* Cloudinary */ = {
+		484957531D1BC1300020519D /* CollectionViewData */ = {
 			isa = PBXGroup;
 			children = (
-				48F4A11E1D13EE3600351FC5 /* libCloudinary.a */,
-				48F4A1181D13EE2400351FC5 /* CLCloudinary.h */,
-				48F4A1191D13EE2400351FC5 /* CLEagerTransformation.h */,
-				48F4A11A1D13EE2400351FC5 /* CLLayer.h */,
-				48F4A11B1D13EE2400351FC5 /* Cloudinary.h */,
-				48F4A11C1D13EE2400351FC5 /* CLTransformation.h */,
-				48F4A11D1D13EE2400351FC5 /* CLUploader.h */,
+				484957541D1BC1530020519D /* garmentCollectionViewCell.swift */,
+				484957561D1BC1FA0020519D /* garmentCollectionView.swift */,
 			);
-			name = Cloudinary;
-			path = SnapchatCamera/Cloudinary;
+			name = CollectionViewData;
 			sourceTree = "<group>";
 		};
 		68E4E2FB72DAD7CCB8A3ED5C /* Pods */ = {
@@ -142,7 +144,10 @@
 			isa = PBXGroup;
 			children = (
 				483575031D128DE500A0AEBE /* Udiva-Bridging-Header.h */,
-				48F4A1171D13EE2400351FC5 /* Cloudinary */,
+				4824689D1D154FB400DAB95C /* Just.swift */,
+				484BDA151D17CEE7002D287E /* UIDropDown.swift */,
+				48EC04731D16A99C00026584 /* activityIndicator.swift */,
+				48E8FF4E1D19403200506005 /* UIImage+ResizeAndCrop.swift */,
 				AC94AD5D1B8E40BF002D9AD2 /* Camera */,
 				AC94AD5C1B8E40BF002D9AD2 /* Products */,
 				68E4E2FB72DAD7CCB8A3ED5C /* Pods */,
@@ -162,11 +167,13 @@
 		AC94AD5D1B8E40BF002D9AD2 /* Camera */ = {
 			isa = PBXGroup;
 			children = (
+				484957531D1BC1300020519D /* CollectionViewData */,
 				483575091D12986B00A0AEBE /* Controller */,
 				483575071D12984100A0AEBE /* View */,
 				AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */,
 				AC94AD671B8E40BF002D9AD2 /* Images.xcassets */,
 				AC94AD691B8E40BF002D9AD2 /* LaunchScreen.xib */,
+				481589071D168E3200B17A2A /* GoogleService-Info.plist */,
 				AC94AD5E1B8E40BF002D9AD2 /* Supporting Files */,
 			);
 			name = Camera;
@@ -239,11 +246,12 @@
 			attributes = {
 				LastSwiftMigration = 0730;
 				LastSwiftUpdateCheck = 0730;
-				LastUpgradeCheck = 0640;
-				ORGANIZATIONNAME = Archetapp;
+				LastUpgradeCheck = 0730;
+				ORGANIZATIONNAME = Udiva;
 				TargetAttributes = {
 					AC94AD5A1B8E40BF002D9AD2 = {
 						CreatedOnToolsVersion = 6.4;
+						DevelopmentTeam = MGCZ2CQRVM;
 					};
 					AC94AD6F1B8E40BF002D9AD2 = {
 						CreatedOnToolsVersion = 6.4;
@@ -276,12 +284,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC94AD661B8E40BF002D9AD2 /* Main.storyboard in Resources */,
+				481589081D168E3200B17A2A /* GoogleService-Info.plist in Resources */,
 				AC94AD6B1B8E40BF002D9AD2 /* LaunchScreen.xib in Resources */,
 				AC94AD8D1B8E436D002D9AD2 /* View3.xib in Resources */,
 				48DAA8C21D12C56300494180 /* nn.xib in Resources */,
 				AC94AD831B8E4174002D9AD2 /* View1.xib in Resources */,
 				AC94AD871B8E41A1002D9AD2 /* View2.xib in Resources */,
 				AC94AD681B8E40BF002D9AD2 /* Images.xcassets in Resources */,
+				484957591D1BC2100020519D /* garmentCollectionView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -349,11 +359,17 @@
 			files = (
 				AC94AD631B8E40BF002D9AD2 /* ViewController.swift in Sources */,
 				48DAA8C41D12C59300494180 /* nn.swift in Sources */,
+				48EC04741D16A99C00026584 /* activityIndicator.swift in Sources */,
 				AC94AD8C1B8E436D002D9AD2 /* View3.swift in Sources */,
+				484957571D1BC1FA0020519D /* garmentCollectionView.swift in Sources */,
+				484BDA161D17CEE7002D287E /* UIDropDown.swift in Sources */,
+				4824689E1D154FB400DAB95C /* Just.swift in Sources */,
 				AC94AD821B8E4174002D9AD2 /* View1.swift in Sources */,
 				AC94AD611B8E40BF002D9AD2 /* AppDelegate.swift in Sources */,
 				AC94AD861B8E41A1002D9AD2 /* View2.swift in Sources */,
 				48DAA8C01D12C24700494180 /* ResultViewController.swift in Sources */,
+				48E8FF4F1D19403200506005 /* UIImage+ResizeAndCrop.swift in Sources */,
+				484957551D1BC1530020519D /* garmentCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,6 +431,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -484,14 +501,17 @@
 			baseConfigurationReference = ED23288206135271BDD5E4E4 /* Pods-Udiva.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SnapchatCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SnapchatCamera/Cloudinary",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva;
+				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = Udiva;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -500,14 +520,17 @@
 			baseConfigurationReference = 1DDAD27D2B12ADAEB68607D9 /* Pods-Udiva.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SnapchatCamera/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SnapchatCamera/Cloudinary",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva;
+				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = Udiva;
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

@@ -260,7 +260,7 @@ public class activityIndicator: UIView {
     
     override public func animationDidStop(anim: CAAnimation, finished flag: Bool) {
         if hidesWhenCompleted {
-            NSTimer.scheduledTimerWithTimeInterval(dhHidesWhenCompletedDelay, target: self, selector: "hiddenLoadingView", userInfo: nil, repeats: false)
+            NSTimer.scheduledTimerWithTimeInterval(dhHidesWhenCompletedDelay, target: self, selector: #selector(activityIndicator.hiddenLoadingView), userInfo: nil, repeats: false)
         } else {
             status = .Completion
             if completionBlock != nil {
@@ -295,7 +295,7 @@ public class activityIndicator: UIView {
         shapeLayer.strokeEnd = 0.0
         self.layer.addSublayer(shapeLayer)
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector:"resetAnimations", name: UIApplicationDidBecomeActiveNotification, object: nil)
+        NSNotificationCenter.defaultCenter().addObserver(self, selector:#selector(activityIndicator.resetAnimations), name: UIApplicationDidBecomeActiveNotification, object: nil)
     }
     
     private func setProgressLayerPath() {

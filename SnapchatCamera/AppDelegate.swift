@@ -8,6 +8,7 @@
 
 import UIKit
 import Mixpanel
+import Firebase
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -25,6 +26,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mi = Mixpanel()
         mi.showNotificationOnActive = false
          application.statusBarHidden = true
+        FIRApp.configure()
        
         
         

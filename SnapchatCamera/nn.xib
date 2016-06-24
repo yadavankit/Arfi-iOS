@@ -57,7 +57,16 @@
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to take the perfect picture :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdE-St-qAE">
                     <rect key="frame" x="163" y="126" width="273" height="22"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not upload footwear currently" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaN-dO-Vht">
+                    <rect key="frame" x="148" y="424" width="302.5" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="302.5" id="BqB-i3-O9F"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69577047410000004" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
             </subviews>
@@ -65,10 +74,12 @@
             <constraints>
                 <constraint firstItem="TRb-ny-ije" firstAttribute="top" secondItem="sdE-St-qAE" secondAttribute="bottom" constant="74" id="70R-RV-CPQ"/>
                 <constraint firstItem="TRb-ny-ije" firstAttribute="centerX" secondItem="sdE-St-qAE" secondAttribute="centerX" id="7bw-ch-Atp"/>
+                <constraint firstItem="jaN-dO-Vht" firstAttribute="centerX" secondItem="ENJ-ST-HvF" secondAttribute="centerX" id="A1a-c4-X1R"/>
                 <constraint firstItem="swz-kN-uCo" firstAttribute="centerX" secondItem="TRb-ny-ije" secondAttribute="centerX" id="A3X-Hq-3eF"/>
                 <constraint firstItem="nd5-9y-Fjd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AXB-nY-utW"/>
                 <constraint firstItem="sdE-St-qAE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="126" id="Fad-El-Fv8"/>
                 <constraint firstItem="swz-kN-uCo" firstAttribute="top" secondItem="TRb-ny-ije" secondAttribute="bottom" constant="35" id="Hzx-EN-alp"/>
+                <constraint firstItem="jaN-dO-Vht" firstAttribute="top" secondItem="ENJ-ST-HvF" secondAttribute="bottom" constant="24" id="Xv7-Ca-PaV"/>
                 <constraint firstItem="ENJ-ST-HvF" firstAttribute="centerX" secondItem="gDW-dN-fMV" secondAttribute="centerX" id="bjY-gY-0zU"/>
                 <constraint firstItem="sdE-St-qAE" firstAttribute="top" secondItem="nd5-9y-Fjd" secondAttribute="bottom" constant="8" id="dpT-lc-b8z"/>
                 <constraint firstItem="gDW-dN-fMV" firstAttribute="centerX" secondItem="swz-kN-uCo" secondAttribute="centerX" id="rel-gO-3oO"/>

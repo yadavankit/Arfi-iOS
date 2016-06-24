@@ -74,13 +74,13 @@ public class JKDefaultView: UIView {
         textLabel.numberOfLines = 0
         textLabel.sizeToFit()
         
-        textLabel.frame.origin.y = HORIZONTAL_SPACE + 2
+        textLabel.frame.origin.y = HORIZONTAL_SPACE + 5
         
         let height = textLabel.frame.height
         var frameHeight = (VERTICAL_SPACE * 2) + height + 8
         if frameHeight < 44 { frameHeight = 44 }
         
-        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.width, frameHeight)
+        self.frame = CGRectMake(self.frame.origin.x, self.frame.origin.y , self.frame.width, frameHeight)
         baseView.frame = self.frame
         
     }

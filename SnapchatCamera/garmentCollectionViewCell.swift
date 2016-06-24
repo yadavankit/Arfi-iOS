@@ -10,4 +10,7 @@ import UIKit
 
 class garmentCollectionViewCell: UICollectionViewCell {
     
+    
+    @IBOutlet weak var garmentLabel : UILabel!
+    
 }

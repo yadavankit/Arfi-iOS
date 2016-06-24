@@ -31,30 +31,29 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="vdu-Lu-PMP" id="yfA-D4-cFb"/>
-                        <segue destination="QFy-vo-YWF" kind="push" identifier="onboarding" id="3JZ-ko-bvf"/>
+                        <segue destination="q5A-OQ-x9j" kind="show" identifier="someID" id="fgX-lT-hdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
         <!--Result View Controller-->
-        <scene sceneID="AOm-g5-mE7">
+        <scene sceneID="26W-gy-tbT">
             <objects>
-                <viewController storyboardIdentifier="SomeID" useStoryboardIdentifierAsRestorationIdentifier="YES" id="QFy-vo-YWF" customClass="ResultViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="q5A-OQ-x9j" customClass="ResultViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="4cV-ur-zGr"/>
-                        <viewControllerLayoutGuide type="bottom" id="wDx-c5-Dk5"/>
+                        <viewControllerLayoutGuide type="top" id="Egm-fM-dCr"/>
+                        <viewControllerLayoutGuide type="bottom" id="wpF-cz-GhK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hkb-LH-XQk">
+                    <view key="view" contentMode="scaleToFill" id="YNC-GM-Fan">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="gjk-KU-1J8"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FM3-nN-wRd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="72N-7S-0sA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1501" y="173"/>
+            <point key="canvasLocation" x="866" y="285"/>
         </scene>
     </scenes>
 </document>
