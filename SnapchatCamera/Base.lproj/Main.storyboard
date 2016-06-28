@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="OyH-PP-HaG">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -31,16 +31,37 @@
                     </view>
                     <connections>
                         <outlet property="scrollView" destination="vdu-Lu-PMP" id="yfA-D4-cFb"/>
-                        <segue destination="q5A-OQ-x9j" kind="show" identifier="someID" id="fgX-lT-hdd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="52" y="-73"/>
         </scene>
-        <!--Result View Controller-->
+        <!--Main View Controller-->
+        <scene sceneID="pDu-cU-xUF">
+            <objects>
+                <viewController id="OyH-PP-HaG" customClass="mainViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="2Qp-9d-dFT"/>
+                        <viewControllerLayoutGuide type="bottom" id="rwu-CX-Ser"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="V6V-mD-3pX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="0.0039215686274509803" green="0.14509803921568626" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginDone" id="XlB-aZ-pbS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yM5-bR-b1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1514" y="-64"/>
+        </scene>
+        <!--Walkthrough View Controller-->
         <scene sceneID="26W-gy-tbT">
             <objects>
-                <viewController id="q5A-OQ-x9j" customClass="ResultViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="container" id="q5A-OQ-x9j" customClass="BWWalkthroughViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Egm-fM-dCr"/>
                         <viewControllerLayoutGuide type="bottom" id="wpF-cz-GhK"/>
@@ -48,12 +69,236 @@
                     <view key="view" contentMode="scaleToFill" id="YNC-GM-Fan">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" red="0.0039215686274509803" green="0.14509803921568626" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72N-7S-0sA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="866" y="285"/>
+            <point key="canvasLocation" x="-688" y="-64"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="fgS-wU-OIM">
+            <objects>
+                <viewController storyboardIdentifier="page_1" id="ZdN-QA-B2T" customClass="BWWalkthroughPageViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="77X-j9-2SF"/>
+                        <viewControllerLayoutGuide type="bottom" id="ZQ3-tB-N49"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="pcR-IC-YGX">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding1" translatesAutoresizingMaskIntoConstraints="NO" id="uKY-kP-eAc">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3AZ-Nf-0pi">
+                                <rect key="frame" x="526" y="20" width="35" height="29"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="lyg-0h-H5Y" kind="show" id="8GD-jw-lw2"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0039215686274509803" green="0.14509803921568626" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="3AZ-Nf-0pi" firstAttribute="leading" secondItem="uKY-kP-eAc" secondAttribute="trailing" constant="-74" id="1F7-VY-RSc"/>
+                            <constraint firstItem="uKY-kP-eAc" firstAttribute="top" secondItem="3AZ-Nf-0pi" secondAttribute="bottom" constant="-49" id="M6F-c2-2B2"/>
+                            <constraint firstItem="uKY-kP-eAc" firstAttribute="leading" secondItem="pcR-IC-YGX" secondAttribute="leading" id="Zkj-fP-fY5"/>
+                            <constraint firstItem="uKY-kP-eAc" firstAttribute="top" secondItem="pcR-IC-YGX" secondAttribute="top" id="aTZ-We-Mou"/>
+                            <constraint firstAttribute="trailing" secondItem="uKY-kP-eAc" secondAttribute="trailing" id="cIq-xH-C2l"/>
+                            <constraint firstItem="ZQ3-tB-N49" firstAttribute="top" secondItem="uKY-kP-eAc" secondAttribute="bottom" id="zc3-gK-vog"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speed">
+                            <point key="value" x="1" y="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
+                            <point key="value" x="0.5" y="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Zoom"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Vg-mM-iFB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-520" y="1155"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="xVE-k0-br7">
+            <objects>
+                <viewController storyboardIdentifier="page_2" id="1O3-0m-lSU" customClass="BWWalkthroughPageViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="z7c-Jf-19e"/>
+                        <viewControllerLayoutGuide type="bottom" id="KPK-yX-Jyq"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2fN-1o-zRD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding2" translatesAutoresizingMaskIntoConstraints="NO" id="HkM-al-NH7">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubK-v9-KFV">
+                                <rect key="frame" x="529" y="21" width="35" height="29"/>
+                                <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="15"/>
+                                <state key="normal" title="SKIP">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="lyg-0h-H5Y" kind="show" id="oEo-s9-sXR"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0039215686274509803" green="0.14509803921568626" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="HkM-al-NH7" firstAttribute="top" secondItem="ubK-v9-KFV" secondAttribute="bottom" constant="-50" id="2e1-BQ-Bmp"/>
+                            <constraint firstItem="HkM-al-NH7" firstAttribute="leading" secondItem="2fN-1o-zRD" secondAttribute="leading" id="Ech-vg-Nsw"/>
+                            <constraint firstItem="KPK-yX-Jyq" firstAttribute="top" secondItem="HkM-al-NH7" secondAttribute="bottom" id="F19-4H-gtw"/>
+                            <constraint firstItem="HkM-al-NH7" firstAttribute="top" secondItem="2fN-1o-zRD" secondAttribute="top" id="MUD-Yq-ACo"/>
+                            <constraint firstItem="ubK-v9-KFV" firstAttribute="leading" secondItem="HkM-al-NH7" secondAttribute="trailing" constant="-71" id="fRJ-SK-rk9"/>
+                            <constraint firstAttribute="trailing" secondItem="HkM-al-NH7" secondAttribute="trailing" id="tBg-nV-Xue"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speed">
+                            <point key="value" x="1" y="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
+                            <point key="value" x="0.5" y="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Zoom"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zuk-aL-juo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="192" y="1147"/>
+        </scene>
+        <!--Walkthrough Page View Controller-->
+        <scene sceneID="UfW-w0-TQ1">
+            <objects>
+                <viewController storyboardIdentifier="page_3" id="MQk-JG-n8f" customClass="BWWalkthroughPageViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="pwq-Cu-rgY"/>
+                        <viewControllerLayoutGuide type="bottom" id="62r-X6-heX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="4o4-cO-4RR">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="onboarding3" translatesAutoresizingMaskIntoConstraints="NO" id="uXm-OK-UYJ">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="t1t-wB-Vih">
+                                <rect key="frame" x="226" y="488" width="148" height="40"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="148" id="mf6-FQ-71x"/>
+                                </constraints>
+                                <state key="normal" image="get_started">
+                                    <color key="titleColor" red="0.98039215690000003" green="0.1333333333" blue="0.25490196079999999" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.clipsToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="lyg-0h-H5Y" kind="show" identifier="showLogin" id="IOe-VG-zHF"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.0039215686274509803" green="0.14509803921568626" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="t1t-wB-Vih" firstAttribute="centerX" secondItem="4o4-cO-4RR" secondAttribute="centerX" id="6Gu-ML-m8w"/>
+                            <constraint firstAttribute="trailing" secondItem="uXm-OK-UYJ" secondAttribute="trailing" id="7ms-XE-vrN"/>
+                            <constraint firstItem="62r-X6-heX" firstAttribute="top" secondItem="uXm-OK-UYJ" secondAttribute="bottom" id="LMd-5t-28B"/>
+                            <constraint firstItem="uXm-OK-UYJ" firstAttribute="top" secondItem="4o4-cO-4RR" secondAttribute="top" id="QUU-SB-4kd"/>
+                            <constraint firstItem="uXm-OK-UYJ" firstAttribute="leading" secondItem="4o4-cO-4RR" secondAttribute="leading" id="gof-mI-PkB"/>
+                            <constraint firstItem="t1t-wB-Vih" firstAttribute="top" secondItem="uXm-OK-UYJ" secondAttribute="bottom" constant="-112" id="jFO-fD-HDO"/>
+                        </constraints>
+                    </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speed">
+                            <point key="value" x="1" y="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="point" keyPath="speedVariance">
+                            <point key="value" x="0.5" y="0.0"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="string" keyPath="animationType" value="Zoom"/>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="animateAlpha" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mqj-TL-5dq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="856" y="1163"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="pV7-nE-iQC">
+            <objects>
+                <viewController storyboardIdentifier="red" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uVG-0z-CMO" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Sac-Wt-arb"/>
+                        <viewControllerLayoutGuide type="bottom" id="KN3-Gh-nKh"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hLC-3H-70g">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kkc-nc-kh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1192" y="204"/>
+        </scene>
+        <!--Login Page View Controller-->
+        <scene sceneID="q8n-UG-bwD">
+            <objects>
+                <viewController id="lyg-0h-H5Y" customClass="loginPageViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="GQo-pg-c1H"/>
+                        <viewControllerLayoutGuide type="bottom" id="NS2-Jz-HSe"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="P2X-0g-Xpn">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="women-fb-screen" translatesAutoresizingMaskIntoConstraints="NO" id="A0P-O5-0l2">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NS2-Jz-HSe" firstAttribute="top" secondItem="A0P-O5-0l2" secondAttribute="bottom" id="4xJ-bz-ZDb"/>
+                            <constraint firstItem="A0P-O5-0l2" firstAttribute="leading" secondItem="P2X-0g-Xpn" secondAttribute="leading" id="KSf-bj-wLh"/>
+                            <constraint firstAttribute="trailing" secondItem="A0P-O5-0l2" secondAttribute="trailing" id="dgz-aq-aDW"/>
+                            <constraint firstItem="A0P-O5-0l2" firstAttribute="top" secondItem="P2X-0g-Xpn" secondAttribute="top" id="h9Q-7M-pVW"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginComplete" id="TrW-IL-6u5"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="OFJ-dO-5bf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1492" y="1163"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="get_started" width="148" height="40"/>
+        <image name="onboarding1" width="640" height="1136"/>
+        <image name="onboarding2" width="640" height="1136"/>
+        <image name="onboarding3" width="640" height="1136"/>
+        <image name="women-fb-screen" width="640" height="1136"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="IOe-VG-zHF"/>
+        <segue reference="XlB-aZ-pbS"/>
+    </inferredMetricsTieBreakers>
 </document>

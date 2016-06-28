@@ -39,6 +39,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>PaperCollectionView-PaperCollectionView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>PaperCollectionView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Petal.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -74,6 +84,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>pop.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -87,17 +102,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>079BF45EBF9812A445865FEF110190C1</key>
+		<key>21E5F65DA290990C0C5C2AC1B5A7BBC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>10A7E9975B5F6BA261EA1E14A4E19DBF</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2BD7D80B4D5E4BA73FC20C1C820E31C6</key>
+		<key>341A98E5FB49A6556C9C806D27B278D8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -107,12 +117,32 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>419FDF6AE3C27B88018A4ABABA24B9F8</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>42E0914CB07C78AFAF0F10CDB1D6C531</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48870EE5B6A08C102AAB83E1B1813A9D</key>
+		<key>48D48755435EF15C7B4EB12539CCDDA2</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4A2D1685B0D59E0FBF58CA47AC718F51</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>6DC534362A8D18EC190E14D5B3C60972</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7658B4A754651AE522C54DF9CCEF7C2B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,7 +152,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8911C9F4F265B95C1E4EEF0A2CC5A8C4</key>
+		<key>9C02751B737B1EB4309DCA33502AC9DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -137,12 +167,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B81B525456023F883FB23F00F1584643</key>
+		<key>E96E13C4D3B5B5FC0651440734C2BF4D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E96E13C4D3B5B5FC0651440734C2BF4D</key>
+		<key>F88DBDE4B10C4C0E1AFED67F36341DA9</key>
 		<dict>
 			<key>primary</key>
 			<true/>

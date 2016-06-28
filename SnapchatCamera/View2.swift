@@ -13,12 +13,13 @@ import Petal
 import YBAlertController
 import ImageCropView
 import Toucan
+import FBSDKCoreKit
 
 
 class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate , UIDropDownDelegate {
     
     
-    let clothes : NSMutableArray = ["Top", "Shorts", "Shirt", "Jeans", "TShirt", "Trousers", "Capris", "Culottes" , "Leggings" , "Cargos" ,"Palazzo" , "Stockings" , "Dungree shorts" , "Dungree Trousers" , "Skirt" , "Kurta" , "Jackets" , "Sweaters" ,"Sweatshirt" ,"Shrugs" , "Harem pants" ,"Dress"]
+    
     @IBOutlet var ActivityIndicator: activityIndicator!
     @IBOutlet weak var settingUpWardrobe: UILabel!
     @IBOutlet weak var tickmarkOutlet: UIButton!
@@ -31,6 +32,11 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     var currentIndex : Int?
     var finalImage : UIImage?
     var userUniqueIdentifier : String?
+    var mainCamera : AVCaptureDevice?
+    var facebookId = "404"
+    var facebookUser = "Mark Zuckerberg"
+    var numberOfGarmentsUploaded = 0
+    let clothes : NSMutableArray = ["Top", "Shorts", "Shirt", "Jeans", "TShirt", "Trousers", "Capris", "Culottes" , "Leggings" , "Cargos" ,"Palazzo" , "Stockings" , "Dungree shorts" , "Dungree Trousers" , "Skirt" , "Kurta" , "Jackets" , "Sweaters" ,"Sweatshirt" ,"Shrugs" , "Harem pants" ,"Dress"]
 
  
     @IBOutlet var cameraImage: UIImageView!
@@ -38,7 +44,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
      let alertController = YBAlertController(title: "Add garment type", message: "Help us identify your garment typee", style: .Alert)
     
-    @IBAction func crossClicked(sender: AnyObject) {
+    @IBAction func crossClicked(sender: AnyObject) { //when cross button is clicked
         
         self.cross.hidden = true
        self.cameraImage.hidden = true
@@ -57,7 +63,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     
     
-    @IBAction func tickmarkAction(sender: AnyObject) {
+    @IBAction func tickmarkAction(sender: AnyObject) {    // when user clicks on the tick mark
         
 
         tickmarkOutlet.hidden = true
@@ -78,11 +84,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         dropDownView.addSubview(drop)
         
     }
-    
-    
-    
-    
-    
+ 
     
     
     @IBOutlet weak var perimeterOutlet: UIImageView!
@@ -96,6 +98,20 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        
+        returnUserData()
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            
+              self.getNumberOfGarments()
+            
+        })
+        
+
+      
+     
         self.settingUpWardrobe.hidden = true
         self.ActivityIndicator.hidden = true
         ActivityIndicator.strokeColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
@@ -130,14 +146,18 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         previewLayer?.frame = cameraView.bounds
     }
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(animated: Bool) { //when the screen loads
         super.viewWillAppear(animated)
         
         captureSession = AVCaptureSession()
         captureSession?.sessionPreset = AVCaptureSessionPreset1920x1080
         
         let backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        mainCamera = backCamera
         
+       // configure()
+      
+       
         var error : NSError?
         var input: AVCaptureDeviceInput!
         do {
@@ -180,7 +200,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     
     
-    func didPressTakePhoto(){
+    func didPressTakePhoto(){  //image capture mechanism
 
         if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo){
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
@@ -236,8 +256,11 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     
     
-    @IBAction func clicked (sender : UIButton) {
+    @IBAction func clicked (sender : UIButton) {  // main camera button clicked
         
+        
+   
+       
         if firstLaunchEver == true
         {
             perimeterOutlet.hidden = true
@@ -296,30 +319,56 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     }
     
     
-    func sendImageToServer(){
+    func sendImageToServer(){  // backend code to send image to server
         
         tickmarkOutlet.hidden = true
         cross.hidden = true
         settingUpWardrobe.hidden = false
         
-        let imageData = UIImageJPEGRepresentation(self.finalImage! , 0.20 )
+        let imageData = UIImageJPEGRepresentation(self.finalImage! , 1 )
         
         ActivityIndicator.hidden = false
         ActivityIndicator.startLoading()
         
+        numberOfGarmentsUploaded += 1
+        
+ 
     
         Alamofire.upload(
             .POST,
-            "http://ec2-52-40-182-97.us-west-2.compute.amazonaws.com:8081/GarmentUpload/upload",
+            "http://192.168.182.60:7000/processing_panel/upload",
             multipartFormData: { multipartFormData in
-                multipartFormData.appendBodyPart(data: imageData!, name: "uploaded_image", fileName: "imageFileName.jpg", mimeType: "image/jpeg")
+                
+                
+                multipartFormData.appendBodyPart(data: imageData!, name: "garment_image", fileName: String(self.numberOfGarmentsUploaded) + ".jpg", mimeType: "image/jpeg") // image
+                
+                
+                multipartFormData.appendBodyPart(data: self.facebookId.dataUsingEncoding(NSUTF8StringEncoding, allowLossyConversion: false)!, name :"user_id") // user_id
+                
+                
+                multipartFormData.appendBodyPart(data: self.facebookUser.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion:  false)!, name: "user_name") //user_name
+                
+                
+                multipartFormData.appendBodyPart(data: "TopWear".dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: false)!, name: "style") // style
+                
+                
+                print("Total number of garments \(self.numberOfGarmentsUploaded)")
+                print("The user id is \(self.facebookId)")
+                print("The user name is \(self.facebookUser)")
+            
+             
             },
             encodingCompletion: { encodingResult in
                 switch encodingResult {
                 case .Success(let upload, _, _):
+                   
                     upload.progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
-                        print("Uploading Avatar \(totalBytesWritten) / \(totalBytesExpectedToWrite)")
+                        //print("Uploading Avatar \(totalBytesWritten) / \(totalBytesExpectedToWrite)")
+                        
+                 
                         dispatch_async(dispatch_get_main_queue(),{
+                            
+                          
                             /**
                              *  Update UI Thread about the progress
                              */
@@ -345,7 +394,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                     
                 case .Failure( _):
                     //Show Alert in UI
-                    print("Avatar uploaded");
+                    print("Avatar failed");
                 }
             }
         );
@@ -367,10 +416,108 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             
         })
 
+    }
+    
+    @IBAction func flash(sender: UIButton) {
+     
+        
+        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        if (device.hasTorch) {
+            do {
+                try device.lockForConfiguration()
+                if (device.torchMode == AVCaptureTorchMode.On) {
+                    device.torchMode = AVCaptureTorchMode.Off
+                } else {
+                    try device.setTorchModeOnWithLevel(1.0)
+                }
+                device.unlockForConfiguration()
+            } catch {
+                print(error)
+            }
+        }
+        
+        if device.torchMode == AVCaptureTorchMode.Off {
+        if let image = UIImage(named:"flash-off") {
+            sender.setImage(image, forState: .Normal)
+        }
+        } else if device.torchMode == AVCaptureTorchMode.On {
+          
+            if let image = UIImage(named:"flash") {
+                sender.setImage(image, forState: .Normal)
+            }
+            
+        }
+    }
+    
+ 
+    func configure(){ // autofocus code (not used)
+        
+        let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
+        if (device.hasTorch) {
+            do {
+                try device.lockForConfiguration()
+                 device.focusMode = .AutoFocus
+                device.unlockForConfiguration()
+            } catch {
+                print(error)
+            }
+        }
+
         
     }
     
-   
+    func returnUserData() //get user id and username
+    {
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                // Process error
+                print("Error: \(error)")
+            }
+            else
+            {
+                
+                let userId : String = result.valueForKey("id") as! String
+              
+               self.facebookId = userId
+    
+                print(self.facebookId)
+            
+                let userName : String = result.valueForKey("name") as! String
+              
+                self.facebookUser = userName
+                mainInstance.name = userId
+                
+                
+                
+            }
+        })
+    }
+    
+    
+    func getNumberOfGarments () { //calculate the current number of garments on the server
+        
+        
+        Alamofire.request(.GET, "http://192.168.182.60:7000/processing_panel/get_garments", parameters: ["user_id": self.facebookId])
+            .responseJSON { response in
+               
+                
+                if let JSON = response.result.value {
+
+                 
+                     print (Int(JSON as! NSNumber))
+                    
+                    self.numberOfGarmentsUploaded = (Int(JSON as! NSNumber))
+                    mainInstance1.name = String((Int(JSON as! NSNumber)))
+                    
+                }
+        }
+      
+        
+    }
+
  
 
     

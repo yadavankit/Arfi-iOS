@@ -1,70 +1,67 @@
 //
 //  View3.swift
 //
-// 
-//  Copyright (c) 2015 Archetapp. All rights reserved.
-//
 
 import UIKit
-import Alamofire
-import AlamofireImage
 
-class View3: UIViewController {
-    
-    @IBOutlet var activity: activityIndicator!
+class View3: UIViewController , UITableViewDataSource {
     
     
+var categories = ["Topwear", "Bottomwear", "Footwear", "Top 10"]
     
     
+    @IBOutlet var myTableView: UIView!
     
     override func viewDidLoad() {
-        activity.hidden = true
+        
+        
     }
-    
-    
-    
-    
-    
-    
-    
-    @IBAction func getAction(sender: AnyObject) {
-        
-        
-        
-        activity.strokeColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
-        activity.hidden = false
-        activity.startLoading()
-        
-            
-        
-        Alamofire.request(.GET, "http://ec2-52-40-182-97.us-west-2.compute.amazonaws.com:8081/GarmentUpload/receive")
-            .responseImage { response in
-                debugPrint(response)
-                
-                print(response.request)
-                print(response.response)
-                debugPrint(response.result)
-                
-                if let image = response.result.value {
-                    print("image downloaded: \(image)")
-                    
-                    self.activity.completeLoading(true)
-                    self.activity.hidden = true
-                    self.userImage.image = image
-                }
-        }
-
-    }
-    
-    @IBOutlet var userImage: UIImageView!
-    
-    
-    
-
-    
-    
-    
-    
-
    
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        return categories.count
+    }
+    
+    
+    
+    func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return categories[section]
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 1
+    }
+    
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        tableView.registerNib((UINib.init(nibName: "CategoryRow", bundle: nil)), forCellReuseIdentifier: "cell")
+        let cell = tableView.dequeueReusableCellWithIdentifier("cell") as! CategoryRow
+       
+        
+        
+        return cell
+    }
+    
+    
+    func tableView(tableView: UITableView,
+                   heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 150
+    }
+    
+    func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
+    {
+        let title = UILabel()
+        title.font = UIFont(name: "Arial", size: 22)!
+        title.textColor = UIColor.lightGrayColor()
+        
+        let header = view as! UITableViewHeaderFooterView
+        header.textLabel?.font=title.font
+        header.textLabel?.textColor=title.textColor
+        header.tintColor = UIColor.clearColor()
+       
+    }
+    
+
+    
+    
 }

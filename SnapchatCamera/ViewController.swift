@@ -13,7 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet var scrollView: UIScrollView!
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        // Do any additional setup after loading the view, typically from a nib.z
         
         let v1 : View1 = View1(nibName: "View1", bundle: nil)
         let v2 : View2 = View2(nibName: "View2", bundle: nil)
