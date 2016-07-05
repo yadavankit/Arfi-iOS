@@ -16,7 +16,9 @@ pod 'AlamofireImage', '~> 2.0'
 pod 'ImageCropView', '~> 1.0'
 pod ’Toucan’
 pod "PaperCollectionView"
-
+pod "CircleSlider"
+pod 'DropDown'
+pod 'SwiftyJSON'
 
 
 end  

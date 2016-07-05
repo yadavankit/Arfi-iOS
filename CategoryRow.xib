@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -14,8 +14,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="351" height="199.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zbO-Jb-0pD">
-                        <rect key="frame" x="0.0" y="0.0" width="351" height="199.5"/>
+                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceHorizontal="YES" dataMode="none" id="zbO-Jb-0pD">
+                        <rect key="frame" x="2" y="2" width="347" height="195.5"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="5" minimumInteritemSpacing="5" id="rdd-2o-hxb">
                             <size key="itemSize" width="50" height="50"/>
@@ -30,12 +31,6 @@
                     </collectionView>
                 </subviews>
                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                <constraints>
-                    <constraint firstAttribute="trailing" secondItem="zbO-Jb-0pD" secondAttribute="trailing" id="4TM-aO-vkb"/>
-                    <constraint firstAttribute="bottom" secondItem="zbO-Jb-0pD" secondAttribute="bottom" id="E8C-ZY-Xsi"/>
-                    <constraint firstItem="zbO-Jb-0pD" firstAttribute="leading" secondItem="NGx-Vw-hfE" secondAttribute="leading" id="nLg-Gu-6Q3"/>
-                    <constraint firstItem="zbO-Jb-0pD" firstAttribute="top" secondItem="NGx-Vw-hfE" secondAttribute="top" id="xD8-eF-Qca"/>
-                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="garmentDisplayCollectionViewCell" destination="zbO-Jb-0pD" id="pcM-Mu-fQa"/>

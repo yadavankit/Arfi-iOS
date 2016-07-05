@@ -14,6 +14,16 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CircleSlider.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
+		<key>DropDown.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>ImageCropView.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -64,6 +74,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SwiftyJSON.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Toucan.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -92,6 +107,11 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
+		<key>0094682E5D9E976D9505BDD1E9B10EB3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>00B8A327E8F71BAA52712EC7363D13CA</key>
 		<dict>
 			<key>primary</key>
@@ -102,12 +122,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>21E5F65DA290990C0C5C2AC1B5A7BBC7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>341A98E5FB49A6556C9C806D27B278D8</key>
+		<key>2E5A63726E26BBE7187334E915D495FB</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -117,7 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>419FDF6AE3C27B88018A4ABABA24B9F8</key>
+		<key>369DE052C5D79619C9A95358CBA1E6F8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -127,12 +142,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48D48755435EF15C7B4EB12539CCDDA2</key>
+		<key>4A2D1685B0D59E0FBF58CA47AC718F51</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4A2D1685B0D59E0FBF58CA47AC718F51</key>
+		<key>4AC2E7ABC0F978DBA3AE30AC3F2D14DC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5ED1961DDCDE947A06DC8C16287018D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -142,17 +162,17 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7658B4A754651AE522C54DF9CCEF7C2B</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>79C040AFDDCE1BCBF6D8B5EB0B85887F</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9C02751B737B1EB4309DCA33502AC9DD</key>
+		<key>964F75E7AA0FCF575A365321FC911645</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>9F766ADB76A46AB732825D44C4BAAABF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -163,6 +183,16 @@
 			<true/>
 		</dict>
 		<key>B5F312ABB371123942048FA3C80AB971</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B6CB2890DC7E2E631D29E79F40EAECFC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C0B5F18FE3637E0FF69B4AFA21E5848C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

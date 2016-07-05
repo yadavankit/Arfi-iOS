@@ -86,6 +86,8 @@ strip_invalid_archs() {
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Udiva/Alamofire.framework"
   install_framework "Pods-Udiva/AlamofireImage.framework"
+  install_framework "Pods-Udiva/CircleSlider.framework"
+  install_framework "Pods-Udiva/DropDown.framework"
   install_framework "Pods-Udiva/ImageCropView.framework"
   install_framework "Pods-Udiva/JKNotificationPanel.framework"
   install_framework "Pods-Udiva/Kingfisher.framework"
@@ -93,6 +95,7 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Udiva/PaperCollectionView.framework"
   install_framework "Pods-Udiva/Petal.framework"
   install_framework "Pods-Udiva/PopupController.framework"
+  install_framework "Pods-Udiva/SwiftyJSON.framework"
   install_framework "Pods-Udiva/Toucan.framework"
   install_framework "Pods-Udiva/YBAlertController.framework"
   install_framework "Pods-Udiva/ZAlertView.framework"
@@ -101,6 +104,8 @@ fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Udiva/Alamofire.framework"
   install_framework "Pods-Udiva/AlamofireImage.framework"
+  install_framework "Pods-Udiva/CircleSlider.framework"
+  install_framework "Pods-Udiva/DropDown.framework"
   install_framework "Pods-Udiva/ImageCropView.framework"
   install_framework "Pods-Udiva/JKNotificationPanel.framework"
   install_framework "Pods-Udiva/Kingfisher.framework"
@@ -108,6 +113,7 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Udiva/PaperCollectionView.framework"
   install_framework "Pods-Udiva/Petal.framework"
   install_framework "Pods-Udiva/PopupController.framework"
+  install_framework "Pods-Udiva/SwiftyJSON.framework"
   install_framework "Pods-Udiva/Toucan.framework"
   install_framework "Pods-Udiva/YBAlertController.framework"
   install_framework "Pods-Udiva/ZAlertView.framework"

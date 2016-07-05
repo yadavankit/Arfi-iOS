@@ -12,7 +12,11 @@ class garmentCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        self.layer.backgroundColor = UIColor.grayColor().CGColor
+        
+        print(self.garmentImage.frame.size.height)
+        print(self.garmentImage.frame.size.width)
+ 
+       
         // Initialization code
     }
    

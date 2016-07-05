@@ -8,12 +8,17 @@
 
 import UIKit
 import Mixpanel
+import Alamofire
+import AlamofireImage
 
 import FBSDKCoreKit
 @UIApplicationMain
+
+
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
+    var userID : Int?
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
@@ -26,15 +31,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mi.showNotificationOnActive = false
          application.statusBarHidden = true
         
-  
-        
-      
        
-        
+       
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
     
+        
     
     func application(application: UIApplication, openURL url: NSURL, sourceApplication: String?, annotation: AnyObject) -> Bool {
         return FBSDKApplicationDelegate.sharedInstance().application(application, openURL: url, sourceApplication: sourceApplication, annotation: annotation)

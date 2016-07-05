@@ -13,18 +13,21 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="173" height="156"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="tjP-v7-8qo">
-                        <rect key="frame" x="0.0" y="0.0" width="173" height="156"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="tjP-v7-8qo">
+                        <rect key="frame" x="20" y="0.0" width="132" height="110"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="132" id="bkU-Ys-KUp"/>
+                            <constraint firstAttribute="height" constant="110" id="pL8-0m-gla"/>
+                        </constraints>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
-            <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
-                <constraint firstAttribute="bottom" secondItem="tjP-v7-8qo" secondAttribute="bottom" id="Zyt-uo-U6W"/>
-                <constraint firstItem="tjP-v7-8qo" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hst-tD-EaM"/>
-                <constraint firstItem="tjP-v7-8qo" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="nfL-GC-pEd"/>
-                <constraint firstAttribute="trailing" secondItem="tjP-v7-8qo" secondAttribute="trailing" id="uaT-yk-xZ4"/>
+                <constraint firstItem="tjP-v7-8qo" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="5pf-XV-KaT"/>
+                <constraint firstItem="tjP-v7-8qo" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" constant="-23" id="Oxt-AO-h1B"/>
             </constraints>
             <size key="customSize" width="173" height="156"/>
             <connections>
@@ -33,4 +36,7 @@
             <point key="canvasLocation" x="214.5" y="384"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="Placeholder" width="300" height="300"/>
+    </resources>
 </document>
