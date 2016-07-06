@@ -28,7 +28,7 @@ extension TableViewCell2 : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return 5    }
+        return 24   }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -42,7 +42,23 @@ extension TableViewCell2 : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell2", forIndexPath: indexPath) as! CollectionViewCell2
         
 
-            cell.garmentImage.image = UIImage(named: "8")
+        
+        if GlobalVariables.globalTopwearModelUrl.count > 0 {
+            
+            let URLString = GlobalVariables.globalTopwearModelUrl[indexPath.row]
+            let URL = NSURL(string:URLString)!
+            cell.garmentImage.hnk_setImageFromURL(URL)
+            
+        }
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+           
+            self.myCollectionView.reloadData()
+            
+        })
+        
+
         
         return cell
     }

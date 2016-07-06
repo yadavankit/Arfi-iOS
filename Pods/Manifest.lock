@@ -4,6 +4,7 @@ PODS:
     - Alamofire (~> 3.3)
   - CircleSlider (0.3.0)
   - DropDown (1.0.1)
+  - HanekeSwift (0.10.1)
   - ImageCropView (1.0.1)
   - JKNotificationPanel (0.2.0)
   - Kingfisher (2.4.1)
@@ -17,6 +18,7 @@ PODS:
   - PopupController (0.1.0)
   - SwiftyJSON (2.3.2)
   - Toucan (0.5.0)
+  - Track (1.2.2)
   - YBAlertController (0.1.2)
   - ZAlertView (0.1.7)
 
@@ -25,6 +27,7 @@ DEPENDENCIES:
   - AlamofireImage (~> 2.0)
   - CircleSlider
   - DropDown
+  - HanekeSwift
   - ImageCropView (~> 1.0)
   - JKNotificationPanel
   - Kingfisher (~> 2.4)
@@ -34,6 +37,7 @@ DEPENDENCIES:
   - PopupController
   - SwiftyJSON
   - Toucan
+  - Track
   - YBAlertController
   - ZAlertView
 
@@ -42,6 +46,7 @@ SPEC CHECKSUMS:
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   CircleSlider: d1787626e7b8f20b3448ba256aa8a38f072a2640
   DropDown: 335df9e9547e97a861a60aed8448821e239d3513
+  HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   ImageCropView: cbe42a5c4c31677e3d7167f7fd00c63c30d20acf
   JKNotificationPanel: c45f60e6548cda03752d35b4bf479f44c12886c1
   Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
@@ -52,6 +57,7 @@ SPEC CHECKSUMS:
   PopupController: fb329de274ab0cf9bf1f2758074287600082de1d
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toucan: 0519c341148252ae114c5a657d2a85bb9ada9e40
+  Track: 70d60731eb5f77aecfa624b3e44d525811155bfc
   YBAlertController: 68e8874813d1d9a5c76d72e5bb927e18f2d1afb8
   ZAlertView: 13d57e062ee9a6ce384b753fa8fed8fd0dad3942
 

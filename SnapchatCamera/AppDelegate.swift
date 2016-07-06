@@ -31,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         mi.showNotificationOnActive = false
          application.statusBarHidden = true
         
-       
+       print("i came  before")
        
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)

@@ -21,5 +21,11 @@ class garmentCell: UICollectionViewCell {
     }
    
     @IBOutlet var garmentImage: UIImageView!
+    
+    override func prepareForReuse() {
+        garmentImage.hnk_cancelSetImage()
+        garmentImage.image = nil
+    }
+    
 
 }

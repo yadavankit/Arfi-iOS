@@ -85,6 +85,10 @@ var categories = ["Top Wear" , "Bottom Wear" ]
             
         }
         
+        
+        
+       
+        
     }
     
     

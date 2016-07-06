@@ -18,6 +18,10 @@ class ModelGarmentCollectionViewCell: UICollectionViewCell {
        self.layer.masksToBounds = true
     }
     
+    override func prepareForReuse() {
+        garmentImage.hnk_cancelSetImage()
+        garmentImage.image = nil
+    }
 
   
 

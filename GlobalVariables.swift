@@ -7,8 +7,10 @@
 //
 
 import UIKit
+import Haneke
+import Track
 struct GlobalVariables {
-    static var globalGarments : [UIImage] = []
+    static var globalGarments : [UIImageView] = []
     static var globalFacebookId : String?
     static var globalNumberOfGarments : String?
     static var globalUserName : String?
@@ -17,4 +19,11 @@ struct GlobalVariables {
     static var globalSafeToFetch : Bool = false
     static var globalModelUrl : [String] = []
     static var wardrobeImages : [UIImage] = []
+    static var cache = Shared.dataCache
+    static var track = Cache.shareInstance
+    static var globalTopwearRealModelUrl : [String] = []
+    static var globalTopAndBottom : [String] = []
+    static var globalGarmentType : [String] = []
+    static var finalGarmentCount : Int?
+
 }

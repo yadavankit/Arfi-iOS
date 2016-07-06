@@ -331,13 +331,14 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         
         let imageData = UIImageJPEGRepresentation(self.finalImage! , 1 )
         
-       var value = Int(GlobalVariables.globalNumberOfGarments!)
+       let value = GlobalVariables.finalGarmentCount
         
         
         print(GlobalVariables.globalFacebookId!)
         print(GlobalVariables.globalUserName!)
-        value = value! + 1
         
+      
+  
  
     
         Alamofire.upload(
@@ -346,7 +347,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             multipartFormData: { multipartFormData in
                 
                 
-                multipartFormData.appendBodyPart(data: imageData!, name: "garment_image", fileName: String(value!) + ".jpg", mimeType: "image/jpeg") // image
+                multipartFormData.appendBodyPart(data: imageData!, name: "garment_image", fileName: "\(value!+1)" + ".jpg", mimeType: "image/jpeg") // image
                 
                 
                 multipartFormData.appendBodyPart(data: GlobalVariables.globalFacebookId!.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion:  false)!, name :"user_id") // user_id
@@ -358,10 +359,11 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 multipartFormData.appendBodyPart(data: "TopWear".dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: false)!, name: "style") // style
                 
                 
-                print("Total number of garments \(value!)")
+                print("Total number of garments \(value)")
                 print("The user id is \(GlobalVariables.globalFacebookId!)")
                 print("The user name is \(GlobalVariables.globalUserName)")
-            
+                
+
              
             },
             encodingCompletion: { encodingResult in
@@ -497,7 +499,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                      print (Int(JSON as! NSNumber))
                     
                     self.numberOfGarmentsUploaded = (Int(JSON as! NSNumber))
-                    GlobalVariables.globalNumberOfGarments = String((Int(JSON as! NSNumber)))
+                   // GlobalVariables.globalNumberOfGarments = String((Int(JSON as! NSNumber)))
                     
                 }
         }

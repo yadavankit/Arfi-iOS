@@ -22,15 +22,8 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Rox-JJ-N3c">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottom_model" translatesAutoresizingMaskIntoConstraints="NO" id="qu2-Hf-bCx">
-                    <rect key="frame" x="261" y="277" width="80" height="240"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="80" id="HqL-M0-fvS"/>
-                        <constraint firstAttribute="height" constant="240" id="y7A-tM-tq6"/>
-                    </constraints>
-                </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_model" translatesAutoresizingMaskIntoConstraints="NO" id="bNh-HH-5FV">
-                    <rect key="frame" x="243" y="135" width="113" height="217"/>
+                    <rect key="frame" x="243" y="97" width="113" height="217"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="217" id="JYd-7x-MO8"/>
                         <constraint firstAttribute="width" constant="113" id="K4X-92-DfP"/>
@@ -49,12 +42,19 @@
                         <inset key="sectionInset" minX="5" minY="5" maxX="5" maxY="5"/>
                     </collectionViewFlowLayout>
                 </collectionView>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottoom_model" translatesAutoresizingMaskIntoConstraints="NO" id="qu2-Hf-bCx">
+                    <rect key="frame" x="236" y="242" width="121" height="240"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="121" id="HqL-M0-fvS"/>
+                        <constraint firstAttribute="height" constant="240" id="y7A-tM-tq6"/>
+                    </constraints>
+                </imageView>
             </subviews>
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="0hb-hk-obL"/>
-                <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-352" id="CAQ-nQ-mCn"/>
-                <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-75" id="K2v-bC-3sM"/>
+                <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-314" id="CAQ-nQ-mCn"/>
+                <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-72" id="K2v-bC-3sM"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mhd-jt-oRv"/>
                 <constraint firstAttribute="bottom" secondItem="u1B-Qh-shm" secondAttribute="bottom" id="RBM-55-xOu"/>
                 <constraint firstAttribute="trailing" secondItem="u1B-Qh-shm" secondAttribute="trailing" id="ZOM-eD-YBL"/>
@@ -63,13 +63,13 @@
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kS7-au-6Tw"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="532" id="qHq-Og-qrS"/>
                 <constraint firstAttribute="trailing" secondItem="Rox-JJ-N3c" secondAttribute="trailing" id="s2D-dQ-alB"/>
-                <constraint firstItem="qu2-Hf-bCx" firstAttribute="centerX" secondItem="bNh-HH-5FV" secondAttribute="centerX" constant="1.5" id="tgB-x6-ri3"/>
+                <constraint firstItem="qu2-Hf-bCx" firstAttribute="centerX" secondItem="bNh-HH-5FV" secondAttribute="centerX" constant="-2.5" id="tgB-x6-ri3"/>
             </constraints>
         </view>
     </objects>
     <resources>
         <image name="bg" width="640" height="1136"/>
-        <image name="bottom_model" width="119" height="337"/>
-        <image name="top_model" width="167" height="320"/>
+        <image name="bottoom_model" width="188" height="337"/>
+        <image name="top_model" width="173" height="313"/>
     </resources>
 </document>

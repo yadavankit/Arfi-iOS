@@ -12,6 +12,7 @@ import FBSDKCoreKit
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import Kingfisher
 
 func getDocumentsURL() -> NSURL {
     let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
@@ -127,7 +128,7 @@ func getGarments(){
                 if let image = response.result.value {
                     print("image downloaded: \(image)")
                     
-                    GlobalVariables.globalGarments.append(image)
+                  //  GlobalVariables.globalGarments.append(image)
                     print(number)
                     
                 
@@ -152,62 +153,36 @@ func getProperImages(){
             if let jsonValue = response.result.value {
                 let json = JSON(jsonValue)
                 
-                var imageToCache = UIImage()
-                var imageUrlString : String?
+               
+
                 arrayCount = (json["garments"].count)
-                print(arrayCount)
+                NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
+
                 
                 var number = 0
                 
+                
                 while number  < arrayCount! {
                     if let quote = json["garments"][number]["wardrobe_url"].string{
-                        print(quote)
+                       
         
                         GlobalVariables.globalTopwearModelUrl.append(quote)
-                        
-                        Alamofire.request(.GET, quote)
-                            .responseImage { response in
-                                debugPrint(response)
-                                
-                           imageUrlString = quote
-                                
-                                
-                                if let image = response.result.value {
-                                    
-                                 
-                                    
-                                    if imageUrlString == quote {
-                                       imageToCache = image
-                                     
-                                    }
-                                 
-                                    imageCache.setObject(imageToCache, forKey: quote)
-                                    
-                                    
-                                    if let imageFromCache = imageCache.objectForKey(quote) as? UIImage {
-                                        
-                                        
-                                        
-                                        GlobalVariables.wardrobeImages.append(imageFromCache)
-                                        saveImageLocally()
-                                        
-                                    }
-                                    
-                              
-                                }
-                        }
+
   
                         number += 1
                         print(number)
                     }
                     
                     
+                 
                     if number == arrayCount! {
                         
                         
                         GlobalVariables.globalSafeToFetch = true
  
                         print("Now TrUE")
+                        
+                     
                         
                         
                     }
@@ -232,6 +207,7 @@ func getProperImages(){
                         GlobalVariables.globalSafeToFetch = true
                         
                         print("Now Model TrUE")
+                    
                         
                         
                     }
@@ -245,7 +221,7 @@ func getProperImages(){
             }}
     
     
-    
+    getModelWardrobeImages()
     
     
 
@@ -256,25 +232,124 @@ func getProperImages(){
 
 var testa : [AnyObject]?
 
-func saveImageLocally(){
-    let MembersDefaultImage = NSUserDefaults.standardUserDefaults()
-    let imageData = UIImagePNGRepresentation(GlobalVariables.wardrobeImages[0])
-    let myEncodedImageData = NSKeyedArchiver.archivedDataWithRootObject(imageData!)
-    MembersDefaultImage.setObject(myEncodedImageData, forKey: "globalCurrentMembersImage")
-    MembersDefaultImage.synchronize()
-    print("prinintinginting defaults")
+
+
+
+func getModelWardrobeImages(){
     
-    print(MembersDefaultImage.objectForKey("globalCurrentMembersImage")!)
-    let image = MembersDefaultImage.objectForKey(("globalCurrentMembersImage")) 
+    var arrayCount : Int?
     
-    testa?.append(image!)
-    print(testa?.count)
+    Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+        .responseJSON { response in
+            if let jsonValue = response.result.value {
+                let json = JSON(jsonValue)
+                
+                
+                
+                arrayCount = (json["garments"].count)
+                GlobalVariables.finalGarmentCount = arrayCount!
+            
+                
+                var number = 0
+                
+                
+                while number  < arrayCount! {
+                    if let quote = json["garments"][number]["wardrobe_url"].string{
+                        
+        
+                        GlobalVariables.globalTopAndBottom.append(quote)
+                    
+                        
+                        
+                        number += 1
+                        print(number)
+                    }
+                    
+                    
+                    
+                    if number == arrayCount! {
+                        
+                        
+                        GlobalVariables.globalSafeToFetch = true
+                        
+                        print("Now TrUE")
+
+                        
+                    }
+                    
+                }
+
+                
+                
+            }}
+    
+    
+    getWardrobeStyle()
+    
+    
+    
+    
+
+    
+    
     
     
 }
 
+func getWardrobeStyle(){
+    
+    var arrayCount : Int?
+    
+    Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+        .responseJSON { response in
+            if let jsonValue = response.result.value {
+                let json = JSON(jsonValue)
+                
+                
+                
+                arrayCount = (json["garments"].count)
+                
+                
+                var number = 0
+                
+                
+                while number  < arrayCount! {
+                    if let quote = json["garments"][number]["garment_style"].string{
+                        
+                        
+                        GlobalVariables.globalGarmentType.append(quote)
+                        
+                        
+                        
+                        number += 1
+                        print("garment Style Added \(number)")
+                    }
+                    
+                    
+                    
+                    if number == arrayCount! {
+                        
+                        
+                        GlobalVariables.globalSafeToFetch = true
+                        
+                        print("Now TrUE")
+                        
+                        
+                    }
+                    
+                }
+                
+                
+                
+            }}
+    
+    
+    
+    
 
-
+    
+    
+}
 
 
 
@@ -302,9 +377,8 @@ func returnUserData()  { //get user id and username
             
             print(GlobalVariables.globalFacebookId)
             print(userName)
-           
-          
-            getProperImages()
+            
+           getProperImages()
        
             
         }

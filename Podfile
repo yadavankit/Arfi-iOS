@@ -19,6 +19,8 @@ pod "PaperCollectionView"
 pod "CircleSlider"
 pod 'DropDown'
 pod 'SwiftyJSON'
+pod 'HanekeSwift'
+pod 'Track'
 
 
 end  

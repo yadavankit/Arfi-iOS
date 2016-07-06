@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View3" customModule="Udiva" customModuleProvider="target">
             <connections>
                 <outlet property="myTableView" destination="FiO-W5-ED1" id="bxZ-BJ-40J"/>
-                <outlet property="testImage" destination="W9a-AQ-WBg" id="omg-cb-nrb"/>
                 <outlet property="testa" destination="FcL-K5-4f1" id="okL-v5-bB4"/>
                 <outlet property="view" destination="FiO-W5-ED1" id="Cwo-qp-QRf"/>
             </connections>
@@ -49,16 +48,13 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcL-K5-4f1">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FcL-K5-4f1">
                     <rect key="frame" x="119" y="23" width="46" height="30"/>
                     <state key="normal" title="Button"/>
                     <connections>
                         <action selector="testAction:" destination="-1" eventType="touchUpInside" id="5ir-Ri-DbG"/>
                     </connections>
                 </button>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="W9a-AQ-WBg">
-                    <rect key="frame" x="272" y="38" width="240" height="105"/>
-                </imageView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -67,13 +63,9 @@
                 <constraint firstItem="awN-K2-wSU" firstAttribute="leading" secondItem="FiO-W5-ED1" secondAttribute="leading" id="C3D-Ck-I2O"/>
                 <constraint firstItem="Mo8-64-hIV" firstAttribute="top" secondItem="c3M-gm-Jn3" secondAttribute="bottom" constant="65" id="DZq-CX-meW"/>
                 <constraint firstItem="awN-K2-wSU" firstAttribute="top" secondItem="Mo8-64-hIV" secondAttribute="bottom" constant="-81" id="EH2-zC-8KG"/>
-                <constraint firstItem="W9a-AQ-WBg" firstAttribute="centerY" secondItem="c3M-gm-Jn3" secondAttribute="centerY" id="GxB-XI-u0v"/>
-                <constraint firstItem="W9a-AQ-WBg" firstAttribute="leading" secondItem="c3M-gm-Jn3" secondAttribute="trailing" constant="8" id="Ng6-O1-7ey"/>
                 <constraint firstItem="r4I-6v-5uf" firstAttribute="top" secondItem="Mo8-64-hIV" secondAttribute="bottom" constant="28" id="POX-LA-gLI"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="top" secondItem="FiO-W5-ED1" secondAttribute="top" constant="67" id="RLX-JD-Zfa"/>
                 <constraint firstItem="FcL-K5-4f1" firstAttribute="centerX" secondItem="c3M-gm-Jn3" secondAttribute="centerX" id="VS7-E2-y4G"/>
-                <constraint firstItem="awN-K2-wSU" firstAttribute="top" secondItem="W9a-AQ-WBg" secondAttribute="bottom" constant="36" id="eE8-5b-mb1"/>
-                <constraint firstAttribute="trailing" secondItem="W9a-AQ-WBg" secondAttribute="trailing" constant="88" id="iiD-4F-1qi"/>
                 <constraint firstAttribute="bottom" secondItem="awN-K2-wSU" secondAttribute="bottom" id="lAb-sM-pBZ"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="top" secondItem="FcL-K5-4f1" secondAttribute="bottom" constant="14" id="o9g-SR-8aL"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="leading" secondItem="FiO-W5-ED1" secondAttribute="leading" constant="19" id="ruR-UQ-DDn"/>

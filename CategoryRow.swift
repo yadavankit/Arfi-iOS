@@ -30,6 +30,7 @@ class CategoryRow: UITableViewCell {
     }
     
  
+ 
     @IBOutlet var garmentDisplayCollectionViewCell: UICollectionView!
     
     
@@ -47,7 +48,15 @@ extension CategoryRow : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        return test
+        if GlobalVariables.globalTopwearModelUrl.count > 0 {
+            
+          return GlobalVariables.globalTopwearModelUrl.count
+            
+            
+        } else {
+            
+            return 5
+        }
 
     }
     
@@ -62,20 +71,20 @@ extension CategoryRow : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("garmentCell", forIndexPath: indexPath) as! garmentCell
         
         
+        if GlobalVariables.globalTopwearModelUrl.count > 0 {
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 8)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            if GlobalVariables.globalTopwearModelUrl.count > 0 {
-                
-                
-               
-         cell.garmentImage.kf_setImageWithURL(NSURL(string: GlobalVariables.globalTopwearModelUrl[indexPath.row])!, placeholderImage: UIImage(named: "Placeholder"))
+            let URLString = GlobalVariables.globalTopwearModelUrl[indexPath.row]
+            let URL = NSURL(string:URLString)!
+            cell.garmentImage.hnk_setImageFromURL(URL)
             
-             cell.garmentImage.kf_cancelDownloadTask()
-             self.garmentDisplayCollectionViewCell.reloadData()
-            }
+ 
+        }
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            self.garmentDisplayCollectionViewCell.reloadData()
+            
         })
-    
       
         return cell
     }

@@ -13,8 +13,8 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="207" height="166"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="03d-Wc-mdv">
-                        <rect key="frame" x="37" y="23" width="132" height="110"/>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="03d-Wc-mdv">
+                        <rect key="frame" x="37" y="35" width="122" height="98"/>
                     </imageView>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
@@ -24,8 +24,8 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="03d-Wc-mdv" secondAttribute="bottom" constant="33" id="1xM-Fl-0Zk"/>
                 <constraint firstItem="03d-Wc-mdv" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="37" id="Efo-hx-zhd"/>
-                <constraint firstItem="03d-Wc-mdv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="23" id="M26-kS-NWd"/>
-                <constraint firstAttribute="trailing" secondItem="03d-Wc-mdv" secondAttribute="trailing" constant="38" id="o7Z-w5-evn"/>
+                <constraint firstItem="03d-Wc-mdv" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="35" id="M26-kS-NWd"/>
+                <constraint firstAttribute="trailing" secondItem="03d-Wc-mdv" secondAttribute="trailing" constant="48" id="o7Z-w5-evn"/>
             </constraints>
             <size key="customSize" width="207" height="166"/>
             <connections>
