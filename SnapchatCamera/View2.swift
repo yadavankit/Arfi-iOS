@@ -94,7 +94,13 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         
     }
  
+    @IBAction func towardsWardrobe(sender: AnyObject) {
+        
+   
+    }
     
+    @IBAction func towardsModel(sender: AnyObject) {
+    }
     
     @IBOutlet weak var perimeterOutlet: UIImageView!
     var captureSession : AVCaptureSession?
@@ -331,15 +337,17 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         
         let imageData = UIImageJPEGRepresentation(self.finalImage! , 1 )
         
-       let value = GlobalVariables.finalGarmentCount
+        let testValue = GlobalVariables.finalGarmentCount!
+        
+       let value = testValue + 1
+        print("This is my \(value)")
         
         
         print(GlobalVariables.globalFacebookId!)
         print(GlobalVariables.globalUserName!)
         
       
-  
- 
+    let typeOFGarment = GlobalVariables.mainDetail + "," + GlobalVariables.detail1 + "," + GlobalVariables.detail2 + "," + GlobalVariables.detail3
     
         Alamofire.upload(
             .POST,
@@ -347,7 +355,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             multipartFormData: { multipartFormData in
                 
                 
-                multipartFormData.appendBodyPart(data: imageData!, name: "garment_image", fileName: "\(value!+1)" + ".jpg", mimeType: "image/jpeg") // image
+                multipartFormData.appendBodyPart(data: imageData!, name: "garment_image", fileName: "\(value)" + ".jpg", mimeType: "image/jpeg") // image
                 
                 
                 multipartFormData.appendBodyPart(data: GlobalVariables.globalFacebookId!.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion:  false)!, name :"user_id") // user_id
@@ -356,9 +364,9 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 multipartFormData.appendBodyPart(data:GlobalVariables.globalUserName!.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion:  false)!, name: "user_name") //user_name
                 
                 
-                multipartFormData.appendBodyPart(data: "TopWear".dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: false)!, name: "style") // style
+                multipartFormData.appendBodyPart(data: typeOFGarment.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: false)!, name: "style") // style
                 
-                
+                GlobalVariables.finalGarmentCount = value
                 print("Total number of garments \(value)")
                 print("The user id is \(GlobalVariables.globalFacebookId!)")
                 print("The user name is \(GlobalVariables.globalUserName)")
@@ -391,7 +399,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                             //Show Alert in UI
                             
                             
-                            print("Upload complete")
+                            print("Pohocha diya bhaiya")
                                                   })
                     }
                     
@@ -525,7 +533,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
 func loadDropDown() {
     
       dropDown.anchorView = self.questionView
-      dropDown.dataSource = ["Shirt" , "Top" , "Skirt" , "Jeans" , "Dress" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo" , "Stockings" , "Dungarees Shorts" , "Dungarees Trouser"]
+      dropDown.dataSource = ["Shirt" , "Top" ,"TShirt", "Skirt" , "Jeans" , "Dress" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo" , "Stockings" , "Dungarees Shorts" , "Dungarees Trouser"]
     
     dropDown.selectionAction = { (index: Int, item: String) in
         print("Selected item: \(item) at index: \(index)")
@@ -533,56 +541,88 @@ func loadDropDown() {
          self.label1.text = item
          self.question3View.hidden = true
          GlobalVariables.globalGarmentSelected = item
+        GlobalVariables.detail1 = item
         
         switch item {
             
         case "Shirt":
-          //  self.questionView2.titleLabel?.text = "    Fit"
-            print("22222")
+            
+            self.label2.text = "Type of Fitting"
+     
             
         case "Top":
-            self.questionView2.titleLabel!.text = "    Length"
+            self.label2.text = "Style"
+            self.label3.text = "Length"
+            
+            
+        case "TShirt":
+            self.label2.text = "Length"
             
 
             
         case "Skirt":
-            self.questionView2.titleLabel!.text = "    Skirt Style"
+          
+            self.label2.text = "Skirt Style"
+            self.label3.text = "Length"
             
         case "Jeans":
-            self.questionView2.titleLabel!.text = "    Style"
+            self.label2.text = "Style"
+            self.label3.text = "Rise"
             
         case "Dress":
-            self.questionView2.titleLabel!.text = "    Style"
+         
+            self.label2.text = "Style"
+            self.label3.text = "Length"
+            
             
         case "Trouser":
-            self.questionView2.titleLabel!.text = "    Rise"
+            
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
         case "Capri":
-            self.questionView2.titleLabel!.text = "    Rise"
+           
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
         case "Culottes":
-            self.questionView2.titleLabel!.text = "    Rise"
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
         case "Leggings":
-            self.questionView2.titleLabel!.text = "    Length"
+            
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
         case "Cargos":
-            self.questionView2.titleLabel!.text = "    Length"
+            
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
         case "Shorts":
-            self.questionView2.titleLabel!.text = "    Rise"
+           
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
         case "Palazzo":
-            self.questionView2.titleLabel!.text = "    Rise"
+         
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
         case "Stockings":
-            self.questionView2.titleLabel!.text = "    Rise"
+          
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
         case "Dungarees Shorts":
-            self.questionView2.titleLabel!.text = "    Fit"
+      
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
         case "Dunagrees Trouser":
-            self.questionView2.titleLabel!.text = "    Fit"
+           
+            self.label2.text = "Rise"
+            self.label3.text = "Length"
             
             
             
@@ -605,61 +645,68 @@ func loadDropDown() {
         switch GlobalVariables.globalGarmentSelected! {
             
         case "Shirt":
+            
             dropDown2.dataSource = ["Slim Fit" , "Casual Fit" , "Oversized"]
-            self.QuestionDone.hidden = false
+            
+            
+        case "TShirt":
+          
+            dropDown2.dataSource = ["Long length" , "Waist length" , "short length"]
+
+ 
             
         case "Top":
             dropDown2.dataSource = ["Peplum" , "Cami" , "Tank Top" , "Wrap" , "Kaftaan" , "Balloon Top" , "Tube Top" , "Cape Top"]
             
-            self.question3View.hidden = false
+
             
         case "Skirt":
             dropDown2.dataSource = ["A Line" , "Pencil" , "Pleated" , "Skater" , "Wrap" , "Gathered" ,"Peplum" , "Ruffled"  , "Straight" , "Origami" , "Trumpet" , "Tulip" , "Balloon" ,"Drapped" , "Dungaree"]
-            self.QuestionDone.hidden = false
+
             
         case "Jeans":
             dropDown2.dataSource = ["Jogger/Jeggings" , "Straight" , "Loose/Relaxed" , "Bootcut" , "Crop Jeans" , "Dungarees Jeans" ,"Harem Pants"]
-             self.question3View.hidden = false
+            
             
         case "Dress":
             dropDown2.dataSource = ["Sheath Dress" , "Shift dress" , "Blouson dress" , "Bodycon dress" , "Skater dress" , "Maxi dress" ,"Shirt dress", "Peplum dress" , "A-Line dress" , "Wrap dress" , "draped dress" , "Pop over dress" ,"Pencil dress", "T-Shirt dress" , "Fit and Flare dress" , "Gown" ]
-            self.question3View.hidden = false
+ 
             
         case "Trouser":
             dropDown2.dataSource = ["High" , "Low" ]
-            self.QuestionDone.hidden = false
+           
             
         case "Capri":
             dropDown2.dataSource = ["High" , "Low" ]
-             self.question3View.hidden = false
+     
             
         case "Culottes":
             dropDown2.dataSource = ["High" , "Low" ]
-             self.question3View.hidden = false
+            
         case "Leggings":
             dropDown2.dataSource = ["Full" , "Calf" ]
-            self.QuestionDone.hidden = false
+       
             
         case "Cargos":
             dropDown2.dataSource = ["Midi" , "Calf" , "Full"]
-            self.QuestionDone.hidden = false
+           
             
         case "Shorts":
             dropDown2.dataSource = ["High" , "Low" ]
-            self.QuestionDone.hidden = false
+          
             
         case "Palazzo":
             dropDown2.dataSource = ["High" , "Low" ]
-             self.question3View.hidden = false
+         
             
         case "Shorts":
             dropDown2.dataSource = ["High" , "Low" ]
-            self.QuestionDone.hidden = false
+            
             
     
         case "Stockings":
             dropDown2.dataSource = ["High" , "Low" ]
-            self.QuestionDone.hidden = false
+           
   
   
         default:
@@ -670,7 +717,80 @@ func loadDropDown() {
         dropDown2.selectionAction = { (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
             
+            
             self.label2.text = item
+                GlobalVariables.detail2 = item
+            
+            switch GlobalVariables.globalGarmentSelected! {
+                
+            case "Shirt":
+                
+             
+                self.QuestionDone.hidden = false
+                
+            case "TShirt":
+                
+                
+                self.QuestionDone.hidden = false
+                
+            case "Top":
+      
+                
+                self.question3View.hidden = false
+                
+            case "Skirt":
+            
+                self.QuestionDone.hidden = false
+                
+            case "Jeans":
+          
+                self.question3View.hidden = false
+                
+            case "Dress":
+              
+                self.question3View.hidden = false
+                
+            case "Trouser":
+              
+                self.QuestionDone.hidden = false
+                
+            case "Capri":
+              
+                self.question3View.hidden = false
+                
+            case "Culottes":
+          
+                self.question3View.hidden = false
+            case "Leggings":
+         
+                self.QuestionDone.hidden = false
+                
+            case "Cargos":
+    
+                self.QuestionDone.hidden = false
+                
+            case "Shorts":
+           
+                self.QuestionDone.hidden = false
+                
+            case "Palazzo":
+              
+                self.question3View.hidden = false
+                
+            case "Shorts":
+            
+                self.QuestionDone.hidden = false
+                
+                
+            case "Stockings":
+          
+                self.QuestionDone.hidden = false
+                
+                
+            default:
+                print("done")
+            }
+            
             
           
             
@@ -718,6 +838,7 @@ func loadDropDown() {
             
             self.label3.text = item
             self.QuestionDone.hidden = false
+            GlobalVariables.detail3 = item
    
             
             
@@ -756,6 +877,81 @@ func loadDropDown() {
     
     
     @IBAction func done(sender: AnyObject) {
+        
+        switch GlobalVariables.detail1 {
+            
+        case "Shirt":
+            
+            GlobalVariables.mainDetail = "TopWear"
+            
+            
+        case "Top":
+            
+              GlobalVariables.mainDetail = "TopWear"
+            
+        case "TShirt":
+            
+            GlobalVariables.mainDetail = "TopWear"
+            
+        case "Skirt":
+            
+         GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Jeans":
+          GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Dress":
+            
+          GlobalVariables.mainDetail = "TopWear"
+            
+            
+        case "Trouser":
+            
+           GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Capri":
+            
+           GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Culottes":
+        
+            GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Leggings":
+            
+          GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Cargos":
+            
+            GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Shorts":
+            
+        GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Palazzo":
+            GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Stockings":
+            
+         GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Dungarees Shorts":
+            
+           GlobalVariables.mainDetail = "BottomWear"
+            
+        case "Dunagrees Trouser":
+            
+          GlobalVariables.mainDetail = "BottomWear"
+            
+            
+            
+        default:
+            print("Fucked")
+            
+        }
+
+        
         
         self.mainQuestionsView.hidden = true
     }

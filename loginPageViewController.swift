@@ -9,6 +9,9 @@
 import UIKit
 import FBSDKCoreKit
 import FBSDKLoginKit
+import Alamofire
+import AlamofireImage
+import SwiftyJSON
 
 class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
     
@@ -40,6 +43,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
             }
             
             print("Login complete")
+            returnUserData()
             
             } else {
             
@@ -51,6 +55,239 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
     func loginButtonDidLogOut(loginButton: FBSDKLoginButton!) {
         print("user logged out")
     }
+    
+    func returnUserData()  { //get user id and username
+        
+        
+        
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
+            
+            if ((error) != nil)
+            {
+                
+            }
+            else
+            {
+                
+                let userId : String = result.valueForKey("id") as! String
+                
+                let userName : String = result.valueForKey("name") as! String
+                
+                
+                GlobalVariables.globalFacebookId = userId
+                GlobalVariables.globalUserName = userName
+                
+                print(GlobalVariables.globalFacebookId)
+                print(userName)
+                
+                self.getProperImages()
+                
+                
+            }
+        })
+        
+    }
+
+    func getProperImages(){
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=\(GlobalVariables.globalFacebookId!)&category=TopWear")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["garments"][number]["wardrobe_url"].string{
+                            
+                            
+                            GlobalVariables.globalTopwearModelUrl.append(quote)
+                            
+                            
+                            number += 1
+                            print(number)
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            
+                            
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    var number2 = 0
+                    
+                    while number2 < arrayCount! {
+                        
+                        if let quote2 = json["garments"][number2]["model_url"].string {
+                            
+                            GlobalVariables.globalModelUrl.append(quote2)
+                            
+                            number2 += 1
+                        }
+                        
+                        
+                        if number2 == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now Model TrUE")
+                            
+                            
+                            
+                        }
+                        
+                        
+                        
+                    }
+                    
+                    
+                    
+                }}
+        
+        
+        getModelWardrobeImages()
+        
+        
+        
+        
+        
+        
+    }
+    
+    func getModelWardrobeImages(){
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    GlobalVariables.finalGarmentCount = arrayCount!
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["garments"][number]["wardrobe_url"].string{
+                            
+                            
+                            GlobalVariables.globalTopAndBottom.append(quote)
+                            
+                            
+                            
+                            number += 1
+                            print(number)
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }}
+        
+        
+        getWardrobeStyle()
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    }
+    
+    func getWardrobeStyle(){
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["garments"][number]["garment_style"].string{
+                            
+                            
+                            GlobalVariables.globalGarmentType.append(quote)
+                            
+                            
+                            
+                            number += 1
+                            print("garment Style Added \(number)")
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }}
+
+    }
+    
+    
+
+
 
    
 

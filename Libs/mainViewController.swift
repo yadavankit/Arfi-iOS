@@ -164,7 +164,7 @@ func getProperImages(){
                 
                 while number  < arrayCount! {
                     if let quote = json["garments"][number]["wardrobe_url"].string{
-                       
+                                    print(json["garments"][0]["wardrobe_url"].string)
         
                         GlobalVariables.globalTopwearModelUrl.append(quote)
 

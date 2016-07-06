@@ -281,6 +281,7 @@ extension View1 : UICollectionViewDataSource {
         
         
         switch GlobalVariables.globalGarmentType[indexPath.row] {
+            
         case "TopWear":
             
             self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalTopAndBottom[indexPath.row])!)

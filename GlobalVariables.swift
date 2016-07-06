@@ -25,5 +25,9 @@ struct GlobalVariables {
     static var globalTopAndBottom : [String] = []
     static var globalGarmentType : [String] = []
     static var finalGarmentCount : Int?
+    static var detail1 : String = "detail1"
+    static var detail2 : String = "detail2"
+    static var detail3 : String = "detail3"
+    static var mainDetail : String = "mainDetail"
 
 }
