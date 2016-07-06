@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="complexionCell" id="gTV-IL-0wX" customClass="complexionCell" customModule="Udiva" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9T-7Y-C0x">
+                        <rect key="frame" x="167" y="0.0" width="166" height="67"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <attributedString key="attributedText">
+                            <fragment content="Complexion">
+                                <attributes>
+                                    <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                    <font key="NSFont" size="28" name="HelveticaNeue-Thin"/>
+                                    <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                </attributes>
+                            </fragment>
+                        </attributedString>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2Qm-5J-m4a">
+                        <rect key="frame" x="96" y="118" width="82" height="80"/>
+                        <state key="normal" backgroundImage="fair_skin"/>
+                        <connections>
+                            <action selector="fairClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="h16-b9-bVF"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BeM-hU-yMn">
+                        <rect key="frame" x="210" y="118" width="80" height="80"/>
+                        <state key="normal" backgroundImage="medium_skin"/>
+                        <connections>
+                            <action selector="mediumClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="kgJ-Nd-Pps"/>
+                        </connections>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DjT-Wk-gHT">
+                        <rect key="frame" x="327" y="118" width="80" height="80"/>
+                        <state key="normal" backgroundImage="dark_skin"/>
+                        <connections>
+                            <action selector="darkClicked:" destination="gTV-IL-0wX" eventType="touchUpInside" id="wHH-Eg-Ycg"/>
+                        </connections>
+                    </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="model_tick_mark" translatesAutoresizingMaskIntoConstraints="NO" id="fKk-je-yiQ">
+                        <rect key="frame" x="116" y="137" width="41" height="41"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="model_tick_mark" translatesAutoresizingMaskIntoConstraints="NO" id="Yny-iD-tcC">
+                        <rect key="frame" x="347" y="139" width="41" height="41"/>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="model_tick_mark" translatesAutoresizingMaskIntoConstraints="NO" id="d0p-OA-ERg">
+                        <rect key="frame" x="230" y="138" width="41" height="41"/>
+                    </imageView>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <size key="customSize" width="-84" height="2"/>
+            <connections>
+                <outlet property="darkButton" destination="DjT-Wk-gHT" id="juM-mH-y03"/>
+                <outlet property="darkTick" destination="Yny-iD-tcC" id="A4b-WX-YBf"/>
+                <outlet property="fairButton" destination="2Qm-5J-m4a" id="A7G-xN-GQU"/>
+                <outlet property="fairTick" destination="fKk-je-yiQ" id="qan-Ok-vhC"/>
+                <outlet property="mediumButton" destination="BeM-hU-yMn" id="KD5-Mg-GrP"/>
+                <outlet property="mediumTick" destination="d0p-OA-ERg" id="B9V-UG-7ZF"/>
+            </connections>
+            <point key="canvasLocation" x="265" y="179"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="dark_skin" width="40" height="40"/>
+        <image name="fair_skin" width="40" height="40"/>
+        <image name="medium_skin" width="40" height="40"/>
+        <image name="model_tick_mark" width="63" height="63"/>
+    </resources>
+</document>

@@ -12,6 +12,20 @@
 		4815968B1D225A2F002F1D56 /* garmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481596891D225A2F002F1D56 /* garmentCell.swift */; };
 		4815968C1D225A2F002F1D56 /* garmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4815968A1D225A2F002F1D56 /* garmentCell.xib */; };
 		4824689E1D154FB400DAB95C /* Just.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4824689D1D154FB400DAB95C /* Just.swift */; };
+		482FE8021D2D3CF300B78B0C /* BustCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE7F61D2D3CF300B78B0C /* BustCell.swift */; };
+		482FE8031D2D3CF300B78B0C /* BustCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482FE7F71D2D3CF300B78B0C /* BustCell.xib */; };
+		482FE8041D2D3CF300B78B0C /* complexionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE7F81D2D3CF300B78B0C /* complexionCell.swift */; };
+		482FE8051D2D3CF300B78B0C /* complexionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482FE7F91D2D3CF300B78B0C /* complexionCell.xib */; };
+		482FE8061D2D3CF300B78B0C /* HeightCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE7FA1D2D3CF300B78B0C /* HeightCell.swift */; };
+		482FE8071D2D3CF300B78B0C /* HeightCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482FE7FB1D2D3CF300B78B0C /* HeightCell.xib */; };
+		482FE8081D2D3CF300B78B0C /* HipCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE7FC1D2D3CF300B78B0C /* HipCell.swift */; };
+		482FE8091D2D3CF300B78B0C /* HipCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482FE7FD1D2D3CF300B78B0C /* HipCell.xib */; };
+		482FE80A1D2D3CF300B78B0C /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE7FE1D2D3CF300B78B0C /* Model.swift */; };
+		482FE80B1D2D3CF300B78B0C /* QuestionsCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE7FF1D2D3CF300B78B0C /* QuestionsCollectionView.swift */; };
+		482FE80C1D2D3CF300B78B0C /* submitCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE8001D2D3CF300B78B0C /* submitCell.swift */; };
+		482FE80D1D2D3CF300B78B0C /* submitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482FE8011D2D3CF300B78B0C /* submitCell.xib */; };
+		482FE8101D2D3D4600B78B0C /* WaistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE80E1D2D3D4600B78B0C /* WaistCell.swift */; };
+		482FE8111D2D3D4600B78B0C /* WaistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482FE80F1D2D3D4600B78B0C /* WaistCell.xib */; };
 		483575021D128D7000A0AEBE /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483575011D128D7000A0AEBE /* Mixpanel.framework */; };
 		484BDA161D17CEE7002D287E /* UIDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484BDA151D17CEE7002D287E /* UIDropDown.swift */; };
 		488C9A0B1D2907D30014B992 /* TableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C9A091D2907D30014B992 /* TableViewCell3.swift */; };
@@ -83,6 +97,20 @@
 		481596891D225A2F002F1D56 /* garmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = garmentCell.swift; sourceTree = "<group>"; };
 		4815968A1D225A2F002F1D56 /* garmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = garmentCell.xib; sourceTree = "<group>"; };
 		4824689D1D154FB400DAB95C /* Just.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Just.swift; path = ../Just.swift; sourceTree = "<group>"; };
+		482FE7F61D2D3CF300B78B0C /* BustCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BustCell.swift; sourceTree = "<group>"; };
+		482FE7F71D2D3CF300B78B0C /* BustCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BustCell.xib; sourceTree = "<group>"; };
+		482FE7F81D2D3CF300B78B0C /* complexionCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = complexionCell.swift; sourceTree = "<group>"; };
+		482FE7F91D2D3CF300B78B0C /* complexionCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = complexionCell.xib; sourceTree = "<group>"; };
+		482FE7FA1D2D3CF300B78B0C /* HeightCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeightCell.swift; sourceTree = "<group>"; };
+		482FE7FB1D2D3CF300B78B0C /* HeightCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HeightCell.xib; sourceTree = "<group>"; };
+		482FE7FC1D2D3CF300B78B0C /* HipCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HipCell.swift; sourceTree = "<group>"; };
+		482FE7FD1D2D3CF300B78B0C /* HipCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HipCell.xib; sourceTree = "<group>"; };
+		482FE7FE1D2D3CF300B78B0C /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		482FE7FF1D2D3CF300B78B0C /* QuestionsCollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionsCollectionView.swift; sourceTree = "<group>"; };
+		482FE8001D2D3CF300B78B0C /* submitCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = submitCell.swift; sourceTree = "<group>"; };
+		482FE8011D2D3CF300B78B0C /* submitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = submitCell.xib; sourceTree = "<group>"; };
+		482FE80E1D2D3D4600B78B0C /* WaistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaistCell.swift; sourceTree = "<group>"; };
+		482FE80F1D2D3D4600B78B0C /* WaistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaistCell.xib; sourceTree = "<group>"; };
 		483575011D128D7000A0AEBE /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = "../../../Library/Developer/Xcode/DerivedData/Udiva-csqxvkfllsiotabbolfobeiborop/Build/Products/Debug-iphoneos/Mixpanel.framework"; sourceTree = "<group>"; };
 		483575031D128DE500A0AEBE /* Udiva-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Udiva-Bridging-Header.h"; sourceTree = "<group>"; };
 		484BDA151D17CEE7002D287E /* UIDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDropDown.swift; path = ../UIDropDown.swift; sourceTree = "<group>"; };
@@ -172,6 +200,27 @@
 				4800F8701D231B7F00DB51DA /* GlobalVariables.swift */,
 			);
 			name = "Global Data";
+			sourceTree = "<group>";
+		};
+		482FE7F51D2D3CE300B78B0C /* Model Questions */ = {
+			isa = PBXGroup;
+			children = (
+				482FE7F61D2D3CF300B78B0C /* BustCell.swift */,
+				482FE7F71D2D3CF300B78B0C /* BustCell.xib */,
+				482FE7F81D2D3CF300B78B0C /* complexionCell.swift */,
+				482FE7F91D2D3CF300B78B0C /* complexionCell.xib */,
+				482FE7FA1D2D3CF300B78B0C /* HeightCell.swift */,
+				482FE7FB1D2D3CF300B78B0C /* HeightCell.xib */,
+				482FE80E1D2D3D4600B78B0C /* WaistCell.swift */,
+				482FE80F1D2D3D4600B78B0C /* WaistCell.xib */,
+				482FE7FC1D2D3CF300B78B0C /* HipCell.swift */,
+				482FE7FD1D2D3CF300B78B0C /* HipCell.xib */,
+				482FE7FE1D2D3CF300B78B0C /* Model.swift */,
+				482FE7FF1D2D3CF300B78B0C /* QuestionsCollectionView.swift */,
+				482FE8001D2D3CF300B78B0C /* submitCell.swift */,
+				482FE8011D2D3CF300B78B0C /* submitCell.xib */,
+			);
+			name = "Model Questions";
 			sourceTree = "<group>";
 		};
 		483575071D12984100A0AEBE /* View */ = {
@@ -359,6 +408,7 @@
 		AC94AD521B8E40BF002D9AD2 = {
 			isa = PBXGroup;
 			children = (
+				482FE7F51D2D3CE300B78B0C /* Model Questions */,
 				488C9A371D2A4FB60014B992 /* Premium */,
 				4815968D1D229E5C002F1D56 /* Global Data */,
 				48D6313C1D2154AD00F4905B /* TableViewFiles */,
@@ -502,6 +552,7 @@
 			files = (
 				488C9A2B1D2910D60014B992 /* TableViewCell6.xib in Resources */,
 				488C9A1E1D290F370014B992 /* TableViewCell5.xib in Resources */,
+				482FE8071D2D3CF300B78B0C /* HeightCell.xib in Resources */,
 				488C9A101D2908040014B992 /* CollectionViewCell3.xib in Resources */,
 				AC94AD661B8E40BF002D9AD2 /* Main.storyboard in Resources */,
 				488C9A151D290C330014B992 /* CollectionViewCell4.xib in Resources */,
@@ -511,8 +562,10 @@
 				488C9A311D2914DD0014B992 /* TableViewCell7.xib in Resources */,
 				4815968C1D225A2F002F1D56 /* garmentCell.xib in Resources */,
 				AC94AD8D1B8E436D002D9AD2 /* View3.xib in Resources */,
+				482FE8031D2D3CF300B78B0C /* BustCell.xib in Resources */,
 				488C9A221D290F450014B992 /* CollectionViewCell5.xib in Resources */,
 				48C2F4841D26502A00CEE0DD /* CollectionViewCell2.xib in Resources */,
+				482FE8091D2D3CF300B78B0C /* HipCell.xib in Resources */,
 				48937AE51D246B6300F31F34 /* ModelGarmentCollectionViewCell.xib in Resources */,
 				48DAA8C21D12C56300494180 /* nn.xib in Resources */,
 				488C9A191D290C430014B992 /* TableViewCell4.xib in Resources */,
@@ -520,9 +573,12 @@
 				488C9A351D2914EF0014B992 /* CollectionViewCell7.xib in Resources */,
 				488C9A0C1D2907D30014B992 /* TableViewCell3.xib in Resources */,
 				AC94AD831B8E4174002D9AD2 /* View1.xib in Resources */,
+				482FE8051D2D3CF300B78B0C /* complexionCell.xib in Resources */,
 				AC94AD871B8E41A1002D9AD2 /* View2.xib in Resources */,
+				482FE8111D2D3D4600B78B0C /* WaistCell.xib in Resources */,
 				48C2F4801D264EE800CEE0DD /* TableViewCell2.xib in Resources */,
 				AC94AD681B8E40BF002D9AD2 /* Images.xcassets in Resources */,
+				482FE80D1D2D3CF300B78B0C /* submitCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,8 +649,11 @@
 				48DAA8C41D12C59300494180 /* nn.swift in Sources */,
 				488C9A0B1D2907D30014B992 /* TableViewCell3.swift in Sources */,
 				488C9A391D2A4FD40014B992 /* PremiumView.swift in Sources */,
+				482FE8101D2D3D4600B78B0C /* WaistCell.swift in Sources */,
 				48EA7D2A1D1D2195005D6B81 /* BWWalkthroughViewController.swift in Sources */,
 				48C2F47F1D264EE800CEE0DD /* TableViewCell2.swift in Sources */,
+				482FE8021D2D3CF300B78B0C /* BustCell.swift in Sources */,
+				482FE8061D2D3CF300B78B0C /* HeightCell.swift in Sources */,
 				48EC04741D16A99C00026584 /* activityIndicator.swift in Sources */,
 				AC94AD8C1B8E436D002D9AD2 /* View3.swift in Sources */,
 				488C9A2A1D2910D60014B992 /* TableViewCell6.swift in Sources */,
@@ -605,6 +664,8 @@
 				48937AE41D246B6300F31F34 /* ModelGarmentCollectionViewCell.swift in Sources */,
 				488C9A0F1D2908040014B992 /* CollectionViewCell3.swift in Sources */,
 				48EA7D301D1D3C17005D6B81 /* loginPageViewController.swift in Sources */,
+				482FE8081D2D3CF300B78B0C /* HipCell.swift in Sources */,
+				482FE80B1D2D3CF300B78B0C /* QuestionsCollectionView.swift in Sources */,
 				488C9A341D2914EF0014B992 /* CollectionViewCell7.swift in Sources */,
 				488C9A1D1D290F370014B992 /* TableViewCell5.swift in Sources */,
 				488C9A181D290C430014B992 /* TableViewCell4.swift in Sources */,
@@ -612,11 +673,14 @@
 				4815968B1D225A2F002F1D56 /* garmentCell.swift in Sources */,
 				488C9A211D290F450014B992 /* CollectionViewCell5.swift in Sources */,
 				488C9A301D2914DD0014B992 /* TableViewCell7.swift in Sources */,
+				482FE80A1D2D3CF300B78B0C /* Model.swift in Sources */,
 				4824689E1D154FB400DAB95C /* Just.swift in Sources */,
 				AC94AD821B8E4174002D9AD2 /* View1.swift in Sources */,
+				482FE80C1D2D3CF300B78B0C /* submitCell.swift in Sources */,
 				AC94AD611B8E40BF002D9AD2 /* AppDelegate.swift in Sources */,
 				48C2F4831D26502A00CEE0DD /* CollectionViewCell2.swift in Sources */,
 				488C9A141D290C330014B992 /* CollectionViewCell4.swift in Sources */,
+				482FE8041D2D3CF300B78B0C /* complexionCell.swift in Sources */,
 				AC94AD861B8E41A1002D9AD2 /* View2.swift in Sources */,
 				48E8FF4F1D19403200506005 /* UIImage+ResizeAndCrop.swift in Sources */,
 			);
