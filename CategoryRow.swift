@@ -55,7 +55,7 @@ extension CategoryRow : UICollectionViewDataSource {
             
         } else {
             
-            return 5
+            return 1
         }
 
     }
@@ -77,6 +77,7 @@ extension CategoryRow : UICollectionViewDataSource {
             let URL = NSURL(string:URLString)!
             cell.garmentImage.hnk_setImageFromURL(URL)
             
+
  
         }
         

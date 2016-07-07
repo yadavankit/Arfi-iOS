@@ -156,6 +156,8 @@ func getProperImages(){
                
 
                 arrayCount = (json["garments"].count)
+                print(arrayCount)
+                print("This is arrayCount")
                 NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
 
                 
@@ -181,42 +183,10 @@ func getProperImages(){
                         GlobalVariables.globalSafeToFetch = true
  
                         print("Now TrUE")
-                        
-                     
-                        
-                        
+
                     }
              
                 }
-                
-                var number2 = 0
-                
-                while number2 < arrayCount! {
-                    
-                    if let quote2 = json["garments"][number2]["model_url"].string {
-                        
-                        GlobalVariables.globalModelUrl.append(quote2)
-                        
-                        number2 += 1
-                    }
-                    
-                    
-                    if number2 == arrayCount! {
-                        
-                        
-                        GlobalVariables.globalSafeToFetch = true
-                        
-                        print("Now Model TrUE")
-                    
-                        
-                        
-                    }
-
-                    
-                    
-                }
-                
-                
                 
             }}
     
@@ -235,7 +205,7 @@ var testa : [AnyObject]?
 
 
 
-func getModelWardrobeImages(){
+func getModelWardrobeImages(){ //VIEW 1
     
     var arrayCount : Int?
     
@@ -248,6 +218,9 @@ func getModelWardrobeImages(){
                 
                 arrayCount = (json["garments"].count)
                 GlobalVariables.finalGarmentCount = arrayCount!
+                
+                print(arrayCount!)
+                print("jkansdknaskd")
             
                 
                 var number = 0
@@ -293,6 +266,60 @@ func getModelWardrobeImages(){
     
     
     
+    
+}
+
+func getModelUrlForView1(){
+    
+    
+    var arrayCount : Int?
+    
+    Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+        .responseJSON { response in
+            if let jsonValue = response.result.value {
+                let json = JSON(jsonValue)
+                
+                
+                
+                arrayCount = (json["garments"].count)
+                GlobalVariables.finalGarmentCount = arrayCount!
+                
+                print(arrayCount!)
+             
+                
+                
+                var number = 0
+                
+                
+                while number  < arrayCount! {
+                    if let quote = json["garments"][number]["model_url"].string{
+                        
+                        
+                        GlobalVariables.globalModelUrl.append(quote)
+                        
+                        
+                        
+                        number += 1
+                        print(number)
+                    }
+                    
+                    
+                    
+                    if number == arrayCount! {
+                        
+                        
+                        GlobalVariables.globalSafeToFetch = true
+                        
+                        print("Now TrUE")
+                        
+                        
+                    }
+                    
+                }
+                
+                
+                
+            }}
     
 }
 
@@ -345,7 +372,7 @@ func getWardrobeStyle(){
     
     
     
-    
+    getModelUrlForView1()
 
     
     
@@ -374,6 +401,9 @@ func returnUserData()  { //get user id and username
            
             GlobalVariables.globalFacebookId = userId
             GlobalVariables.globalUserName = userName
+            
+            let defaults = NSUserDefaults.standardUserDefaults()
+            defaults.setObject(userName, forKey: "fb_user_name")
             
             print(GlobalVariables.globalFacebookId)
             print(userName)

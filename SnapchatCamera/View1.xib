@@ -21,11 +21,11 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Rox-JJ-N3c">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
                 </imageView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bottoom_model" translatesAutoresizingMaskIntoConstraints="NO" id="qu2-Hf-bCx">
-                    <rect key="frame" x="240" y="229" width="121" height="240"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="3Model" translatesAutoresizingMaskIntoConstraints="NO" id="qu2-Hf-bCx">
+                    <rect key="frame" x="270" y="207" width="68" height="260"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="121" id="4C5-06-Lb0"/>
-                        <constraint firstAttribute="height" constant="240" id="wOV-eT-zVz"/>
+                        <constraint firstAttribute="width" constant="68" id="4C5-06-Lb0"/>
+                        <constraint firstAttribute="height" constant="260" id="wOV-eT-zVz"/>
                     </constraints>
                 </imageView>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="u1B-Qh-shm">
@@ -38,8 +38,8 @@
                         <inset key="sectionInset" minX="5" minY="10" maxX="5" maxY="5"/>
                     </collectionViewFlowLayout>
                 </collectionView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="top_model" translatesAutoresizingMaskIntoConstraints="NO" id="bNh-HH-5FV">
-                    <rect key="frame" x="247" y="84" width="112" height="217"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="5Model" translatesAutoresizingMaskIntoConstraints="NO" id="bNh-HH-5FV">
+                    <rect key="frame" x="247" y="94" width="112" height="217"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="217" id="5w8-fp-zl7"/>
                         <constraint firstAttribute="width" constant="112" id="LUm-7I-7V3"/>
@@ -49,23 +49,23 @@
             <gestureRecognizers/>
             <constraints>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="leading" secondItem="Rox-JJ-N3c" secondAttribute="leading" id="5fP-js-VuV"/>
-                <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-72" id="7CL-q5-1ds"/>
+                <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-108" id="7CL-q5-1ds"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="trailing" secondItem="Rox-JJ-N3c" secondAttribute="trailing" id="8gt-ET-PeB"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="-55" id="8yI-eZ-aTP"/>
                 <constraint firstAttribute="bottom" secondItem="u1B-Qh-shm" secondAttribute="bottom" id="A6d-Yr-7Zr"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mhd-jt-oRv"/>
-                <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="qu2-Hf-bCx" secondAttribute="bottom" constant="8" id="SwU-Zx-RH9"/>
-                <constraint firstItem="qu2-Hf-bCx" firstAttribute="centerX" secondItem="u1B-Qh-shm" secondAttribute="centerX" id="a6P-VV-UVQ"/>
+                <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="qu2-Hf-bCx" secondAttribute="bottom" constant="10" id="SwU-Zx-RH9"/>
+                <constraint firstItem="qu2-Hf-bCx" firstAttribute="centerX" secondItem="u1B-Qh-shm" secondAttribute="centerX" constant="4" id="a6P-VV-UVQ"/>
                 <constraint firstAttribute="bottom" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="68" id="baA-gG-A4X"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kS7-au-6Tw"/>
                 <constraint firstAttribute="trailing" secondItem="Rox-JJ-N3c" secondAttribute="trailing" id="s2D-dQ-alB"/>
-                <constraint firstItem="bNh-HH-5FV" firstAttribute="centerX" secondItem="qu2-Hf-bCx" secondAttribute="centerX" constant="2.5" id="wXp-sB-Zf5"/>
+                <constraint firstItem="bNh-HH-5FV" firstAttribute="centerX" secondItem="qu2-Hf-bCx" secondAttribute="centerX" constant="-1" id="wXp-sB-Zf5"/>
             </constraints>
         </view>
     </objects>
     <resources>
+        <image name="3Model" width="117" height="337"/>
+        <image name="5Model" width="168" height="314"/>
         <image name="bg" width="640" height="1136"/>
-        <image name="bottoom_model" width="188" height="337"/>
-        <image name="top_model" width="173" height="313"/>
     </resources>
 </document>

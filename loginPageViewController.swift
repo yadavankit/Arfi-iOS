@@ -78,6 +78,9 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 GlobalVariables.globalFacebookId = userId
                 GlobalVariables.globalUserName = userName
                 
+                let defaults = NSUserDefaults.standardUserDefaults()
+                defaults.setObject(userName, forKey: "fb_user_name")
+                
                 print(GlobalVariables.globalFacebookId)
                 print(userName)
                 

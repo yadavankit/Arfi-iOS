@@ -240,8 +240,15 @@ extension View1 : UICollectionViewDataSource {
         // let mytest = test!.integerValue
        
        
+        if GlobalVariables.globalTopAndBottom.count > 0 {
+            
+            return GlobalVariables.globalTopAndBottom.count
+            
+        } else {
+            
+            return 1
+        }
         
-        return 24
     }
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
@@ -283,12 +290,13 @@ extension View1 : UICollectionViewDataSource {
         switch GlobalVariables.globalGarmentType[indexPath.row] {
             
         case "TopWear":
+             print(GlobalVariables.globalModelUrl[indexPath.row])
             
-            self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalTopAndBottom[indexPath.row])!)
+            self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
             
         case "BottomWear" :
             
-            self.bottomImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalTopAndBottom[indexPath.row])!)
+            self.bottomImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
             
         default:
             print("Not founf")

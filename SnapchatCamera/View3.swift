@@ -12,6 +12,7 @@ class View3: UIViewController , UITableViewDataSource {
     
 var categories = ["Top Wear" , "Bottom Wear" ]
     
+    @IBOutlet var HelloUser: UILabel!
     
     @IBOutlet var myTableView: UIView!
    
@@ -19,6 +20,19 @@ var categories = ["Top Wear" , "Bottom Wear" ]
     override func viewDidLoad() {
         
         self.automaticallyAdjustsScrollViewInsets = false
+        
+        let userDetails = NSUserDefaults.standardUserDefaults().objectForKey("fb_user_name")
+        
+        self.HelloUser.text = "Hello, User"
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+         
+              self.HelloUser.text = "Hello, \(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])"
+            
+        })
+        
+      
  
         
     }

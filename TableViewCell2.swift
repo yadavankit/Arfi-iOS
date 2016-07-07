@@ -58,8 +58,8 @@ extension TableViewCell2 : UICollectionViewDataSource {
             print(GlobalVariables.globalTopwearModelUrl[indexPath.row] + "This is it")
             
             let URLString = GlobalVariables.globalTopwearModelUrl[indexPath.row]
-           let URL = NSURL(string:URLString)!
-          cell.garmentImage.hnk_setImageFromURL(URL)
+            let URL = NSURL(string:URLString)!
+            cell.garmentImage.hnk_setImageFromURL(URL)
             
         } else {
             
@@ -69,7 +69,7 @@ extension TableViewCell2 : UICollectionViewDataSource {
         
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-           
+            
             self.myCollectionView.reloadData()
             
         })

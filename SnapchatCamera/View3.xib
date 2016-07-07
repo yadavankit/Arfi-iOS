@@ -7,6 +7,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View3" customModule="Udiva" customModuleProvider="target">
             <connections>
+                <outlet property="HelloUser" destination="c3M-gm-Jn3" id="Q9i-2t-oQr"/>
                 <outlet property="myTableView" destination="FiO-W5-ED1" id="bxZ-BJ-40J"/>
                 <outlet property="testa" destination="FcL-K5-4f1" id="okL-v5-bB4"/>
                 <outlet property="view" destination="FiO-W5-ED1" id="Cwo-qp-QRf"/>
