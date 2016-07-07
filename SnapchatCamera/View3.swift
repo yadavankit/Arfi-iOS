@@ -16,8 +16,13 @@ var categories = ["Top Wear" , "Bottom Wear" ]
     
     @IBOutlet var myTableView: UIView!
    
+    @IBOutlet var realTableView: UITableView!
     
+    @IBOutlet var emptyWardrobeImage: UIImageView!
+    @IBOutlet var emptyWardrobe: UILabel!
     override func viewDidLoad() {
+        
+         hideAndUnhide()
         
         self.automaticallyAdjustsScrollViewInsets = false
         
@@ -28,13 +33,31 @@ var categories = ["Top Wear" , "Bottom Wear" ]
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
          
-              self.HelloUser.text = "Hello, \(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])"
+              self.HelloUser.text = "Hello, \(userDetails!.componentsSeparatedByString(" ")[0])"
+            self.hideAndUnhide()
+           
             
         })
         
       
  
         
+    }
+    
+    func hideAndUnhide(){
+        
+        if GlobalVariables.globalTopAndBottom.count == 0 {
+            
+            self.realTableView.hidden = true
+            self.emptyWardrobe.hidden = false
+            self.emptyWardrobeImage.hidden = false
+            
+        } else {
+            self.realTableView.hidden = false
+            self.emptyWardrobe.hidden = true
+            self.emptyWardrobeImage.hidden = true
+           
+        }
     }
    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {

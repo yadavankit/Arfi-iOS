@@ -33,6 +33,16 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     var needWalkthrough:Bool = true
     var walkthrough:BWWalkthroughViewController!
     
+    
+    
+    func showQuestions(){
+        
+        
+       self.navigationController?.pushViewController(QuestionViewController(), animated: true)
+        
+    }
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -51,7 +61,7 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
             print("logged in")
 
           returnUserData()
-            
+        
             self.performSegueWithIdentifier("loginDone", sender: self)
         }
     }
@@ -144,6 +154,61 @@ func getGarments(){
 
 let imageCache = NSCache()
 
+
+func getBottomWearImages(){
+    
+    
+    
+    var arrayCount : Int?
+    
+    Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=\(GlobalVariables.globalFacebookId!)&category=BottomWear")
+        .responseJSON { response in
+            if let jsonValue = response.result.value {
+                let json = JSON(jsonValue)
+                
+                
+                
+                arrayCount = (json["garments"].count)
+                print(arrayCount)
+                print("This is arrayCount")
+           
+                
+                
+                var number = 0
+                
+                
+                while number  < arrayCount! {
+                    if let quote = json["garments"][number]["wardrobe_url"].string{
+                        print(json["garments"][0]["wardrobe_url"].string)
+                        
+                        GlobalVariables.globalBottomWardrobe.append(quote)
+                        
+                        
+                        number += 1
+                        print("BottomWardrobe is here")
+                    }
+                    
+                    
+                    
+                    if number == arrayCount! {
+                        
+                        
+                        GlobalVariables.globalSafeToFetch = true
+                        
+                        print("Now TrUE")
+                        
+                    }
+                    
+                }
+                
+            }}
+    
+    
+    
+    
+    
+}
+
 func getProperImages(){
     
     var arrayCount : Int?
@@ -192,7 +257,7 @@ func getProperImages(){
     
     
     getModelWardrobeImages()
-    
+    getBottomWearImages()
     
 
     
@@ -341,7 +406,7 @@ func getWardrobeStyle(){
                 
                 
                 while number  < arrayCount! {
-                    if let quote = json["garments"][number]["garment_style"].string{
+                    if let quote = json["garments"][number]["garment_info"].string{
                         
                         
                         GlobalVariables.globalGarmentType.append(quote)
@@ -409,18 +474,66 @@ func returnUserData()  { //get user id and username
             print(userName)
             
            getProperImages()
+           getGarmentInformation()
        
             
         }
     })
-    
-    
-    
-  
-    
+   
 
 }
 
+
+func getGarmentInformation(){
+    
+    var arrayCount : Int?
+    
+    Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+        .responseJSON { response in
+            if let jsonValue = response.result.value {
+                let json = JSON(jsonValue)
+                
+                
+                
+                arrayCount = (json["garments"].count)
+                
+                
+                var number = 0
+                
+                
+                while number  < arrayCount! {
+                    if let quote = json["garments"][number]["garment_style"].string{
+                        
+                        
+                        GlobalVariables.garmentInformation.append(quote)
+                        print(GlobalVariables.garmentInformation[number])
+                        
+                        
+                        
+                        number += 1
+                        print("garment info Added \(number)")
+                    }
+                    
+                    
+                    
+                    if number == arrayCount! {
+                        
+                        
+                        GlobalVariables.globalSafeToFetch = true
+                        
+                        print("Now TrUE")
+                        
+                        
+                    }
+                    
+                }
+                
+                
+                
+            }}
+    
+
+}
 
 
 

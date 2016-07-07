@@ -62,6 +62,8 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     @IBAction func crossClicked(sender: AnyObject) { //when cross button is clicked
         
+        
+        
         self.cross.hidden = true
        self.cameraImage.hidden = true
         self.cameraButtonOutlet.hidden = false
@@ -83,6 +85,8 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     @IBAction func tickmarkAction(sender: AnyObject) {    // when user clicks on the tick mark
         
+        
+    
 
         tickmarkOutlet.hidden = true
         cross.hidden = true
@@ -651,7 +655,7 @@ func loadDropDown() {
             
         case "TShirt":
           
-            dropDown2.dataSource = ["Long length" , "Waist length" , "short length"]
+            dropDown2.dataSource = ["Long" , "Waist" , "Short length"]
 
  
             

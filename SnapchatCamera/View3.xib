@@ -8,7 +8,10 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View3" customModule="Udiva" customModuleProvider="target">
             <connections>
                 <outlet property="HelloUser" destination="c3M-gm-Jn3" id="Q9i-2t-oQr"/>
+                <outlet property="emptyWardrobe" destination="r4I-6v-5uf" id="p7e-w1-vp2"/>
+                <outlet property="emptyWardrobeImage" destination="Mo8-64-hIV" id="pOP-hw-DT9"/>
                 <outlet property="myTableView" destination="FiO-W5-ED1" id="bxZ-BJ-40J"/>
+                <outlet property="realTableView" destination="awN-K2-wSU" id="qPV-di-mDY"/>
                 <outlet property="testa" destination="FcL-K5-4f1" id="okL-v5-bB4"/>
                 <outlet property="view" destination="FiO-W5-ED1" id="Cwo-qp-QRf"/>
             </connections>

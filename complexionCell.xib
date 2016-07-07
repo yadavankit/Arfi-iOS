@@ -13,9 +13,13 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9T-7Y-C0x">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N9T-7Y-C0x">
                         <rect key="frame" x="167" y="0.0" width="166" height="67"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="166" id="U46-3n-Eaf"/>
+                            <constraint firstAttribute="height" constant="67" id="vtR-lI-gs0"/>
+                        </constraints>
                         <attributedString key="attributedText">
                             <fragment content="Complexion">
                                 <attributes>
@@ -61,6 +65,10 @@
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="N9T-7Y-C0x" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="RAk-HC-JIi"/>
+                <constraint firstItem="N9T-7Y-C0x" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="Ulx-jP-Mwh"/>
+            </constraints>
             <size key="customSize" width="-84" height="2"/>
             <connections>
                 <outlet property="darkButton" destination="DjT-Wk-gHT" id="juM-mH-y03"/>

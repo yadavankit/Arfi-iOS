@@ -29,9 +29,9 @@ extension TableViewCell2 : UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
         
-        if GlobalVariables.globalTopwearModelUrl.count > 0 {
+        if GlobalVariables.globalBottomWardrobe .count > 0 {
             
-            return GlobalVariables.globalTopwearModelUrl.count
+            return GlobalVariables.globalBottomWardrobe .count
             
         } else {
             
@@ -53,11 +53,11 @@ extension TableViewCell2 : UICollectionViewDataSource {
         
 
         
-        if GlobalVariables.globalTopwearModelUrl.count > 0 {
-            print(GlobalVariables.globalTopwearModelUrl.count)
-            print(GlobalVariables.globalTopwearModelUrl[indexPath.row] + "This is it")
+        if GlobalVariables.globalBottomWardrobe .count > 0 {
+            print(GlobalVariables.globalBottomWardrobe .count)
+            print(GlobalVariables.globalBottomWardrobe [indexPath.row] + "This is it")
             
-            let URLString = GlobalVariables.globalTopwearModelUrl[indexPath.row]
+            let URLString = GlobalVariables.globalBottomWardrobe [indexPath.row]
             let URL = NSURL(string:URLString)!
             cell.garmentImage.hnk_setImageFromURL(URL)
             

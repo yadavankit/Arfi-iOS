@@ -86,7 +86,7 @@ class QuestionsCollectionView: UICollectionView, UICollectionViewDataSource, UIC
     {
         if indexPath.row == 5
         {
-            return CGSize(width: 500, height: 100)
+            return CGSize(width: 500, height: 9)
         }
         else if indexPath.row == 4
         {

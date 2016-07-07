@@ -79,6 +79,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>Spring.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>SwiftyJSON.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -127,12 +132,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>14AFEDB0F5ED05590D7BFFB9755696C2</key>
+		<key>0CCFAB2FCE128A46D5B6EF27621C50F9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>32B96E6D4A75E90E694FCB195D4B9EB2</key>
+		<key>0E53ECA15DFBE170BB94E958429ABB04</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>24D618C62305E59B95CBC895C83C0942</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>29865349A3F4C9CA066671B53E63AFD1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -152,17 +167,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>53725A11C4F6EE413287FC4EE9A1F919</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>5ED1961DDCDE947A06DC8C16287018D5</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>6DC534362A8D18EC190E14D5B3C60972</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>720479E497E4525B8B98DDC4FDCA0A07</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>736372AEB480B7C21D0E6C16F4FA1E7C</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -177,11 +197,6 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>873431242012BFFB135CBA48BCB1CF3D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
 		<key>9F766ADB76A46AB732825D44C4BAAABF</key>
 		<dict>
 			<key>primary</key>
@@ -192,32 +207,27 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>B3DFF5642E49C24B6B8AE1F70A9ABEDC</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>B5F312ABB371123942048FA3C80AB971</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C75E9B191D7CF06D61B60DDC3EF8D869</key>
+		<key>B9485DD95F3289F4137A3A5138394BD3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E9266D5F7251E422AB0FB007853B6AAF</key>
+		<key>D8C7A6DF251F7739F0475B299941150E</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
 		<key>E96E13C4D3B5B5FC0651440734C2BF4D</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F2FCEC11A6E79FF94345DEB259BC20E2</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>F528D0C7081ABAE1F7226E89B33ACEFE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

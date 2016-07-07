@@ -36,7 +36,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="52" y="-73"/>
+            <point key="canvasLocation" x="864" y="-73"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="pDu-cU-xUF">
@@ -51,13 +51,15 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0039215686274509803" green="0.14509803921568626" blue="0.22745098039215686" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
+                    <navigationItem key="navigationItem" id="IQ3-R7-21X"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginDone" id="XlB-aZ-pbS"/>
+                        <segue destination="uVG-0z-CMO" kind="presentation" identifier="getData" id="oh8-c5-Fpc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yM5-bR-b1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1514" y="-64"/>
+            <point key="canvasLocation" x="-884" y="-208"/>
         </scene>
         <!--Walkthrough View Controller-->
         <scene sceneID="26W-gy-tbT">
@@ -75,7 +77,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72N-7S-0sA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-688" y="-64"/>
+            <point key="canvasLocation" x="124" y="-64"/>
         </scene>
         <!--Walkthrough Page View Controller-->
         <scene sceneID="fgS-wU-OIM">
@@ -240,10 +242,10 @@
             </objects>
             <point key="canvasLocation" x="856" y="1163"/>
         </scene>
-        <!--Data Source-->
+        <!--Question View Controller-->
         <scene sceneID="pV7-nE-iQC">
             <objects>
-                <viewController storyboardIdentifier="red" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uVG-0z-CMO" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="getData" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uVG-0z-CMO" customClass="QuestionViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Sac-Wt-arb"/>
                         <viewControllerLayoutGuide type="bottom" id="KN3-Gh-nKh"/>
@@ -271,9 +273,6 @@
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <connections>
-                                            <outlet property="dataSource" destination="uVG-0z-CMO" id="e0V-rm-riq"/>
-                                        </connections>
                                     </collectionViewCell>
                                 </cells>
                                 <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iet-lj-eSG">
@@ -301,7 +300,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkc-nc-kh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1192" y="204"/>
+            <point key="canvasLocation" x="-1776" y="758"/>
         </scene>
         <!--Login Page View Controller-->
         <scene sceneID="q8n-UG-bwD">
@@ -344,7 +343,7 @@
         <image name="women-fb-screen" width="640" height="1136"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="IOe-VG-zHF"/>
         <segue reference="XlB-aZ-pbS"/>
+        <segue reference="IOe-VG-zHF"/>
     </inferredMetricsTieBreakers>
 </document>

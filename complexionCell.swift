@@ -16,7 +16,7 @@ class complexionCell: UICollectionViewCell
     @IBOutlet var darkButton: UIButton!
     @IBOutlet var fairButton: UIButton!
     
-    
+    let vc = View1()
     let tickImage = UIImage(named: "model_tick_mark.png")! as UIImage
     let fairImage = UIImage(named: "fair_skin.png")! as UIImage
     let darkImage = UIImage(named: "dark_skin.png")! as UIImage
@@ -40,6 +40,8 @@ class complexionCell: UICollectionViewCell
         darkTick.hidden = false
         fairTick.hidden = true
         mediumTick.hidden = true
+     
+        
     }
     @IBAction func mediumClicked(sender: AnyObject)
     {
@@ -47,6 +49,7 @@ class complexionCell: UICollectionViewCell
         mediumTick.hidden = false
         darkTick.hidden = true
         fairTick.hidden = true
+        
     }
     @IBAction func fairClicked(sender: AnyObject)
     {
@@ -54,6 +57,7 @@ class complexionCell: UICollectionViewCell
         fairTick.hidden = false
         mediumTick.hidden = true
         darkTick.hidden = true
+       
     }
 
 }

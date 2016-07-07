@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '870D3586780C2CE549F8BE29'
+               BlueprintIdentifier = 'F449CE4C30703E2796735E4C'
                BlueprintName = 'ZAlertView'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'ZAlertView.framework'>

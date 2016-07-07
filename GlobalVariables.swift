@@ -29,5 +29,7 @@ struct GlobalVariables {
     static var detail2 : String = "detail2"
     static var detail3 : String = "detail3"
     static var mainDetail : String = "mainDetail"
-
+    static var globalBottomWardrobe : [String] = []
+    static var garmentInformation : [String] = []
+     static var modelBodyType : [String] = []
 }

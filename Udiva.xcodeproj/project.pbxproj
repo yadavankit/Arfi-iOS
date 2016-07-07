@@ -26,6 +26,7 @@
 		482FE80D1D2D3CF300B78B0C /* submitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482FE8011D2D3CF300B78B0C /* submitCell.xib */; };
 		482FE8101D2D3D4600B78B0C /* WaistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE80E1D2D3D4600B78B0C /* WaistCell.swift */; };
 		482FE8111D2D3D4600B78B0C /* WaistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482FE80F1D2D3D4600B78B0C /* WaistCell.xib */; };
+		482FE8131D2E9E1B00B78B0C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE8121D2E9E1B00B78B0C /* QuestionViewController.swift */; };
 		483575021D128D7000A0AEBE /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483575011D128D7000A0AEBE /* Mixpanel.framework */; };
 		484BDA161D17CEE7002D287E /* UIDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484BDA151D17CEE7002D287E /* UIDropDown.swift */; };
 		488C9A0B1D2907D30014B992 /* TableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C9A091D2907D30014B992 /* TableViewCell3.swift */; };
@@ -111,6 +112,7 @@
 		482FE8011D2D3CF300B78B0C /* submitCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = submitCell.xib; sourceTree = "<group>"; };
 		482FE80E1D2D3D4600B78B0C /* WaistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaistCell.swift; sourceTree = "<group>"; };
 		482FE80F1D2D3D4600B78B0C /* WaistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaistCell.xib; sourceTree = "<group>"; };
+		482FE8121D2E9E1B00B78B0C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
 		483575011D128D7000A0AEBE /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = "../../../Library/Developer/Xcode/DerivedData/Udiva-csqxvkfllsiotabbolfobeiborop/Build/Products/Debug-iphoneos/Mixpanel.framework"; sourceTree = "<group>"; };
 		483575031D128DE500A0AEBE /* Udiva-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Udiva-Bridging-Header.h"; sourceTree = "<group>"; };
 		484BDA151D17CEE7002D287E /* UIDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDropDown.swift; path = ../UIDropDown.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				482FE7FF1D2D3CF300B78B0C /* QuestionsCollectionView.swift */,
 				482FE8001D2D3CF300B78B0C /* submitCell.swift */,
 				482FE8011D2D3CF300B78B0C /* submitCell.xib */,
+				482FE8121D2E9E1B00B78B0C /* QuestionViewController.swift */,
 			);
 			name = "Model Questions";
 			sourceTree = "<group>";
@@ -650,6 +653,7 @@
 				488C9A0B1D2907D30014B992 /* TableViewCell3.swift in Sources */,
 				488C9A391D2A4FD40014B992 /* PremiumView.swift in Sources */,
 				482FE8101D2D3D4600B78B0C /* WaistCell.swift in Sources */,
+				482FE8131D2E9E1B00B78B0C /* QuestionViewController.swift in Sources */,
 				48EA7D2A1D1D2195005D6B81 /* BWWalkthroughViewController.swift in Sources */,
 				48C2F47F1D264EE800CEE0DD /* TableViewCell2.swift in Sources */,
 				482FE8021D2D3CF300B78B0C /* BustCell.swift in Sources */,
