@@ -55,6 +55,7 @@
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginDone" id="XlB-aZ-pbS"/>
                         <segue destination="uVG-0z-CMO" kind="presentation" identifier="getData" id="oh8-c5-Fpc"/>
+                        <segue destination="8hf-IV-gTk" kind="presentation" identifier="launch" id="8Xg-RN-sgO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yM5-bR-b1Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -301,6 +302,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kkc-nc-kh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1776" y="758"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="4wH-Gd-25r">
+            <objects>
+                <viewController id="8hf-IV-gTk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="uBf-Ag-11Z"/>
+                        <viewControllerLayoutGuide type="bottom" id="iKd-8T-gTj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wOw-PE-f4E">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m6H-uX-7Sm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-472" y="685"/>
         </scene>
         <!--Login Page View Controller-->
         <scene sceneID="q8n-UG-bwD">

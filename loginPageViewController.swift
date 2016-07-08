@@ -12,10 +12,14 @@ import FBSDKLoginKit
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import Mixpanel
+
+
 
 class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
     
     let kScreenSize = UIScreen.mainScreen().bounds.size
+     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +47,9 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
             }
             
             print("Login complete")
+            
+            
+            
             returnUserData()
             
             } else {
@@ -83,7 +90,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 
                 print(GlobalVariables.globalFacebookId)
                 print(userName)
-                
+                self.mixpanel.track("\(GlobalVariables.globalUserName!) has Logged In")
                 self.getProperImages()
                 
                 

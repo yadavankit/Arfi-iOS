@@ -15,11 +15,13 @@ import ImageCropView
 import Toucan
 import FBSDKCoreKit
 import DropDown
+import Mixpanel
 
 
 class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     @IBOutlet var TypeOfGarment: UIButton!
-    
+    let myView = PremiumView.instanceFromNib()
+    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     @IBOutlet var QuestionDone: UIButton!
     @IBOutlet var question4View: UIButton!
     @IBOutlet var questionView: UIView!
@@ -168,8 +170,8 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         mainCamera = backCamera
         
        // configure()
-      
-       
+        
+     
         var error : NSError?
         var input: AVCaptureDeviceInput!
         do {
@@ -193,7 +195,13 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
                 previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
                 cameraView.layer.addSublayer(previewLayer!)
-                captureSession?.startRunning()
+                
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    self.captureSession?.startRunning()
+                    
+                })
+                
                 
             }
         }
@@ -285,6 +293,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             let buttonFrame = CGRectMake(20, self.view.frame.height-60, self.view.frame.width-50, 40)
             let myButton = UIButton(frame: buttonFrame)
             myButton.backgroundColor = UIColor.redColor()
+            myButton.setTitle("Got It", forState: .Normal)
             myButton.addTarget(self, action: #selector(View2.removeView), forControlEvents: .AllTouchEvents)
             myButton.titleLabel?.text = "Got it"
             myButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
@@ -341,9 +350,9 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         
         let imageData = UIImageJPEGRepresentation(self.finalImage! , 1 )
         
-        let testValue = GlobalVariables.finalGarmentCount!
+        let testValue = GlobalVariables.finalGarmentCount
         
-       let value = testValue + 1
+       let value = testValue! + 1
         print("This is my \(value)")
         
         
@@ -352,7 +361,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         
       
     let typeOFGarment = GlobalVariables.mainDetail + "," + GlobalVariables.detail1 + "," + GlobalVariables.detail2 + "," + GlobalVariables.detail3
-    
+       
         Alamofire.upload(
             .POST,
             "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/upload",
@@ -375,6 +384,9 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 print("The user id is \(GlobalVariables.globalFacebookId!)")
                 print("The user name is \(GlobalVariables.globalUserName)")
                 
+                
+                let premium = PremiumView.instanceFromNib()
+                premium.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
 
              
             },
@@ -404,6 +416,38 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                             
                             
                             print("Pohocha diya bhaiya")
+                            
+                            
+                            self.mixpanel.track("\(GlobalVariables.globalUserName!) has uploaded a garment ;) (see it asap)")
+                            
+                            
+                            
+                            
+                            
+                            let bustObject = NSUserDefaults.standardUserDefaults().objectForKey("bust")
+                            
+                            if bustObject != nil {
+                                
+                                    
+                                    self.sendModelDetails()
+                        
+                            }
+                            
+                            
+                            if GlobalVariables.finalGarmentCount == 4 {
+                                
+                               self.myView.frame = CGRectMake(0, 0, self.view.frame.width , self.view.frame.height)
+                                self.view.addSubview(self.myView)
+                                
+                                
+                            }
+                            
+                            
+                            
+                            
+                            
+                            
+                            
                                                   })
                     }
                     
@@ -413,14 +457,21 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 }
             }
         );
+      
+        
+      
         
 
+    }
+    
+    func skipForNow(){
+        
+    
     }
     
     
     
     @IBAction func flash(sender: UIButton) {
-     
         
         let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         if (device.hasTorch) {
@@ -448,6 +499,13 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             }
             
         }
+    }
+    
+    func removePremiumView(){
+        
+        myView.removeFromSuperview()
+        
+        
     }
     
  
@@ -962,16 +1020,56 @@ func loadDropDown() {
     
     @IBAction func questionAction(sender: AnyObject) {
         
-        
+        self.panel.timeUntilDismiss = 3
         self.mainQuestionsView.hidden = true
-         self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Wardrobe uploaded , swipe right.")
+         self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "We will notify you once your garments are processed. Happy uploading :)")
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 5)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            
+            self.panel.timeUntilDismiss = 5
+            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left to see your Wardrobe. Swipe Right to see your Model.")
+
+            
+        })
+
+        
+        
         self.sendImageToServer()
         self.label1.text = "Type of Garment"
         self.label2.text = "Size of Garment"
         self.label3.text = "Additional Details"
     }
-
     
+    
+    func sendModelDetails(){
+        
+        let currentUseridObject = NSUserDefaults.standardUserDefaults().objectForKey("usr_id")
+        let bustObject = NSUserDefaults.standardUserDefaults().objectForKey("bust")
+        let hipObject = NSUserDefaults.standardUserDefaults().objectForKey("hip")
+        let waistObject = NSUserDefaults.standardUserDefaults().objectForKey("waist")
+        let heightObject = NSUserDefaults.standardUserDefaults().objectForKey("height")
+        let complexionObject = NSUserDefaults.standardUserDefaults().objectForKey("complexion")
+
+        
+        
+        let current_user_id = currentUseridObject as! String
+        let bust = bustObject as! String
+        let hip = hipObject as! String
+        let waist = waistObject as! String
+        let height = heightObject as! String
+        let complexion = complexionObject as! String
+   
+        
+        Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/set_model_size", parameters: ["user_id": GlobalVariables.globalFacebookId!,"bust_size": bust,"height_size": height,"complexion": complexion,"waist_size": waist, "hip_size": hip])
+            .validate()
+            .responseJSON { response in
+                print(current_user_id)
+                print("Model Garment in saved on Server")
+               
+        }
+
+    }
     
 
 }

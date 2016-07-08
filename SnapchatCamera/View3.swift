@@ -22,7 +22,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
     @IBOutlet var emptyWardrobe: UILabel!
     override func viewDidLoad() {
         
-         hideAndUnhide()
+      //   hideAndUnhide()
         
         self.automaticallyAdjustsScrollViewInsets = false
         
@@ -34,7 +34,21 @@ var categories = ["Top Wear" , "Bottom Wear" ]
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
          
               self.HelloUser.text = "Hello, \(userDetails!.componentsSeparatedByString(" ")[0])"
-            self.hideAndUnhide()
+            if GlobalVariables.finalGarmentCount == 0 {
+                
+                
+                self.realTableView.hidden = true
+                self.emptyWardrobe.hidden = false
+                self.emptyWardrobeImage.hidden = false
+                
+                
+            } else {
+                
+                self.realTableView.hidden = false
+                self.emptyWardrobe.hidden = true
+                self.emptyWardrobeImage.hidden = true
+                
+            }
            
             
         })
@@ -43,22 +57,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
  
         
     }
-    
-    func hideAndUnhide(){
-        
-        if GlobalVariables.globalTopAndBottom.count == 0 {
-            
-            self.realTableView.hidden = true
-            self.emptyWardrobe.hidden = false
-            self.emptyWardrobeImage.hidden = false
-            
-        } else {
-            self.realTableView.hidden = false
-            self.emptyWardrobe.hidden = true
-            self.emptyWardrobeImage.hidden = true
-           
-        }
-    }
+
    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return categories.count
@@ -74,6 +73,12 @@ var categories = ["Top Wear" , "Bottom Wear" ]
         return 1
     }
     
+    @IBAction func reload(sender: AnyObject) {
+        
+        let cr = CategoryRow()
+        cr.doThis()
+        
+    }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         

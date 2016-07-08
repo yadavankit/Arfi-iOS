@@ -13,6 +13,7 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 import Kingfisher
+import Mixpanel
 
 func getDocumentsURL() -> NSURL {
     let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
@@ -32,8 +33,9 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     var FacebookUserId : String = "58382010"
     var needWalkthrough:Bool = true
     var walkthrough:BWWalkthroughViewController!
+    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     
-    
+    var isLaunched : Bool = false
     
     func showQuestions(){
         
@@ -45,14 +47,21 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
      
+     
+        
         
         if FBSDKAccessToken.currentAccessToken() == nil {
             print("not logged in yet")
+            
+          mixpanel.track("someone (maybe ram) has started the walkthrough, really!")
             
            self.presentWalkthrough()
             
@@ -172,8 +181,7 @@ func getBottomWearImages(){
                 print(arrayCount)
                 print("This is arrayCount")
            
-                
-                
+            
                 var number = 0
                 
                 
@@ -274,10 +282,13 @@ func getModelWardrobeImages(){ //VIEW 1
     
     var arrayCount : Int?
     
+    print("WARDROBEIMAGES RAN")
+    
     Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
         .responseJSON { response in
             if let jsonValue = response.result.value {
                 let json = JSON(jsonValue)
+            
                 
                 
                 
@@ -285,7 +296,7 @@ func getModelWardrobeImages(){ //VIEW 1
                 GlobalVariables.finalGarmentCount = arrayCount!
                 
                 print(arrayCount!)
-                print("jkansdknaskd")
+                print("final garment is")
             
                 
                 var number = 0
@@ -448,6 +459,7 @@ func getWardrobeStyle(){
 func returnUserData()  { //get user id and username
     
 
+    print("RETURNING USER DATA")
 
     let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
     graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
@@ -485,6 +497,8 @@ func returnUserData()  { //get user id and username
 
 
 func getGarmentInformation(){
+    
+    print("GETTING GARMENT INFORMATION")
     
     var arrayCount : Int?
     

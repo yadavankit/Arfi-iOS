@@ -27,6 +27,7 @@
 		482FE8101D2D3D4600B78B0C /* WaistCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE80E1D2D3D4600B78B0C /* WaistCell.swift */; };
 		482FE8111D2D3D4600B78B0C /* WaistCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 482FE80F1D2D3D4600B78B0C /* WaistCell.xib */; };
 		482FE8131D2E9E1B00B78B0C /* QuestionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE8121D2E9E1B00B78B0C /* QuestionViewController.swift */; };
+		482FE8161D2FC59100B78B0C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE8151D2FC59100B78B0C /* LaunchViewController.swift */; };
 		483575021D128D7000A0AEBE /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483575011D128D7000A0AEBE /* Mixpanel.framework */; };
 		484BDA161D17CEE7002D287E /* UIDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484BDA151D17CEE7002D287E /* UIDropDown.swift */; };
 		488C9A0B1D2907D30014B992 /* TableViewCell3.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C9A091D2907D30014B992 /* TableViewCell3.swift */; };
@@ -113,6 +114,7 @@
 		482FE80E1D2D3D4600B78B0C /* WaistCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaistCell.swift; sourceTree = "<group>"; };
 		482FE80F1D2D3D4600B78B0C /* WaistCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WaistCell.xib; sourceTree = "<group>"; };
 		482FE8121D2E9E1B00B78B0C /* QuestionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionViewController.swift; sourceTree = "<group>"; };
+		482FE8151D2FC59100B78B0C /* LaunchViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
 		483575011D128D7000A0AEBE /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = "../../../Library/Developer/Xcode/DerivedData/Udiva-csqxvkfllsiotabbolfobeiborop/Build/Products/Debug-iphoneos/Mixpanel.framework"; sourceTree = "<group>"; };
 		483575031D128DE500A0AEBE /* Udiva-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Udiva-Bridging-Header.h"; sourceTree = "<group>"; };
 		484BDA151D17CEE7002D287E /* UIDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDropDown.swift; path = ../UIDropDown.swift; sourceTree = "<group>"; };
@@ -224,6 +226,14 @@
 				482FE8121D2E9E1B00B78B0C /* QuestionViewController.swift */,
 			);
 			name = "Model Questions";
+			sourceTree = "<group>";
+		};
+		482FE8141D2FC57E00B78B0C /* Launch */ = {
+			isa = PBXGroup;
+			children = (
+				482FE8151D2FC59100B78B0C /* LaunchViewController.swift */,
+			);
+			name = Launch;
 			sourceTree = "<group>";
 		};
 		483575071D12984100A0AEBE /* View */ = {
@@ -411,6 +421,7 @@
 		AC94AD521B8E40BF002D9AD2 = {
 			isa = PBXGroup;
 			children = (
+				482FE8141D2FC57E00B78B0C /* Launch */,
 				482FE7F51D2D3CE300B78B0C /* Model Questions */,
 				488C9A371D2A4FB60014B992 /* Premium */,
 				4815968D1D229E5C002F1D56 /* Global Data */,
@@ -680,6 +691,7 @@
 				482FE80A1D2D3CF300B78B0C /* Model.swift in Sources */,
 				4824689E1D154FB400DAB95C /* Just.swift in Sources */,
 				AC94AD821B8E4174002D9AD2 /* View1.swift in Sources */,
+				482FE8161D2FC59100B78B0C /* LaunchViewController.swift in Sources */,
 				482FE80C1D2D3CF300B78B0C /* submitCell.swift in Sources */,
 				AC94AD611B8E40BF002D9AD2 /* AppDelegate.swift in Sources */,
 				48C2F4831D26502A00CEE0DD /* CollectionViewCell2.swift in Sources */,

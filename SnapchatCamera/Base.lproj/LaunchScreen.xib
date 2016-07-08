@@ -10,10 +10,38 @@
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="udivaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="djx-q0-x8C">
+                    <rect key="frame" x="208" y="144" width="64" height="64"/>
+                </imageView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Udiva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Js2-ag-Ud5">
+                    <rect key="frame" x="199" y="229" width="82" height="41"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwq-ym-dH9">
+                    <rect key="frame" x="224" y="443" width="32.5" height="20"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="djx-q0-x8C" firstAttribute="centerX" secondItem="hwq-ym-dH9" secondAttribute="centerX" id="4Gq-Wi-gwn"/>
+                <constraint firstAttribute="bottom" secondItem="hwq-ym-dH9" secondAttribute="bottom" constant="17" id="ShR-wx-w5C"/>
+                <constraint firstItem="hwq-ym-dH9" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="Z2Z-nw-2pW"/>
+                <constraint firstItem="hwq-ym-dH9" firstAttribute="top" secondItem="Js2-ag-Ud5" secondAttribute="bottom" constant="173" id="dL3-gN-k4j"/>
+                <constraint firstItem="Js2-ag-Ud5" firstAttribute="centerX" secondItem="hwq-ym-dH9" secondAttribute="centerX" id="g5u-Z0-fIH"/>
+                <constraint firstItem="hwq-ym-dH9" firstAttribute="top" secondItem="djx-q0-x8C" secondAttribute="bottom" constant="235" id="iQ2-pQ-xL7"/>
+            </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="548" y="455"/>
         </view>
     </objects>
+    <resources>
+        <image name="udivaLogo" width="72" height="72"/>
+    </resources>
 </document>

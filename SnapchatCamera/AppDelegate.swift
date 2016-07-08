@@ -23,7 +23,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        Mixpanel.sharedInstanceWithToken("d64b6364ee3b43459dbef98764e22dd1")
+        let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
+        UIApplication.sharedApplication().registerUserNotificationSettings(settings)
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+       
+        
+        Mixpanel.sharedInstanceWithToken("37836fac5a0657d9ada5acfd42e150b1")
         let mixpanel : Mixpanel = Mixpanel.sharedInstance()
         mixpanel.track("i am here master in Udiva")
          mixpanel.identify(mixpanel.distinctId)
@@ -35,6 +40,36 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
+    }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        
+        //pass the project token from mixpanel account
+        let mixpanel = Mixpanel.sharedInstanceWithToken("37836fac5a0657d9ada5acfd42e150b1")
+        
+        mixpanel.identify("564") //564 is the unique distinct id of user
+        mixpanel.people.set(["name": "your name", "$email": "email@email.com", "Plan": "Free", "$region" : "Australia"])
+        mixpanel.people.addPushDeviceToken(deviceToken)
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        var alert1: String = ""
+        if let aps = userInfo["aps"] as? NSDictionary {
+            if let alert = aps["alert"] as? NSDictionary {
+                if let message = alert["message"] as? NSString {
+                    //Do stuff
+                }
+            } else if let alert = aps["alert"] as? NSString {
+                print(alert)
+                alert1 = alert as String
+            }
+        }
+        let alertController = UIAlertController(title: "Notification", message:
+            alert1, preferredStyle: UIAlertControllerStyle.Alert)
+        alertController.addAction(UIAlertAction(title: "Dismiss", style: UIAlertActionStyle.Default,handler: nil))
+        
+        UIApplication.sharedApplication().keyWindow?.rootViewController?.presentViewController(alertController, animated: true, completion: nil)
     }
     
         

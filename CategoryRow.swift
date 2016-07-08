@@ -13,7 +13,7 @@ import FBSDKCoreKit
 import Kingfisher
 
 
-class CategoryRow: UITableViewCell {
+class CategoryRow: UITableViewCell  {
    
    var garments : [UIImage] = []
    var isDone = false
@@ -40,6 +40,12 @@ class CategoryRow: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
+    }
+    
+    
+    func doThis(){
+        
+        self.garmentDisplayCollectionViewCell.reloadData()
     }
 
 }
@@ -72,13 +78,13 @@ extension CategoryRow : UICollectionViewDataSource {
         
         
         if GlobalVariables.globalTopwearModelUrl.count > 0 {
+            print("This is the topwearUrl")
+           
         
             let URLString = GlobalVariables.globalTopwearModelUrl[indexPath.row]
+             print(URLString)
             let URL = NSURL(string:URLString)!
-            cell.garmentImage.hnk_setImageFromURL(URL)
-            
-
- 
+            cell.garmentImage.kf_setImageWithURL(URL)
         }
         
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
@@ -93,13 +99,21 @@ extension CategoryRow : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
         
-        print(indexPath.row)
-        
+
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            
+            self.garmentDisplayCollectionViewCell.reloadData()
+            
+            
+        })
         
     }
 
     
 }
+
+
 
 
 

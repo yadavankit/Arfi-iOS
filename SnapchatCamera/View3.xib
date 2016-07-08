@@ -59,6 +59,13 @@
                         <action selector="testAction:" destination="-1" eventType="touchUpInside" id="5ir-Ri-DbG"/>
                     </connections>
                 </button>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89k-JJ-Ihh">
+                    <rect key="frame" x="277" y="75" width="47" height="30"/>
+                    <state key="normal" title="Reload"/>
+                    <connections>
+                        <action selector="reload:" destination="-1" eventType="touchUpInside" id="l4s-bl-bls"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -73,8 +80,10 @@
                 <constraint firstAttribute="bottom" secondItem="awN-K2-wSU" secondAttribute="bottom" id="lAb-sM-pBZ"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="top" secondItem="FcL-K5-4f1" secondAttribute="bottom" constant="14" id="o9g-SR-8aL"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="leading" secondItem="FiO-W5-ED1" secondAttribute="leading" constant="19" id="ruR-UQ-DDn"/>
+                <constraint firstItem="89k-JJ-Ihh" firstAttribute="centerY" secondItem="c3M-gm-Jn3" secondAttribute="centerY" id="srP-CD-I1x"/>
                 <constraint firstItem="awN-K2-wSU" firstAttribute="top" secondItem="FiO-W5-ED1" secondAttribute="top" constant="179" id="t9G-Hf-WgE"/>
                 <constraint firstItem="r4I-6v-5uf" firstAttribute="centerX" secondItem="Mo8-64-hIV" secondAttribute="centerX" id="ty1-xX-kRU"/>
+                <constraint firstItem="89k-JJ-Ihh" firstAttribute="leading" secondItem="c3M-gm-Jn3" secondAttribute="trailing" constant="13" id="xeo-CK-Jn9"/>
             </constraints>
             <point key="canvasLocation" x="247" y="943"/>
         </view>
