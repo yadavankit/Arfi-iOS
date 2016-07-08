@@ -589,7 +589,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     let dropDown3 = DropDown()
     let dropDown4 = DropDown()
     
-  //http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=1069249093136307&category=TopWear
+
     
    
 func loadDropDown() {
@@ -1032,9 +1032,6 @@ func loadDropDown() {
 
             
         })
-
-        
-        
         self.sendImageToServer()
         self.label1.text = "Type of Garment"
         self.label2.text = "Size of Garment"

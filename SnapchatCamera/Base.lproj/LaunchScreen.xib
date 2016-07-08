@@ -11,8 +11,12 @@
             <rect key="frame" x="0.0" y="0.0" width="480" height="480"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="udivaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="djx-q0-x8C">
-                    <rect key="frame" x="208" y="144" width="64" height="64"/>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udivaLogo" translatesAutoresizingMaskIntoConstraints="NO" id="djx-q0-x8C">
+                    <rect key="frame" x="205" y="138" width="70" height="70"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="70" id="T54-ug-HDw"/>
+                        <constraint firstAttribute="height" constant="70" id="V5n-Or-Jqx"/>
+                    </constraints>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Udiva" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Js2-ag-Ud5">
                     <rect key="frame" x="199" y="229" width="82" height="41"/>

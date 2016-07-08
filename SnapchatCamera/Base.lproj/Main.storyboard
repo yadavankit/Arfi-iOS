@@ -3,7 +3,6 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -54,7 +53,6 @@
                     <navigationItem key="navigationItem" id="IQ3-R7-21X"/>
                     <connections>
                         <segue destination="BYZ-38-t0r" kind="presentation" identifier="loginDone" id="XlB-aZ-pbS"/>
-                        <segue destination="uVG-0z-CMO" kind="presentation" identifier="getData" id="oh8-c5-Fpc"/>
                         <segue destination="8hf-IV-gTk" kind="presentation" identifier="launch" id="8Xg-RN-sgO"/>
                     </connections>
                 </viewController>
@@ -78,7 +76,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="72N-7S-0sA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="124" y="-64"/>
+            <point key="canvasLocation" x="-198" y="-208"/>
         </scene>
         <!--Walkthrough Page View Controller-->
         <scene sceneID="fgS-wU-OIM">
@@ -242,66 +240,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mqj-TL-5dq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="856" y="1163"/>
-        </scene>
-        <!--Question View Controller-->
-        <scene sceneID="pV7-nE-iQC">
-            <objects>
-                <viewController storyboardIdentifier="getData" useStoryboardIdentifierAsRestorationIdentifier="YES" id="uVG-0z-CMO" customClass="QuestionViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Sac-Wt-arb"/>
-                        <viewControllerLayoutGuide type="bottom" id="KN3-Gh-nKh"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hLC-3H-70g">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="1ol-ZI-mlG" customClass="QuestionsCollectionView" customModule="Udiva" customModuleProvider="target">
-                                <rect key="frame" x="20" y="143" width="560" height="457"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Oxs-ek-do4">
-                                    <size key="itemSize" width="500" height="300"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="5" height="5"/>
-                                    <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Zhf-C9-6vo" customClass="QuestionsCollectionView" customModule="Udiva" customModuleProvider="target">
-                                        <rect key="frame" x="30" y="10" width="500" height="300"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="0.0" y="0.0" width="500" height="300"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </collectionViewCell>
-                                </cells>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="iet-lj-eSG">
-                                    <rect key="frame" x="0.0" y="320" width="560" height="5"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
-                            </collectionView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Create your model" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="GCg-3y-c9B">
-                                <rect key="frame" x="166" y="41.5" width="268.5" height="41.5"/>
-                                <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="35"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="GCg-3y-c9B" firstAttribute="centerX" secondItem="1ol-ZI-mlG" secondAttribute="centerX" id="7th-En-pJn"/>
-                            <constraint firstItem="1ol-ZI-mlG" firstAttribute="top" secondItem="Sac-Wt-arb" secondAttribute="bottom" constant="123" id="KUZ-Za-Dxp"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="1ol-ZI-mlG" secondAttribute="trailing" id="XkQ-99-Amw"/>
-                            <constraint firstItem="1ol-ZI-mlG" firstAttribute="top" secondItem="GCg-3y-c9B" secondAttribute="bottom" constant="60" id="aV3-VC-vuL"/>
-                            <constraint firstItem="KN3-Gh-nKh" firstAttribute="top" secondItem="1ol-ZI-mlG" secondAttribute="bottom" id="mwC-NX-1KC"/>
-                            <constraint firstItem="1ol-ZI-mlG" firstAttribute="leading" secondItem="hLC-3H-70g" secondAttribute="leadingMargin" id="tFU-SX-r6a"/>
-                        </constraints>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kkc-nc-kh7" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-1776" y="758"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="4wH-Gd-25r">

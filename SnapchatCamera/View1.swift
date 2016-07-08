@@ -612,8 +612,7 @@ extension View1 : UICollectionViewDataSource {
                 
                 print("IndexPath : \(indexPath.row) + The top is Crop")
                 
-                
-                
+
             }
             
              
@@ -644,7 +643,7 @@ extension View1 : UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
        
-        return CGSize(width: 60, height: 60)
+        return CGSize(width: 65, height: 65)
     }
 }
 

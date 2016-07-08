@@ -82,17 +82,10 @@ var categories = ["Top Wear" , "Bottom Wear" ]
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        tableView.registerNib((UINib.init(nibName: "CategoryRow", bundle: nil)), forCellReuseIdentifier: "cell")
+         tableView.registerNib((UINib.init(nibName: "CategoryRow", bundle: nil)), forCellReuseIdentifier: "cell")
         
-       tableView.registerNib(UINib.init(nibName: "TableViewCell2", bundle: nil), forCellReuseIdentifier: "TableViewCell2")
+         tableView.registerNib(UINib.init(nibName: "TableViewCell2", bundle: nil), forCellReuseIdentifier: "TableViewCell2")
         
-        tableView.registerNib(UINib.init(nibName: "TableViewCell3", bundle: nil), forCellReuseIdentifier: "TableViewCell3")
-        
-          tableView.registerNib(UINib.init(nibName: "TableViewCell4", bundle: nil), forCellReuseIdentifier: "TableViewCell4")
-        
-        tableView.registerNib(UINib.init(nibName: "TableViewCell5", bundle: nil), forCellReuseIdentifier: "TableViewCell5")
-        
-        tableView.registerNib(UINib.init(nibName: "TableViewCell6", bundle: nil), forCellReuseIdentifier: "TableViewCell6")
         
         
         if indexPath.section == 0 {
@@ -108,29 +101,15 @@ var categories = ["Top Wear" , "Bottom Wear" ]
             
             return cell
 
-        } else if indexPath.section == 2 {
+        }  else {
             
-            
-            let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell3") as! TableViewCell3
-            
-            return cell
-            
-            
-            
-        } else {
-            
-            let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell3") as! TableViewCell3
+            let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell3") as! TableViewCell2
             
             return cell
-            
-            
             
         }
         
-        
-        
-       
-        
+ 
     }
     
     
@@ -158,10 +137,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
 
     @IBOutlet var testa: UIButton!
     @IBAction func testAction(sender: AnyObject) {
-        
-        
-       "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=1069249093136307&category=TopWear"
-        
+    
         
         Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=1069249093136307&category=TopWear")
             .responseJSON { response in

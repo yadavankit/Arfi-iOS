@@ -506,8 +506,7 @@ func getGarmentInformation(){
         .responseJSON { response in
             if let jsonValue = response.result.value {
                 let json = JSON(jsonValue)
-                
-                
+
                 
                 arrayCount = (json["garments"].count)
                 
@@ -532,25 +531,13 @@ func getGarmentInformation(){
                     
                     if number == arrayCount! {
                         
-                        
                         GlobalVariables.globalSafeToFetch = true
                         
                         print("Now TrUE")
-                        
-                        
                     }
-                    
                 }
-                
-                
-                
             }}
-    
-
 }
-
-
-
 
 //extenstion
 
