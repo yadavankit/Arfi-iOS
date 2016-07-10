@@ -27,11 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
        
-        
-        Mixpanel.sharedInstanceWithToken("37836fac5a0657d9ada5acfd42e150b1")
-        let mixpanel : Mixpanel = Mixpanel.sharedInstance()
-        mixpanel.track("i am here master in Udiva")
-         mixpanel.identify(mixpanel.distinctId)
+ 
         let mi = Mixpanel()
         mi.showNotificationOnActive = false
          application.statusBarHidden = true
@@ -45,7 +41,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //pass the project token from mixpanel account
         let mixpanel = Mixpanel.sharedInstanceWithToken("37836fac5a0657d9ada5acfd42e150b1")
         
-        mixpanel.identify("564") //564 is the unique distinct id of user
+        mixpanel.identify(mixpanel.distinctId) //564 is the unique distinct id of user
         mixpanel.people.set(["name": "your name", "$email": "email@email.com", "Plan": "Free", "$region" : "Australia"])
         mixpanel.people.addPushDeviceToken(deviceToken)
     }

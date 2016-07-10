@@ -87,8 +87,6 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     @IBAction func tickmarkAction(sender: AnyObject) {    // when user clicks on the tick mark
         
-        
-    
 
         tickmarkOutlet.hidden = true
         cross.hidden = true
@@ -96,8 +94,6 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
       self.mainQuestionsView.hidden = false
         
 
-        
-        
     }
  
     @IBAction func towardsWardrobe(sender: AnyObject) {
@@ -1027,8 +1023,7 @@ func loadDropDown() {
         let triggerTime = (Int64(NSEC_PER_SEC) * 5)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
             
-            self.panel.timeUntilDismiss = 5
-            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left to see your Wardrobe. Swipe Right to see your Model.")
+
 
             
         })

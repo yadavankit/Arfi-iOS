@@ -465,6 +465,8 @@ class View1: UIViewController  {
     
     @IBAction func getModelDetails(sender: AnyObject) {
         
+        print(GlobalVariables.finalGarmentCount!)
+        
         
         if GlobalVariables.finalGarmentCount == 0 {
             
@@ -614,16 +616,12 @@ extension View1 : UICollectionViewDataSource {
                 
 
             }
-            
-             
-           
-          
-            
+     
             
         case "BottomWear" :
             
     
-    self.bottomImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+        self.bottomImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
        
     
             
