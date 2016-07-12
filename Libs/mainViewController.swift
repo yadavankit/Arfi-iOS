@@ -14,6 +14,8 @@ import AlamofireImage
 import SwiftyJSON
 import Kingfisher
 import Mixpanel
+import ReachabilitySwift
+import CoreTelephony
 
 func getDocumentsURL() -> NSURL {
     let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
@@ -53,15 +55,74 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+    
+        var networkConnectivity = "Offline"
         
+        print("Network Status")
+        
+            //Check the internet connectivity of User
+            do
+            {
+                let reachability:Reachability = try Reachability.reachabilityForInternetConnection()
+                do
+                {
+                    try reachability.startNotifier()
+                    let status = reachability.currentReachabilityStatus
+                    if(status == .NotReachable)
+                    {
+                        networkConnectivity = "Offline"
+                    }
+                    else if (status == .ReachableViaWiFi)
+                    {
+                        networkConnectivity = "WiFi"
+                    }
+                    else if (status == .ReachableViaWWAN)
+                    {
+                        let networkInfo = CTTelephonyNetworkInfo()
+                        let carrierType = networkInfo.currentRadioAccessTechnology
+                        switch carrierType
+                        {
+                        case CTRadioAccessTechnologyGPRS?,CTRadioAccessTechnologyEdge?,CTRadioAccessTechnologyCDMA1x?:
+                            networkConnectivity = "Edge"
+                        case CTRadioAccessTechnologyWCDMA?,CTRadioAccessTechnologyHSDPA?,CTRadioAccessTechnologyHSUPA?,CTRadioAccessTechnologyCDMAEVDORev0?,CTRadioAccessTechnologyCDMAEVDORevA?,CTRadioAccessTechnologyCDMAEVDORevB?,CTRadioAccessTechnologyeHRPD?:
+                            networkConnectivity = "3G"
+                        case CTRadioAccessTechnologyLTE?:
+                            networkConnectivity = "4G"
+                        default:
+                            networkConnectivity = "Offline"
+                        }
+                    }
+                    else
+                    {
+                        print("Error")
+                    }
+                }
+                catch
+                {
+                    print("Error")
+                }
+            }
+            catch
+            {
+                print("Error")
+            }
+        
+        if networkConnectivity == "Offline"
+        {
+            let alert = UIAlertView(title: "No Internet Connection", message: "Seems like you are Offline. Please Connect to WiFi or 3G.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        else if networkConnectivity == "Edge"
+        {
+            let alert = UIAlertView(title: "Slow Internet Connection", message: "Seems you are on Edge connection. Please switch to WiFi or 3G.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+
      
-     
-        
-        
         if FBSDKAccessToken.currentAccessToken() == nil {
             print("not logged in yet")
             
-          mixpanel.track("someone (maybe ram) has started the walkthrough, really!")
+          mixpanel.track("Walkthrough Started")
             
            self.presentWalkthrough()
             

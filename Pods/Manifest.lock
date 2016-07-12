@@ -16,6 +16,7 @@ PODS:
   - Petal (1.1.1)
   - pop (1.0.9)
   - PopupController (0.1.0)
+  - ReachabilitySwift (2.3.3)
   - Spring (1.0.3)
   - SwiftyJSON (2.3.2)
   - Toucan (0.5.0)
@@ -36,6 +37,7 @@ DEPENDENCIES:
   - PaperCollectionView
   - Petal (~> 1.1.1)
   - PopupController
+  - ReachabilitySwift
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
   - SwiftyJSON
   - Toucan
@@ -67,6 +69,7 @@ SPEC CHECKSUMS:
   Petal: 6b2251a7df61c16e4bb37de19f7c372f1d1371ed
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   PopupController: fb329de274ab0cf9bf1f2758074287600082de1d
+  ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
   SwiftyJSON: 04ccea08915aa0109039157c7974cf0298da292a
   Toucan: 0519c341148252ae114c5a657d2a85bb9ada9e40
@@ -74,6 +77,6 @@ SPEC CHECKSUMS:
   YBAlertController: 68e8874813d1d9a5c76d72e5bb927e18f2d1afb8
   ZAlertView: 5ee0f447d067fe141aa278579e0b9b9f1ca83edb
 
-PODFILE CHECKSUM: b8f118543297a45968bd435989db6cadd45bbe23
+PODFILE CHECKSUM: fa2418ed19763c8da53adca9492a95e8d614ee79
 
 COCOAPODS: 1.0.1

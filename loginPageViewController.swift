@@ -47,7 +47,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
             }
             
             print("Login complete")
-            
+            print(GlobalVariables.globalUserName)
             
             
             returnUserData()
@@ -67,7 +67,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
         
         
         
-        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: nil)
+        let graphRequest : FBSDKGraphRequest = FBSDKGraphRequest(graphPath: "me", parameters: ["fields":"id,email,name,picture.width(480).height(480)"])
         graphRequest.startWithCompletionHandler({ (connection, result, error) -> Void in
             
             if ((error) != nil)
@@ -81,15 +81,27 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 
                 let userName : String = result.valueForKey("name") as! String
                 
+                let email_id : String = result.valueForKey("email") as! String
+                
+                
                 
                 GlobalVariables.globalFacebookId = userId
                 GlobalVariables.globalUserName = userName
                 
+                
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setObject(userName, forKey: "fb_user_name")
                 
+                
+                self.mixpanel.identify(self.mixpanel.distinctId)
+                self.mixpanel.people.set(["$name": userName, "$email": email_id, "Plan": "Free", "$region" : "India"])
+
+                
+                
                 print(GlobalVariables.globalFacebookId)
                 print(userName)
+                
+                //Track Login of user
                 self.mixpanel.track("\(GlobalVariables.globalUserName!) has Logged In")
                 self.getProperImages()
                 

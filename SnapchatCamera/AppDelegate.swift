@@ -39,10 +39,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         
         //pass the project token from mixpanel account
-        let mixpanel = Mixpanel.sharedInstanceWithToken("37836fac5a0657d9ada5acfd42e150b1")
+        let mixpanel = Mixpanel.sharedInstanceWithToken("39a4a3d35dc02d8a158effdeddbacc85")
         
-        mixpanel.identify(mixpanel.distinctId) //564 is the unique distinct id of user
-        mixpanel.people.set(["name": "your name", "$email": "email@email.com", "Plan": "Free", "$region" : "Australia"])
+//        mixpanel.identify(mixpanel.distinctId)
+//        mixpanel.people.set(["$name": "hgfh", "$email": "gfcfg@ggh.com", "Plan": "Free", "$region" : "India"])
+        print("here is device token")
+        print(deviceToken)
         mixpanel.people.addPushDeviceToken(deviceToken)
     }
     

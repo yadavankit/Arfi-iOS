@@ -293,6 +293,10 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     @IBAction func clicked (sender : UIButton) {  // main camera button clicked
         
         
+        
+       
+        
+        
         self.flashIcon.hidden = true
      
        
@@ -330,6 +334,11 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             firstLaunchEver = false
             
         } else {
+            
+            
+        self.mixpanel.track("\(GlobalVariables.globalUserName!) has begun uploading a garment.")
+            
+            
         
         didPressTakePhoto()
         didPressTakeAnother()
@@ -442,7 +451,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                             print("Pohocha diya bhaiya")
                             
                             
-                            self.mixpanel.track("\(GlobalVariables.globalUserName!) has uploaded a garment ;) (see it asap)")
+                            self.mixpanel.track("\(GlobalVariables.globalUserName!) has finished uploading a garment.")
                             
                             
                             
@@ -1042,10 +1051,14 @@ func loadDropDown() {
         
         if GlobalVariables.finalGarmentCount == 0
         {
-            let alert = UIAlertView(title: "Create Your Model", message: "To have your first garment uploaded swipe right to create your model :) ", delegate: self, cancelButtonTitle: "OK")
+            let alert = UIAlertView(title: "Create Your Model", message: "To have your first garment uploaded swipe right to create your model 😊", delegate: self, cancelButtonTitle: "OK")
             alert.show()
         }
-        
+        else
+        {
+            self.panel.timeUntilDismiss = 3
+            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Garment queued for     processing. We will notify you, once done. Happy Uploading 🤗")
+        }
         
         
     }

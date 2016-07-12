@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -37,7 +37,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Align the camera above the garment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDW-dN-fMV">
-                    <rect key="frame" x="175" y="325" width="248.5" height="18"/>
+                    <rect key="frame" x="175" y="325" width="249" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="248.5" id="w1e-xr-KsZ"/>
                     </constraints>
@@ -46,7 +46,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Button shirts and Jackets before uploading " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENJ-ST-HvF">
-                    <rect key="frame" x="148.5" y="382" width="302.5" height="18"/>
+                    <rect key="frame" x="149" y="382" width="302" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="302.5" id="Qtq-gG-4oK"/>
                     </constraints>
@@ -61,7 +61,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not upload footwear currently" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaN-dO-Vht">
-                    <rect key="frame" x="148" y="424" width="302.5" height="18"/>
+                    <rect key="frame" x="148" y="424" width="303" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="302.5" id="BqB-i3-O9F"/>
                     </constraints>

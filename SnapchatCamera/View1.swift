@@ -11,6 +11,7 @@ import Kingfisher
 import Haneke
 import SwiftyJSON
 import JKNotificationPanel
+import Mixpanel
 
 
 
@@ -19,6 +20,8 @@ class View1: UIViewController  {
     @IBOutlet var botImageView: UIImageView!
     @IBOutlet var topImageView: UIImageView!
     
+    
+    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     let panel : JKNotificationPanel = JKNotificationPanel()
     @IBOutlet var garmentTop: NSLayoutConstraint!
     var test = 6
@@ -39,6 +42,7 @@ class View1: UIViewController  {
    
     
     let kScreenSize = UIScreen.mainScreen().bounds.size
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -484,6 +488,8 @@ class View1: UIViewController  {
             
         } else {
         
+        self.mixpanel.track("\(GlobalVariables.globalUserName!) has has begun creating Model.")
+            
         self.modelButton.hidden = true
         self.doneOutlet.hidden = false
        
@@ -591,13 +597,17 @@ extension View1 : UICollectionViewDataSource {
 
             if GlobalVariables.garmentInformation[indexPath.row].containsString("Long") {
                 
+                
+               self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Long Topwear on model.")
                topImageView.superview?.bringSubviewToFront(topImageView)
                  self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
                 
                 print("IndexPath : \(indexPath.row) + The top is long")
                 
             } else if GlobalVariables.garmentInformation[indexPath.row].containsString("Waist") {
+               
                 
+                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Waist Topwear on model.")
                 topImageView.superview?.bringSubviewToFront(topImageView)
                 self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
                 
@@ -605,6 +615,8 @@ extension View1 : UICollectionViewDataSource {
                 
                 
             } else if GlobalVariables.garmentInformation[indexPath.row].containsString("Short"){
+                
+                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Short Topwear on model.")
                 
                 bottomImageView.superview?.bringSubviewToFront(bottomImageView)
                 self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
@@ -625,6 +637,7 @@ extension View1 : UICollectionViewDataSource {
             }
             else
             {
+                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed Topwear on model.")
                 self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
                 self.topImageView.bringSubviewToFront(topImageView)
             }
@@ -638,6 +651,7 @@ extension View1 : UICollectionViewDataSource {
             
             
             self.bottomImageView.bringSubviewToFront(bottomImageView)
+            self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Bottomwear on model.")
             
         default:
             print("Not found")
