@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -91,8 +91,8 @@
                         <action selector="clicked:" destination="-1" eventType="touchUpInside" id="RCV-ZL-lFg"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdC-QL-GTv">
-                    <rect key="frame" x="34" y="36" width="24" height="27"/>
+                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdC-QL-GTv">
+                    <rect key="frame" x="34" y="36" width="45" height="38"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="24" id="Gos-pu-Yka"/>
                         <constraint firstAttribute="height" constant="27" id="fJa-fQ-UQc"/>
@@ -199,9 +199,9 @@
                             <rect key="frame" x="161" y="339" width="276" height="35"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Please tell us more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nt8-KT-Q1f">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Please tell us more" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nt8-KT-Q1f">
                             <rect key="frame" x="190" y="44" width="220" height="38"/>
-                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="28"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="25"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -251,7 +251,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reN-i4-djn">
-                            <rect key="frame" x="255.5" y="484" width="85" height="85"/>
+                            <rect key="frame" x="256" y="484" width="85" height="85"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="85" id="sPh-Ci-oOK"/>
                                 <constraint firstAttribute="height" constant="85" id="uyU-I0-RIc"/>
@@ -264,10 +264,18 @@
                                 <action selector="questionAction:" destination="-1" eventType="touchUpInside" id="qqA-XW-dfG"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tcX-1b-OKg">
+                            <rect key="frame" x="134" y="45" width="38" height="35"/>
+                            <state key="normal" image="black-x"/>
+                            <connections>
+                                <action selector="backPressed:" destination="-1" eventType="touchUpInside" id="9Ry-Qd-P6O"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
                         <constraint firstItem="faS-kq-FXp" firstAttribute="leading" secondItem="ISa-rv-Pwj" secondAttribute="leading" id="0hh-eI-4e2"/>
+                        <constraint firstItem="tcX-1b-OKg" firstAttribute="centerY" secondItem="Nt8-KT-Q1f" secondAttribute="centerY" id="20p-so-ahJ"/>
                         <constraint firstItem="fy2-36-JZz" firstAttribute="leading" secondItem="faS-kq-FXp" secondAttribute="leading" id="341-E9-UWW"/>
                         <constraint firstItem="reN-i4-djn" firstAttribute="centerX" secondItem="qbB-26-u0k" secondAttribute="centerX" id="3sj-mc-5VK"/>
                         <constraint firstItem="L0J-UD-2eG" firstAttribute="top" secondItem="3OO-oB-EEc" secondAttribute="bottom" constant="35" id="5OU-6J-feS"/>
@@ -286,6 +294,7 @@
                         <constraint firstAttribute="bottom" secondItem="LyY-NB-MSb" secondAttribute="bottom" constant="345" id="NfR-Vj-x8V"/>
                         <constraint firstItem="LyY-NB-MSb" firstAttribute="leading" secondItem="GRo-aq-p2j" secondAttribute="leading" id="QZG-n0-eFF"/>
                         <constraint firstAttribute="bottom" secondItem="BNM-Br-3iB" secondAttribute="bottom" constant="44" id="R3u-PG-7yR"/>
+                        <constraint firstItem="tcX-1b-OKg" firstAttribute="height" secondItem="Nt8-KT-Q1f" secondAttribute="height" constant="-3" id="S5K-UM-rlF"/>
                         <constraint firstItem="cZh-Rb-nes" firstAttribute="leading" secondItem="GTG-Ca-xRr" secondAttribute="leading" constant="112" id="Tbn-pf-xDa"/>
                         <constraint firstItem="fy2-36-JZz" firstAttribute="centerY" secondItem="qbB-26-u0k" secondAttribute="centerY" id="YNc-bU-La3"/>
                         <constraint firstItem="qbB-26-u0k" firstAttribute="width" secondItem="vhy-Kz-Ron" secondAttribute="width" id="ZoV-1Z-hH3"/>
@@ -294,6 +303,7 @@
                         <constraint firstItem="vhy-Kz-Ron" firstAttribute="centerX" secondItem="GRo-aq-p2j" secondAttribute="centerX" constant="-2" id="ezL-I4-Cm7"/>
                         <constraint firstItem="LyY-NB-MSb" firstAttribute="centerX" secondItem="GRo-aq-p2j" secondAttribute="centerX" id="fRR-Ll-8pI"/>
                         <constraint firstItem="qbB-26-u0k" firstAttribute="trailing" secondItem="vhy-Kz-Ron" secondAttribute="trailing" id="hIH-sl-tUO"/>
+                        <constraint firstItem="Nt8-KT-Q1f" firstAttribute="leading" secondItem="tcX-1b-OKg" secondAttribute="trailing" constant="18" id="jSW-Ku-dxS"/>
                         <constraint firstItem="vhy-Kz-Ron" firstAttribute="top" secondItem="GRo-aq-p2j" secondAttribute="bottom" constant="28" id="jYz-zO-wzT"/>
                         <constraint firstItem="cZh-Rb-nes" firstAttribute="top" secondItem="qbB-26-u0k" secondAttribute="bottom" constant="30" id="lWq-3V-3UJ"/>
                         <constraint firstItem="L0J-UD-2eG" firstAttribute="centerY" secondItem="fy2-36-JZz" secondAttribute="centerY" id="lYq-DJ-1Z0"/>
@@ -351,6 +361,7 @@
         </view>
     </objects>
     <resources>
+        <image name="black-x" width="30" height="30"/>
         <image name="cameraButton" width="80" height="80"/>
         <image name="cyan_box" width="292" height="294"/>
         <image name="dress" width="41" height="50"/>

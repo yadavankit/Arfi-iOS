@@ -80,7 +80,7 @@ public class JKNotificationPanel: NSObject {
     
     public func showNotify(withStatus status: JKType, belowNavigation navigation: UINavigationController, message text:String? = nil) {
         navigationBar = navigation.navigationBar
-        verticalSpace = navigation.navigationBar.frame.size.height + UIApplication.sharedApplication().statusBarFrame.size.height + 5
+        verticalSpace = navigation.navigationBar.frame.size.height + UIApplication.sharedApplication().statusBarFrame.size.height
         let panelSize = CGSize(width: navigation.navigationBar.frame.size.width, height: defaultViewHeight)
         let defaultView = self.defaultView(status,message: text,size: panelSize)
         self.showNotify(withView: defaultView, inView: navigation.view)
@@ -119,7 +119,7 @@ public class JKNotificationPanel: NSObject {
         self.view.addGestureRecognizer(tapGesture)
         
         self.view.alpha = 1
-        self.view.frame = CGRectMake(0, top , width, height + 5)
+        self.view.frame = CGRectMake(0, top , width, height)
         self.view.backgroundColor = UIColor.clearColor()
         self.view.addSubview(view)
         self.view.bringSubviewToFront(view)

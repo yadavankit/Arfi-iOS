@@ -5,7 +5,7 @@
 
 target 'Udiva' do
 pod 'ZAlertView'
-pod ‘Mixpanel’
+pod ‘Mixpanel’, '~> 2.9.9’
 pod "JKNotificationPanel"
 pod 'Kingfisher', '~> 2.4'
 pod 'Alamofire', '~> 3.4'

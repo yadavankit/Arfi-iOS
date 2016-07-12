@@ -10,6 +10,7 @@ import CircleSlider
 import Kingfisher
 import Haneke
 import SwiftyJSON
+import JKNotificationPanel
 
 
 
@@ -18,6 +19,7 @@ class View1: UIViewController  {
     @IBOutlet var botImageView: UIImageView!
     @IBOutlet var topImageView: UIImageView!
     
+    let panel : JKNotificationPanel = JKNotificationPanel()
     @IBOutlet var garmentTop: NSLayoutConstraint!
     var test = 6
     
@@ -160,6 +162,11 @@ class View1: UIViewController  {
                 print(current_user_id)
                 print("Model Garment in saved on Server")
                 self.showTheModel()
+                self.panel.timeUntilDismiss = 3
+                
+                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Your garments will now start getting uploaded, Happy Uploading :)")
+
+                
         }
 
     }
@@ -329,11 +336,11 @@ class View1: UIViewController  {
             
             
         }else if GlobalVariables.complexionType == "Dark"  && GlobalVariables.modelBodyType == "Inverted Triangle" {
-            self.topImageView.image = UIImage(named: "fairinvertedtriangletop")
-            self.bottomImageView.image = UIImage(named: "fairinvertedtrianglebottom")
+            self.topImageView.image = UIImage(named: "darkinvertedtriangletop")
+            self.bottomImageView.image = UIImage(named: "darkinvertedtrianglebottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("fairinvertedtriangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("fairinvertedtrianglebottom", forKey: "botImage")
+            NSUserDefaults.standardUserDefaults().setObject("darkinvertedtriangletop", forKey: "topImage")
+            NSUserDefaults.standardUserDefaults().setObject("darkinvertedtrianglebottom", forKey: "botImage")
             
                 print("invertriangle")
             
@@ -577,7 +584,7 @@ extension View1 : UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
        
         
-        
+        print("GArment image type is \(GlobalVariables.globalGarmentType[indexPath.row])")
         switch GlobalVariables.globalGarmentType[indexPath.row] {
             
         case "TopWear":
@@ -616,17 +623,24 @@ extension View1 : UICollectionViewDataSource {
                 
 
             }
+            else
+            {
+                self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+                self.topImageView.bringSubviewToFront(topImageView)
+            }
      
             
         case "BottomWear" :
             
+            
     
         self.bottomImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
-       
-    
+            
+            
+            self.bottomImageView.bringSubviewToFront(bottomImageView)
             
         default:
-            print("Not founf")
+            print("Not found")
         }
         
   
@@ -641,7 +655,7 @@ extension View1 : UICollectionViewDelegateFlowLayout {
     
     func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAtIndexPath indexPath: NSIndexPath) -> CGSize {
        
-        return CGSize(width: 65, height: 65)
+        return CGSize(width: 75, height: 75)
     }
 }
 

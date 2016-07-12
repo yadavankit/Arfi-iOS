@@ -29,6 +29,16 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     @IBOutlet var mainQuestionsView: UIView!
     @IBOutlet var questionView2: UIButton!
     
+    
+    //when Back Button on Garment Questions View is Pressed
+    @IBAction func backPressed(sender: AnyObject)
+    {
+        self.mainQuestionsView.hidden = true
+        self.cameraImage.hidden = true
+        self.cameraButtonOutlet.hidden = false
+        self.perimeterOutlet.hidden = false
+        self.flashIcon.hidden = false
+    }
     @IBOutlet var label1: UILabel!
     @IBOutlet var label2: UILabel!
     
@@ -114,6 +124,14 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Increase insets of cross button Frame
+        print("yaha oe")
+        print(self.cross.layer.frame)
+        self.cross.layer.frame.size.height = 100
+        self.cross.layer.frame.size.width = 100
+        
+        
         self.mainQuestionsView.hidden = true
         self.QuestionDone.hidden = true
         
@@ -396,11 +414,21 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                  
                         dispatch_async(dispatch_get_main_queue(),{
                             
+                            
                             self.crossClicked(self)
                             self.settingUpWardrobe.hidden = true
                             self.flashIcon.hidden = false
                            
                           
+                            let bustObject = NSUserDefaults.standardUserDefaults().objectForKey("bust")
+                            
+                            if bustObject != nil {
+                                
+                                
+                                self.sendModelDetails()
+                                
+                            }
+
                             /**
                              *  Update UI Thread about the progress
                              */
@@ -420,14 +448,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                             
                             
                             
-                            let bustObject = NSUserDefaults.standardUserDefaults().objectForKey("bust")
                             
-                            if bustObject != nil {
-                                
-                                    
-                                    self.sendModelDetails()
-                        
-                            }
                             
                             
                             if GlobalVariables.finalGarmentCount == 4 {
@@ -625,7 +646,7 @@ func loadDropDown() {
             
         case "Jeans":
             self.label2.text = "Style"
-            self.label3.text = "Rise"
+            self.label3.text = "Fitting/Rise"
             
         case "Dress":
          
@@ -798,7 +819,7 @@ func loadDropDown() {
                 
             case "Skirt":
             
-                self.QuestionDone.hidden = false
+                self.question3View.hidden = false
                 
             case "Jeans":
           
@@ -872,7 +893,7 @@ func loadDropDown() {
         
         }else if GlobalVariables.globalGarmentSelected == "Jeans" {
             
-            dropDown3.dataSource = ["Skinny" , "Casual" , "Wide"]
+            dropDown3.dataSource = ["Skinny Fit/High Rise", "Skinny Fit/Low Rise" , "Casual Fit/High Rise", "Casual Fit/Low Rise" , "Wide Legged/High Rise", "Wide Legged/ Rise"]
             
         } else  if GlobalVariables.globalGarmentSelected == "Capri" {
             
@@ -888,6 +909,11 @@ func loadDropDown() {
         }else   if GlobalVariables.globalGarmentSelected == "Dress" {
             
             dropDown3.dataSource = ["Mini" , "Midi" ,"Calf" , "Full"]
+            
+        }
+        else   if GlobalVariables.globalGarmentSelected == "Skirt" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" ,"Calf" , "Maxi"]
             
         }
         
@@ -1012,21 +1038,22 @@ func loadDropDown() {
         
         
         self.mainQuestionsView.hidden = true
+        
+        
+        if GlobalVariables.finalGarmentCount == 0
+        {
+            let alert = UIAlertView(title: "Create Your Model", message: "To have your first garment uploaded swipe right to create your model :) ", delegate: self, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        
+        
+        
     }
     
     @IBAction func questionAction(sender: AnyObject) {
         
-        self.panel.timeUntilDismiss = 3
-        self.mainQuestionsView.hidden = true
-         self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "We will notify you once your garments are processed. Happy uploading :)")
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 5)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            
-
-
-            
-        })
+        self.mainQuestionsView.hidden = true
         self.sendImageToServer()
         self.label1.text = "Type of Garment"
         self.label2.text = "Size of Garment"
