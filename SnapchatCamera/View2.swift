@@ -61,7 +61,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     var facebookId = "404"
     var facebookUser = "Mark Zuckerberg"
     var numberOfGarmentsUploaded = 0
-    let clothes : NSMutableArray = ["Top", "Shorts", "Shirt", "Jeans", "TShirt", "Trousers", "Capris", "Culottes" , "Leggings" , "Cargos" ,"Palazzo" , "Stockings" , "Dungree shorts" , "Dungree Trousers" , "Skirt" , "Kurta" , "Jackets" , "Sweaters" ,"Sweatshirt" ,"Shrugs" , "Harem pants" ,"Dress"]
+    let clothes : NSMutableArray = ["Top", "Shorts", "Shirt", "Jeans", "TShirt", "Trousers", "Capris", "Culottes" , "Leggings" , "Cargos" ,"Palazzo" ,  "Skirt" , "Kurta" , "Jackets" , "Sweaters" ,"Sweatshirt" ,"Shrugs"]
 
     
     var myGarments = [ "Tshirt" , "shirt" , "Top"]
@@ -150,10 +150,11 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         }
         else
         {
-            
+         
+            warningPanel.timeUntilDismiss = 6
            perimeterOutlet.hidden = true
             warningPanel.showNotify(withStatus: .WARNING, inView: self.view, message: "Tap on the circle to know more")
-            warningPanel.timeUntilDismiss = 3
+            
             firstLaunchEver = true
             userUniqueIdentifier = UIDevice.currentDevice().identifierForVendor!.UUIDString
             print(userUniqueIdentifier)
@@ -621,7 +622,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
 func loadDropDown() {
     
       dropDown.anchorView = self.questionView
-      dropDown.dataSource = ["Shirt" , "Top" ,"TShirt", "Skirt" , "Jeans" , "Dress" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo" , "Stockings" , "Dungarees Shorts" , "Dungarees Trouser"]
+      dropDown.dataSource = ["Shirt" , "Top" ,"TShirt", "Skirt" , "Jeans" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo"]
     
     dropDown.selectionAction = { (index: Int, item: String) in
         print("Selected item: \(item) at index: \(index)")
@@ -657,10 +658,10 @@ func loadDropDown() {
             self.label2.text = "Style"
             self.label3.text = "Fitting/Rise"
             
-        case "Dress":
-         
-            self.label2.text = "Style"
-            self.label3.text = "Length"
+//        case "Dress":
+//         
+//            self.label2.text = "Style"
+//            self.label3.text = "Length"
             
             
         case "Trouser":
@@ -697,21 +698,21 @@ func loadDropDown() {
             self.label2.text = "Rise"
             self.label3.text = "Length"
             
-        case "Stockings":
-          
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
+//        case "Stockings":
+//          
+//            self.label2.text = "Rise"
+//            self.label3.text = "Length"
             
-        case "Dungarees Shorts":
-      
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
-            
-        case "Dunagrees Trouser":
-           
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
-            
+//        case "Dungarees Shorts":
+//      
+//            self.label2.text = "Rise"
+//            self.label3.text = "Length"
+//            
+//        case "Dunagrees Trouser":
+//           
+//            self.label2.text = "Rise"
+//            self.label3.text = "Length"
+//            
             
             
         default:
@@ -744,20 +745,20 @@ func loadDropDown() {
  
             
         case "Top":
-            dropDown2.dataSource = ["Peplum" , "Cami" , "Tank Top" , "Wrap" , "Kaftaan" , "Balloon Top" , "Tube Top" , "Cape Top"]
+            dropDown2.dataSource = ["Peplum" , "Cami" , "Tank Top" , "Wrap" , "Kaftaan" , "Balloon Top" , "Tube Top"]
             
 
             
         case "Skirt":
-            dropDown2.dataSource = ["A Line" , "Pencil" , "Pleated" , "Skater" , "Wrap" , "Gathered" ,"Peplum" , "Ruffled"  , "Straight" , "Origami" , "Trumpet" , "Tulip" , "Balloon" ,"Drapped" , "Dungaree"]
+            dropDown2.dataSource = ["A Line" , "Pencil" , "Pleated" , "Skater" , "Wrap" , "Gathered" ,"Peplum" , "Ruffled"  , "Straight" , "Origami" , "Trumpet" , "Tulip" , "Balloon"]
 
             
         case "Jeans":
-            dropDown2.dataSource = ["Jogger/Jeggings" , "Straight" , "Loose/Relaxed" , "Bootcut" , "Crop Jeans" , "Dungarees Jeans" ,"Harem Pants"]
+            dropDown2.dataSource = ["Jogger/Jeggings" , "Straight" , "Loose/Relaxed" , "Bootcut" , "Crop Jeans" , "Skinny Jeans" ]
             
             
-        case "Dress":
-            dropDown2.dataSource = ["Sheath Dress" , "Shift dress" , "Blouson dress" , "Bodycon dress" , "Skater dress" , "Maxi dress" ,"Shirt dress", "Peplum dress" , "A-Line dress" , "Wrap dress" , "draped dress" , "Pop over dress" ,"Pencil dress", "T-Shirt dress" , "Fit and Flare dress" , "Gown" ]
+//        case "Dress":
+//            dropDown2.dataSource = ["Sheath Dress" , "Shift dress" , "Blouson dress" , "Bodycon dress" , "Skater dress" , "Maxi dress" ,"Shirt dress", "Peplum dress" , "A-Line dress" , "Wrap dress" , "draped dress" , "Pop over dress" ,"Pencil dress", "T-Shirt dress" , "Fit and Flare dress" , "Gown" ]
  
             
         case "Trouser":
@@ -792,8 +793,8 @@ func loadDropDown() {
             
             
     
-        case "Stockings":
-            dropDown2.dataSource = ["High" , "Low" ]
+//        case "Stockings":
+//            dropDown2.dataSource = ["High" , "Low" ]
            
   
   
@@ -834,9 +835,9 @@ func loadDropDown() {
           
                 self.question3View.hidden = false
                 
-            case "Dress":
-              
-                self.question3View.hidden = false
+//            case "Dress":
+//              
+//                self.question3View.hidden = false
                 
             case "Trouser":
               
@@ -870,9 +871,9 @@ func loadDropDown() {
                 self.QuestionDone.hidden = false
                 
                 
-            case "Stockings":
-          
-                self.QuestionDone.hidden = false
+//            case "Stockings":
+//          
+//                self.QuestionDone.hidden = false
                 
                 
             default:
@@ -896,15 +897,88 @@ func loadDropDown() {
         dropDown3.anchorView = self.question3View
          dropDown3.show()
         
-        if GlobalVariables.globalGarmentSelected == "Top" {
+        if GlobalVariables.globalGarmentSelected == "Jeans" && self.label2.text == "Straight" {
             
-        dropDown3.dataSource = ["Long" , "Waist" , "Crop"]
+            
+            dropDown3.dataSource = ["Casual Fit/High Rise", "Casual Fit/Low Rise"]
+            
+        }
+        else if GlobalVariables.globalGarmentSelected == "Jeans" && self.label2.text == "Loose/Relaxed" {
+            
+            
+            dropDown3.dataSource = ["Casual Fit/High Rise", "Casual Fit/Low Rise"]
+            
+        }
+        else if GlobalVariables.globalGarmentSelected == "Jeans" && self.label2.text == "Bootcut" {
+            
+            
+            dropDown3.dataSource = ["Wide Legged/High Rise", "Wide Legged/Low Rise"]
+            
+        }
+            
+        else if GlobalVariables.globalGarmentSelected == "Jeans" && self.label2.text == "Crop Jeans" {
+            
+            
+            dropDown3.dataSource = ["Skinny Fit/High Rise", "Skinny Fit/Low Rise"]
+            
+        }
+            
+        else if GlobalVariables.globalGarmentSelected == "Jeans" && self.label2.text == "Skinny Jeans" {
+            
+            
+            dropDown3.dataSource = ["High Rise", "Low Rise"]
+            
+        }
+        else if GlobalVariables.globalGarmentSelected == "Jeans" && self.label2.text == "Jogger/Jeggings" {
+            
+            
+            self.QuestionDone.hidden = false
+            self.question3View.hidden = true
+            
+        }
+            
+        else if GlobalVariables.globalGarmentSelected == "Top" && self.label2.text == "Peplum" {
+            
+            
+            dropDown3.dataSource = ["Short Length", "Waist Length"]
+            
+        }
+        else if GlobalVariables.globalGarmentSelected == "Top" && (self.label2.text == "Cami" || self.label2.text == "Tank Top") {
+            
+            
+            dropDown3.dataSource = ["Crop Length/Slim Fit", "Crop Length/Casual Fit", "Waist Length/Slim Fit", "Waist Length/Casual Fit", "Long length/Slim Fit", "Long Length/Casual Fit"]
+            
+        }
+            
+        else if GlobalVariables.globalGarmentSelected == "Top" && self.label2.text == "Wrap" {
+            
+            
+            dropDown3.dataSource = ["Crop Length", "Waist Length", "Long Length"]
+            
+        }
+            
+        else if GlobalVariables.globalGarmentSelected == "Top" && self.label2.text == "Kaftaan" {
+            
+            
+            dropDown3.dataSource = ["Long Length", "Waist Length"]
+            
+        }
+        else if GlobalVariables.globalGarmentSelected == "Top" && self.label2.text == "Tube Top" {
+            
+            
+            dropDown3.dataSource = ["Crop Length", "Long Length"]
+            
+        }
         
-        }else if GlobalVariables.globalGarmentSelected == "Jeans" {
+        else if GlobalVariables.globalGarmentSelected == "Top" && self.label2.text != "Tube Top" && self.label2.text != "Cami" && self.label2.text != "Wrap" && self.label2.text != "Kaftaan" && self.label2.text != "Peplum"{
             
-            dropDown3.dataSource = ["Skinny Fit/High Rise", "Skinny Fit/Low Rise" , "Casual Fit/High Rise", "Casual Fit/Low Rise" , "Wide Legged/High Rise", "Wide Legged/ Rise"]
             
-        } else  if GlobalVariables.globalGarmentSelected == "Capri" {
+            self.QuestionDone.hidden = false
+            self.question3View.hidden = true
+            
+        }
+        
+        else  if GlobalVariables.globalGarmentSelected == "Capri" {
             
             dropDown3.dataSource = ["Midi" , "Calf"]
             
@@ -915,14 +989,20 @@ func loadDropDown() {
             
             dropDown3.dataSource = ["Calf Length" , "Full Length"]
             
-        }else   if GlobalVariables.globalGarmentSelected == "Dress" {
+        }
+//        else   if GlobalVariables.globalGarmentSelected == "Dress" {
+//            
+//            dropDown3.dataSource = ["Mini" , "Midi" ,"Calf" , "Full"]
+//            
+//        }
+        else   if GlobalVariables.globalGarmentSelected == "Skirt" && self.label2.text == "Balloon" {
             
-            dropDown3.dataSource = ["Mini" , "Midi" ,"Calf" , "Full"]
+            dropDown3.dataSource = ["Mini" , "Midi"]
             
         }
-        else   if GlobalVariables.globalGarmentSelected == "Skirt" {
+        else   if GlobalVariables.globalGarmentSelected == "Skirt" && self.label2.text != "Balloon" {
             
-            dropDown3.dataSource = ["Mini" , "Midi" ,"Calf" , "Maxi"]
+            dropDown3.dataSource = ["Mini" , "Midi", "Maxi", "Calf"]
             
         }
         
@@ -993,9 +1073,9 @@ func loadDropDown() {
         case "Jeans":
           GlobalVariables.mainDetail = "BottomWear"
             
-        case "Dress":
-            
-          GlobalVariables.mainDetail = "TopWear"
+//        case "Dress":
+//            
+//          GlobalVariables.mainDetail = "TopWear"
             
             
         case "Trouser":
@@ -1025,17 +1105,17 @@ func loadDropDown() {
         case "Palazzo":
             GlobalVariables.mainDetail = "BottomWear"
             
-        case "Stockings":
+//        case "Stockings":
+//            
+//         GlobalVariables.mainDetail = "BottomWear"
             
-         GlobalVariables.mainDetail = "BottomWear"
-            
-        case "Dungarees Shorts":
-            
-           GlobalVariables.mainDetail = "BottomWear"
-            
-        case "Dunagrees Trouser":
-            
-          GlobalVariables.mainDetail = "BottomWear"
+//        case "Dungarees Shorts":
+//            
+//           GlobalVariables.mainDetail = "BottomWear"
+//            
+//        case "Dunagrees Trouser":
+//            
+//          GlobalVariables.mainDetail = "BottomWear"
             
             
             

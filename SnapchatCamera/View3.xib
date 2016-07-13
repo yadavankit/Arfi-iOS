@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -66,17 +66,33 @@
                         <action selector="reload:" destination="-1" eventType="touchUpInside" id="l4s-bl-bls"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDI-5S-EIJ">
+                    <rect key="frame" x="19" y="122" width="214" height="34"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Your wardrobe">
+                            <attributes>
+                                <color key="NSColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <font key="NSFont" size="20" name="Helvetica-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
                 <constraint firstAttribute="trailing" secondItem="awN-K2-wSU" secondAttribute="trailing" id="0Hd-Ut-wjV"/>
+                <constraint firstItem="dDI-5S-EIJ" firstAttribute="top" secondItem="c3M-gm-Jn3" secondAttribute="bottom" constant="8" id="0xB-nZ-HPA"/>
                 <constraint firstItem="Mo8-64-hIV" firstAttribute="centerX" secondItem="c3M-gm-Jn3" secondAttribute="centerX" constant="49" id="4ws-ZR-CwA"/>
                 <constraint firstItem="awN-K2-wSU" firstAttribute="leading" secondItem="FiO-W5-ED1" secondAttribute="leading" id="C3D-Ck-I2O"/>
                 <constraint firstItem="Mo8-64-hIV" firstAttribute="top" secondItem="c3M-gm-Jn3" secondAttribute="bottom" constant="65" id="DZq-CX-meW"/>
                 <constraint firstItem="awN-K2-wSU" firstAttribute="top" secondItem="Mo8-64-hIV" secondAttribute="bottom" constant="-81" id="EH2-zC-8KG"/>
+                <constraint firstItem="dDI-5S-EIJ" firstAttribute="width" secondItem="c3M-gm-Jn3" secondAttribute="width" constant="-31" id="MWG-8Q-b8i"/>
                 <constraint firstItem="r4I-6v-5uf" firstAttribute="top" secondItem="Mo8-64-hIV" secondAttribute="bottom" constant="28" id="POX-LA-gLI"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="top" secondItem="FiO-W5-ED1" secondAttribute="top" constant="67" id="RLX-JD-Zfa"/>
                 <constraint firstItem="FcL-K5-4f1" firstAttribute="centerX" secondItem="c3M-gm-Jn3" secondAttribute="centerX" id="VS7-E2-y4G"/>
+                <constraint firstItem="dDI-5S-EIJ" firstAttribute="leading" secondItem="c3M-gm-Jn3" secondAttribute="leading" id="Zvc-nd-L3Z"/>
                 <constraint firstAttribute="bottom" secondItem="awN-K2-wSU" secondAttribute="bottom" id="lAb-sM-pBZ"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="top" secondItem="FcL-K5-4f1" secondAttribute="bottom" constant="14" id="o9g-SR-8aL"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="leading" secondItem="FiO-W5-ED1" secondAttribute="leading" constant="19" id="ruR-UQ-DDn"/>

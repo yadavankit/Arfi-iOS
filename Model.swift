@@ -21,4 +21,4 @@ class Model {
         self.complexion = complexion
     }
 }
-var modelObject = Model(bust:"36",waist:"24",hip:"36",height:"130",complexion:"fair")
+var modelObject = Model(bust:"36",waist:"24",hip:"36",height:"160",complexion:"Medium")

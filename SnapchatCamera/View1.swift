@@ -29,6 +29,7 @@ class View1: UIViewController  {
 
     @IBOutlet var doneOutlet: UIButton!
    
+    @IBOutlet var background: QuestionsCollectionView!
     @IBOutlet var garmentCollectionView: UICollectionView!
 
     
@@ -46,6 +47,14 @@ class View1: UIViewController  {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+        self.garmentCollectionView.hidden = true
+        let triggerTime = (Int64(NSEC_PER_SEC) * 5)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            
+            self.garmentCollectionView.hidden = false
+            
+        })
         
         
         
@@ -168,7 +177,7 @@ class View1: UIViewController  {
                 self.showTheModel()
                 self.panel.timeUntilDismiss = 3
                 
-                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Your garments will now start getting uploaded, Happy Uploading :)")
+                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Your garments will now start getting uploaded, Happy Uploading 😀")
 
                 
         }
@@ -568,7 +577,7 @@ extension View1 : UICollectionViewDataSource {
         }
   
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 5)
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
            self.garmentCollectionView.reloadData()
             
@@ -591,6 +600,26 @@ extension View1 : UICollectionViewDataSource {
        
         
         print("GArment image type is \(GlobalVariables.globalGarmentType[indexPath.row])")
+        
+        
+        
+        
+//        print("GArment image type is \(GlobalVariables.globalGarmentType[indexPath.row])")
+//        
+//        
+//        var garmentType = GlobalVariables.globalGarmentType[indexPath.row]
+//        if garmentType.rangeOfString("TopWear") != nil
+//        {
+//            garmentType = "TopWear"
+//        }
+//        else if garmentType.rangeOfString("BottomWear") != nil
+//        {
+//            garmentType = "BottomWear"
+//        }
+        
+        
+        
+        
         switch GlobalVariables.globalGarmentType[indexPath.row] {
             
         case "TopWear":
@@ -637,25 +666,30 @@ extension View1 : UICollectionViewDataSource {
             }
             else
             {
+                print("Else for topwear running")
                 self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed Topwear on model.")
                 self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
-                self.topImageView.bringSubviewToFront(topImageView)
+                self.view.bringSubviewToFront(self.topImageView)
+                
             }
      
             
         case "BottomWear" :
             
-            
+            print("This is a bottommmmmmm")
     
+            
+            
+            
         self.bottomImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+            //self.bottomImageView.bringSubviewToFront(bottomImageView)
             
-            
-            self.bottomImageView.bringSubviewToFront(bottomImageView)
-            self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Bottomwear on model.")
+                        self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Bottomwear on model.")
             
         default:
             print("Not found")
         }
+        
         
   
     }
