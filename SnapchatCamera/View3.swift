@@ -27,14 +27,18 @@ var categories = ["Top Wear" , "Bottom Wear" ]
         
         self.automaticallyAdjustsScrollViewInsets = false
         
-        let userDetails = NSUserDefaults.standardUserDefaults().objectForKey("fb_user_name")
+        let userDetails = NSUserDefaults.standardUserDefaults().objectForKey("fb_user_name") as? String ?? "User"
+//        let userDetails = NSUserDefaults.standardUserDefaults().objectForKey("fb_user_name")
         
         self.HelloUser.text = "Hello User!"
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+        let triggerTime = (Int64(NSEC_PER_SEC) * 4)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-         
-              self.HelloUser.text = "Hello \(userDetails!.componentsSeparatedByString(" ")[0])!"
+            
+                self.HelloUser.text = "Hello \(userDetails.componentsSeparatedByString(" ")[0])!"
+        
+            
+            
             if GlobalVariables.finalGarmentCount == 0 {
                 
                 

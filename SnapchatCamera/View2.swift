@@ -126,7 +126,6 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         super.viewDidLoad()
         
         //Increase insets of cross button Frame
-        print("yaha oe")
         print(self.cross.layer.frame)
         self.cross.layer.frame.size.height = 100
         self.cross.layer.frame.size.width = 100
@@ -144,6 +143,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         self.ActivityIndicator.hidden = true
         ActivityIndicator.strokeColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
   
+        
         if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
         {
             // app already launched

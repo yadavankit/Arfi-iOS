@@ -18,7 +18,7 @@
                         <constraint firstAttribute="width" constant="128" id="pVw-af-rWF"/>
                     </constraints>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Make sure your garments fits the boundary" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRb-ny-ije">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Spread the garment on a flat surface" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TRb-ny-ije">
                     <rect key="frame" x="135" y="222" width="329" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="329" id="CJe-EV-Apq"/>
@@ -27,7 +27,7 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.76330818965517244" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Have a distinct background to your garment " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swz-kN-uCo">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Have a distinct background to the garment " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="swz-kN-uCo">
                     <rect key="frame" x="127" y="275" width="344" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="344" id="fNB-rR-4Oh"/>
@@ -36,8 +36,8 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69577047413793103" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Align the camera above the garment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDW-dN-fMV">
-                    <rect key="frame" x="175" y="325" width="249" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Button up the garment if required" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gDW-dN-fMV">
+                    <rect key="frame" x="185" y="325" width="229" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="248.5" id="w1e-xr-KsZ"/>
                     </constraints>
@@ -45,8 +45,8 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69577047413793103" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Button shirts and Jackets before uploading " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENJ-ST-HvF">
-                    <rect key="frame" x="149" y="382" width="302" height="18"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Position the app camera directly above the garment" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ENJ-ST-HvF">
+                    <rect key="frame" x="123" y="382" width="354" height="18"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="302.5" id="Qtq-gG-4oK"/>
                     </constraints>
@@ -54,17 +54,20 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69577047413793103" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="How to take the perfect picture :" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdE-St-qAE">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="A good picture is worth a lot!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sdE-St-qAE">
                     <rect key="frame" x="163" y="126" width="273" height="22"/>
                     <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="18"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Do not upload footwear currently" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jaN-dO-Vht">
-                    <rect key="frame" x="148" y="424" width="303" height="18"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="302.5" id="BqB-i3-O9F"/>
-                    </constraints>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Keep the garment within the square provided" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7ua-M9-ATH">
+                    <rect key="frame" x="146" y="425" width="309" height="18"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69577047410000004" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Footwear is currently not supported" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfw-ja-d5c">
+                    <rect key="frame" x="177" y="473" width="246" height="18"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.69577047410000004" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
@@ -74,17 +77,20 @@
             <constraints>
                 <constraint firstItem="TRb-ny-ije" firstAttribute="top" secondItem="sdE-St-qAE" secondAttribute="bottom" constant="74" id="70R-RV-CPQ"/>
                 <constraint firstItem="TRb-ny-ije" firstAttribute="centerX" secondItem="sdE-St-qAE" secondAttribute="centerX" id="7bw-ch-Atp"/>
-                <constraint firstItem="jaN-dO-Vht" firstAttribute="centerX" secondItem="ENJ-ST-HvF" secondAttribute="centerX" id="A1a-c4-X1R"/>
                 <constraint firstItem="swz-kN-uCo" firstAttribute="centerX" secondItem="TRb-ny-ije" secondAttribute="centerX" id="A3X-Hq-3eF"/>
                 <constraint firstItem="nd5-9y-Fjd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="AXB-nY-utW"/>
+                <constraint firstItem="pfw-ja-d5c" firstAttribute="leading" secondItem="7ua-M9-ATH" secondAttribute="leading" constant="31" id="CZJ-cX-wvh"/>
                 <constraint firstItem="sdE-St-qAE" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="126" id="Fad-El-Fv8"/>
                 <constraint firstItem="swz-kN-uCo" firstAttribute="top" secondItem="TRb-ny-ije" secondAttribute="bottom" constant="35" id="Hzx-EN-alp"/>
-                <constraint firstItem="jaN-dO-Vht" firstAttribute="top" secondItem="ENJ-ST-HvF" secondAttribute="bottom" constant="24" id="Xv7-Ca-PaV"/>
+                <constraint firstItem="7ua-M9-ATH" firstAttribute="centerX" secondItem="pfw-ja-d5c" secondAttribute="centerX" id="KDl-Xj-JKz"/>
+                <constraint firstItem="7ua-M9-ATH" firstAttribute="centerX" secondItem="ENJ-ST-HvF" secondAttribute="centerX" id="PVX-4T-5A5"/>
+                <constraint firstItem="7ua-M9-ATH" firstAttribute="top" secondItem="ENJ-ST-HvF" secondAttribute="bottom" constant="30" id="QlU-xh-zKo"/>
                 <constraint firstItem="ENJ-ST-HvF" firstAttribute="centerX" secondItem="gDW-dN-fMV" secondAttribute="centerX" id="bjY-gY-0zU"/>
                 <constraint firstItem="sdE-St-qAE" firstAttribute="top" secondItem="nd5-9y-Fjd" secondAttribute="bottom" constant="8" id="dpT-lc-b8z"/>
                 <constraint firstItem="gDW-dN-fMV" firstAttribute="centerX" secondItem="swz-kN-uCo" secondAttribute="centerX" id="rel-gO-3oO"/>
                 <constraint firstItem="sdE-St-qAE" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="sfR-4t-nG9"/>
                 <constraint firstItem="nd5-9y-Fjd" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="tgw-zM-P5v"/>
+                <constraint firstItem="pfw-ja-d5c" firstAttribute="top" secondItem="7ua-M9-ATH" secondAttribute="bottom" constant="30" id="tj7-5F-o8Q"/>
                 <constraint firstItem="gDW-dN-fMV" firstAttribute="top" secondItem="swz-kN-uCo" secondAttribute="bottom" constant="32" id="u3o-VD-dAd"/>
                 <constraint firstItem="ENJ-ST-HvF" firstAttribute="top" secondItem="gDW-dN-fMV" secondAttribute="bottom" constant="39" id="zSn-KP-FGF"/>
             </constraints>
