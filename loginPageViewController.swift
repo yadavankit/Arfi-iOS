@@ -49,7 +49,9 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
             print("Login complete")
             print(GlobalVariables.globalUserName)
             
-            
+            let mixpanel = Mixpanel.sharedInstance()
+            let properties = ["LoginCompleted": "Done"]
+            mixpanel.track("Login Complete", properties: properties)
             returnUserData()
             
             } else {
@@ -91,12 +93,10 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 
                 let defaults = NSUserDefaults.standardUserDefaults()
                 defaults.setObject(userName, forKey: "fb_user_name")
-                
-                
-                self.mixpanel.identify(self.mixpanel.distinctId)
-                self.mixpanel.people.set(["$name": userName, "$email": email_id, "Plan": "Free", "$region" : "India"])
 
-                
+              
+              
+              
                 
                 print(GlobalVariables.globalFacebookId)
                 print(userName)
@@ -104,10 +104,93 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 //Track Login of user
                 self.mixpanel.track("\(GlobalVariables.globalUserName!) has Logged In")
                 self.getProperImages()
+                self.checkForPreviousModel()
                 
                 
             }
         })
+        
+    }
+    
+    func checkForPreviousModel(){
+        
+        
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/model_status?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    
+                    
+                    arrayCount = (json["model"].count)
+                   // NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["model"][number]["model_status"].string{
+                            
+                            
+                         GlobalVariables.modelStatus = quote
+                            number += 1
+                            print(number)
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            
+                            
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    var number2 = 0
+                    
+                    while number2 < arrayCount! {
+                        
+                        if let quote2 = json["garments"][number2]["model_url"].string {
+                            
+                            GlobalVariables.globalModelUrl.append(quote2)
+                            
+                            number2 += 1
+                        }
+                        
+                        
+                        if number2 == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now Model TrUE")
+                            
+                            
+                            
+                        }
+                        
+                        
+                        
+                    }
+                    
+                    
+                    
+                }}
+        
+
+        
         
     }
 
@@ -212,6 +295,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                     GlobalVariables.finalGarmentCount = arrayCount!
                     
                     
+                    
                     var number = 0
                     
                     
@@ -270,6 +354,8 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                     
                     
                     arrayCount = (json["garments"].count)
+                    
+                    print("Style wardrobe")
                     
                     
                     var number = 0

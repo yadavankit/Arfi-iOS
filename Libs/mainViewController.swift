@@ -36,7 +36,7 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     var needWalkthrough:Bool = true
     var walkthrough:BWWalkthroughViewController!
     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
-    
+    var isSignedUp = false
     var isLaunched : Bool = false
     
     func showQuestions(){
@@ -55,6 +55,24 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
+        
+        
+        let launchView = LaunchScreen.instanceFromNib()
+        launchView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(launchView)
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 4)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            
+            self.performSegueWithIdentifier("loginDone", sender: self)
+            
+        })
+        
+        
+        
+        
     
         var networkConnectivity = "Offline"
         
@@ -129,10 +147,13 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
         } else {
             
             print("logged in")
+                isSignedUp = true
 
           returnUserData()
+            
         
-            self.performSegueWithIdentifier("loginDone", sender: self)
+        
+           
         }
     }
     
@@ -187,7 +208,7 @@ func getNumberOfGarments () { //calculate the current number of garments on the 
                     
                 }
                 
-            }
+}
     }
     
     
@@ -358,7 +379,6 @@ func getModelWardrobeImages(){ //VIEW 1
                 
                 print(arrayCount!)
                 print("final garment is")
-            
                 
                 var number = 0
                 
@@ -369,7 +389,7 @@ func getModelWardrobeImages(){ //VIEW 1
         
                         GlobalVariables.globalTopAndBottom.append(quote)
                     
-                        
+                        print("appending now")
                         
                         number += 1
                         print(number)
@@ -548,12 +568,74 @@ func returnUserData()  { //get user id and username
             
            getProperImages()
            getGarmentInformation()
+            
+            let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+                
+                
+                
+                getProcessedImageData()
+                
+            })
+
        
             
         }
     })
    
 
+}
+
+
+
+func getProcessedImageData(){
+    
+    print("GETTING Processed INFORMATION")
+    
+    var arrayCount : Int?
+    
+    Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+        .responseJSON { response in
+            if let jsonValue = response.result.value {
+                let json = JSON(jsonValue)
+                
+                print(jsonValue)
+                print("THis is  a json")
+               
+                
+                
+                arrayCount = (json["garments"].count)
+                
+                print(json["garments"][1]["processed"].stringValue)
+                 print(arrayCount!)
+                
+                
+                var number = 0
+                
+                
+                while number  < arrayCount! {
+                   let quote = json["garments"][1]["processed"].stringValue
+                        
+                        print("printing quote")
+                        print(quote)
+                    
+                    GlobalVariables.processedImageStatus.append(quote)
+                        
+                        number += 1
+                        print("garment Processed \(number)")
+                    
+                    
+                    
+                    
+                    if number == arrayCount! {
+                        
+                        GlobalVariables.globalSafeToFetch = true
+                        
+                        print("Now TrUE")
+                    }
+                }
+            }}
+    
 }
 
 
@@ -597,8 +679,13 @@ func getGarmentInformation(){
                         print("Now TrUE")
                     }
                 }
-            }}
+                
+              
+   }}
+   
 }
+
+
 
 //extenstion
 

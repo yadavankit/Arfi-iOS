@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -91,13 +91,13 @@
                         <action selector="clicked:" destination="-1" eventType="touchUpInside" id="RCV-ZL-lFg"/>
                     </connections>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdC-QL-GTv">
-                    <rect key="frame" x="34" y="36" width="45" height="38"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vdC-QL-GTv">
+                    <rect key="frame" x="25" y="20" width="50" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="24" id="Gos-pu-Yka"/>
-                        <constraint firstAttribute="height" constant="27" id="fJa-fQ-UQc"/>
+                        <constraint firstAttribute="width" constant="50" id="Gos-pu-Yka"/>
+                        <constraint firstAttribute="height" constant="50" id="fJa-fQ-UQc"/>
                     </constraints>
-                    <state key="normal" image="letter-x"/>
+                    <state key="normal" image="cross"/>
                     <connections>
                         <action selector="crossClicked:" destination="-1" eventType="touchUpInside" id="1dX-93-a3M"/>
                     </connections>
@@ -110,7 +110,7 @@
                         <constraint firstAttribute="height" constant="101" id="yKU-2x-olL"/>
                     </constraints>
                     <inset key="contentEdgeInsets" minX="4" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" image="tick_mark"/>
+                    <state key="normal" image="tickmark"/>
                     <userDefinedRuntimeAttributes>
                         <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                             <integer key="value" value="35"/>
@@ -140,12 +140,12 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nT9-GM-Lal">
-                    <rect key="frame" x="32" y="19" width="26" height="30"/>
+                    <rect key="frame" x="25" y="20" width="50" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="26" id="kO7-WL-0RD"/>
-                        <constraint firstAttribute="height" constant="30" id="vV0-dF-z3E"/>
+                        <constraint firstAttribute="height" constant="50" id="0pW-nY-Ti4"/>
+                        <constraint firstAttribute="width" constant="50" id="fvI-rt-XJE"/>
                     </constraints>
-                    <state key="normal" image="flash-off"/>
+                    <state key="normal" image="no-flash"/>
                     <connections>
                         <action selector="flash:" destination="-1" eventType="touchUpInside" id="L8O-42-Y5i"/>
                     </connections>
@@ -256,7 +256,7 @@
                                 <constraint firstAttribute="width" constant="85" id="sPh-Ci-oOK"/>
                                 <constraint firstAttribute="height" constant="85" id="uyU-I0-RIc"/>
                             </constraints>
-                            <state key="normal" image="tick_mark">
+                            <state key="normal" image="tickmark">
                                 <color key="titleColor" red="0.98039215690000003" green="0.1333333333" blue="0.31372549020000001" alpha="0.65746228449999999" colorSpace="calibratedRGB"/>
                             </state>
                             <connections>
@@ -324,8 +324,9 @@
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             <constraints>
+                <constraint firstItem="nT9-GM-Lal" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="04O-6V-qCi"/>
                 <constraint firstAttribute="bottom" secondItem="aLM-rG-o9c" secondAttribute="bottom" id="3Vs-iJ-1OG"/>
-                <constraint firstItem="vdC-QL-GTv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="36" id="4CT-P6-J7H"/>
+                <constraint firstItem="vdC-QL-GTv" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="4CT-P6-J7H"/>
                 <constraint firstItem="GCn-fW-Lzb" firstAttribute="centerY" secondItem="3cH-yJ-FfW" secondAttribute="centerY" id="4g8-Ig-Cij"/>
                 <constraint firstAttribute="bottom" secondItem="3cH-yJ-FfW" secondAttribute="bottom" constant="25" id="7G3-q5-19h"/>
                 <constraint firstItem="GTG-Ca-xRr" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="9H2-Hy-NuG"/>
@@ -335,15 +336,14 @@
                 <constraint firstItem="BFv-jj-PTj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CAE-Ix-255"/>
                 <constraint firstItem="aLM-rG-o9c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="GTp-tb-SnJ"/>
                 <constraint firstItem="3cH-yJ-FfW" firstAttribute="top" secondItem="YCb-14-gFu" secondAttribute="bottom" constant="67" id="HA8-JP-k1z"/>
-                <constraint firstItem="nT9-GM-Lal" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="19" id="JP7-d4-TQc"/>
-                <constraint firstItem="nT9-GM-Lal" firstAttribute="trailing" secondItem="vdC-QL-GTv" secondAttribute="trailing" id="Msq-PL-vNw"/>
                 <constraint firstAttribute="trailing" secondItem="aLM-rG-o9c" secondAttribute="trailing" id="QtL-LE-Is8"/>
                 <constraint firstItem="7GL-Ef-N3g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VXE-P8-NWf"/>
                 <constraint firstItem="aLM-rG-o9c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="WV4-8L-alh"/>
                 <constraint firstItem="BFv-jj-PTj" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="XQy-OO-zFI"/>
+                <constraint firstItem="nT9-GM-Lal" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="YSi-eK-wCd"/>
                 <constraint firstItem="3cH-yJ-FfW" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="3" id="ZGZ-Mg-Egi"/>
                 <constraint firstAttribute="bottom" secondItem="BFv-jj-PTj" secondAttribute="bottom" id="Zws-y0-jPD"/>
-                <constraint firstItem="vdC-QL-GTv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="34" id="aFq-ej-fEA"/>
+                <constraint firstItem="vdC-QL-GTv" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="25" id="aFq-ej-fEA"/>
                 <constraint firstItem="xUV-cS-W4k" firstAttribute="leading" secondItem="3cH-yJ-FfW" secondAttribute="trailing" constant="-94" id="apO-jI-IVQ"/>
                 <constraint firstAttribute="bottom" secondItem="xUV-cS-W4k" secondAttribute="bottom" constant="38" id="fLd-x8-Vry"/>
                 <constraint firstAttribute="centerX" secondItem="BFv-jj-PTj" secondAttribute="centerX" id="iTy-MC-ehG"/>
@@ -363,11 +363,11 @@
     <resources>
         <image name="black-x" width="30" height="30"/>
         <image name="cameraButton" width="80" height="80"/>
+        <image name="cross" width="66" height="66"/>
         <image name="cyan_box" width="292" height="294"/>
         <image name="dress" width="41" height="50"/>
-        <image name="flash-off" width="32" height="32"/>
-        <image name="letter-x" width="32" height="32"/>
-        <image name="tick_mark" width="126" height="126"/>
+        <image name="no-flash" width="66" height="66"/>
+        <image name="tickmark" width="66" height="66"/>
         <image name="wardrobe" width="41" height="50"/>
     </resources>
 </document>

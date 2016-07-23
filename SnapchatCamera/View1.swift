@@ -48,17 +48,36 @@ class View1: UIViewController  {
         
         super.viewDidLoad()
         
-        self.garmentCollectionView.hidden = true
-        let triggerTime = (Int64(NSEC_PER_SEC) * 5)
+        self.garmentCollectionView.hidden = false
+        let triggerTime = (Int64(NSEC_PER_SEC) * 4)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
             
-            self.garmentCollectionView.hidden = false
+           // self.garmentCollectionView.hidden = false
+            print("Totla number of garments")
+            print(GlobalVariables.globalNumberOfGarments)
+          
+            if GlobalVariables.globalTopAndBottom.count > 0 {
+                
+                print("Garments are graeter than zero")
+                
+            }else if GlobalVariables.globalNumberOfGarments == "nil"{
+                
+                
+                if   ((GlobalVariables.modelStatus?.containsString("nil")) != nil){
+                    print(GlobalVariables.modelStatus)
+                    
+                    self.mainQuestionview.hidden = false
+                    
+                }else{
+                    self.mainQuestionview.hidden = true
+                    
+                }
+            }
             
         })
         
         
-        
-        
+    
         if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
         {
             // app already launched
@@ -177,6 +196,10 @@ class View1: UIViewController  {
                 self.showTheModel()
                 self.panel.timeUntilDismiss = 3
                 
+                let mixpanel = Mixpanel.sharedInstance()
+                let properties = ["LoginCompleted": "Done"]
+                mixpanel.track("Completed Model", properties: properties)
+                
                 self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Your garments will now start getting uploaded, Happy Uploading 😀")
 
                 
@@ -215,27 +238,20 @@ class View1: UIViewController  {
                             number += 1
                             print(number)
                         }
-                        
-                        
-                        
+ 
                         if number == arrayCount! {
                             
                             
                             GlobalVariables.globalSafeToFetch = true
                             
                             self.getComplexion()
-                            
-                            
+
                         }
                         
                     }
-                    
-                    
-                    
+   
                 }}
-
-        
-        
+  
     }
     
     func getComplexion(){
@@ -251,6 +267,7 @@ class View1: UIViewController  {
                     
                     arrayCount = (json["garments"].count)
                     GlobalVariables.finalGarmentCount = arrayCount!
+                    
                     
                     print(arrayCount!)
                     var number = 0
@@ -284,9 +301,7 @@ class View1: UIViewController  {
                     
                     
                 }}
-        
-        
-        
+
     }
     
     func showComplexion(){
@@ -485,7 +500,11 @@ class View1: UIViewController  {
     
     @IBAction func getModelDetails(sender: AnyObject) {
         
-        print(GlobalVariables.finalGarmentCount!)
+        
+        let mixpanel = Mixpanel.sharedInstance()
+        let properties = ["Model Started": "Done"]
+        mixpanel.track("Started Creating Model", properties: properties)
+        
         
         
         if GlobalVariables.finalGarmentCount == 0 {
@@ -507,6 +526,10 @@ class View1: UIViewController  {
         NSUserDefaults.standardUserDefaults().setObject("true", forKey: "garmentSelected")
         
         GlobalVariables.isBodyTypeSelected = true
+            
+            let mixpanel = Mixpanel.sharedInstance()
+            let properties = ["LoginCompleted": "Done"]
+            mixpanel.track("Started Creating Model", properties: properties)
         
         }
     }
@@ -568,20 +591,33 @@ extension View1 : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("modelCell", forIndexPath: indexPath) as! ModelGarmentCollectionViewCell
         
-        if  GlobalVariables.globalTopAndBottom.count > 0 {
-            
-            let URLString =  GlobalVariables.globalTopAndBottom[indexPath.row]
-            let URL = NSURL(string:URLString)!
-            cell.garmentImage.hnk_setImageFromURL(URL)
-           
-        }
-  
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+        let triggerTime = (Int64(NSEC_PER_SEC) * 6)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-           self.garmentCollectionView.reloadData()
+           
+            
+            if  GlobalVariables.globalTopAndBottom.count > 0 {
+                print(GlobalVariables.globalTopAndBottom.count)
+                print(GlobalVariables.processedImageStatus.count)
+                if GlobalVariables.processedImageStatus[0] == "true" {
+                    
+                    let URLString =  GlobalVariables.globalTopAndBottom[indexPath.row]
+                    let URL = NSURL(string:URLString)!
+                    cell.garmentImage.hnk_setImageFromURL(URL)
+                } else {
+                    
+                    
+                    cell.garmentImage.image = UIImage(named: "Placeholder")
+                }
+            }
             
         })
+        
+        
+     
+  
+        
+      
         
     
         
@@ -599,7 +635,7 @@ extension View1 : UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
        
         
-        print("GArment image type is \(GlobalVariables.globalGarmentType[indexPath.row])")
+      //  print("GArment image type is \(GlobalVariables.globalGarmentType[indexPath.row])")
         
         
         

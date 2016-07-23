@@ -34,4 +34,6 @@ struct GlobalVariables {
     static var modelBodyType : String?
     static var isBodyTypeSelected : Bool?
     static var complexionType : String?
+    static var processedImageStatus : [String] = []
+    static var modelStatus : String?
 }

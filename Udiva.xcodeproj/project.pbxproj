@@ -40,6 +40,8 @@
 		48C2F4841D26502A00CEE0DD /* CollectionViewCell2.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48C2F4821D26502A00CEE0DD /* CollectionViewCell2.xib */; };
 		48D6313E1D2154C600F4905B /* CategoryRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D6313D1D2154C600F4905B /* CategoryRow.swift */; };
 		48D631461D218FC700F4905B /* CategoryRow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D631451D218FC700F4905B /* CategoryRow.xib */; };
+		48D7A72B1D41C6380099F8E7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48D7A72A1D41C6380099F8E7 /* LaunchScreen.xib */; };
+		48D7A72D1D41C6B00099F8E7 /* LaunchScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48D7A72C1D41C6B00099F8E7 /* LaunchScreen.swift */; };
 		48DAA8C21D12C56300494180 /* nn.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48DAA8C11D12C56300494180 /* nn.xib */; };
 		48DAA8C41D12C59300494180 /* nn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DAA8C31D12C59300494180 /* nn.swift */; };
 		48E8FF4F1D19403200506005 /* UIImage+ResizeAndCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E8FF4E1D19403200506005 /* UIImage+ResizeAndCrop.swift */; };
@@ -110,6 +112,8 @@
 		48C2F4821D26502A00CEE0DD /* CollectionViewCell2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CollectionViewCell2.xib; sourceTree = "<group>"; };
 		48D6313D1D2154C600F4905B /* CategoryRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryRow.swift; sourceTree = "<group>"; };
 		48D631451D218FC700F4905B /* CategoryRow.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CategoryRow.xib; sourceTree = "<group>"; };
+		48D7A72A1D41C6380099F8E7 /* LaunchScreen.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LaunchScreen.xib; sourceTree = "<group>"; };
+		48D7A72C1D41C6B00099F8E7 /* LaunchScreen.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LaunchScreen.swift; sourceTree = "<group>"; };
 		48DAA8C11D12C56300494180 /* nn.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = nn.xib; sourceTree = "<group>"; };
 		48DAA8C31D12C59300494180 /* nn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nn.swift; sourceTree = "<group>"; };
 		48E8FF4E1D19403200506005 /* UIImage+ResizeAndCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+ResizeAndCrop.swift"; path = "../UIImage+ResizeAndCrop.swift"; sourceTree = "<group>"; };
@@ -208,6 +212,8 @@
 			isa = PBXGroup;
 			children = (
 				482FE8151D2FC59100B78B0C /* LaunchViewController.swift */,
+				48D7A72A1D41C6380099F8E7 /* LaunchScreen.xib */,
+				48D7A72C1D41C6B00099F8E7 /* LaunchScreen.swift */,
 			);
 			name = Launch;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				AC94AD591B8E40BF002D9AD2 /* Resources */,
 				A145F43224EA8314690D9645 /* [CP] Embed Pods Frameworks */,
 				AEC46F2FE345B2A5144F226B /* [CP] Copy Pods Resources */,
+				AF69DA153AAC0970306DB0EE /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -475,6 +482,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48D7A72B1D41C6380099F8E7 /* LaunchScreen.xib in Resources */,
 				482FE8071D2D3CF300B78B0C /* HeightCell.xib in Resources */,
 				AC94AD661B8E40BF002D9AD2 /* Main.storyboard in Resources */,
 				AC94AD6B1B8E40BF002D9AD2 /* LaunchScreen.xib in Resources */,
@@ -567,6 +575,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Udiva/Pods-Udiva-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		AF69DA153AAC0970306DB0EE /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Udiva/Pods-Udiva-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
 		C1F43FB5484076D545FCE4FC /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -612,6 +635,7 @@
 				48EA7D2A1D1D2195005D6B81 /* BWWalkthroughViewController.swift in Sources */,
 				48C2F47F1D264EE800CEE0DD /* TableViewCell2.swift in Sources */,
 				482FE8021D2D3CF300B78B0C /* BustCell.swift in Sources */,
+				48D7A72D1D41C6B00099F8E7 /* LaunchScreen.swift in Sources */,
 				482FE8061D2D3CF300B78B0C /* HeightCell.swift in Sources */,
 				48EC04741D16A99C00026584 /* activityIndicator.swift in Sources */,
 				AC94AD8C1B8E436D002D9AD2 /* View3.swift in Sources */,
@@ -784,7 +808,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = Udiva;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/newudiva/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -810,7 +834,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = Udiva;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/newudiva/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

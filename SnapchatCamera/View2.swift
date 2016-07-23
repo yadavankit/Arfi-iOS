@@ -336,6 +336,9 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
             
         } else {
             
+            let mixpanel = Mixpanel.sharedInstance()
+            let properties = ["wardrobeUpoloaded": "Done"]
+            mixpanel.track("started uploading", properties: properties)
             
         self.mixpanel.track("\(GlobalVariables.globalUserName!) has begun uploading a garment.")
             
@@ -451,6 +454,10 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                             
                             print("Pohocha diya bhaiya")
                             
+                            let mixpanel = Mixpanel.sharedInstance()
+                            let properties = ["LoginCompleted": "Done"]
+                            mixpanel.track("Finished uploading garment", properties: properties)
+                            
                             
                             self.mixpanel.track("\(GlobalVariables.globalUserName!) has finished uploading a garment.")
                             
@@ -516,12 +523,12 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
         }
         
         if device.torchMode == AVCaptureTorchMode.Off {
-        if let image = UIImage(named:"flash-off") {
+        if let image = UIImage(named:"no-flash") {
             sender.setImage(image, forState: .Normal)
         }
         } else if device.torchMode == AVCaptureTorchMode.On {
           
-            if let image = UIImage(named:"flash") {
+            if let image = UIImage(named:"flash-1") {
                 sender.setImage(image, forState: .Normal)
             }
             

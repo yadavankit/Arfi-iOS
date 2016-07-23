@@ -31,6 +31,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let mi = Mixpanel()
         mi.showNotificationOnActive = false
          application.statusBarHidden = true
+        
+        print(mi.distinctId)
+        print("Distinct iD printed")
 
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
@@ -41,11 +44,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         //pass the project token from mixpanel account
         let mixpanel = Mixpanel.sharedInstanceWithToken("39a4a3d35dc02d8a158effdeddbacc85")
         
-//        mixpanel.identify(mixpanel.distinctId)
-//        mixpanel.people.set(["$name": "hgfh", "$email": "gfcfg@ggh.com", "Plan": "Free", "$region" : "India"])
-        print("here is device token")
+      mixpanel.identify(mixpanel.distinctId)
+    
+           print("here is device token")
         print(deviceToken)
         mixpanel.people.addPushDeviceToken(deviceToken)
+     
+        mixpanel.people.set(["name": "your name", "$email": "email@email.com", "Plan": "Free", "$region" : "Australia"])
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
