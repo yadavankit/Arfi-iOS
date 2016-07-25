@@ -25,6 +25,7 @@ class View1: UIViewController  {
     let panel : JKNotificationPanel = JKNotificationPanel()
     @IBOutlet var garmentTop: NSLayoutConstraint!
     var test = 6
+    @IBOutlet var modelIndicator: UIActivityIndicatorView!
     
 
     @IBOutlet var doneOutlet: UIButton!
@@ -44,34 +45,66 @@ class View1: UIViewController  {
     
     let kScreenSize = UIScreen.mainScreen().bounds.size
     
+    override func viewDidAppear(animated: Bool) {
+          self.mainQuestionview.hidden = true
+    }
+    @IBAction func showprepopulated(sender: AnyObject) {
+        
+        
+        let test = Prepopulated.instanceFromNib()
+        test.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(test)
+        
+        
+        
+        
+        
+    }
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
-        self.garmentCollectionView.hidden = false
+        //modelIndicator.hidden = true
+        
+     self.mainQuestionview.hidden = true
         let triggerTime = (Int64(NSEC_PER_SEC) * 4)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
             
            // self.garmentCollectionView.hidden = false
             print("Totla number of garments")
             print(GlobalVariables.globalNumberOfGarments)
+            print(GlobalVariables.modelStatus)
           
             if GlobalVariables.globalTopAndBottom.count > 0 {
+                print("greater than zero is running")
                 
-                print("Garments are graeter than zero")
+                print(GlobalVariables.modelStatus)
+                let myModelStatus = GlobalVariables.modelStatus
                 
-            }else if GlobalVariables.globalNumberOfGarments == "nil"{
+                                if   (myModelStatus == "nil"){
+                                    
+                                    print("greater than zero and model nil is running")
+                                    print(GlobalVariables.modelStatus)
+                
+                                    self.mainQuestionview.hidden = false
+                
+                                }else{
+                                    print("greater than zero else is running")
+                                    self.mainQuestionview.hidden = true
+                                    
+                                }
+                
+
                 
                 
-                if   ((GlobalVariables.modelStatus?.containsString("nil")) != nil){
-                    print(GlobalVariables.modelStatus)
-                    
-                    self.mainQuestionview.hidden = false
-                    
-                }else{
-                    self.mainQuestionview.hidden = true
-                    
-                }
+            
+                
+            }
+            
+            else
+            {
+                self.mainQuestionview.hidden = false
             }
             
         })
@@ -211,7 +244,7 @@ class View1: UIViewController  {
     
     func showTheModel(){
         
-        
+        //http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=1069249093136307
         var arrayCount : Int?
         
         Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
@@ -505,9 +538,11 @@ class View1: UIViewController  {
         let properties = ["Model Started": "Done"]
         mixpanel.track("Started Creating Model", properties: properties)
         
+              print("This is the Count \(GlobalVariables.finalGarmentCount)")
         
-        
-        if GlobalVariables.finalGarmentCount == 0 {
+        if GlobalVariables.finalGarmentCount! == 0{
+            
+      
             
             let alert = UIAlertView(title: "Cannot create model", message: "To create model you need to upload a garment", delegate: self, cancelButtonTitle: "Ok")
             alert.show()
@@ -592,14 +627,15 @@ extension View1 : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("modelCell", forIndexPath: indexPath) as! ModelGarmentCollectionViewCell
         
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 6)
+        let triggerTime = (Int64(NSEC_PER_SEC) * 5)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
            
             
             if  GlobalVariables.globalTopAndBottom.count > 0 {
                 print(GlobalVariables.globalTopAndBottom.count)
                 print(GlobalVariables.processedImageStatus.count)
-                if GlobalVariables.processedImageStatus[0] == "true" {
+                if GlobalVariables.modelStatus == "true" {
+                    
                     
                     let URLString =  GlobalVariables.globalTopAndBottom[indexPath.row]
                     let URL = NSURL(string:URLString)!
@@ -624,13 +660,7 @@ extension View1 : UICollectionViewDataSource {
     return cell
     
     }
-    
-    func arrangeGarment(selectedTop : String){
-        
-        
-        
-    }
-    
+
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
        
@@ -653,7 +683,8 @@ extension View1 : UICollectionViewDataSource {
 //            garmentType = "BottomWear"
 //        }
         
-        
+//        modelIndicator.hidden = false
+//        modelIndicator.startAnimating()
         
         
         switch GlobalVariables.globalGarmentType[indexPath.row] {
@@ -666,6 +697,7 @@ extension View1 : UICollectionViewDataSource {
                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Long Topwear on model.")
                topImageView.superview?.bringSubviewToFront(topImageView)
                  self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+            
                 
                 print("IndexPath : \(indexPath.row) + The top is long")
                 
@@ -726,6 +758,8 @@ extension View1 : UICollectionViewDataSource {
             print("Not found")
         }
         
+//        modelIndicator.stopAnimating()
+//        modelIndicator.hidden = true
         
   
     }

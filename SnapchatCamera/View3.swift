@@ -101,6 +101,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
 
         }else if indexPath.section == 1 {
             
+         
             let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("TableViewCell2") as! TableViewCell2
               print("section : \(indexPath.section)")
             

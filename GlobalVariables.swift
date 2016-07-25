@@ -36,4 +36,5 @@ struct GlobalVariables {
     static var complexionType : String?
     static var processedImageStatus : [String] = []
     static var modelStatus : String?
+    static var globalStarterPack : [String] = []
 }

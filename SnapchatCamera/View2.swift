@@ -29,6 +29,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     @IBOutlet var mainQuestionsView: UIView!
     @IBOutlet var questionView2: UIButton!
     
+    @IBOutlet var cubeCamera: UIView!
     
     //when Back Button on Garment Questions View is Pressed
     @IBAction func backPressed(sender: AnyObject)
@@ -209,7 +210,8 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
                 previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
-                cameraView.layer.addSublayer(previewLayer!)
+               cameraView.layer.addSublayer(previewLayer!)
+              
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     
@@ -251,11 +253,13 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
                     
                     let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
                     
-                    self.cameraImage.image = image
+                    
                     self.cameraImage.hidden = false
                 
                     
                     self.finalImage = Toucan(image: image).resizeByCropping(CGSizeMake(300, 300)).image
+                    self.cameraImage.image = self.finalImage
+               
         
                 }
                 
@@ -292,10 +296,6 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     
     
     @IBAction func clicked (sender : UIButton) {  // main camera button clicked
-        
-        
-        
-       
         
         
         self.flashIcon.hidden = true

@@ -12,6 +12,7 @@
                 <outlet property="garmentCollectionView" destination="u1B-Qh-shm" id="3Pp-2n-TR3"/>
                 <outlet property="mainQuestionview" destination="xrX-Sc-ZDs" id="42A-2u-yEx"/>
                 <outlet property="modelButton" destination="DGc-wI-Z4g" id="yfV-FP-jTn"/>
+                <outlet property="modelIndicator" destination="HPN-Hq-jWK" id="qLW-rq-l7v"/>
                 <outlet property="questionCollectionViewCell" destination="qdu-Y0-8OK" id="XFn-iJ-hRQ"/>
                 <outlet property="topImageView" destination="bNh-HH-5FV" id="Joa-H3-7Oz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -49,6 +50,10 @@
                         <constraint firstAttribute="width" constant="137" id="KXZ-CP-aY6"/>
                     </constraints>
                 </imageView>
+                <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="HPN-Hq-jWK">
+                    <rect key="frame" x="281" y="282" width="37" height="37"/>
+                    <color key="color" red="1" green="0.18938105860000001" blue="0.35121165879999999" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xrX-Sc-ZDs">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <subviews>
@@ -74,16 +79,6 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <subviews>
-                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qdu-Y0-8OK" customClass="QuestionsCollectionView" customModule="Udiva" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pmc-FE-jSL">
-                                            <size key="itemSize" width="50" height="50"/>
-                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
-                                        </collectionViewFlowLayout>
-                                    </collectionView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DGc-wI-Z4g" customClass="DesignableButton" customModule="Spring">
                                         <rect key="frame" x="201" y="279" width="197" height="41"/>
                                         <color key="backgroundColor" red="0.98039215690000003" green="0.1333333333" blue="0.31372549020000001" alpha="0.65746228449999999" colorSpace="calibratedRGB"/>
@@ -122,14 +117,33 @@
                                             <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="pcb-Oo-CTe"/>
                                         </connections>
                                     </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a81-CJ-Ctu">
+                                        <rect key="frame" x="276.5" y="352" width="46" height="30"/>
+                                        <state key="normal" title="Button"/>
+                                        <connections>
+                                            <action selector="showprepopulated:" destination="-1" eventType="touchUpInside" id="cW9-1R-w6D"/>
+                                        </connections>
+                                    </button>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qdu-Y0-8OK" customClass="QuestionsCollectionView" customModule="Udiva" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pmc-FE-jSL">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                                        </collectionViewFlowLayout>
+                                    </collectionView>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="qdu-Y0-8OK" firstAttribute="leading" secondItem="mqO-rh-tdY" secondAttribute="leading" id="2ai-fC-bUC"/>
                                     <constraint firstItem="929-Ol-zhN" firstAttribute="top" secondItem="qdu-Y0-8OK" secondAttribute="bottom" constant="23" id="6Cq-Ky-riN"/>
                                     <constraint firstItem="qdu-Y0-8OK" firstAttribute="top" secondItem="mqO-rh-tdY" secondAttribute="top" id="8W6-Dz-hcw"/>
+                                    <constraint firstItem="a81-CJ-Ctu" firstAttribute="centerX" secondItem="DGc-wI-Z4g" secondAttribute="centerX" id="FJz-Gq-fFb"/>
                                     <constraint firstAttribute="bottom" secondItem="qdu-Y0-8OK" secondAttribute="bottom" constant="70" id="Y2f-1J-HRV"/>
                                     <constraint firstItem="DGc-wI-Z4g" firstAttribute="centerX" secondItem="qdu-Y0-8OK" secondAttribute="centerX" id="bPl-Pa-niP"/>
                                     <constraint firstItem="929-Ol-zhN" firstAttribute="centerX" secondItem="qdu-Y0-8OK" secondAttribute="centerX" id="mGQ-IF-2Q4"/>
+                                    <constraint firstItem="a81-CJ-Ctu" firstAttribute="top" secondItem="DGc-wI-Z4g" secondAttribute="bottom" constant="32" id="sYE-ob-XX3"/>
                                     <constraint firstAttribute="trailing" secondItem="qdu-Y0-8OK" secondAttribute="trailing" id="tSl-rv-dFQ"/>
                                     <constraint firstItem="DGc-wI-Z4g" firstAttribute="centerY" secondItem="qdu-Y0-8OK" secondAttribute="centerY" constant="34.5" id="zJM-Ju-GD0"/>
                                 </constraints>
@@ -162,7 +176,9 @@
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mhd-jt-oRv"/>
                 <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-69" id="ONd-4z-QTe"/>
                 <constraint firstAttribute="bottom" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="68" id="baA-gG-A4X"/>
+                <constraint firstItem="HPN-Hq-jWK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i7p-8x-Ouf"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kS7-au-6Tw"/>
+                <constraint firstItem="HPN-Hq-jWK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="nCc-lx-pAP"/>
                 <constraint firstAttribute="bottom" secondItem="xrX-Sc-ZDs" secondAttribute="bottom" id="oex-g7-hYl"/>
                 <constraint firstItem="qu2-Hf-bCx" firstAttribute="centerX" secondItem="u1B-Qh-shm" secondAttribute="centerX" id="pOe-75-Wbv"/>
                 <constraint firstAttribute="trailing" secondItem="Rox-JJ-N3c" secondAttribute="trailing" id="s2D-dQ-alB"/>

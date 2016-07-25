@@ -114,82 +114,64 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
     
     func checkForPreviousModel(){
         
-        
-        
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/model_status?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    
-                    
-                    arrayCount = (json["model"].count)
-                   // NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
-                    
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["model"][number]["model_status"].string{
-                            
-                            
-                         GlobalVariables.modelStatus = quote
-                            number += 1
-                            print(number)
-                        }
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            
+            var arrayCount : Int?
+            
+            Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/model_status?user_id=\(GlobalVariables.globalFacebookId!)")
+                .responseJSON { response in
+                    if let jsonValue = response.result.value {
+                        let json = JSON(jsonValue)
+                        
+                        print(jsonValue)
+                        print("JSON VALUE")
                         
                         
                         
-                        if number == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                            print("Now TrUE")
-                            
-                            
-                            
-                            
-                        }
-                        
-                    }
-                    
-                    var number2 = 0
-                    
-                    while number2 < arrayCount! {
-                        
-                        if let quote2 = json["garments"][number2]["model_url"].string {
-                            
-                            GlobalVariables.globalModelUrl.append(quote2)
-                            
-                            number2 += 1
-                        }
+                        arrayCount = (json["model"].count)
+                        // NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
                         
                         
-                        if number2 == arrayCount! {
+                        var number = 0
+                        
+                        
+                        while number  < arrayCount! {
+                            if let quote = json["model"][number]["model_status"].string{
+                                
+                                print(quote)
+                                GlobalVariables.modelStatus = quote
+                                
+                                number += 1
+                                print(number)
+                            }
                             
                             
-                            GlobalVariables.globalSafeToFetch = true
                             
-                            print("Now Model TrUE")
-                            
-                            
+                            if number == arrayCount! {
+                                
+                                
+                                GlobalVariables.globalSafeToFetch = true
+                                
+                                print("Now TrUE")
+                                
+                                
+                                
+                                
+                            }
                             
                         }
                         
                         
                         
-                    }
-                    
-                    
-                    
-                }}
+                    }}
+            
+ 
+            
+            
+        })
         
-
+       
         
         
     }
