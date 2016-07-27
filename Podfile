@@ -23,6 +23,7 @@ pod 'HanekeSwift'
 pod 'Track'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'
 pod 'ReachabilitySwift'
+pod 'SDWebImage/WebP'
 
 
 end  

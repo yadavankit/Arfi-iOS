@@ -19,6 +19,7 @@ class CollectionViewCell2: UICollectionViewCell {
     
     
     override func prepareForReuse() {
+
         garmentImage.hnk_cancelSetImage()
         garmentImage.image = nil
     }

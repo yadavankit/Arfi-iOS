@@ -49,6 +49,8 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     
     override func viewDidLoad() {
         super.viewDidLoad()
+   
+   
         
         
     }

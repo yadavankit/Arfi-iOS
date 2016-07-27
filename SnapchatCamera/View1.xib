@@ -25,6 +25,13 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Rox-JJ-N3c">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yp3-Kz-elI">
+                    <rect key="frame" x="498" y="24" width="49" height="30"/>
+                    <state key="normal" title="refresh"/>
+                    <connections>
+                        <action selector="refreshAction:" destination="-1" eventType="touchUpInside" id="O3S-E5-SxA"/>
+                    </connections>
+                </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="u1B-Qh-shm">
                     <rect key="frame" x="0.0" y="477" width="600" height="123"/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -139,7 +146,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using the details below create a model similar to you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCu-ch-uZe">
-                                        <rect key="frame" x="136.5" y="73" width="327.5" height="53.5"/>
+                                        <rect key="frame" x="136" y="73" width="327.5" height="53.5"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="53.5" id="aLR-T7-KmH"/>
                                             <constraint firstAttribute="width" constant="327.5" id="xiH-zD-XwL"/>
@@ -195,10 +202,12 @@
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="-55" id="8yI-eZ-aTP"/>
                 <constraint firstAttribute="bottom" secondItem="u1B-Qh-shm" secondAttribute="bottom" id="A6d-Yr-7Zr"/>
                 <constraint firstItem="xrX-Sc-ZDs" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="BWs-oE-gqP"/>
+                <constraint firstItem="Yp3-Kz-elI" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="24" id="Bc7-HP-9IM"/>
                 <constraint firstItem="bNh-HH-5FV" firstAttribute="centerX" secondItem="qu2-Hf-bCx" secondAttribute="centerX" id="KMq-OT-4Ih"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="qu2-Hf-bCx" secondAttribute="bottom" constant="20" id="MZv-Hu-tF3"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mhd-jt-oRv"/>
                 <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-69" id="ONd-4z-QTe"/>
+                <constraint firstAttribute="trailing" secondItem="Yp3-Kz-elI" secondAttribute="trailing" constant="53" id="RCY-4L-8bV"/>
                 <constraint firstAttribute="bottom" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="68" id="baA-gG-A4X"/>
                 <constraint firstItem="HPN-Hq-jWK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i7p-8x-Ouf"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kS7-au-6Tw"/>

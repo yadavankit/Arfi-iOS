@@ -13,30 +13,162 @@ import Haneke
 import SwiftyJSON
 import JKNotificationPanel
 import Mixpanel
+import SDWebImage
 
 
 
 
 class View1: UIViewController  {
+    
+    
+    struct Model {
+        var imageName : String
+        
+        init(imageName : String){
+            self.imageName = imageName
+    
+        }
+    }
+    
+    var model = [Model]()
+    
+    
+    
+    
+ var mitems = ["http://imgs.xkcd.com/comics/election.png",
+    "http://imgs.xkcd.com/comics/scantron.png",
+    "http://imgs.xkcd.com/comics/secretary_part_5.png",
+    "http://imgs.xkcd.com/comics/secretary_part_4.png",
+    "http://imgs.xkcd.com/comics/secretary_part_3.png",
+    "http://imgs.xkcd.com/comics/secretary_part_2.png",
+    "http://imgs.xkcd.com/comics/secretary_part_1.png",
+    "http://imgs.xkcd.com/comics/actuarial.png",
+    "http://imgs.xkcd.com/comics/scrabble.png",
+    "http://imgs.xkcd.com/comics/twitter.png",
+    "http://imgs.xkcd.com/comics/morning_routine.png",
+    "http://imgs.xkcd.com/comics/going_west.png",
+    "http://imgs.xkcd.com/comics/steal_this_comic.png",
+    "http://imgs.xkcd.com/comics/numerical_sex_positions.png",
+    "http://imgs.xkcd.com/comics/i_am_not_a_ninja.png",
+    "http://imgs.xkcd.com/comics/depth.png",
+    "http://imgs.xkcd.com/comics/flash_games.png",
+    "http://imgs.xkcd.com/comics/fiction_rule_of_thumb.png",
+    "http://imgs.xkcd.com/comics/height.png",
+    "http://imgs.xkcd.com/comics/listen_to_yourself.png",
+    "http://imgs.xkcd.com/comics/spore.png",
+    "http://imgs.xkcd.com/comics/tones.png",
+    "http://imgs.xkcd.com/comics/the_staple_madness.png",
+    "http://imgs.xkcd.com/comics/typewriter.png",
+    "http://imgs.xkcd.com/comics/one-sided.png",
+    "http://imgs.xkcd.com/comics/further_boomerang_difficulties.png",
+    "http://imgs.xkcd.com/comics/turn-on.png",
+    "http://imgs.xkcd.com/comics/still_raw.png",
+    "http://imgs.xkcd.com/comics/house_of_pancakes.png",
+    "http://imgs.xkcd.com/comics/aversion_fads.png",
+    "http://imgs.xkcd.com/comics/the_end_is_not_for_a_while.png",
+    "http://imgs.xkcd.com/comics/improvised.png",
+    "http://imgs.xkcd.com/comics/fetishes.png",
+    "http://imgs.xkcd.com/comics/x_girls_y_cups.png",
+    "http://imgs.xkcd.com/comics/moving.png",
+    "http://imgs.xkcd.com/comics/quantum_teleportation.png",
+    "http://imgs.xkcd.com/comics/rba.png",
+    "http://imgs.xkcd.com/comics/voting_machines.png",
+    "http://imgs.xkcd.com/comics/freemanic_paracusia.png",
+    "http://imgs.xkcd.com/comics/google_maps.png",
+    "http://imgs.xkcd.com/comics/paleontology.png",
+    "http://imgs.xkcd.com/comics/holy_ghost.png",
+    "http://imgs.xkcd.com/comics/regrets.png",
+    "http://imgs.xkcd.com/comics/frustration.png",
+    "http://imgs.xkcd.com/comics/cautionary.png",
+    "http://imgs.xkcd.com/comics/hats.png",
+    "http://imgs.xkcd.com/comics/rewiring.png",
+    "http://imgs.xkcd.com/comics/upcoming_hurricanes.png",
+    "http://imgs.xkcd.com/comics/mission.png",
+    "http://imgs.xkcd.com/comics/impostor.png",
+    "http://imgs.xkcd.com/comics/the_sea.png",
+    "http://imgs.xkcd.com/comics/things_fall_apart.png",
+    "http://imgs.xkcd.com/comics/good_morning.png",
+    "http://imgs.xkcd.com/comics/too_old_for_this_shit.png",
+    "http://imgs.xkcd.com/comics/in_popular_culture.png",
+    "http://imgs.xkcd.com/comics/i_am_not_good_with_boomerangs.png",
+    "http://imgs.xkcd.com/comics/macgyver_gets_lazy.png",
+    "http://imgs.xkcd.com/comics/know_your_vines.png",
+    "http://imgs.xkcd.com/comics/xkcd_loves_the_discovery_channel.png",
+    "http://imgs.xkcd.com/comics/babies.png",
+    "http://imgs.xkcd.com/comics/road_rage.png",
+    "http://imgs.xkcd.com/comics/thinking_ahead.png",
+    "http://imgs.xkcd.com/comics/internet_argument.png",
+    "http://imgs.xkcd.com/comics/suv.png",
+    "http://imgs.xkcd.com/comics/how_it_happened.png",
+    "http://imgs.xkcd.com/comics/purity.png",
+    "http://imgs.xkcd.com/comics/xkcd_goes_to_the_airport.png",
+    "http://imgs.xkcd.com/comics/journal_5.png",
+    "http://imgs.xkcd.com/comics/journal_4.png",
+    "http://imgs.xkcd.com/comics/delivery.png",
+    "http://imgs.xkcd.com/comics/every_damn_morning.png",
+    "http://imgs.xkcd.com/comics/fantasy.png",
+    "http://imgs.xkcd.com/comics/starwatching.png",
+    "http://imgs.xkcd.com/comics/bad_timing.png",
+    "http://imgs.xkcd.com/comics/geohashing.png",
+    "http://imgs.xkcd.com/comics/fortune_cookies.png",
+    "http://imgs.xkcd.com/comics/security_holes.png",
+    "http://imgs.xkcd.com/comics/finish_line.png",
+    "http://imgs.xkcd.com/comics/a_better_idea.png",
+    "http://imgs.xkcd.com/comics/making_hash_browns.png",
+    "http://imgs.xkcd.com/comics/jealousy.png",
+    "http://imgs.xkcd.com/comics/forks_and_spoons.png",
+    "http://imgs.xkcd.com/comics/stove_ownership.png",
+    "http://imgs.xkcd.com/comics/the_man_who_fell_sideways.png",
+    "http://imgs.xkcd.com/comics/zealous_autoconfig.png",
+    "http://imgs.xkcd.com/comics/restraining_order.png",
+    "http://imgs.xkcd.com/comics/mistranslations.png",
+    "http://imgs.xkcd.com/comics/new_pet.png",
+    "http://imgs.xkcd.com/comics/startled.png",
+    "http://imgs.xkcd.com/comics/techno.png",
+    "http://imgs.xkcd.com/comics/math_paper.png",
+    "http://imgs.xkcd.com/comics/electric_skateboard_double_comic.png",
+    "http://imgs.xkcd.com/comics/overqualified.png",
+    "http://imgs.xkcd.com/comics/cheap_gps.png",
+    "http://imgs.xkcd.com/comics/venting.png",
+    "http://imgs.xkcd.com/comics/journal_3.png",
+    "http://imgs.xkcd.com/comics/convincing_pickup_line.png",
+    "http://imgs.xkcd.com/comics/1000_miles_north.png",
+    "http://imgs.xkcd.com/comics/large_hadron_collider.png",
+    "http://imgs.xkcd.com/comics/important_life_lesson.png"]
+
+
+
+
+
+
+
+
+
+
     @IBOutlet var botImageView: UIImageView!
     @IBOutlet var topImageView: UIImageView!
-    
-    
+
+
     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     let panel : JKNotificationPanel = JKNotificationPanel()
     @IBOutlet var garmentTop: NSLayoutConstraint!
     var test = 6
     @IBOutlet var modelIndicator: UIActivityIndicatorView!
-    
+
 
     @IBOutlet var doneOutlet: UIButton!
-   
+
     @IBOutlet var background: QuestionsCollectionView!
     @IBOutlet var garmentCollectionView: UICollectionView!
 
+
+    @IBAction func refreshAction(sender: AnyObject) {
+
     
+    }
+
       var garments = [UIImage(named : "1Model"),UIImage(named : "2Model"),UIImage(named : "3Model"),UIImage(named : "4Model" ) , UIImage(named : "5Model" ) ]
-    
+
     var garmentsOption = [UIImage(named : "1Garment"),UIImage(named : "2Garment"),UIImage(named : "3Garment"),UIImage(named : "4Garment") , UIImage(named : "5Garment" )]
     var condition = false
    
@@ -61,7 +193,7 @@ class View1: UIViewController  {
         
         super.viewDidLoad()
         
-        self.mainQuestionview.hidden = true
+        self.mainQuestionview.hidden = false
         
         let value = NSUserDefaults.standardUserDefaults().objectForKey("freshLogin")
         let realValue = String(value)
@@ -88,13 +220,13 @@ class View1: UIViewController  {
                 print(GlobalVariables.modelStatus)
                 let myModelStatus = GlobalVariables.modelStatus
                 
-                                if   (myModelStatus == "nil"){
+            if   (myModelStatus == "nil"){
                                     
-                                    print("greater than zero and model nil is running")
-                                    print(GlobalVariables.modelStatus)
+            print("greater than zero and model nil is running")
+            print(GlobalVariables.modelStatus)
                 
-                                }else{
-                                    print("greater than zero else is running")
+                }else{
+            print("greater than zero else is running")
                                   
                                     
                                 }
@@ -228,7 +360,7 @@ class View1: UIViewController  {
        
 //        //7000/processing_panel_populate?user_id=fbid&garment_selected = string&user_name & bust
 //        
-       Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=1069249093136307&garments_selected=1,2&user_name=Aditya&bust=32&hip=32&waist=32&height=142&complexion=Dark")
+       Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=1069249093136307&garments_selected=[1,2]&user_name=Aditya&bust=32&hip=32&waist=32&height=142&complexion=Dark")
           .validate()
           .responseJSON { response in
                 print(response)
@@ -246,8 +378,172 @@ class View1: UIViewController  {
         
          NSUserDefaults.standardUserDefaults().setObject("true", forKey: "freshLogin")
        self.mainQuestionview.hidden = true
+        
+       getGarmentInformation()
 
     }
+    
+    func getGarmentInformation(){
+        
+        print("GETTING GARMENT INFORMATION")
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["garments"][number]["garment_style"].string{
+                            
+                            
+                            GlobalVariables.garmentInformation.append(quote)
+                            print(GlobalVariables.garmentInformation[number])
+                            
+                            
+                            
+                            number += 1
+                            print("garment info Added \(number)")
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                           self.getModelWardrobeImages()
+                        }
+                    }
+                    
+                    
+                }}
+    }
+    
+    func getModelWardrobeImages(){ //VIEW 1
+        
+        var arrayCount : Int?
+        
+        print("WARDROBEIMAGES RAN")
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    GlobalVariables.finalGarmentCount = arrayCount!
+                    
+                    print(arrayCount!)
+                    print("final garment is")
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["garments"][number]["wardrobe_url"].string{
+                            
+                            
+                            GlobalVariables.globalTopAndBottom.append(quote)
+                            
+                            print("appending now")
+                            
+                            number += 1
+                            print(number)
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            for i in 0..<GlobalVariables.globalTopAndBottom.count {
+                                
+                                self.model.append(Model(imageName:GlobalVariables.globalTopAndBottom[i]))
+                                
+                            }
+                            
+                            self.garmentCollectionView.reloadData()
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    
+                }}
+    
+        
+        
+    }
+
+
+    
+    func getProcessedImageData(){
+        
+        print("GETTING Processed INFORMATION")
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    print(jsonValue)
+                    print("THis is  a json")
+                    
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    
+                    print(json["garments"][1]["processed"].stringValue)
+                    print(arrayCount!)
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        let quote = json["garments"][1]["processed"].stringValue
+                        
+                        print("printing quote")
+                        print(quote)
+                        
+                        GlobalVariables.processedImageStatus.append(quote)
+                        
+                        number += 1
+                        print("garment Processed \(number)")
+                        
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                        }
+                    }
+                }}
+        
+    }
+    
+
     @IBOutlet var mainQuestionview: UIView!
     @IBOutlet var garmentCollectionViewTop: NSLayoutConstraint!
     
@@ -339,9 +635,7 @@ class View1: UIViewController  {
                         }
                         
                     }
-                    
-                    
-                    
+ 
                 }}
 
     }
@@ -583,22 +877,6 @@ class View1: UIViewController  {
 
     @IBOutlet var CollectionViewMover: UIButton!
     
-    @IBAction func getUserID(){
-    
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:8000/GarmentUpload/receive", parameters: ["user_id": "1069249093136307"])
-            .responseJSON { response in
-                print(response.request)  // original URL request
-                print(response.response) // URL response
-                print(response.data)     // server data
-                print(response.result)   // result of response serialization
-                
-                if let JSON = response.result.value {
-                    print("JSON: \(JSON)")
-                }
-        }
-}
-
-    var tesst = 6
 }
 
 
@@ -617,14 +895,25 @@ extension View1 : UICollectionViewDataSource {
         if GlobalVariables.globalTopAndBottom.count > 0 {
             
             return GlobalVariables.globalBottomWardrobe.count
+         
+            
             
         } else {
             
-            return GlobalVariables.globalBottomWardrobe.count
+        return GlobalVariables.globalBottomWardrobe.count
+       
 
         }
         
     }
+    
+    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
+        
+        // This will cancel all unfinished downloading task when the cell disappearing.
+        (cell as! ModelGarmentCollectionViewCell).garmentImage.kf_cancelDownloadTask()
+    }
+    
+
     
     func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
         
@@ -645,62 +934,46 @@ extension View1 : UICollectionViewDataSource {
                 print(GlobalVariables.globalTopAndBottom.count)
                 print(GlobalVariables.processedImageStatus.count)
                 print(GlobalVariables.modelStatus)
+                
+              
             
+                let URLString = GlobalVariables.globalTopAndBottom[indexPath.row]
+                print(URLString)
+         
+             let URL = NSURL(string: URLString)!
+               
+                cell.garmentImage.kf_showIndicatorWhenLoading = true
+          
                 
-                let URLString = GlobalVariables.globalBottomWardrobe[indexPath.row]
-                let URL = NSURL(string:URLString)!
-                cell.garmentImage.hnk_setImageFromURL(URL)
+              
                 
-            } else {
                 
-                cell.garmentImage.image = UIImage(named: "Placeholder")
-                
-            
-//                    let URLString =  GlobalVariables.globalTopAndBottom[indexPath.row]
-//                    print(URLString)
-//                    let URL = NSURL(string:URLString)!
-//                    cell.garmentImage.hnk_setImageFromURL(URL)
-                }
+                cell.garmentImage.kf_setImageWithURL(URL, placeholderImage: nil,
+                    optionsInfo: [.Transition(ImageTransition.Fade(1))],
+                    progressBlock: { receivedSize, totalSize in
+                        print("\(indexPath.row + 1): \(receivedSize)/\(totalSize)")
+                    },
+                    completionHandler: { image, error, cacheType, imageURL in
+                        print("\(indexPath.row + 1): Finished")
+                        
+                })
+            }
+          
             
             
         })
         
-        
-     
-  
-        
-      
-        
-    
+
         
     return cell
     
     }
+    
 
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
        
-        
-      //  print("GArment image type is \(GlobalVariables.globalGarmentType[indexPath.row])")
-        
-        
-        
-        
-//        print("GArment image type is \(GlobalVariables.globalGarmentType[indexPath.row])")
-//        
-//        
-//        var garmentType = GlobalVariables.globalGarmentType[indexPath.row]
-//        if garmentType.rangeOfString("TopWear") != nil
-//        {
-//            garmentType = "TopWear"
-//        }
-//        else if garmentType.rangeOfString("BottomWear") != nil
-//        {
-//            garmentType = "BottomWear"
-//        }
-        
-//        modelIndicator.hidden = false
-//        modelIndicator.startAnimating()
+   
         
         
         switch GlobalVariables.globalGarmentType[indexPath.row] {

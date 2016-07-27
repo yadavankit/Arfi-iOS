@@ -97,12 +97,14 @@ if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "Pods-Udiva/Petal.framework"
   install_framework "Pods-Udiva/PopupController.framework"
   install_framework "Pods-Udiva/ReachabilitySwift.framework"
+  install_framework "Pods-Udiva/SDWebImage.framework"
   install_framework "Pods-Udiva/Spring.framework"
   install_framework "Pods-Udiva/SwiftyJSON.framework"
   install_framework "Pods-Udiva/Toucan.framework"
   install_framework "Pods-Udiva/Track.framework"
   install_framework "Pods-Udiva/YBAlertController.framework"
   install_framework "Pods-Udiva/ZAlertView.framework"
+  install_framework "Pods-Udiva/libwebp.framework"
   install_framework "Pods-Udiva/pop.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
@@ -119,11 +121,13 @@ if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "Pods-Udiva/Petal.framework"
   install_framework "Pods-Udiva/PopupController.framework"
   install_framework "Pods-Udiva/ReachabilitySwift.framework"
+  install_framework "Pods-Udiva/SDWebImage.framework"
   install_framework "Pods-Udiva/Spring.framework"
   install_framework "Pods-Udiva/SwiftyJSON.framework"
   install_framework "Pods-Udiva/Toucan.framework"
   install_framework "Pods-Udiva/Track.framework"
   install_framework "Pods-Udiva/YBAlertController.framework"
   install_framework "Pods-Udiva/ZAlertView.framework"
+  install_framework "Pods-Udiva/libwebp.framework"
   install_framework "Pods-Udiva/pop.framework"
 fi

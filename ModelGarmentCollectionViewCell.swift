@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Haneke
 
 class ModelGarmentCollectionViewCell: UICollectionViewCell {
 
@@ -16,13 +17,17 @@ class ModelGarmentCollectionViewCell: UICollectionViewCell {
        self.layer.backgroundColor = UIColor.whiteColor().CGColor
        self.layer.cornerRadius = 4
        self.layer.masksToBounds = true
-    }
-    
-    override func prepareForReuse() {
-        garmentImage.hnk_cancelSetImage()
-        garmentImage.image = nil
-    }
 
+        garmentImage.clipsToBounds = false
+    }
   
 
+    
+    override func prepareForReuse() {
+      
+//        
+   garmentImage.image = nil
+//        garmentImage.hnk_cancelSetImage()
+//        
+    }
 }
