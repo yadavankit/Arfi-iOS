@@ -11,14 +11,30 @@
             <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Let's kickstart your wardrobe!" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Tl-y0-wxP">
+                    <rect key="frame" x="150" y="86" width="299.5" height="25"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="21"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap on garments that are similar to ones you have." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qz8-25-d0x">
+                    <rect key="frame" x="136" y="123" width="327.5" height="53.5"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="53.5" id="1Lu-Sr-ij2"/>
+                        <constraint firstAttribute="width" constant="327.5" id="M7Z-S2-LXa"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Rec-cJ-nD4">
-                    <rect key="frame" x="0.0" y="71" width="600" height="529"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="0.70975215517241375" colorSpace="calibratedRGB"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="3" minimumInteritemSpacing="0.0" id="JfC-7t-LHH" customClass="UPCarouselFlowLayout" customModule="Udiva" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="202" width="600" height="398"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="JfC-7t-LHH">
                         <size key="itemSize" width="200" height="200"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
+                        <inset key="sectionInset" minX="9" minY="5" maxX="9" maxY="5"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="sideItemScale">
                                 <real key="value" value="0.59999999999999998"/>
@@ -33,20 +49,21 @@
                         <outlet property="delegate" destination="iN0-l3-epB" id="eOD-uV-r9X"/>
                     </connections>
                 </collectionView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Garments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jm-9q-4Ry">
-                    <rect key="frame" x="214.5" y="31" width="171" height="25"/>
-                    <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="21"/>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Garments" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4jm-9q-4Ry">
+                    <rect key="frame" x="221" y="31" width="157" height="25"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DMp-8D-PAc">
-                    <rect key="frame" x="243" y="542" width="113" height="36"/>
-                    <color key="backgroundColor" red="0.98039215690000003" green="0.1333333333" blue="0.31372549020000001" alpha="0.65746228449999999" colorSpace="calibratedRGB"/>
+                    <rect key="frame" x="221" y="529" width="160" height="46"/>
+                    <color key="backgroundColor" red="0.99607843137254903" green="0.23921568627450979" blue="0.32156862745098036" alpha="1" colorSpace="calibratedRGB"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="113" id="Q1f-va-1qz"/>
-                        <constraint firstAttribute="height" constant="36" id="eGk-Vf-ptf"/>
+                        <constraint firstAttribute="width" constant="160" id="Q1f-va-1qz"/>
+                        <constraint firstAttribute="height" constant="46" id="eGk-Vf-ptf"/>
                     </constraints>
-                    <state key="normal" title="Done">
+                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                    <state key="normal" title="continue">
                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                     <userDefinedRuntimeAttributes>
@@ -62,21 +79,30 @@
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="DMp-8D-PAc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="4vZ-hu-ic0"/>
-                <constraint firstAttribute="bottom" secondItem="DMp-8D-PAc" secondAttribute="bottom" constant="22" id="7i6-FM-20G"/>
+                <constraint firstItem="6Tl-y0-wxP" firstAttribute="centerX" secondItem="4jm-9q-4Ry" secondAttribute="centerX" id="0PG-M7-xMR"/>
+                <constraint firstItem="DMp-8D-PAc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="1" id="4vZ-hu-ic0"/>
+                <constraint firstAttribute="bottom" secondItem="DMp-8D-PAc" secondAttribute="bottom" constant="25" id="7i6-FM-20G"/>
                 <constraint firstItem="Rec-cJ-nD4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8P5-U2-3Wg"/>
                 <constraint firstItem="4jm-9q-4Ry" firstAttribute="centerX" secondItem="Rec-cJ-nD4" secondAttribute="centerX" id="CFb-xu-g71"/>
-                <constraint firstItem="Rec-cJ-nD4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="71" id="Jv4-7i-5DP"/>
-                <constraint firstItem="Rec-cJ-nD4" firstAttribute="top" secondItem="4jm-9q-4Ry" secondAttribute="bottom" constant="15" id="fBF-5X-G8o"/>
+                <constraint firstItem="Rec-cJ-nD4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="202" id="Jv4-7i-5DP"/>
+                <constraint firstItem="Qz8-25-d0x" firstAttribute="top" secondItem="6Tl-y0-wxP" secondAttribute="bottom" constant="12" id="RkE-tO-fRS"/>
+                <constraint firstItem="6Tl-y0-wxP" firstAttribute="top" secondItem="4jm-9q-4Ry" secondAttribute="bottom" constant="30" id="ac1-B0-F0y"/>
+                <constraint firstItem="Rec-cJ-nD4" firstAttribute="top" secondItem="4jm-9q-4Ry" secondAttribute="bottom" constant="146" id="fBF-5X-G8o"/>
                 <constraint firstAttribute="bottom" secondItem="Rec-cJ-nD4" secondAttribute="bottom" id="mII-UW-7B5"/>
                 <constraint firstAttribute="trailing" secondItem="Rec-cJ-nD4" secondAttribute="trailing" id="tNS-Op-7Hx"/>
+                <constraint firstItem="Qz8-25-d0x" firstAttribute="centerX" secondItem="6Tl-y0-wxP" secondAttribute="centerX" id="vCr-RU-a6X"/>
             </constraints>
             <connections>
+                <outlet property="bottomConstraint" destination="7i6-FM-20G" id="jcQ-6k-0Ip"/>
                 <outlet property="collectionViewBottomPoint" destination="mII-UW-7B5" id="qDI-V5-Imp"/>
                 <outlet property="doneOutlet" destination="DMp-8D-PAc" id="SzL-qH-Qlv"/>
                 <outlet property="numberOfGarmentsLabel" destination="4jm-9q-4Ry" id="GOb-X6-zel"/>
+                <outlet property="prepopulatedBottom" destination="mII-UW-7B5" id="5Eo-gP-24C"/>
                 <outlet property="prepopulatedCollectionView" destination="Rec-cJ-nD4" id="ks7-0g-fVp"/>
+                <outlet property="prepopulatedTopSpace" destination="fBF-5X-G8o" id="SeZ-VF-DlG"/>
+                <outlet property="topTop" destination="8P5-U2-3Wg" id="F3i-zj-oau"/>
             </connections>
+            <point key="canvasLocation" x="262" y="171"/>
         </view>
     </objects>
 </document>

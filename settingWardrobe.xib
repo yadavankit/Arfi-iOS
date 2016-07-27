@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB" customClass="settingWardrobe" customModule="Udiva" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are updating your wardrobe and model " textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gud-TK-wwG">
+                    <rect key="frame" x="155.5" y="189" width="289" height="19"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="16"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Cc7-Cl-Ldw">
+                    <rect key="frame" x="282" y="305" width="37" height="37"/>
+                    <color key="color" red="1" green="0.18938105860000001" blue="0.35121165879999999" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="All good things come to those who wait :)" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NkI-EZ-C0g">
+                    <rect key="frame" x="132" y="156" width="336.5" height="20"/>
+                    <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="17"/>
+                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+            <constraints>
+                <constraint firstItem="Gud-TK-wwG" firstAttribute="top" secondItem="NkI-EZ-C0g" secondAttribute="bottom" constant="13" id="8gW-VK-zhS"/>
+                <constraint firstItem="NkI-EZ-C0g" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="BBk-iS-GqQ"/>
+                <constraint firstItem="Cc7-Cl-Ldw" firstAttribute="top" secondItem="Gud-TK-wwG" secondAttribute="bottom" constant="97" id="K8T-2Z-32n"/>
+                <constraint firstItem="NkI-EZ-C0g" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="156" id="TKv-NL-f8Q"/>
+                <constraint firstItem="Cc7-Cl-Ldw" firstAttribute="centerX" secondItem="Gud-TK-wwG" secondAttribute="centerX" id="n2M-sV-jfa"/>
+                <constraint firstItem="Gud-TK-wwG" firstAttribute="centerX" secondItem="NkI-EZ-C0g" secondAttribute="centerX" id="pJR-IS-SmY"/>
+            </constraints>
+        </view>
+    </objects>
+</document>

@@ -3,6 +3,7 @@
 
 //
 
+
 import UIKit
 import Alamofire
 import AlamofireImage
@@ -46,28 +47,33 @@ class View1: UIViewController  {
     let kScreenSize = UIScreen.mainScreen().bounds.size
     
     override func viewDidAppear(animated: Bool) {
-          self.mainQuestionview.hidden = true
+       
     }
     @IBAction func showprepopulated(sender: AnyObject) {
-        
-        
+
         let test = Prepopulated.instanceFromNib()
         test.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         self.view.addSubview(test)
-        
-        
-        
-        
-        
+
     }
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         
+        self.mainQuestionview.hidden = true
+        
+        let value = NSUserDefaults.standardUserDefaults().objectForKey("freshLogin")
+        let realValue = String(value)
+        
+//        if realValue.containsString("false"){
+//            
+//            self.mainQuestionview.hidden = true
+//        }
+        
         //modelIndicator.hidden = true
         
-     self.mainQuestionview.hidden = true
+  
         let triggerTime = (Int64(NSEC_PER_SEC) * 4)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
             
@@ -87,24 +93,16 @@ class View1: UIViewController  {
                                     print("greater than zero and model nil is running")
                                     print(GlobalVariables.modelStatus)
                 
-                                    self.mainQuestionview.hidden = false
-                
                                 }else{
                                     print("greater than zero else is running")
-                                    self.mainQuestionview.hidden = true
+                                  
                                     
                                 }
-                
-
-                
-                
-            
-                
             }
             
             else
             {
-                self.mainQuestionview.hidden = false
+     
             }
             
         })
@@ -136,17 +134,17 @@ class View1: UIViewController  {
                     
                     self.topImageView.image = UIImage(named: topImage!)
                     self.bottomImageView.image = UIImage(named: botImage!)
-                    self.mainQuestionview.hidden = true
+                  
                     
                 } else {
                     
-                    self.mainQuestionview.hidden = false
+               
                 }
             }
             else
             {
                 
-                self.mainQuestionview.hidden = false
+              
                 
             }
 
@@ -156,7 +154,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "fairtriangletop")
             self.bottomImageView.image = UIImage(named: "fairtrianglebottom")
             
-            self.mainQuestionview.hidden = false
+            
             
             
         }
@@ -165,7 +163,7 @@ class View1: UIViewController  {
         
  
         
-        self.questionCollectionViewCell.hidden = true
+    
         
         garmentCollectionView.delegate = self
         garmentCollectionView.dataSource = self
@@ -207,36 +205,47 @@ class View1: UIViewController  {
     
    
     @IBAction func doneAction(sender: AnyObject) {
-        self.mainQuestionview.hidden = true
-        let current_user_id = GlobalVariables.globalFacebookId!
-        let bust = modelObject.bust
-        let hip = modelObject.hip
-        let waist = modelObject.waist
-        let height = modelObject.height
-        let complexion = modelObject.complexion
-        NSUserDefaults.standardUserDefaults().setObject(current_user_id, forKey: "usr_id")
-        NSUserDefaults.standardUserDefaults().setObject(bust, forKey: "bust")
-        NSUserDefaults.standardUserDefaults().setObject(hip, forKey: "hip")
-        NSUserDefaults.standardUserDefaults().setObject(waist, forKey: "waist")
-        NSUserDefaults.standardUserDefaults().setObject(height, forKey: "height")
-        NSUserDefaults.standardUserDefaults().setObject(complexion, forKey: "complexion")
         
-        Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/set_model_size", parameters: ["user_id": GlobalVariables.globalFacebookId!,"bust_size": bust,"height_size": height,"complexion": complexion,"waist_size": waist, "hip_size": hip])
-            .validate()
-            .responseJSON { response in
-                print(current_user_id)
+         self.mainQuestionview.hidden = true
+//     
+    let current_user_id = GlobalVariables.globalFacebookId!
+    let bust = modelObject.bust
+    let hip = modelObject.hip
+    let waist = modelObject.waist
+    let height = modelObject.height
+    let complexion =    "Dark"         // modelObject.complexion
+    NSUserDefaults.standardUserDefaults().setObject(current_user_id, forKey: "usr_id")
+    NSUserDefaults.standardUserDefaults().setObject(bust, forKey: "bust")
+    NSUserDefaults.standardUserDefaults().setObject(hip, forKey: "hip")
+    NSUserDefaults.standardUserDefaults().setObject(waist, forKey: "waist")
+    NSUserDefaults.standardUserDefaults().setObject(height, forKey: "height")
+    NSUserDefaults.standardUserDefaults().setObject(complexion, forKey: "complexion")
+        
+ 
+      
+       
+       print("http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=\(GlobalVariables.globalFacebookId!)&garments_selected=\(GlobalVariables.globalStarterPack.description)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=32&hip=32&waist=32&height=142&complexion=Dark")
+       
+//        //7000/processing_panel_populate?user_id=fbid&garment_selected = string&user_name & bust
+//        
+       Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=1069249093136307&garments_selected=1,2&user_name=Aditya&bust=32&hip=32&waist=32&height=142&complexion=Dark")
+          .validate()
+          .responseJSON { response in
+                print(response)
+            
                 print("Model Garment in saved on Server")
-                self.showTheModel()
                 self.panel.timeUntilDismiss = 3
-                
-                let mixpanel = Mixpanel.sharedInstance()
-                let properties = ["LoginCompleted": "Done"]
-                mixpanel.track("Completed Model", properties: properties)
-                
-                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Your garments will now start getting uploaded, Happy Uploading 😀")
-
-                
+//                let mixpanel = Mixpanel.sharedInstance()
+//                let properties = ["LoginCompleted": "Done"]
+//                mixpanel.track("Completed Model", properties: properties)
+              //  self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Your garments will now start getting uploaded, Happy Uploading 😀")
+          
+// 
+//                
         }
+        
+         NSUserDefaults.standardUserDefaults().setObject("true", forKey: "freshLogin")
+       self.mainQuestionview.hidden = true
 
     }
     @IBOutlet var mainQuestionview: UIView!
@@ -252,7 +261,7 @@ class View1: UIViewController  {
                 if let jsonValue = response.result.value {
                     let json = JSON(jsonValue)
                     
-                    
+                    print(json)
                     
                     arrayCount = (json["garments"].count)
                     GlobalVariables.finalGarmentCount = arrayCount!
@@ -277,7 +286,7 @@ class View1: UIViewController  {
                             
                             GlobalVariables.globalSafeToFetch = true
                             
-                            self.getComplexion()
+                        
 
                         }
                         
@@ -554,7 +563,7 @@ class View1: UIViewController  {
         self.mixpanel.track("\(GlobalVariables.globalUserName!) has has begun creating Model.")
             
         self.modelButton.hidden = true
-        self.doneOutlet.hidden = false
+       // self.doneOutlet.hidden = false
        
         self.questionCollectionViewCell.hidden = false
        
@@ -607,11 +616,12 @@ extension View1 : UICollectionViewDataSource {
        
         if GlobalVariables.globalTopAndBottom.count > 0 {
             
-            return GlobalVariables.globalTopAndBottom.count
+            return GlobalVariables.globalBottomWardrobe.count
             
         } else {
             
-            return 1
+            return GlobalVariables.globalBottomWardrobe.count
+
         }
         
     }
@@ -634,18 +644,24 @@ extension View1 : UICollectionViewDataSource {
             if  GlobalVariables.globalTopAndBottom.count > 0 {
                 print(GlobalVariables.globalTopAndBottom.count)
                 print(GlobalVariables.processedImageStatus.count)
-                if GlobalVariables.modelStatus == "true" {
-                    
-                    
-                    let URLString =  GlobalVariables.globalTopAndBottom[indexPath.row]
-                    let URL = NSURL(string:URLString)!
-                    cell.garmentImage.hnk_setImageFromURL(URL)
-                } else {
-                    
-                    
-                    cell.garmentImage.image = UIImage(named: "Placeholder")
+                print(GlobalVariables.modelStatus)
+            
+                
+                let URLString = GlobalVariables.globalBottomWardrobe[indexPath.row]
+                let URL = NSURL(string:URLString)!
+                cell.garmentImage.hnk_setImageFromURL(URL)
+                
+            } else {
+                
+                cell.garmentImage.image = UIImage(named: "Placeholder")
+                
+            
+//                    let URLString =  GlobalVariables.globalTopAndBottom[indexPath.row]
+//                    print(URLString)
+//                    let URL = NSURL(string:URLString)!
+//                    cell.garmentImage.hnk_setImageFromURL(URL)
                 }
-            }
+            
             
         })
         
@@ -696,7 +712,9 @@ extension View1 : UICollectionViewDataSource {
                 
                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Long Topwear on model.")
                topImageView.superview?.bringSubviewToFront(topImageView)
+              
                  self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+                
             
                 
                 print("IndexPath : \(indexPath.row) + The top is long")

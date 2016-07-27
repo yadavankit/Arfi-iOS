@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udiva-logo-1536x1536" translatesAutoresizingMaskIntoConstraints="NO" id="34c-hd-OqA">
-                    <rect key="frame" x="197" y="189.5" width="207" height="221"/>
+                    <rect key="frame" x="195" y="143" width="207" height="221"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="221" id="CM3-ws-h4j"/>
                         <constraint firstAttribute="width" constant="207" id="GhL-UD-4sV"/>
@@ -22,13 +22,21 @@
                     <rect key="frame" x="282" y="405" width="37" height="37"/>
                     <color key="color" red="1" green="0.18938105863943733" blue="0.35121165877589866" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="We are setting up your wardrobe and model " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6E-zJ-rQm">
+                    <rect key="frame" x="141" y="336" width="315.5" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="32b-uj-ajX" firstAttribute="top" secondItem="34c-hd-OqA" secondAttribute="bottom" constant="-5.5" id="8aH-SW-zEr"/>
-                <constraint firstItem="32b-uj-ajX" firstAttribute="centerX" secondItem="34c-hd-OqA" secondAttribute="centerX" id="Zkp-Nb-b4G"/>
-                <constraint firstItem="34c-hd-OqA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="cuB-Tl-G7k"/>
-                <constraint firstItem="34c-hd-OqA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" id="qLF-0P-bxU"/>
+                <constraint firstItem="D6E-zJ-rQm" firstAttribute="centerX" secondItem="34c-hd-OqA" secondAttribute="centerX" id="7et-bF-qrK"/>
+                <constraint firstItem="32b-uj-ajX" firstAttribute="top" secondItem="34c-hd-OqA" secondAttribute="bottom" constant="41" id="8aH-SW-zEr"/>
+                <constraint firstItem="D6E-zJ-rQm" firstAttribute="top" secondItem="34c-hd-OqA" secondAttribute="bottom" constant="-28" id="PlE-kA-EWL"/>
+                <constraint firstItem="32b-uj-ajX" firstAttribute="centerX" secondItem="34c-hd-OqA" secondAttribute="centerX" constant="2" id="Zkp-Nb-b4G"/>
+                <constraint firstItem="34c-hd-OqA" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="-1.5" id="cuB-Tl-G7k"/>
+                <constraint firstItem="34c-hd-OqA" firstAttribute="centerY" secondItem="iN0-l3-epB" secondAttribute="centerY" constant="-46.5" id="qLF-0P-bxU"/>
             </constraints>
         </view>
     </objects>

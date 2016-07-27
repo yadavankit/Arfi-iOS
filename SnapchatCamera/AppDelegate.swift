@@ -1,10 +1,4 @@
-//
-//  AppDelegate.swift
-//  SnapchatCamera
-//
-//  Created by Jared Davidson on 8/26/15.
-//  Copyright (c) 2015 Archetapp. All rights reserved.
-//
+
 
 import UIKit
 import Mixpanel
@@ -50,7 +44,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         print(deviceToken)
         mixpanel.people.addPushDeviceToken(deviceToken)
      
-        mixpanel.people.set(["name": "your name", "$email": "email@email.com", "Plan": "Free", "$region" : "Australia"])
+        mixpanel.people.setOnce(["name": "your name", "$email": "email@email.com", "Plan": "Free", "$region" : "Australia"])
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {

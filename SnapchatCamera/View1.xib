@@ -8,7 +8,6 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View1" customModule="Udiva" customModuleProvider="target">
             <connections>
                 <outlet property="bottomImageView" destination="qu2-Hf-bCx" id="ZJE-mu-IHi"/>
-                <outlet property="doneOutlet" destination="929-Ol-zhN" id="Hny-gA-sdi"/>
                 <outlet property="garmentCollectionView" destination="u1B-Qh-shm" id="3Pp-2n-TR3"/>
                 <outlet property="mainQuestionview" destination="xrX-Sc-ZDs" id="42A-2u-yEx"/>
                 <outlet property="modelButton" destination="DGc-wI-Z4g" id="yfV-FP-jTn"/>
@@ -102,30 +101,15 @@
                                             <action selector="getModelDetails:" destination="-1" eventType="touchUpInside" id="0kB-0d-y4Y"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="929-Ol-zhN">
-                                        <rect key="frame" x="260" y="553" width="79" height="37"/>
-                                        <color key="backgroundColor" red="0.98039215690000003" green="0.1333333333" blue="0.31372549020000001" alpha="0.65746228449999999" colorSpace="calibratedRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="37" id="Ems-q6-U5R"/>
-                                            <constraint firstAttribute="width" constant="79" id="Hg5-v3-7F9"/>
-                                        </constraints>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="21"/>
-                                        <state key="normal" title="Done">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="pcb-Oo-CTe"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a81-CJ-Ctu">
-                                        <rect key="frame" x="276.5" y="352" width="46" height="30"/>
+                                        <rect key="frame" x="276" y="352" width="46" height="30"/>
                                         <state key="normal" title="Button"/>
                                         <connections>
                                             <action selector="showprepopulated:" destination="-1" eventType="touchUpInside" id="cW9-1R-w6D"/>
                                         </connections>
                                     </button>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="qdu-Y0-8OK" customClass="QuestionsCollectionView" customModule="Udiva" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="600" height="530"/>
+                                        <rect key="frame" x="0.0" y="171" width="600" height="359"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="pmc-FE-jSL">
                                             <size key="itemSize" width="50" height="50"/>
@@ -134,18 +118,58 @@
                                             <inset key="sectionInset" minX="10" minY="10" maxX="10" maxY="10"/>
                                         </collectionViewFlowLayout>
                                     </collectionView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="d2G-9e-IGI">
+                                        <rect key="frame" x="250" y="543" width="100" height="40"/>
+                                        <color key="backgroundColor" red="1" green="0.18938105860000001" blue="0.35121165879999999" alpha="1" colorSpace="calibratedRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="c1Q-v6-K1w"/>
+                                            <constraint firstAttribute="width" constant="100" id="hmv-bu-DKN"/>
+                                        </constraints>
+                                        <state key="normal" title="Done">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <integer key="value" value="4"/>
+                                            </userDefinedRuntimeAttribute>
+                                            <userDefinedRuntimeAttribute type="boolean" keyPath="layer.maskToBounds" value="YES"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="doneAction:" destination="-1" eventType="touchUpInside" id="4Ox-7X-XFR"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Using the details below create a model similar to you" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qCu-ch-uZe">
+                                        <rect key="frame" x="136.5" y="73" width="327.5" height="53.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="53.5" id="aLR-T7-KmH"/>
+                                            <constraint firstAttribute="width" constant="327.5" id="xiH-zD-XwL"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="18"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Create Your Model" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3ic-LV-EEA">
+                                        <rect key="frame" x="150" y="36" width="299.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Bold" family="Helvetica" pointSize="21"/>
+                                        <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <constraints>
                                     <constraint firstItem="qdu-Y0-8OK" firstAttribute="leading" secondItem="mqO-rh-tdY" secondAttribute="leading" id="2ai-fC-bUC"/>
-                                    <constraint firstItem="929-Ol-zhN" firstAttribute="top" secondItem="qdu-Y0-8OK" secondAttribute="bottom" constant="23" id="6Cq-Ky-riN"/>
-                                    <constraint firstItem="qdu-Y0-8OK" firstAttribute="top" secondItem="mqO-rh-tdY" secondAttribute="top" id="8W6-Dz-hcw"/>
+                                    <constraint firstItem="qdu-Y0-8OK" firstAttribute="top" secondItem="mqO-rh-tdY" secondAttribute="top" constant="171" id="8W6-Dz-hcw"/>
+                                    <constraint firstItem="3ic-LV-EEA" firstAttribute="top" secondItem="mqO-rh-tdY" secondAttribute="top" constant="36" id="ApF-Es-6sb"/>
+                                    <constraint firstAttribute="bottom" secondItem="d2G-9e-IGI" secondAttribute="bottom" constant="17" id="Dfb-3F-9kQ"/>
                                     <constraint firstItem="a81-CJ-Ctu" firstAttribute="centerX" secondItem="DGc-wI-Z4g" secondAttribute="centerX" id="FJz-Gq-fFb"/>
+                                    <constraint firstItem="d2G-9e-IGI" firstAttribute="centerX" secondItem="mqO-rh-tdY" secondAttribute="centerX" id="FzP-Ur-Stn"/>
+                                    <constraint firstItem="3ic-LV-EEA" firstAttribute="centerX" secondItem="mqO-rh-tdY" secondAttribute="centerX" id="P5A-GK-agB"/>
                                     <constraint firstAttribute="bottom" secondItem="qdu-Y0-8OK" secondAttribute="bottom" constant="70" id="Y2f-1J-HRV"/>
                                     <constraint firstItem="DGc-wI-Z4g" firstAttribute="centerX" secondItem="qdu-Y0-8OK" secondAttribute="centerX" id="bPl-Pa-niP"/>
-                                    <constraint firstItem="929-Ol-zhN" firstAttribute="centerX" secondItem="qdu-Y0-8OK" secondAttribute="centerX" id="mGQ-IF-2Q4"/>
                                     <constraint firstItem="a81-CJ-Ctu" firstAttribute="top" secondItem="DGc-wI-Z4g" secondAttribute="bottom" constant="32" id="sYE-ob-XX3"/>
                                     <constraint firstAttribute="trailing" secondItem="qdu-Y0-8OK" secondAttribute="trailing" id="tSl-rv-dFQ"/>
-                                    <constraint firstItem="DGc-wI-Z4g" firstAttribute="centerY" secondItem="qdu-Y0-8OK" secondAttribute="centerY" constant="34.5" id="zJM-Ju-GD0"/>
+                                    <constraint firstItem="qCu-ch-uZe" firstAttribute="top" secondItem="3ic-LV-EEA" secondAttribute="bottom" constant="12" id="tXk-Lu-cBh"/>
+                                    <constraint firstItem="qCu-ch-uZe" firstAttribute="centerX" secondItem="3ic-LV-EEA" secondAttribute="centerX" id="uhu-rK-ojg"/>
+                                    <constraint firstItem="DGc-wI-Z4g" firstAttribute="centerY" secondItem="qdu-Y0-8OK" secondAttribute="centerY" constant="-51" id="zJM-Ju-GD0"/>
                                 </constraints>
                             </view>
                             <blurEffect style="extraLight"/>

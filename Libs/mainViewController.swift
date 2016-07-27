@@ -55,9 +55,7 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-        
-        
-        
+       
         
         let launchView = LaunchScreen.instanceFromNib()
         launchView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
@@ -409,7 +407,6 @@ func getModelWardrobeImages(){ //VIEW 1
                     
                 }
 
-                
                 
             }}
     

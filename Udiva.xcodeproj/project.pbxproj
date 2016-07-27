@@ -46,6 +46,8 @@
 		48DAA8C41D12C59300494180 /* nn.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48DAA8C31D12C59300494180 /* nn.swift */; };
 		48E554B21D4578E4009DF761 /* UPCarouselFlowLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E554B11D4578E4009DF761 /* UPCarouselFlowLayout.swift */; };
 		48E8FF4F1D19403200506005 /* UIImage+ResizeAndCrop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E8FF4E1D19403200506005 /* UIImage+ResizeAndCrop.swift */; };
+		48E98DA01D484F53002E4266 /* settingWardrobe.xib in Resources */ = {isa = PBXBuildFile; fileRef = 48E98D9F1D484F53002E4266 /* settingWardrobe.xib */; };
+		48E98DA21D484F69002E4266 /* settingWardrobe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48E98DA11D484F69002E4266 /* settingWardrobe.swift */; };
 		48EA7D291D1D2195005D6B81 /* BWWalkthroughPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA7D271D1D2195005D6B81 /* BWWalkthroughPageViewController.swift */; };
 		48EA7D2A1D1D2195005D6B81 /* BWWalkthroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA7D281D1D2195005D6B81 /* BWWalkthroughViewController.swift */; };
 		48EA7D2D1D1D2419005D6B81 /* mainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 48EA7D2C1D1D2419005D6B81 /* mainViewController.swift */; };
@@ -123,6 +125,8 @@
 		48DAA8C31D12C59300494180 /* nn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = nn.swift; sourceTree = "<group>"; };
 		48E554B11D4578E4009DF761 /* UPCarouselFlowLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UPCarouselFlowLayout.swift; sourceTree = "<group>"; };
 		48E8FF4E1D19403200506005 /* UIImage+ResizeAndCrop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+ResizeAndCrop.swift"; path = "../UIImage+ResizeAndCrop.swift"; sourceTree = "<group>"; };
+		48E98D9F1D484F53002E4266 /* settingWardrobe.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = settingWardrobe.xib; sourceTree = "<group>"; };
+		48E98DA11D484F69002E4266 /* settingWardrobe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = settingWardrobe.swift; sourceTree = "<group>"; };
 		48EA7D271D1D2195005D6B81 /* BWWalkthroughPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWWalkthroughPageViewController.swift; sourceTree = "<group>"; };
 		48EA7D281D1D2195005D6B81 /* BWWalkthroughViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BWWalkthroughViewController.swift; sourceTree = "<group>"; };
 		48EA7D2C1D1D2419005D6B81 /* mainViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = mainViewController.swift; path = Libs/mainViewController.swift; sourceTree = "<group>"; };
@@ -310,6 +314,15 @@
 			path = UPCarouselFlowLayout;
 			sourceTree = "<group>";
 		};
+		48E98D9E1D484F37002E4266 /* setting wardrobe */ = {
+			isa = PBXGroup;
+			children = (
+				48E98D9F1D484F53002E4266 /* settingWardrobe.xib */,
+				48E98DA11D484F69002E4266 /* settingWardrobe.swift */,
+			);
+			name = "setting wardrobe";
+			sourceTree = "<group>";
+		};
 		48EA7D261D1D2195005D6B81 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +376,7 @@
 		AC94AD521B8E40BF002D9AD2 = {
 			isa = PBXGroup;
 			children = (
+				48E98D9E1D484F37002E4266 /* setting wardrobe */,
 				48E554B01D4578E4009DF761 /* UPCarouselFlowLayout */,
 				48F058A41D450C2B002CE14B /* Prepopulated */,
 				482FE8141D2FC57E00B78B0C /* Launch */,
@@ -513,6 +527,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48E98DA01D484F53002E4266 /* settingWardrobe.xib in Resources */,
 				48D7A72B1D41C6380099F8E7 /* LaunchScreen.xib in Resources */,
 				482FE8071D2D3CF300B78B0C /* HeightCell.xib in Resources */,
 				AC94AD661B8E40BF002D9AD2 /* Main.storyboard in Resources */,
@@ -660,6 +675,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				48E98DA21D484F69002E4266 /* settingWardrobe.swift in Sources */,
 				AC94AD631B8E40BF002D9AD2 /* ViewController.swift in Sources */,
 				48DAA8C41D12C59300494180 /* nn.swift in Sources */,
 				488C9A391D2A4FD40014B992 /* PremiumView.swift in Sources */,

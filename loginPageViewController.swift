@@ -47,6 +47,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
             }
             
             print("Login complete")
+            GlobalVariables.freshLogin = true
             print(GlobalVariables.globalUserName)
             
             let mixpanel = Mixpanel.sharedInstance()

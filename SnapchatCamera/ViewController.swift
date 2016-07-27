@@ -39,10 +39,25 @@ class ViewController: UIViewController {
         v3Frame.origin.x = self.view.frame.width * 2
         v3.view.frame = v3Frame
         
+       let value = NSUserDefaults.standardUserDefaults().objectForKey("freshLogin")
+        let realValue = String(value)
         
-       self.scrollView.contentOffset.x = self.view.frame.size.width
-       self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
-               
+        if GlobalVariables.freshLogin == true || realValue.containsString("true") {
+//           
+//           NSUserDefaults.standardUserDefaults().setObject("true", forKey: "freshLogin")
+//           let starterPackScreen = Prepopulated.instanceFromNib()
+//         starterPackScreen.frame = CGRectMake(0 ,0 , self.view.frame.width , self.view.frame.height)
+//           self.view.addSubview(starterPackScreen)
+        
+            //self.scrollView.contentOffset.x = self.view.frame.size.width
+            self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+          
+            
+        } else {
+        
+      self.scrollView.contentOffset.x = self.view.frame.size.width
+      self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+        }
     }
 
   

@@ -14,14 +14,11 @@ class PrePopulatedCollectionViewCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-      self.layer.cornerRadius = 75
-      self.layer.masksToBounds = true
-      self.layer.borderColor = UIColor.blackColor().CGColor
-      self.layer.borderWidth = 4
 
     }
     @IBOutlet var starterPackImage: UIImageView!
     @IBOutlet var tickmarkOutlet: UIButton!
   
+    @IBOutlet var garmentDetailLabel: UILabel!
 
 }
