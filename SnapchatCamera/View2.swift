@@ -18,7 +18,7 @@ import DropDown
 import Mixpanel
 
 
-class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
+class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDelegate, UINavigationControllerDelegate{
     @IBOutlet var TypeOfGarment: UIButton!
     let myView = PremiumView.instanceFromNib()
     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
@@ -64,6 +64,14 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     var numberOfGarmentsUploaded = 0
     let clothes : NSMutableArray = ["Top", "Shorts", "Shirt", "Jeans", "TShirt", "Trousers", "Capris", "Culottes" , "Leggings" , "Cargos" ,"Palazzo" ,  "Skirt" , "Kurta" , "Jackets" , "Sweaters" ,"Sweatshirt" ,"Shrugs"]
 
+    var instructionsImages: [UIImage] = [
+        UIImage(named: "rule1")!,
+        UIImage(named: "rule2")!,
+        UIImage(named: "rule3")!]
+    
+    
+    var frame:CGRect = CGRectMake(0,0,0,0)
+    
     
     var myGarments = [ "Tshirt" , "shirt" , "Top"]
  
@@ -121,10 +129,22 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     var previewLayer : AVCaptureVideoPreviewLayer?
     @IBOutlet var cameraView: UIView!
 
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var pageControl: UIPageControl!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //Instruction screen scrollview & page control
+        self.scrollView = UIScrollView(frame: CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height))
+        self.scrollView.backgroundColor = UIColor.whiteColor()
+        self.pageControl = UIPageControl(frame: CGRectMake(0, 300, 200, 50))
+        //Set Scrollview delegate
+        scrollView.delegate = self
+        configurePageControl()
+        self.view.addSubview(scrollView)
+        self.view.bringSubviewToFront(pageControl)
         
         //Increase insets of cross button Frame
         print(self.cross.layer.frame)
@@ -170,9 +190,77 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UINavigationCon
     }
     
     
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView){
+        //find the page number you are on
+        print("Scroll View delegate ")
+        let pageWidth:CGFloat = CGRectGetWidth(scrollView.frame)
+        let page = Int(floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
+        let labelFrame = CGRectMake(20, self.view.frame.height-120, self.view.frame.width-50, 40)
+        let myLabel = UILabel(frame:labelFrame)
+        myLabel.backgroundColor = UIColor.greenColor()
+        self.view.addSubview(myLabel)
+        if page == 1
+        {
+            self.view.addSubview(myLabel)
+        }
+        
+        if page == 2
+        {
+            
+            let buttonFrame = CGRectMake(20, self.view.frame.height-80, self.view.frame.width-50, 40)
+            let myButton = UIButton(frame: buttonFrame)
+            myButton.backgroundColor = UIColor.redColor()
+            myButton.setTitle("Got It", forState: .Normal)
+            myButton.addTarget(self, action: #selector(View2.removeView), forControlEvents: .AllTouchEvents)
+            myButton.titleLabel?.text = "Got it"
+            myButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+            myButton.backgroundColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
+            self.view.addSubview(myButton)
+            
+        }
+        
+        pageControl.currentPage = page;
+    }
+    
+    
+    //Set Page Control according to Page in ScrollView
+    func configurePageControl()
+    {
+        self.pageControl.numberOfPages = 3
+        self.pageControl.currentPageIndicatorTintColor = UIColor.greenColor()
+        self.pageControl.tintColor = UIColor.redColor()
+        self.pageControl.pageIndicatorTintColor = UIColor.blackColor()
+        self.pageControl.currentPage = 0
+        
+    }
+    
+    //Sets Page in Scroll View
+    func setPageViewInScroll()
+    {
+        for index in 0..<3
+        {
+            frame.origin.x = self.scrollView.frame.size.width * CGFloat(index)
+            frame.size = self.view.frame.size
+            self.scrollView.pagingEnabled = true
+            
+            let subView = UIView(frame: frame)
+            
+            let imageView = UIImageView(image: instructionsImages[index])
+            imageView.center = CGPointMake(self.view.frame.size.width  / 2,
+                                         self.view.frame.size.height / 2);
+            
+            subView.addSubview(imageView)
+            self.scrollView.addSubview(subView)
+        }
+        self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.height)
+    }
+
+    
+    
   
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        setPageViewInScroll()
         previewLayer?.frame = cameraView.bounds
     }
     
