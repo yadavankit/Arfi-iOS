@@ -21,123 +21,9 @@ import SDWebImage
 class View1: UIViewController  {
     
     
-    struct Model {
-        var imageName : String
-        
-        init(imageName : String){
-            self.imageName = imageName
+    var imageCache = [String : UIImage]()
+    var safe = false
     
-        }
-    }
-    
-    var model = [Model]()
-    
-    
-    
-    
- var mitems = ["http://imgs.xkcd.com/comics/election.png",
-    "http://imgs.xkcd.com/comics/scantron.png",
-    "http://imgs.xkcd.com/comics/secretary_part_5.png",
-    "http://imgs.xkcd.com/comics/secretary_part_4.png",
-    "http://imgs.xkcd.com/comics/secretary_part_3.png",
-    "http://imgs.xkcd.com/comics/secretary_part_2.png",
-    "http://imgs.xkcd.com/comics/secretary_part_1.png",
-    "http://imgs.xkcd.com/comics/actuarial.png",
-    "http://imgs.xkcd.com/comics/scrabble.png",
-    "http://imgs.xkcd.com/comics/twitter.png",
-    "http://imgs.xkcd.com/comics/morning_routine.png",
-    "http://imgs.xkcd.com/comics/going_west.png",
-    "http://imgs.xkcd.com/comics/steal_this_comic.png",
-    "http://imgs.xkcd.com/comics/numerical_sex_positions.png",
-    "http://imgs.xkcd.com/comics/i_am_not_a_ninja.png",
-    "http://imgs.xkcd.com/comics/depth.png",
-    "http://imgs.xkcd.com/comics/flash_games.png",
-    "http://imgs.xkcd.com/comics/fiction_rule_of_thumb.png",
-    "http://imgs.xkcd.com/comics/height.png",
-    "http://imgs.xkcd.com/comics/listen_to_yourself.png",
-    "http://imgs.xkcd.com/comics/spore.png",
-    "http://imgs.xkcd.com/comics/tones.png",
-    "http://imgs.xkcd.com/comics/the_staple_madness.png",
-    "http://imgs.xkcd.com/comics/typewriter.png",
-    "http://imgs.xkcd.com/comics/one-sided.png",
-    "http://imgs.xkcd.com/comics/further_boomerang_difficulties.png",
-    "http://imgs.xkcd.com/comics/turn-on.png",
-    "http://imgs.xkcd.com/comics/still_raw.png",
-    "http://imgs.xkcd.com/comics/house_of_pancakes.png",
-    "http://imgs.xkcd.com/comics/aversion_fads.png",
-    "http://imgs.xkcd.com/comics/the_end_is_not_for_a_while.png",
-    "http://imgs.xkcd.com/comics/improvised.png",
-    "http://imgs.xkcd.com/comics/fetishes.png",
-    "http://imgs.xkcd.com/comics/x_girls_y_cups.png",
-    "http://imgs.xkcd.com/comics/moving.png",
-    "http://imgs.xkcd.com/comics/quantum_teleportation.png",
-    "http://imgs.xkcd.com/comics/rba.png",
-    "http://imgs.xkcd.com/comics/voting_machines.png",
-    "http://imgs.xkcd.com/comics/freemanic_paracusia.png",
-    "http://imgs.xkcd.com/comics/google_maps.png",
-    "http://imgs.xkcd.com/comics/paleontology.png",
-    "http://imgs.xkcd.com/comics/holy_ghost.png",
-    "http://imgs.xkcd.com/comics/regrets.png",
-    "http://imgs.xkcd.com/comics/frustration.png",
-    "http://imgs.xkcd.com/comics/cautionary.png",
-    "http://imgs.xkcd.com/comics/hats.png",
-    "http://imgs.xkcd.com/comics/rewiring.png",
-    "http://imgs.xkcd.com/comics/upcoming_hurricanes.png",
-    "http://imgs.xkcd.com/comics/mission.png",
-    "http://imgs.xkcd.com/comics/impostor.png",
-    "http://imgs.xkcd.com/comics/the_sea.png",
-    "http://imgs.xkcd.com/comics/things_fall_apart.png",
-    "http://imgs.xkcd.com/comics/good_morning.png",
-    "http://imgs.xkcd.com/comics/too_old_for_this_shit.png",
-    "http://imgs.xkcd.com/comics/in_popular_culture.png",
-    "http://imgs.xkcd.com/comics/i_am_not_good_with_boomerangs.png",
-    "http://imgs.xkcd.com/comics/macgyver_gets_lazy.png",
-    "http://imgs.xkcd.com/comics/know_your_vines.png",
-    "http://imgs.xkcd.com/comics/xkcd_loves_the_discovery_channel.png",
-    "http://imgs.xkcd.com/comics/babies.png",
-    "http://imgs.xkcd.com/comics/road_rage.png",
-    "http://imgs.xkcd.com/comics/thinking_ahead.png",
-    "http://imgs.xkcd.com/comics/internet_argument.png",
-    "http://imgs.xkcd.com/comics/suv.png",
-    "http://imgs.xkcd.com/comics/how_it_happened.png",
-    "http://imgs.xkcd.com/comics/purity.png",
-    "http://imgs.xkcd.com/comics/xkcd_goes_to_the_airport.png",
-    "http://imgs.xkcd.com/comics/journal_5.png",
-    "http://imgs.xkcd.com/comics/journal_4.png",
-    "http://imgs.xkcd.com/comics/delivery.png",
-    "http://imgs.xkcd.com/comics/every_damn_morning.png",
-    "http://imgs.xkcd.com/comics/fantasy.png",
-    "http://imgs.xkcd.com/comics/starwatching.png",
-    "http://imgs.xkcd.com/comics/bad_timing.png",
-    "http://imgs.xkcd.com/comics/geohashing.png",
-    "http://imgs.xkcd.com/comics/fortune_cookies.png",
-    "http://imgs.xkcd.com/comics/security_holes.png",
-    "http://imgs.xkcd.com/comics/finish_line.png",
-    "http://imgs.xkcd.com/comics/a_better_idea.png",
-    "http://imgs.xkcd.com/comics/making_hash_browns.png",
-    "http://imgs.xkcd.com/comics/jealousy.png",
-    "http://imgs.xkcd.com/comics/forks_and_spoons.png",
-    "http://imgs.xkcd.com/comics/stove_ownership.png",
-    "http://imgs.xkcd.com/comics/the_man_who_fell_sideways.png",
-    "http://imgs.xkcd.com/comics/zealous_autoconfig.png",
-    "http://imgs.xkcd.com/comics/restraining_order.png",
-    "http://imgs.xkcd.com/comics/mistranslations.png",
-    "http://imgs.xkcd.com/comics/new_pet.png",
-    "http://imgs.xkcd.com/comics/startled.png",
-    "http://imgs.xkcd.com/comics/techno.png",
-    "http://imgs.xkcd.com/comics/math_paper.png",
-    "http://imgs.xkcd.com/comics/electric_skateboard_double_comic.png",
-    "http://imgs.xkcd.com/comics/overqualified.png",
-    "http://imgs.xkcd.com/comics/cheap_gps.png",
-    "http://imgs.xkcd.com/comics/venting.png",
-    "http://imgs.xkcd.com/comics/journal_3.png",
-    "http://imgs.xkcd.com/comics/convincing_pickup_line.png",
-    "http://imgs.xkcd.com/comics/1000_miles_north.png",
-    "http://imgs.xkcd.com/comics/large_hadron_collider.png",
-    "http://imgs.xkcd.com/comics/important_life_lesson.png"]
-
-
-
 
 
 
@@ -339,6 +225,7 @@ class View1: UIViewController  {
     @IBAction func doneAction(sender: AnyObject) {
         
          self.mainQuestionview.hidden = true
+        safe = true
 //     
     let current_user_id = GlobalVariables.globalFacebookId!
     let bust = modelObject.bust
@@ -356,11 +243,11 @@ class View1: UIViewController  {
  
       
        
-       print("http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=\(GlobalVariables.globalFacebookId!)&garments_selected=\(GlobalVariables.globalStarterPack.description)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=32&hip=32&waist=32&height=142&complexion=Dark")
+       print("http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=1069249093136307&garments_selected=\(GlobalVariables.globalStarterPack)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
        
 //        //7000/processing_panel_populate?user_id=fbid&garment_selected = string&user_name & bust
 //        
-       Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=1069249093136307&garments_selected=[1,2]&user_name=Aditya&bust=32&hip=32&waist=32&height=142&complexion=Dark")
+       Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=1069249093136307&garments_selected=\(GlobalVariables.globalStarterPack)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
           .validate()
           .responseJSON { response in
                 print(response)
@@ -380,6 +267,11 @@ class View1: UIViewController  {
        self.mainQuestionview.hidden = true
         
        getGarmentInformation()
+        
+        let set = settingWardrobe.instanceFromNib()
+        set.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+
+        self.view.addSubview(set)
 
     }
     
@@ -471,12 +363,9 @@ class View1: UIViewController  {
                             GlobalVariables.globalSafeToFetch = true
                             
                             print("Now TrUE")
-                            for i in 0..<GlobalVariables.globalTopAndBottom.count {
-                                
-                                self.model.append(Model(imageName:GlobalVariables.globalTopAndBottom[i]))
-                                
-                            }
-                            
+                        
+             
+                             self.showTheModel()
                             self.garmentCollectionView.reloadData()
                             
                             
@@ -536,7 +425,7 @@ class View1: UIViewController  {
                             
                             GlobalVariables.globalSafeToFetch = true
                             
-                            print("Now TrUE")
+                           
                         }
                     }
                 }}
@@ -581,7 +470,7 @@ class View1: UIViewController  {
                             
                             
                             GlobalVariables.globalSafeToFetch = true
-                            
+                            self.getComplexion()
                         
 
                         }
@@ -645,6 +534,7 @@ class View1: UIViewController  {
         print("complexion running")
         
         print(GlobalVariables.complexionType! + GlobalVariables.modelBodyType!)
+        print("tp")
         
         if GlobalVariables.complexionType == "Medium" && GlobalVariables.modelBodyType == "Triangle" {
             
@@ -758,11 +648,11 @@ class View1: UIViewController  {
             
         }else if GlobalVariables.complexionType == "Dark" && GlobalVariables.modelBodyType == "Rectangular" {
             
-            self.topImageView.image = UIImage(named: "fairrectangletop")
-            self.bottomImageView.image = UIImage(named: "fairrectanglebottom")
+            self.topImageView.image = UIImage(named: "darkrectangletop")
+            self.bottomImageView.image = UIImage(named: "darkrectanglebottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("fairrectangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("fairrectanglebottom", forKey: "botImage")
+            NSUserDefaults.standardUserDefaults().setObject("darkrectangletop", forKey: "topImage")
+            NSUserDefaults.standardUserDefaults().setObject("darkrectanglebottom", forKey: "botImage")
             
                 print("rect")
             
@@ -894,24 +784,20 @@ extension View1 : UICollectionViewDataSource {
        
         if GlobalVariables.globalTopAndBottom.count > 0 {
             
-            return GlobalVariables.globalBottomWardrobe.count
+            return GlobalVariables.globalTopAndBottom.count
          
             
             
         } else {
             
-        return GlobalVariables.globalBottomWardrobe.count
+        return GlobalVariables.globalTopAndBottom.count
        
 
         }
         
     }
     
-    func collectionView(collectionView: UICollectionView, didEndDisplayingCell cell: UICollectionViewCell, forItemAtIndexPath indexPath: NSIndexPath) {
-        
-        // This will cancel all unfinished downloading task when the cell disappearing.
-        (cell as! ModelGarmentCollectionViewCell).garmentImage.kf_cancelDownloadTask()
-    }
+   
     
 
     
@@ -926,45 +812,27 @@ extension View1 : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("modelCell", forIndexPath: indexPath) as! ModelGarmentCollectionViewCell
         
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 5)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-           
-            
-            if  GlobalVariables.globalTopAndBottom.count > 0 {
-                print(GlobalVariables.globalTopAndBottom.count)
-                print(GlobalVariables.processedImageStatus.count)
-                print(GlobalVariables.modelStatus)
-                
-              
-            
-                let URLString = GlobalVariables.globalTopAndBottom[indexPath.row]
-                print(URLString)
-         
-             let URL = NSURL(string: URLString)!
-               
-                cell.garmentImage.kf_showIndicatorWhenLoading = true
-          
-                
-              
-                
-                
-                cell.garmentImage.kf_setImageWithURL(URL, placeholderImage: nil,
-                    optionsInfo: [.Transition(ImageTransition.Fade(1))],
-                    progressBlock: { receivedSize, totalSize in
-                        print("\(indexPath.row + 1): \(receivedSize)/\(totalSize)")
-                    },
-                    completionHandler: { image, error, cacheType, imageURL in
-                        print("\(indexPath.row + 1): Finished")
-                        
-                })
-            }
-          
-            
-            
-        })
+        let urlString = GlobalVariables.globalTopAndBottom[indexPath.row]
+ 
         
+        if let image = imageCache[urlString]{
+            
+            cell.garmentImage.image = image
+        } else {
 
-        
+            Alamofire.request(.GET, urlString)
+                .responseImage { response in
+                    
+                    if let image = response.result.value {
+                     
+                        cell.garmentImage.image = image
+                        self.imageCache[urlString] = image
+                    }
+            }
+            
+        }
+     
+     
     return cell
     
     }
