@@ -61,6 +61,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     var mainCamera : AVCaptureDevice?
     var facebookId = "404"
     var facebookUser = "Mark Zuckerberg"
+    var instructionsShown : Bool = false
     var numberOfGarmentsUploaded = 0
     let clothes : NSMutableArray = ["Top", "Shorts", "Shirt", "Jeans", "TShirt", "Trousers", "Capris", "Culottes" , "Leggings" , "Cargos" ,"Palazzo" ,  "Skirt" , "Kurta" , "Jackets" , "Sweaters" ,"Sweatshirt" ,"Shrugs"]
 
@@ -72,6 +73,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     var frame:CGRect = CGRectMake(0,0,0,0)
     
+
     
     var myGarments = [ "Tshirt" , "shirt" , "Top"]
  
@@ -132,24 +134,42 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     
+    @IBOutlet var myLabel: UILabel!
+    var myButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         //Instruction screen scrollview & page control
-        self.scrollView = UIScrollView(frame: CGRectMake(0,0, self.view.frame.size.width, self.view.frame.size.height))
+        self.scrollView = UIScrollView(frame: CGRectMake(0,0, self.view.frame.size.width, UIScreen.mainScreen().bounds.height))
+        self.myLabel = UILabel(frame: CGRectMake(0,self.scrollView.frame.height - 150, UIScreen.mainScreen().bounds.width, 50))
+        self.myLabel.text = "Make sure lighting is as bright as Sun"
+        self.myLabel.textAlignment = NSTextAlignment.Center
+//        self.view.addSubview(myLabel)
         self.scrollView.backgroundColor = UIColor.whiteColor()
-        self.pageControl = UIPageControl(frame: CGRectMake(0, 300, 200, 50))
+        self.pageControl = UIPageControl(frame: CGRectMake((UIScreen.mainScreen().bounds.width / 2) - 25, UIScreen.mainScreen().bounds.height - 100, 50, 50))
         //Set Scrollview delegate
         scrollView.delegate = self
         configurePageControl()
-        self.view.addSubview(scrollView)
-        self.view.bringSubviewToFront(pageControl)
+        
+//        self.view.addSubview(scrollView)
+//        self.pageControl = UIPageControl(frame: CGRectMake(0,self.scrollView.frame.height - 200, UIScreen.mainScreen().bounds.width, 50))
+//        self.view.addSubview(pageControl)
+        
+//        self.view.bringSubviewToFront(myLabel)
+//        self.view.bringSubviewToFront(pageControl)
         
         //Increase insets of cross button Frame
         print(self.cross.layer.frame)
         self.cross.layer.frame.size.height = 100
         self.cross.layer.frame.size.width = 100
+        
+        
+        print("Global number og garmnets")
+        print(GlobalVariables.globalTopAndBottom.count)
+        
+        
+        
         
         
         self.mainQuestionsView.hidden = true
@@ -167,16 +187,20 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
         {
+            print("App is already launchedd")
+            self.firstLaunchEver = false
             // app already launched
+            
         }
         else
         {
-         
+            print("App is launching for first tym")
+         self.firstLaunchEver = true
             warningPanel.timeUntilDismiss = 6
            perimeterOutlet.hidden = true
             warningPanel.showNotify(withStatus: .WARNING, inView: self.view, message: "Tap on the circle to know more")
             
-            firstLaunchEver = true
+            
             userUniqueIdentifier = UIDevice.currentDevice().identifierForVendor!.UUIDString
             print(userUniqueIdentifier)
             
@@ -195,23 +219,24 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         print("Scroll View delegate ")
         let pageWidth:CGFloat = CGRectGetWidth(scrollView.frame)
         let page = Int(floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
-        let labelFrame = CGRectMake(20, self.view.frame.height-120, self.view.frame.width-50, 40)
-        let myLabel = UILabel(frame:labelFrame)
-        myLabel.backgroundColor = UIColor.greenColor()
-        self.view.addSubview(myLabel)
+        
+        if page == 0
+        {
+            self.myLabel.text = "Make sure lighting is as bright as Sun"
+        }
         if page == 1
         {
-            self.view.addSubview(myLabel)
+            self.myLabel.text = "The more distinct the background, the better"
         }
         
         if page == 2
         {
+            self.myLabel.text = "Place your garment perfectly in the marked area"
             
-            let buttonFrame = CGRectMake(20, self.view.frame.height-80, self.view.frame.width-50, 40)
-            let myButton = UIButton(frame: buttonFrame)
+            self.myButton = UIButton(frame: CGRectMake(0, self.view.frame.height-50, UIScreen.mainScreen().bounds.width, UIScreen.mainScreen().bounds.height - (self.view.frame.height - 50)))
             myButton.backgroundColor = UIColor.redColor()
             myButton.setTitle("Got It", forState: .Normal)
-            myButton.addTarget(self, action: #selector(View2.removeView), forControlEvents: .AllTouchEvents)
+            myButton.addTarget(self, action: #selector(View2.removeScrollView), forControlEvents: .AllTouchEvents)
             myButton.titleLabel?.text = "Got it"
             myButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
             myButton.backgroundColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
@@ -222,6 +247,23 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         pageControl.currentPage = page;
     }
     
+    
+    //Removes ScrollView on touching Got It Button
+    func removeScrollView()
+    {
+        
+        self.scrollView.hidden = true
+        self.scrollView.removeFromSuperview()
+        self.pageControl.hidden = true
+        self.myLabel.hidden = true
+        self.myButton.hidden = true
+        self.view.addSubview(cameraView)
+        self.view.addSubview(flashIcon)
+        self.view.addSubview(cameraButtonOutlet)
+        self.view.addSubview(mainQuestionsView)
+        self.view.addSubview(tickmarkOutlet)
+        self.view.addSubview(perimeterOutlet)
+    }
     
     //Set Page Control according to Page in ScrollView
     func configurePageControl()
@@ -325,8 +367,35 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     
     
+    func displayInstructions()
+    {
+        
+        print("displaying instructions")
+        self.view.addSubview(myLabel)
+        self.view.addSubview(scrollView)
+        self.view.addSubview(pageControl)
+//        self.view.bringSubviewToFront(scrollView)
+        
+        self.view.bringSubviewToFront(myLabel)
+        self.view.bringSubviewToFront(pageControl)
+    }
+    
     func didPressTakePhoto(){  //image capture mechanism
 
+        print("photo li gyi hai")
+        
+        
+//        if GlobalVariables.globalTopAndBottom.count == 0
+//        {
+//            displayInstructions()
+//            
+//            
+//        }
+        
+
+        
+        
+        
         if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo){
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
             stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {
@@ -380,7 +449,29 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
     }
     
-    
+    //
+    func getNumberOfGarmentsForUser()
+    {
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+            .validate()
+            .responseString { response in
+                print("Prepopulation k baad garment count")
+                print("Success: \(response.result.isSuccess)")
+                print("Response String: \(response.result.value)")
+                
+                
+                if let numberOfGarments = response.result.value
+                {
+                    GlobalVariables.finalGarmentCount = Int(numberOfGarments)
+                }
+                
+        }
+        
+        
+        
+    }
+
     
     
     @IBAction func clicked (sender : UIButton) {  // main camera button clicked
@@ -389,24 +480,33 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.flashIcon.hidden = true
      
        
-        if firstLaunchEver == true
+        print("ab number of garmnets")
+        print(GlobalVariables.globalTopAndBottom.count)
+        
+        if (GlobalVariables.finalGarmentCount == 0 && instructionsShown == false)
         {
             perimeterOutlet.hidden = true
             
+             displayInstructions()
+            instructionsShown = true
+            getNumberOfGarmentsForUser()
             
-            let test = nn.instanceFromNib()
-            test.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-            permanentView = test
-            let buttonFrame = CGRectMake(20, self.view.frame.height-60, self.view.frame.width-50, 40)
-            let myButton = UIButton(frame: buttonFrame)
-            myButton.backgroundColor = UIColor.redColor()
-            myButton.setTitle("Got It", forState: .Normal)
-            myButton.addTarget(self, action: #selector(View2.removeView), forControlEvents: .AllTouchEvents)
-            myButton.titleLabel?.text = "Got it"
-            myButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-            myButton.backgroundColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
-            test.addSubview(myButton)
-            self.view.addSubview(test)
+            
+            
+//            let test = nn.instanceFromNib()
+//            test.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+//            permanentView = test
+//            let buttonFrame = CGRectMake(20, self.view.frame.height-60, self.view.frame.width-50, 40)
+//            let myButton = UIButton(frame: buttonFrame)
+//            myButton.backgroundColor = UIColor.redColor()
+//            myButton.setTitle("Got It", forState: .Normal)
+//            myButton.addTarget(self, action: #selector(View2.removeView), forControlEvents: .AllTouchEvents)
+//            myButton.titleLabel?.text = "Got it"
+//            myButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
+//            myButton.backgroundColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
+//            test.addSubview(myButton)
+//            self.view.addSubview(test)
+        
             
            
             
@@ -1226,13 +1326,13 @@ func loadDropDown() {
         
         if GlobalVariables.finalGarmentCount == 0
         {
-            let alert = UIAlertView(title: "Create Your Model", message: "To have your first garment uploaded swipe right to create your model 😊", delegate: self, cancelButtonTitle: "OK")
-            alert.show()
+//            let alert = UIAlertView(title: "Create Your Model", message: "To have your first garment uploaded swipe right to create your model 😊", delegate: self, cancelButtonTitle: "OK")
+//            alert.show()
         }
         else
         {
             self.panel.timeUntilDismiss = 3
-            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Garment queued for     processing. We will notify you, once done. Happy Uploading 🤗")
+            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Garment queued for processing. We will notify you, once done. Happy Uploading 🤗")
         }
         
         

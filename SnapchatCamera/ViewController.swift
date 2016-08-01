@@ -44,7 +44,8 @@ class ViewController: UIViewController {
         
         if GlobalVariables.freshLogin == true || realValue.containsString("true") {
            
-           NSUserDefaults.standardUserDefaults().setObject("true", forKey: "freshLogin")
+           NSUserDefaults.standardUserDefaults().setObject("false", forKey: "freshLogin")
+            GlobalVariables.freshLogin = false
            let starterPackScreen = Prepopulated.instanceFromNib()
          starterPackScreen.frame = CGRectMake(0 ,0 , self.view.frame.width , self.view.frame.height)
            self.view.addSubview(starterPackScreen)

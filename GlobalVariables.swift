@@ -38,4 +38,5 @@ struct GlobalVariables {
     static var modelStatus : String?
     static var globalStarterPack : [AnyObject] = []
     static var freshLogin : Bool?
+    static var prepopulated : Int?
 }

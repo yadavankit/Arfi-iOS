@@ -232,7 +232,7 @@ class View1: UIViewController  {
     let hip = modelObject.hip
     let waist = modelObject.waist
     let height = modelObject.height
-    let complexion =    "Dark"         // modelObject.complexion
+    let complexion = modelObject.complexion
     NSUserDefaults.standardUserDefaults().setObject(current_user_id, forKey: "usr_id")
     NSUserDefaults.standardUserDefaults().setObject(bust, forKey: "bust")
     NSUserDefaults.standardUserDefaults().setObject(hip, forKey: "hip")
@@ -242,12 +242,21 @@ class View1: UIViewController  {
         
  
       
-       
-       print("http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=1069249093136307&garments_selected=\(GlobalVariables.globalStarterPack)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
+       var garmentSelectedString = "["
+        for garment in GlobalVariables.globalStarterPack
+        {
+            print("selected garmenst")
+            garmentSelectedString = garmentSelectedString + String(garment) + ","
+        }
+        garmentSelectedString = garmentSelectedString.substringToIndex(garmentSelectedString.endIndex.predecessor())
+        garmentSelectedString = garmentSelectedString + "]"
+        
+       print("http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=\(GlobalVariables.globalFacebookId!)&garments_selected=\(GlobalVariables.globalStarterPack)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
        print(GlobalVariables.globalUserName!)
 //        //7000/processing_panel_populate?user_id=fbid&garment_selected = string&user_name & bust
 //        
-       Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=1006557899413966&garments_selected=\(GlobalVariables.globalStarterPack)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
+        print(GlobalVariables.globalStarterPack)
+       Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=\(GlobalVariables.globalFacebookId!)&garments_selected=\(garmentSelectedString)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
           .validate()
           .responseJSON { response in
                 print(response)
@@ -257,8 +266,22 @@ class View1: UIViewController  {
 //                let mixpanel = Mixpanel.sharedInstance()
 //                let properties = ["LoginCompleted": "Done"]
 //                mixpanel.track("Completed Model", properties: properties)
-              //  self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Your garments will now start getting uploaded, Happy Uploading 😀")
-          
+            
+            
+            let triggerTime = (Int64(NSEC_PER_SEC) * 6)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+              
+                
+                
+                
+                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on garments to see how they look on you 👍")
+                
+              
+                
+            })
+            
+            
+            
 // 
 //                
         }
