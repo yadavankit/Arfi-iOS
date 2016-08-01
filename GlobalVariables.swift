@@ -40,4 +40,5 @@ struct GlobalVariables {
     static var freshLogin : Bool?
     static var prepopulated : Int?
     static var seenComplexion : Bool? = false
+    static var prepopulatedComplete : Bool = false
 }

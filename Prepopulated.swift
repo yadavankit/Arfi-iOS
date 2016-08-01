@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
+import AlamofireImage
 
 class Prepopulated: UIView {
 
@@ -69,11 +72,12 @@ class Prepopulated: UIView {
     @IBOutlet var numberOfGarmentsLabel: UILabel!
     @IBAction func DoneAction(sender: AnyObject) {
       self.removeFromSuperview()
-        let vc = View1()
-        vc
+        GlobalVariables.prepopulatedComplete = true
+      
+    
       
     }
-    
+   
 }
 
 extension Prepopulated : UICollectionViewDelegate{

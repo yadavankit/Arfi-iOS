@@ -204,6 +204,7 @@ func getNumberOfGarments () { //calculate the current number of garments on the 
                     
             
             getGarments()
+ 
                     
                     
                 }
@@ -213,6 +214,70 @@ func getNumberOfGarments () { //calculate the current number of garments on the 
     
     
 }
+
+func checkForPreviousModel(){
+    
+    dispatch_async(dispatch_get_main_queue(), {
+        
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/model_status?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    print(jsonValue)
+                    print("JSON VALUE")
+                    
+                    
+                    
+                    arrayCount = (json["model"].count)
+                    // NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["model"][number]["model_status"].string{
+                            
+                            print(quote)
+                            GlobalVariables.modelStatus = quote
+                            number += 1
+                            print(number)
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            
+                            
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }}
+        
+        
+        
+        
+    })
+    
+    
+    
+    
+}
+
 
 
 func getGarments(){
@@ -402,7 +467,7 @@ func getModelWardrobeImages(){ //VIEW 1
                         
                         GlobalVariables.globalSafeToFetch = true
                         
-                        print("Now TrUE")
+                       getWardrobeStyle()
 
                         
                     }
@@ -411,17 +476,7 @@ func getModelWardrobeImages(){ //VIEW 1
 
                 
             }}
-    
-    
-    getWardrobeStyle()
-    
-    
-    
-    
-
-    
-    
-    
+     
     
 }
 
@@ -574,6 +629,7 @@ func returnUserData()  { //get user id and username
                 
                 
                 getProcessedImageData()
+              
                 
             })
 

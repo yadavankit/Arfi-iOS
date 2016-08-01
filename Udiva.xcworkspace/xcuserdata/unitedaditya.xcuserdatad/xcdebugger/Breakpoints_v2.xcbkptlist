@@ -9,14 +9,14 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "SnapchatCamera/View1.swift"
-            timestampString = "491679602.327451"
+            filePath = "Libs/mainViewController.swift"
+            timestampString = "491760923.100097"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "250"
-            endingLineNumber = "250"
-            landmarkName = "doneAction(_:)"
-            landmarkType = "5">
+            startingLineNumber = "246"
+            endingLineNumber = "246"
+            landmarkName = "checkForPreviousModel()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

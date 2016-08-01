@@ -79,19 +79,16 @@ class View1: UIViewController  {
         
         super.viewDidLoad()
         
+        
         self.mainQuestionview.hidden = false
+    
         
-        let value = NSUserDefaults.standardUserDefaults().objectForKey("freshLogin")
-        let realValue = String(value)
         
-//        if realValue.containsString("false"){
-//            
-//            self.mainQuestionview.hidden = true
-//        }
         
-        //modelIndicator.hidden = true
+ 
         
-  
+   
+
         let triggerTime = (Int64(NSEC_PER_SEC) * 4)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
             
@@ -102,7 +99,7 @@ class View1: UIViewController  {
           
             if GlobalVariables.globalTopAndBottom.count > 0 {
                 print("greater than zero is running")
-                
+
                 print(GlobalVariables.modelStatus)
                 let myModelStatus = GlobalVariables.modelStatus
                 
@@ -112,6 +109,7 @@ class View1: UIViewController  {
             print(GlobalVariables.modelStatus)
                 
                 }else{
+                self.checkForPreviousModel()
             print("greater than zero else is running")
                                   
                                     
@@ -189,6 +187,140 @@ class View1: UIViewController  {
   
     }
 
+    func removeQuestionView(){
+        print(GlobalVariables.modelStatus!)
+        if GlobalVariables.modelStatus! == "No User Found"{
+            
+            self.mainQuestionview.hidden = false
+            
+            
+        } else {
+            self.mainQuestionview.hidden = true
+        }
+        
+    }
+    
+    func checkForPreviousModel(){
+        
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            
+            var arrayCount : Int?
+            
+            Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/model_status?user_id=\(GlobalVariables.globalFacebookId!)")
+                .responseJSON { response in
+                    if let jsonValue = response.result.value {
+                        let json = JSON(jsonValue)
+                        
+                        print(jsonValue)
+                        print("JSON VALUE")
+                        
+                        
+                        
+                        arrayCount = (json["model"].count)
+                        // NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
+                        
+                        
+                        var number = 0
+                        
+                        
+                        while number  < arrayCount! {
+                            if let quote = json["model"][number]["model_status"].string{
+                                
+                                print(quote)
+                                GlobalVariables.modelStatus = quote
+                                number += 1
+                                print(number)
+                            }
+                            
+                            
+                            
+                            if number == arrayCount! {
+                                
+                                
+                                GlobalVariables.globalSafeToFetch = true
+                                
+                              self.removeQuestionView()
+                                self.getModelUrlForView1()
+                                
+                                
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        
+                        
+                    }}
+            
+            
+            
+            
+        })
+        
+        
+        
+        
+    }
+    
+    
+    func getModelUrlForView1(){
+        
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    GlobalVariables.finalGarmentCount = arrayCount!
+                    
+                    print(arrayCount!)
+                    
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["garments"][number]["model_url"].string{
+                            
+                            
+                            GlobalVariables.globalModelUrl.append(quote)
+                            
+                            
+                            
+                            number += 1
+                            print(number)
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }}
+        
+    }
+
+
+
 
     @IBAction func doThis (sender : AnyObject) {
         
@@ -228,19 +360,8 @@ class View1: UIViewController  {
         print("Seen Complexion")
         print(GlobalVariables.seenComplexion)
         
-        if GlobalVariables.seenComplexion == false
-        {
-        
-            
-            let alert = UIAlertView(title: "Fill all Specs", message: "You did not fill up all the model specifications. Please fill them all up.", delegate: self, cancelButtonTitle: "Ok")
-            alert.show()
-            
-        }
-//
-        
-        else
-        {
-         self.mainQuestionview.hidden = true
+       
+     
         safe = true
 //     
     let current_user_id = GlobalVariables.globalFacebookId!
@@ -267,11 +388,8 @@ class View1: UIViewController  {
         garmentSelectedString = garmentSelectedString.substringToIndex(garmentSelectedString.endIndex.predecessor())
         garmentSelectedString = garmentSelectedString + "]"
         
-       print("http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=\(GlobalVariables.globalFacebookId!)&garments_selected=\(GlobalVariables.globalStarterPack)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
-       print(GlobalVariables.globalUserName!)
-//        //7000/processing_panel_populate?user_id=fbid&garment_selected = string&user_name & bust
-//        
-        print(GlobalVariables.globalStarterPack)
+      print(GlobalVariables.globalTopAndBottom.count)
+
        Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=\(GlobalVariables.globalFacebookId!)&garments_selected=\(garmentSelectedString)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
           .validate()
           .responseJSON { response in
@@ -308,17 +426,16 @@ class View1: UIViewController  {
                 
                 
             })
-            
-            
-            
-// 
-//                
-        }
+    
+        
         
          NSUserDefaults.standardUserDefaults().setObject("true", forKey: "freshLogin")
        self.mainQuestionview.hidden = true
         
-       getGarmentInformation()
+       self.getGarmentInformation()
+       self.getWardrobeStyle()
+        self.getModelUrlForView1()
+       self.garmentCollectionView.reloadData()
         
         let set = settingWardrobe.instanceFromNib()
         set.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
@@ -434,6 +551,62 @@ class View1: UIViewController  {
         
         
     }
+    
+    func getWardrobeStyle(){
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    
+                    print("Style wardrobe")
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["garments"][number]["garment_style"].string{
+                            
+                            
+                            GlobalVariables.globalGarmentType.append(quote)
+                            
+                            print(GlobalVariables.globalGarmentType)
+                            
+                            
+                            number += 1
+                            print("garment Style Added \(number)")
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    
+                }}
+        
+    }
+    
+    
+
+
 
 
     
@@ -824,7 +997,6 @@ class View1: UIViewController  {
     
 }
 
-
 extension View1 : UICollectionViewDataSource {
     
 
@@ -839,11 +1011,16 @@ extension View1 : UICollectionViewDataSource {
        
         if GlobalVariables.globalTopAndBottom.count > 0 {
             
+            
+            print(GlobalVariables.globalTopAndBottom.count)
+            
             return GlobalVariables.globalTopAndBottom.count
          
             
             
         } else {
+            
+              print(GlobalVariables.globalTopAndBottom.count)
             
         return GlobalVariables.globalTopAndBottom.count
        

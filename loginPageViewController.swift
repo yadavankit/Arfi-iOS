@@ -106,6 +106,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 self.mixpanel.track("\(GlobalVariables.globalUserName!) has Logged In")
                 self.getProperImages()
                 self.checkForPreviousModel()
+             
                 
                 
             }
@@ -350,6 +351,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                             
                             GlobalVariables.globalGarmentType.append(quote)
                             
+                            print(GlobalVariables.globalGarmentType)
                             
                             
                             number += 1

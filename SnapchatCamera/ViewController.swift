@@ -7,6 +7,9 @@
 //
 
 import UIKit
+import Alamofire
+import AlamofireImage
+import SwiftyJSON
 
 class ViewController: UIViewController {
 
@@ -38,31 +41,102 @@ class ViewController: UIViewController {
         var v3Frame : CGRect = v3.view.frame
         v3Frame.origin.x = self.view.frame.width * 2
         v3.view.frame = v3Frame
+      
+
+        checkForPreviousModel()
+
+
+}
+    func checkForPreviousModel(){
         
-       let value = NSUserDefaults.standardUserDefaults().objectForKey("freshLogin")
-        let realValue = String(value)
+        if GlobalVariables.globalFacebookId != nil {
         
-        if GlobalVariables.freshLogin == true || realValue.containsString("true") {
-           
-           NSUserDefaults.standardUserDefaults().setObject("false", forKey: "freshLogin")
-            GlobalVariables.freshLogin = false
-           let starterPackScreen = Prepopulated.instanceFromNib()
-         starterPackScreen.frame = CGRectMake(0 ,0 , self.view.frame.width , self.view.frame.height)
-           self.view.addSubview(starterPackScreen)
+        dispatch_async(dispatch_get_main_queue(), {
+            
+            
+            var arrayCount : Int?
+            
+            Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/model_status?user_id=\(GlobalVariables.globalFacebookId!)")
+                .responseJSON { response in
+                    if let jsonValue = response.result.value {
+                        let json = JSON(jsonValue)
+                        
+                        print(jsonValue)
+                        print("JSON VALUE")
+                        
+                        
+                        
+                        arrayCount = (json["model"].count)
+                        // NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
+                        
+                        
+                        var number = 0
+                        
+                        
+                        while number  < arrayCount! {
+                            if let quote = json["model"][number]["model_status"].string{
+                                
+                                print(quote)
+                                GlobalVariables.modelStatus = quote
+                                number += 1
+                                print(number)
+                            }
+                            
+                            
+                            
+                            if number == arrayCount! {
+                                
+                                
+                                GlobalVariables.globalSafeToFetch = true
+                                
+                                self.checkForPrepopulation()
+                                
+                                
+                                
+                                
+                            }
+                            
+                        }
+                        
+                        
+                        
+                    }}
+            
+
+        })
         
+        
+        }
+        
+    }
+    
+
+
+
+    func checkForPrepopulation(){
+        
+        print(GlobalVariables.modelStatus)
+        if GlobalVariables.modelStatus! == "No User Found"{
+            
+            
+            let starterPackScreen = Prepopulated.instanceFromNib()
+            starterPackScreen.frame = CGRectMake(0 ,0 , self.view.frame.width , self.view.frame.height)
+            self.view.addSubview(starterPackScreen)
+            
             //self.scrollView.contentOffset.x = self.view.frame.size.width
             self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
-          
+            
             
         } else {
-        
-      self.scrollView.contentOffset.x = self.view.frame.size.width
-      self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+            
+            self.scrollView.contentOffset.x = self.view.frame.size.width
+            self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
         }
+
+
     }
-
-  
-
-
+    
+    
+    
 }
 
