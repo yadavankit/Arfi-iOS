@@ -1074,6 +1074,9 @@ extension View1 : UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
        
    
+        let mixpanel = Mixpanel.sharedInstance()
+        let properties = ["Tapped on models garment": "Done"]
+        mixpanel.track("tapped on model garment", properties: properties)
         
         
         switch GlobalVariables.globalGarmentType[indexPath.row] {
