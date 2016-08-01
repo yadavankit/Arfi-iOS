@@ -39,4 +39,5 @@ struct GlobalVariables {
     static var globalStarterPack : [AnyObject] = []
     static var freshLogin : Bool?
     static var prepopulated : Int?
+    static var seenComplexion : Bool? = false
 }

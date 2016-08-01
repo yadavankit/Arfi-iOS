@@ -70,6 +70,7 @@ class QuestionsCollectionView: UICollectionView, UICollectionViewDataSource, UIC
         }
         else if indexPath.row == 4
         {
+            GlobalVariables.seenComplexion = true
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("complexionCell", forIndexPath: indexPath) as! complexionCell
             return cell
         }

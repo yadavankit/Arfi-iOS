@@ -224,6 +224,22 @@ class View1: UIViewController  {
    
     @IBAction func doneAction(sender: AnyObject) {
         
+        
+        print("Seen Complexion")
+        print(GlobalVariables.seenComplexion)
+        
+        if GlobalVariables.seenComplexion == false
+        {
+        
+            
+            let alert = UIAlertView(title: "Fill all Specs", message: "You did not fill up all the model specifications. Please fill them all up.", delegate: self, cancelButtonTitle: "Ok")
+            alert.show()
+            
+        }
+//
+        
+        else
+        {
          self.mainQuestionview.hidden = true
         safe = true
 //     
@@ -262,7 +278,7 @@ class View1: UIViewController  {
                 print(response)
             
                 print("Model Garment in saved on Server")
-                self.panel.timeUntilDismiss = 3
+                self.panel.timeUntilDismiss = 5
 //                let mixpanel = Mixpanel.sharedInstance()
 //                let properties = ["LoginCompleted": "Done"]
 //                mixpanel.track("Completed Model", properties: properties)
@@ -295,6 +311,9 @@ class View1: UIViewController  {
         set.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
 
         self.view.addSubview(set)
+        
+        
+    }
 
     }
     
