@@ -278,7 +278,7 @@ class View1: UIViewController  {
                 print(response)
             
                 print("Model Garment in saved on Server")
-                self.panel.timeUntilDismiss = 5
+                self.panel.timeUntilDismiss = 4
 //                let mixpanel = Mixpanel.sharedInstance()
 //                let properties = ["LoginCompleted": "Done"]
 //                mixpanel.track("Completed Model", properties: properties)
@@ -293,6 +293,19 @@ class View1: UIViewController  {
                 self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on garments to see how they look on you 👍")
                 
               
+                
+            })
+            
+//            self.panel.timeUntilDismiss = 6
+            let taptriggerTime = (Int64(NSEC_PER_SEC) * 12)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, taptriggerTime), dispatch_get_main_queue(), { () -> Void in
+                
+                
+                
+                
+                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left 👈 and tap on Circle to know how you can upload more garments")
+                
+                
                 
             })
             

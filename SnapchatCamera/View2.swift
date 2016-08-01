@@ -196,9 +196,9 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         {
             print("App is launching for first tym")
          self.firstLaunchEver = true
-            warningPanel.timeUntilDismiss = 6
+            panel.timeUntilDismiss = 6
            perimeterOutlet.hidden = true
-            warningPanel.showNotify(withStatus: .WARNING, inView: self.view, message: "Tap on the circle to know more")
+            panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on the circle to know more 👇")
             
             
             userUniqueIdentifier = UIDevice.currentDevice().identifierForVendor!.UUIDString
