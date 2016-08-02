@@ -108,6 +108,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     @IBAction func tickmarkAction(sender: AnyObject) {    // when user clicks on the tick mark
         
+        self.view.addSubview(self.mainQuestionsView)
 
         tickmarkOutlet.hidden = true
         cross.hidden = true
@@ -261,8 +262,13 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.view.addSubview(flashIcon)
         self.view.addSubview(cameraButtonOutlet)
         self.view.addSubview(mainQuestionsView)
-        self.view.addSubview(tickmarkOutlet)
+     
         self.view.addSubview(perimeterOutlet)
+        self.view.addSubview(cameraImage)
+        self.view.addSubview(tickmarkOutlet)
+        self.view.addSubview(cross)
+        self.flashIcon.hidden = false
+        
     }
     
     //Set Page Control according to Page in ScrollView
@@ -384,19 +390,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
 
         print("photo li gyi hai")
         
-        
-//        if GlobalVariables.globalTopAndBottom.count == 0
-//        {
-//            displayInstructions()
-//            
-//            
-//        }
-        
-
-        
-        
-        
-        if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo){
+  if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo){
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
             stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {
                 (sampleBuffer, error) in
@@ -410,12 +404,16 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                     
                     let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
                     
-                    
-                    self.cameraImage.hidden = false
                 
+                    self.cameraImage.hidden = false
+                self.cameraImage.image = image
+                self.view.addSubview(self.cameraImage)
+                self.view.addSubview(self.tickmarkOutlet)
+                self.view.addSubview(self.cross)
+                    
                     
                     self.finalImage = Toucan(image: image).resizeByCropping(CGSizeMake(300, 300)).image
-                    self.cameraImage.image = self.finalImage
+                    
                
         
                 }
@@ -478,39 +476,17 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         
         self.flashIcon.hidden = true
-     
-       
-        print("ab number of garmnets")
-        print(GlobalVariables.globalTopAndBottom.count)
         
-        if (GlobalVariables.finalGarmentCount == 0 && instructionsShown == false)
-        {
+        if self.firstLaunchEver == true {
+        displayInstructions()
+        instructionsShown = true
+        getNumberOfGarmentsForUser()
+                self.firstLaunchEver = false
+            
+        } else {
+        
+  
             perimeterOutlet.hidden = true
-            
-             displayInstructions()
-            instructionsShown = true
-            getNumberOfGarmentsForUser()
-            
-            
-            
-//            let test = nn.instanceFromNib()
-//            test.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-//            permanentView = test
-//            let buttonFrame = CGRectMake(20, self.view.frame.height-60, self.view.frame.width-50, 40)
-//            let myButton = UIButton(frame: buttonFrame)
-//            myButton.backgroundColor = UIColor.redColor()
-//            myButton.setTitle("Got It", forState: .Normal)
-//            myButton.addTarget(self, action: #selector(View2.removeView), forControlEvents: .AllTouchEvents)
-//            myButton.titleLabel?.text = "Got it"
-//            myButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-//            myButton.backgroundColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
-//            test.addSubview(myButton)
-//            self.view.addSubview(test)
-        
-            
-           
-            
-            
             
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
@@ -522,7 +498,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
             
             firstLaunchEver = false
             
-        } else {
+        
             
             let mixpanel = Mixpanel.sharedInstance()
             let properties = ["wardrobeUpoloaded": "Done"]
@@ -530,10 +506,10 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
             
         self.mixpanel.track("\(GlobalVariables.globalUserName!) has begun uploading a garment.")
             
-            
+ 
         
         didPressTakePhoto()
-        didPressTakeAnother()
+      // didPressTakeAnother()
         
       //  self.tempImageView.hidden = false
         self.cross.hidden = false
@@ -541,6 +517,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         perimeterOutlet.hidden = true
         self.tickmarkOutlet.hidden = false
         }
+        
     }
     @IBOutlet var optionCollectionView: UICollectionView!
     
