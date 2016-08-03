@@ -29,7 +29,7 @@
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Rec-cJ-nD4">
                     <rect key="frame" x="0.0" y="202" width="600" height="398"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="5" minimumInteritemSpacing="5" id="JfC-7t-LHH">
                         <size key="itemSize" width="200" height="200"/>
                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -76,16 +76,45 @@
                         <action selector="DoneAction:" destination="iN0-l3-epB" eventType="touchUpInside" id="iAA-uh-qDo"/>
                     </connections>
                 </button>
+                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u2b-ku-Txv">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jii-MB-BBR">
+                            <rect key="frame" x="210.5" y="280.5" width="179" height="39"/>
+                            <color key="backgroundColor" red="1" green="0.18938105860000001" blue="0.35121165879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="39" id="KTe-ke-vev"/>
+                                <constraint firstAttribute="width" constant="179" id="NqT-rX-zma"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="23"/>
+                            <state key="normal" title="Start using arfi">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="releaseMe:" destination="iN0-l3-epB" eventType="touchUpInside" id="UAa-qG-T2K"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+                    <constraints>
+                        <constraint firstItem="Jii-MB-BBR" firstAttribute="centerX" secondItem="u2b-ku-Txv" secondAttribute="centerX" id="HYz-56-ggo"/>
+                        <constraint firstItem="Jii-MB-BBR" firstAttribute="centerY" secondItem="u2b-ku-Txv" secondAttribute="centerY" id="Mb1-CA-H9p"/>
+                    </constraints>
+                </view>
             </subviews>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+            <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
             <constraints>
                 <constraint firstItem="6Tl-y0-wxP" firstAttribute="centerX" secondItem="4jm-9q-4Ry" secondAttribute="centerX" id="0PG-M7-xMR"/>
+                <constraint firstItem="u2b-ku-Txv" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3gh-MM-FSx"/>
                 <constraint firstItem="DMp-8D-PAc" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" constant="1" id="4vZ-hu-ic0"/>
                 <constraint firstAttribute="bottom" secondItem="DMp-8D-PAc" secondAttribute="bottom" constant="25" id="7i6-FM-20G"/>
                 <constraint firstItem="Rec-cJ-nD4" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="8P5-U2-3Wg"/>
+                <constraint firstAttribute="trailing" secondItem="u2b-ku-Txv" secondAttribute="trailing" id="9W4-pM-kjo"/>
                 <constraint firstItem="4jm-9q-4Ry" firstAttribute="centerX" secondItem="Rec-cJ-nD4" secondAttribute="centerX" id="CFb-xu-g71"/>
+                <constraint firstAttribute="bottom" secondItem="u2b-ku-Txv" secondAttribute="bottom" id="Jhj-nH-UKS"/>
                 <constraint firstItem="Rec-cJ-nD4" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="202" id="Jv4-7i-5DP"/>
                 <constraint firstItem="Qz8-25-d0x" firstAttribute="top" secondItem="6Tl-y0-wxP" secondAttribute="bottom" constant="12" id="RkE-tO-fRS"/>
+                <constraint firstItem="u2b-ku-Txv" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="VvI-qL-nhE"/>
                 <constraint firstItem="6Tl-y0-wxP" firstAttribute="top" secondItem="4jm-9q-4Ry" secondAttribute="bottom" constant="30" id="ac1-B0-F0y"/>
                 <constraint firstItem="Rec-cJ-nD4" firstAttribute="top" secondItem="4jm-9q-4Ry" secondAttribute="bottom" constant="146" id="fBF-5X-G8o"/>
                 <constraint firstAttribute="bottom" secondItem="Rec-cJ-nD4" secondAttribute="bottom" id="mII-UW-7B5"/>
@@ -96,6 +125,7 @@
                 <outlet property="bottomConstraint" destination="7i6-FM-20G" id="jcQ-6k-0Ip"/>
                 <outlet property="collectionViewBottomPoint" destination="mII-UW-7B5" id="qDI-V5-Imp"/>
                 <outlet property="doneOutlet" destination="DMp-8D-PAc" id="SzL-qH-Qlv"/>
+                <outlet property="finalScreen" destination="u2b-ku-Txv" id="BWe-ip-CI3"/>
                 <outlet property="numberOfGarmentsLabel" destination="4jm-9q-4Ry" id="GOb-X6-zel"/>
                 <outlet property="prepopulatedBottom" destination="mII-UW-7B5" id="5Eo-gP-24C"/>
                 <outlet property="prepopulatedCollectionView" destination="Rec-cJ-nD4" id="ks7-0g-fVp"/>

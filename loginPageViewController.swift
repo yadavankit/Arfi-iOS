@@ -289,7 +289,8 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                             
                             GlobalVariables.globalTopAndBottom.append(quote)
                             
-                            
+                            print(GlobalVariables.globalTopAndBottom.count)
+
                             
                             number += 1
                             print(number)
@@ -346,7 +347,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                     
                     
                     while number  < arrayCount! {
-                        if let quote = json["garments"][number]["garment_style"].string{
+                        if let quote = json["garments"][number]["garment_info"].string{
                             
                             
                             GlobalVariables.globalGarmentType.append(quote)

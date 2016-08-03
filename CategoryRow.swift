@@ -79,20 +79,32 @@ extension CategoryRow : UICollectionViewDataSource {
         
         if GlobalVariables.globalTopwearModelUrl.count > 0 {
             print("This is the topwearUrl")
+            
+            
+            
+            let URLString = GlobalVariables.globalTopwearModelUrl[indexPath.row]
+            print(URLString)
+            let URL = NSURL(string:URLString)!
+            cell.garmentImage.kf_setImageWithURL(URL)
+            
+            
+            
+            
+            
+            
+            
+            
            
             if GlobalVariables.modelStatus == "true"
             {
                 
-                let URLString = GlobalVariables.globalTopwearModelUrl[indexPath.row]
-                print(URLString)
-                let URL = NSURL(string:URLString)!
-                cell.garmentImage.kf_setImageWithURL(URL)
+             
                 
              
             } else {
                 
                 
-                cell.garmentImage.image = UIImage(named: "Placeholder")
+               // cell.garmentImage.image = UIImage(named: "Placeholder")
             }
             
         

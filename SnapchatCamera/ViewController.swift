@@ -41,11 +41,19 @@ class ViewController: UIViewController {
         var v3Frame : CGRect = v3.view.frame
         v3Frame.origin.x = self.view.frame.width * 2
         v3.view.frame = v3Frame
+        
+        if  GlobalVariables.prepopulatedComplete == false {
       
-
+        self.scrollView.contentOffset.x = self.view.frame.size.width
+        self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+        } else {
+            
+            self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+            
+        }
         
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 1/3)
+        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
                self.checkForPreviousModel()
         })
@@ -53,6 +61,20 @@ class ViewController: UIViewController {
 
 
 }
+    
+    func takeControl(){
+        
+        if  GlobalVariables.prepopulatedComplete == false {
+            
+            self.scrollView.contentOffset.x = self.view.frame.size.width
+            self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+        } else {
+            
+            self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+            
+        }
+    }
+    
     func checkForPreviousModel(){
         
         if GlobalVariables.globalFacebookId != nil {

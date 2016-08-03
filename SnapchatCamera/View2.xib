@@ -43,7 +43,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="11" translatesAutoresizingMaskIntoConstraints="NO" id="aLM-rG-o9c">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="aLM-rG-o9c">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cyan_box" translatesAutoresizingMaskIntoConstraints="NO" id="7GL-Ef-N3g">
@@ -399,7 +399,6 @@
         </view>
     </objects>
     <resources>
-        <image name="11" width="500" height="500"/>
         <image name="cameraButton" width="80" height="80"/>
         <image name="cross" width="66" height="66"/>
         <image name="cyan_box" width="292" height="294"/>

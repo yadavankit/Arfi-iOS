@@ -455,7 +455,7 @@ func getModelWardrobeImages(){ //VIEW 1
                         GlobalVariables.globalTopAndBottom.append(quote)
                     
                         print("appending now")
-                        
+                        print(GlobalVariables.globalTopAndBottom.count)
                         number += 1
                         print(number)
                     }
@@ -467,13 +467,13 @@ func getModelWardrobeImages(){ //VIEW 1
                         
                         GlobalVariables.globalSafeToFetch = true
                         
-                       getWardrobeStyle()
+                     
 
                         
                     }
                     
                 }
-
+  getWardrobeStyle()
                 
             }}
      
@@ -725,14 +725,8 @@ func getGarmentInformation(){
                         print("garment info Added \(number)")
                     }
                     
+               
                     
-                    
-                    if number == arrayCount! {
-                        
-                        GlobalVariables.globalSafeToFetch = true
-                        
-                        print("Now TrUE")
-                    }
                 }
                 
               

@@ -22,26 +22,24 @@ class View1: UIViewController  {
     
     
     var imageCache = [String : UIImage]()
+    var imageCacheForModel = [String : UIImage] ()
     var safe = false
-    
-
-
-
-
-
-
 
     @IBOutlet var botImageView: UIImageView!
     @IBOutlet var topImageView: UIImageView!
 
+    @IBOutlet var refreshOutlet: UIButton!
 
     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
+    @IBOutlet var label2: UILabel!
+  
     let panel : JKNotificationPanel = JKNotificationPanel()
     @IBOutlet var garmentTop: NSLayoutConstraint!
     var test = 6
     @IBOutlet var modelIndicator: UIActivityIndicatorView!
 
-
+  
+    @IBOutlet var tapToActivate: UIButton!
     @IBOutlet var doneOutlet: UIButton!
 
     @IBOutlet var background: QuestionsCollectionView!
@@ -49,6 +47,19 @@ class View1: UIViewController  {
 
 
     @IBAction func refreshAction(sender: AnyObject) {
+        
+        print(GlobalVariables.globalTopAndBottom.count)
+        
+        self.garmentCollectionView.reloadData()
+        showComplexion()
+        self.refreshOutlet.hidden = true
+        self.tapToActivate.hidden = true
+        self.label2.hidden = true
+
+        
+
+
+
 
     
     }
@@ -66,6 +77,14 @@ class View1: UIViewController  {
     
     override func viewDidAppear(animated: Bool) {
        
+        
+        
+        let triggerTime = (Int64(NSEC_PER_SEC) * 2)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            
+ 
+
+        })
     }
     @IBAction func showprepopulated(sender: AnyObject) {
 
@@ -75,19 +94,18 @@ class View1: UIViewController  {
 
     }
     
+   
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
+         self.refreshOutlet.hidden = true
+      
+         self.label2.hidden = true
+         self.tapToActivate.hidden = true
         
-        
-        self.mainQuestionview.hidden = false
-    
-        
-        
-        
- 
-        
-   
+        self.tapToActivate.layer.masksToBounds = true
+        self.tapToActivate.layer.cornerRadius = 6
 
         let triggerTime = (Int64(NSEC_PER_SEC) * 4)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
@@ -109,6 +127,7 @@ class View1: UIViewController  {
             print(GlobalVariables.modelStatus)
                 
                 }else{
+               
                 self.checkForPreviousModel()
             print("greater than zero else is running")
                                   
@@ -118,6 +137,10 @@ class View1: UIViewController  {
             
             else
             {
+          
+                self.label2.hidden = false
+                self.tapToActivate.hidden = false
+
      
             }
             
@@ -187,18 +210,7 @@ class View1: UIViewController  {
   
     }
 
-    func removeQuestionView(){
-        print(GlobalVariables.modelStatus!)
-        if GlobalVariables.modelStatus! == "No User Found"{
-            
-            self.mainQuestionview.hidden = false
-            
-            
-        } else {
-            self.mainQuestionview.hidden = true
-        }
-        
-    }
+
     
     func checkForPreviousModel(){
         
@@ -240,8 +252,6 @@ class View1: UIViewController  {
                                 
                                 GlobalVariables.globalSafeToFetch = true
                                 
-                              self.removeQuestionView()
-                                self.getModelUrlForView1()
                                 
                                 
                                 
@@ -263,6 +273,7 @@ class View1: UIViewController  {
         
         
     }
+    
     
     
     func getModelUrlForView1(){
@@ -306,7 +317,7 @@ class View1: UIViewController  {
                             
                             GlobalVariables.globalSafeToFetch = true
                             
-                            print("Now TrUE")
+                          self.getGarmentInformation()
                             
                             
                         }
@@ -430,7 +441,7 @@ class View1: UIViewController  {
         
         
          NSUserDefaults.standardUserDefaults().setObject("true", forKey: "freshLogin")
-       self.mainQuestionview.hidden = true
+   
         
        self.getGarmentInformation()
        self.getWardrobeStyle()
@@ -446,6 +457,8 @@ class View1: UIViewController  {
     }
 
     }
+    
+    var once : Bool = false
     
     func getGarmentInformation(){
         
@@ -484,6 +497,8 @@ class View1: UIViewController  {
                             
                             GlobalVariables.globalSafeToFetch = true
                             
+                            
+                   
                            self.getModelWardrobeImages()
                         }
                     }
@@ -520,7 +535,10 @@ class View1: UIViewController  {
                             
                             
                             GlobalVariables.globalTopAndBottom.append(quote)
+                            print(GlobalVariables.globalTopAndBottom.count)
+
                             
+                           
                             print("appending now")
                             
                             number += 1
@@ -538,7 +556,7 @@ class View1: UIViewController  {
                         
              
                              self.showTheModel()
-                            self.garmentCollectionView.reloadData()
+                  
                             
                             
                         }
@@ -562,7 +580,7 @@ class View1: UIViewController  {
                     let json = JSON(jsonValue)
                     
                     
-                    
+                    print(json)
                     arrayCount = (json["garments"].count)
                     
                     print("Style wardrobe")
@@ -572,7 +590,7 @@ class View1: UIViewController  {
                     
                     
                     while number  < arrayCount! {
-                        if let quote = json["garments"][number]["garment_style"].string{
+                        if let quote = json["garments"][number]["garment_info"].string{
                             
                             
                             GlobalVariables.globalGarmentType.append(quote)
@@ -591,7 +609,7 @@ class View1: UIViewController  {
                             
                             GlobalVariables.globalSafeToFetch = true
                             
-                            print("Now TrUE")
+                      self.getModelUrlForView1()
                             
                             
                         }
@@ -661,7 +679,7 @@ class View1: UIViewController  {
     }
     
 
-    @IBOutlet var mainQuestionview: UIView!
+
     @IBOutlet var garmentCollectionViewTop: NSLayoutConstraint!
     
     func showTheModel(){
@@ -746,7 +764,7 @@ class View1: UIViewController  {
                             
                             GlobalVariables.globalSafeToFetch = true
                             
-                            self.showComplexion()
+                           // self.showComplexion()
                             
                             
                         }
@@ -756,6 +774,7 @@ class View1: UIViewController  {
                 }}
 
     }
+    
     
     func showComplexion(){
         
@@ -925,6 +944,7 @@ class View1: UIViewController  {
         
     }
     
+    
     func doIt () {
         
         
@@ -1073,12 +1093,17 @@ extension View1 : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
        
-   
+        KingfisherManager.sharedManager.cache.clearMemoryCache()
+        KingfisherManager.sharedManager.cache.clearDiskCache()
         let mixpanel = Mixpanel.sharedInstance()
         let properties = ["Tapped on models garment": "Done"]
         mixpanel.track("tapped on model garment", properties: properties)
         
+        print(GlobalVariables.globalModelUrl[indexPath.row])
+        print(GlobalVariables.garmentInformation[indexPath.row])
         
+
+        let urlString = GlobalVariables.globalModelUrl[indexPath.row]
         switch GlobalVariables.globalGarmentType[indexPath.row] {
             
         case "TopWear":
@@ -1088,8 +1113,41 @@ extension View1 : UICollectionViewDataSource {
                 
                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Long Topwear on model.")
                topImageView.superview?.bringSubviewToFront(topImageView)
+        
+                
+                if let image = imageCacheForModel[urlString]{
+                    
+                    
+                    self.topImageView.image = image
+                    self.modelIndicator.hidden = true
+                    
+                } else {
+                     self.modelIndicator.hidden = false
+                    
+                    if let image = imageCacheForModel[urlString]{
+                        
+                        self.topImageView.image = image
+                        
+                    } else {
+                        
+                        print(urlString)
+                        Alamofire.request(.GET, urlString)
+                            .responseImage { response in
+                                
+                                if let image = response.result.value {
+                                    
+                                    self.topImageView.image = image
+                                    self.imageCacheForModel[urlString] = image
+                                     self.modelIndicator.hidden = true
+                                    
+                                }
+                        }
+                        
+                    }
+                    
+                }
+
               
-                 self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
                 
             
                 
@@ -1100,7 +1158,33 @@ extension View1 : UICollectionViewDataSource {
                 
                 self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Waist Topwear on model.")
                 topImageView.superview?.bringSubviewToFront(topImageView)
-                self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+                if let image = imageCacheForModel[urlString]{
+                    
+                    self.topImageView.image = image
+                     self.modelIndicator.hidden = false
+                    
+                    self.modelIndicator.hidden = true
+                    
+                } else {
+                    self.modelIndicator.hidden = false
+                    
+                    print(urlString)
+                    Alamofire.request(.GET, urlString)
+                        .responseImage { response in
+                            
+                            if let image = response.result.value {
+                                
+                                self.topImageView.image = image
+                                self.imageCacheForModel[urlString] = image
+                                 self.modelIndicator.hidden = true
+                                
+                            }
+                    }
+                    
+                    
+                }
+                
+
                 
                 print("IndexPath : \(indexPath.row) + The top is waist")
                 
@@ -1110,8 +1194,32 @@ extension View1 : UICollectionViewDataSource {
                 self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Short Topwear on model.")
                 
                 bottomImageView.superview?.bringSubviewToFront(bottomImageView)
-                self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+                if let image = imageCacheForModel[urlString]{
+                    
+                    self.topImageView.image = image
+                    
+                    self.modelIndicator.hidden = true
+                    
+                } else {
+                    self.modelIndicator.hidden = false
+                    
+                    print(urlString)
+                    Alamofire.request(.GET, urlString)
+                        .responseImage { response in
+                            
+                            if let image = response.result.value {
+                                
+                                self.topImageView.image = image
+                                self.imageCacheForModel[urlString] = image
+                                 self.modelIndicator.hidden = true
+                                
+                            }
+                    }
+                    
+                    
+                }
                 
+
                 print("IndexPath : \(indexPath.row) + The top is Short")
                 
                 
@@ -1120,8 +1228,32 @@ extension View1 : UICollectionViewDataSource {
             }else if GlobalVariables.garmentInformation[indexPath.row].containsString("Crop"){
                 
                 bottomImageView.superview?.bringSubviewToFront(bottomImageView)
-                self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+                if let image = imageCacheForModel[urlString]{
+                    
+                    self.topImageView.image = image
+                    
+                    self.modelIndicator.hidden = true
+                    
+                } else {
+                    self.modelIndicator.hidden = false
+                    
+                    print(urlString)
+                    Alamofire.request(.GET, urlString)
+                        .responseImage { response in
+                            
+                            if let image = response.result.value {
+                                
+                                self.topImageView.image = image
+                                self.imageCacheForModel[urlString] = image
+                                 self.modelIndicator.hidden = true
+                                
+                            }
+                    }
+                    
+                    
+                }
                 
+
                 print("IndexPath : \(indexPath.row) + The top is Crop")
                 
 
@@ -1130,7 +1262,31 @@ extension View1 : UICollectionViewDataSource {
             {
                 print("Else for topwear running")
                 self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed Topwear on model.")
-                self.topImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+                if let image = imageCacheForModel[urlString]{
+                    
+                    self.topImageView.image = image
+                    
+                    self.modelIndicator.hidden = true
+                    
+                } else {
+                    self.modelIndicator.hidden = false
+                    
+                    print(urlString)
+                    Alamofire.request(.GET, urlString)
+                        .responseImage { response in
+                            
+                            if let image = response.result.value {
+                                
+                                self.topImageView.image = image
+                                self.imageCacheForModel[urlString] = image
+                                 self.modelIndicator.hidden = true
+                                
+                            }
+                    }
+                    
+                    
+                }
+
                 self.view.bringSubviewToFront(self.topImageView)
                 
             }
@@ -1141,19 +1297,47 @@ extension View1 : UICollectionViewDataSource {
             print("This is a bottommmmmmm")
     
             
+            if let image = imageCacheForModel[urlString]{
+                
+                self.bottomImageView.image = image
+                
+                self.modelIndicator.hidden = true
+                
+            } else {
+                self.modelIndicator.hidden = false
+                
+                print(urlString)
+                
+               
+                self.modelIndicator.startAnimating()
+                Alamofire.request(.GET, urlString)
+                    .responseImage { response in
+        
+                        if let image = response.result.value {
+                            
+                            self.bottomImageView.image = image
+                           self.imageCacheForModel[urlString] = image
+                            
+                            self.modelIndicator.stopAnimating()
+                            self.modelIndicator.hidden = true
+                        }
+                }
+             
+                
+            }
+
             
-            
-        self.bottomImageView.hnk_setImageFromURL(NSURL(string: GlobalVariables.globalModelUrl[indexPath.row])!)
+         
             //self.bottomImageView.bringSubviewToFront(bottomImageView)
             
                         self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Bottomwear on model.")
             
         default:
             print("Not found")
+            print(GlobalVariables.globalGarmentType[indexPath.row])
         }
         
-//        modelIndicator.stopAnimating()
-//        modelIndicator.hidden = true
+
         
   
     }

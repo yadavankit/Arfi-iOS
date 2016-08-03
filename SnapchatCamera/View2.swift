@@ -189,14 +189,15 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
         {
             print("App is already launchedd")
-            self.firstLaunchEver = false
+          
             // app already launched
             
         }
         else
         {
             print("App is launching for first tym")
-         self.firstLaunchEver = true
+           
+            self.firstLaunchEver = true
             panel.timeUntilDismiss = 6
            perimeterOutlet.hidden = true
             panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on the circle to know more 👇")
@@ -474,18 +475,10 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     @IBAction func clicked (sender : UIButton) {  // main camera button clicked
         
-        
+         print(firstLaunchEver)
         self.flashIcon.hidden = true
         
-        if self.firstLaunchEver == true {
-        displayInstructions()
-        instructionsShown = true
-        getNumberOfGarmentsForUser()
-                self.firstLaunchEver = false
-            
-        } else {
-        
-  
+   
             perimeterOutlet.hidden = true
             
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
@@ -509,14 +502,14 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
  
         
         didPressTakePhoto()
-      // didPressTakeAnother()
+     //  didPressTakeAnother()
         
       //  self.tempImageView.hidden = false
         self.cross.hidden = false
         cameraButtonOutlet.hidden = true
         perimeterOutlet.hidden = true
         self.tickmarkOutlet.hidden = false
-        }
+        
         
     }
     @IBOutlet var optionCollectionView: UICollectionView!

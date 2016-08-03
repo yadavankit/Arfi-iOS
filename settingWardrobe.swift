@@ -17,6 +17,7 @@ class settingWardrobe: UIView {
         
     }
     
+ 
     override func awakeFromNib() {
         self.removeFromSuperview()
         

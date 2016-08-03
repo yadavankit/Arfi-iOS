@@ -17,6 +17,24 @@ class Prepopulated: UIView {
  
         return UINib(nibName: "Prepopulated", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
     }
+    @IBAction func releaseMe(sender: AnyObject) {
+        GlobalVariables.startedUsingArfi = true
+        let vc = View1()
+        vc.getWardrobeStyle()
+        vc.showTheModel()
+      
+    
+        self.removeFromSuperview()
+        
+    }
+    
+    @IBOutlet var finalScreen: UIView!
+    
+    func removeMe(){
+        self.removeFromSuperview()
+        
+    }
+    
     @IBOutlet var prepopulatedBottom: NSLayoutConstraint!
     
     @IBOutlet var topTop: NSLayoutConstraint!
@@ -71,13 +89,21 @@ class Prepopulated: UIView {
     @IBOutlet var doneOutlet: UIButton!
     @IBOutlet var numberOfGarmentsLabel: UILabel!
     @IBAction func DoneAction(sender: AnyObject) {
-      self.removeFromSuperview()
+     
+         self.doneOutlet.hidden = true
         GlobalVariables.prepopulatedComplete = true
-      
-    
-      
+        
+        let starterPackScreen = CreateModel.instanceFromNib()
+        starterPackScreen.frame = CGRectMake(0 ,0 , self.frame.width , self.frame.height)
+        self.addSubview(starterPackScreen)
+     
+        let triggerTime = (Int64(NSEC_PER_SEC) * 2)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+          
+            self.finalScreen.hidden = false
+        })
     }
-   
+    
 }
 
 extension Prepopulated : UICollectionViewDelegate{
