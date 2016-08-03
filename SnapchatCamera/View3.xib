@@ -57,7 +57,7 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Your wardrobe is empty. Let's start by uploading your wardrobe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4I-6v-5uf">
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your wardrobe is empty. Let's start by uploading your wardrobe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4I-6v-5uf">
                     <rect key="frame" x="-22" y="43" width="288" height="72"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="72" id="eGt-8v-vGS"/>
@@ -73,6 +73,8 @@
                 <constraint firstAttribute="trailing" secondItem="awN-K2-wSU" secondAttribute="trailing" id="0Hd-Ut-wjV"/>
                 <constraint firstItem="dDI-5S-EIJ" firstAttribute="top" secondItem="c3M-gm-Jn3" secondAttribute="bottom" constant="8" id="0xB-nZ-HPA"/>
                 <constraint firstItem="awN-K2-wSU" firstAttribute="leading" secondItem="FiO-W5-ED1" secondAttribute="leading" id="C3D-Ck-I2O"/>
+                <constraint firstItem="89k-JJ-Ihh" firstAttribute="leading" secondItem="r4I-6v-5uf" secondAttribute="trailing" constant="61" id="DPl-Vr-685"/>
+                <constraint firstItem="dDI-5S-EIJ" firstAttribute="top" secondItem="r4I-6v-5uf" secondAttribute="bottom" constant="7" id="F9u-6N-hmc"/>
                 <constraint firstItem="dDI-5S-EIJ" firstAttribute="width" secondItem="c3M-gm-Jn3" secondAttribute="width" constant="-31" id="MWG-8Q-b8i"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="top" secondItem="FiO-W5-ED1" secondAttribute="top" constant="67" id="RLX-JD-Zfa"/>
                 <constraint firstItem="FcL-K5-4f1" firstAttribute="centerX" secondItem="c3M-gm-Jn3" secondAttribute="centerX" id="VS7-E2-y4G"/>
