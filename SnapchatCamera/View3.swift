@@ -19,7 +19,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
    
     @IBOutlet var realTableView: UITableView!
     
-    @IBOutlet var emptyWardrobeImage: UIImageView!
+
     @IBOutlet var emptyWardrobe: UILabel!
     override func viewDidLoad() {
         
@@ -38,23 +38,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
                 self.HelloUser.text = "Hello \(userDetails.componentsSeparatedByString(" ")[0])!"
         
             
-            
-            if GlobalVariables.finalGarmentCount == 0 {
-                
-                
-                self.realTableView.hidden = true
-                self.emptyWardrobe.hidden = false
-                self.emptyWardrobeImage.hidden = false
-                
-                
-            } else {
-                
-                self.realTableView.hidden = false
-                self.emptyWardrobe.hidden = true
-                self.emptyWardrobeImage.hidden = true
-                
-            }
-           
+                      
             
         })
         
@@ -79,9 +63,8 @@ var categories = ["Top Wear" , "Bottom Wear" ]
     }
     
     @IBAction func reload(sender: AnyObject) {
+   
         
-        let cr = CategoryRow()
-        cr.doThis()
         
     }
     
