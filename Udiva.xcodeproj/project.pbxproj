@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		2C84020A0DCAD507A178B360 /* Pods_UdivaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 63AD7AA1DA568ECDF6CE05AE /* Pods_UdivaTests.framework */; };
+		172CEDCFC84CECC1529180F9 /* Pods_Udiva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204149256B0CE3BBD6D0B7AC /* Pods_Udiva.framework */; };
 		4800F8711D231B7F00DB51DA /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4800F8701D231B7F00DB51DA /* GlobalVariables.swift */; };
 		4815968B1D225A2F002F1D56 /* garmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481596891D225A2F002F1D56 /* garmentCell.swift */; };
 		4815968C1D225A2F002F1D56 /* garmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4815968A1D225A2F002F1D56 /* garmentCell.xib */; };
@@ -74,7 +74,7 @@
 		AC94AD871B8E41A1002D9AD2 /* View2.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD851B8E41A1002D9AD2 /* View2.xib */; };
 		AC94AD8C1B8E436D002D9AD2 /* View3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94AD8A1B8E436D002D9AD2 /* View3.swift */; };
 		AC94AD8D1B8E436D002D9AD2 /* View3.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD8B1B8E436D002D9AD2 /* View3.xib */; };
-		EF8C43FB6FCC1FE4EB2494CF /* Pods_Udiva.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D2F999BEC5A6AF115D6EA0A /* Pods_Udiva.framework */; };
+		DE1A9CA8146876AA2BCBA073 /* Pods_UdivaTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 41B66C16F954A2E77C47C432 /* Pods_UdivaTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -88,6 +88,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		204149256B0CE3BBD6D0B7AC /* Pods_Udiva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Udiva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		252D136DD8CBFB47DEB8CD67 /* Pods-Udiva.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udiva.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udiva/Pods-Udiva.debug.xcconfig"; sourceTree = "<group>"; };
+		41B66C16F954A2E77C47C432 /* Pods_UdivaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UdivaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		47FE97F09ACC8A01A1AB03EF /* Pods-UdivaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdivaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UdivaTests/Pods-UdivaTests.release.xcconfig"; sourceTree = "<group>"; };
 		4800F8701D231B7F00DB51DA /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		481596891D225A2F002F1D56 /* garmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = garmentCell.swift; sourceTree = "<group>"; };
 		4815968A1D225A2F002F1D56 /* garmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = garmentCell.xib; sourceTree = "<group>"; };
@@ -144,9 +148,8 @@
 		48F058A81D450C8E002CE14B /* Prepopulated.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Prepopulated.xib; sourceTree = "<group>"; };
 		48F058AA1D450E90002CE14B /* PrePopulatedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrePopulatedCollectionViewCell.swift; sourceTree = "<group>"; };
 		48F058AB1D450E90002CE14B /* PrePopulatedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrePopulatedCollectionViewCell.xib; sourceTree = "<group>"; };
-		585C4B0287131D18DE428FA7 /* Pods-Udiva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udiva.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udiva/Pods-Udiva.release.xcconfig"; sourceTree = "<group>"; };
-		63AD7AA1DA568ECDF6CE05AE /* Pods_UdivaTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UdivaTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		6D2F999BEC5A6AF115D6EA0A /* Pods_Udiva.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Udiva.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		6489797128E18CFA211E21C5 /* Pods-UdivaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdivaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UdivaTests/Pods-UdivaTests.debug.xcconfig"; sourceTree = "<group>"; };
+		905469C221141741FFB5AFA6 /* Pods-Udiva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udiva.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udiva/Pods-Udiva.release.xcconfig"; sourceTree = "<group>"; };
 		AC94AD5B1B8E40BF002D9AD2 /* Udiva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udiva.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC94AD5F1B8E40BF002D9AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SnapchatCamera/AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,9 +164,6 @@
 		AC94AD851B8E41A1002D9AD2 /* View2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View2.xib; sourceTree = "<group>"; };
 		AC94AD8A1B8E436D002D9AD2 /* View3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View3.swift; sourceTree = "<group>"; };
 		AC94AD8B1B8E436D002D9AD2 /* View3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View3.xib; sourceTree = "<group>"; };
-		C397AD770BECC04D0C1A90A4 /* Pods-UdivaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdivaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UdivaTests/Pods-UdivaTests.debug.xcconfig"; sourceTree = "<group>"; };
-		D2083A03CF84A876E0B61FFD /* Pods-Udiva.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udiva.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Udiva/Pods-Udiva.debug.xcconfig"; sourceTree = "<group>"; };
-		E7B65B016B7167B8D886E39D /* Pods-UdivaTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdivaTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-UdivaTests/Pods-UdivaTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,7 +174,7 @@
 				483575021D128D7000A0AEBE /* Mixpanel.framework in Frameworks */,
 				48EA7D341D1D435E005D6B81 /* FBSDKCoreKit.framework in Frameworks */,
 				48EA7D351D1D435E005D6B81 /* FBSDKLoginKit.framework in Frameworks */,
-				EF8C43FB6FCC1FE4EB2494CF /* Pods_Udiva.framework in Frameworks */,
+				172CEDCFC84CECC1529180F9 /* Pods_Udiva.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -182,24 +182,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2C84020A0DCAD507A178B360 /* Pods_UdivaTests.framework in Frameworks */,
+				DE1A9CA8146876AA2BCBA073 /* Pods_UdivaTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		406B7D3689A94CBAD24EFD31 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				D2083A03CF84A876E0B61FFD /* Pods-Udiva.debug.xcconfig */,
-				585C4B0287131D18DE428FA7 /* Pods-Udiva.release.xcconfig */,
-				C397AD770BECC04D0C1A90A4 /* Pods-UdivaTests.debug.xcconfig */,
-				E7B65B016B7167B8D886E39D /* Pods-UdivaTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		4815968D1D229E5C002F1D56 /* Global Data */ = {
 			isa = PBXGroup;
 			children = (
@@ -422,7 +411,7 @@
 				AC94AD5C1B8E40BF002D9AD2 /* Products */,
 				AC94AD5E1B8E40BF002D9AD2 /* Supporting Files */,
 				ECA78FAB106D239C665A1DBB /* Frameworks */,
-				406B7D3689A94CBAD24EFD31 /* Pods */,
+				D6539C7E14DA445DF03322EC /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -455,12 +444,23 @@
 			path = SnapchatCamera;
 			sourceTree = "<group>";
 		};
+		D6539C7E14DA445DF03322EC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				252D136DD8CBFB47DEB8CD67 /* Pods-Udiva.debug.xcconfig */,
+				905469C221141741FFB5AFA6 /* Pods-Udiva.release.xcconfig */,
+				6489797128E18CFA211E21C5 /* Pods-UdivaTests.debug.xcconfig */,
+				47FE97F09ACC8A01A1AB03EF /* Pods-UdivaTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		ECA78FAB106D239C665A1DBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				483575011D128D7000A0AEBE /* Mixpanel.framework */,
-				6D2F999BEC5A6AF115D6EA0A /* Pods_Udiva.framework */,
-				63AD7AA1DA568ECDF6CE05AE /* Pods_UdivaTests.framework */,
+				204149256B0CE3BBD6D0B7AC /* Pods_Udiva.framework */,
+				41B66C16F954A2E77C47C432 /* Pods_UdivaTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -478,7 +478,6 @@
 				AC94AD591B8E40BF002D9AD2 /* Resources */,
 				A145F43224EA8314690D9645 /* [CP] Embed Pods Frameworks */,
 				AEC46F2FE345B2A5144F226B /* [CP] Copy Pods Resources */,
-				EA2B1B32F9F738048CE37D1F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -683,21 +682,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-UdivaTests/Pods-UdivaTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		EA2B1B32F9F738048CE37D1F /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Udiva/Pods-Udiva-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -873,7 +857,7 @@
 		};
 		AC94AD7B1B8E40BF002D9AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D2083A03CF84A876E0B61FFD /* Pods-Udiva.debug.xcconfig */;
+			baseConfigurationReference = 252D136DD8CBFB47DEB8CD67 /* Pods-Udiva.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -892,14 +876,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = Udiva;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/xcodeapps/udiva2/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AC94AD7C1B8E40BF002D9AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 585C4B0287131D18DE428FA7 /* Pods-Udiva.release.xcconfig */;
+			baseConfigurationReference = 905469C221141741FFB5AFA6 /* Pods-Udiva.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -918,14 +902,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = Udiva;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/xcodeapps/udiva2/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		AC94AD7E1B8E40BF002D9AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = C397AD770BECC04D0C1A90A4 /* Pods-UdivaTests.debug.xcconfig */;
+			baseConfigurationReference = 6489797128E18CFA211E21C5 /* Pods-UdivaTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -945,7 +929,7 @@
 		};
 		AC94AD7F1B8E40BF002D9AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E7B65B016B7167B8D886E39D /* Pods-UdivaTests.release.xcconfig */;
+			baseConfigurationReference = 47FE97F09ACC8A01A1AB03EF /* Pods-UdivaTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

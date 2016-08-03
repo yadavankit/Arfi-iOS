@@ -141,10 +141,17 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        print("abhi garments ka count")
+        print(GlobalVariables.globalTopAndBottom.count)
+        
+        
+        
         //Instruction screen scrollview & page control
         self.scrollView = UIScrollView(frame: CGRectMake(0,0, self.view.frame.size.width, UIScreen.mainScreen().bounds.height))
-        self.myLabel = UILabel(frame: CGRectMake(0,self.scrollView.frame.height - 150, UIScreen.mainScreen().bounds.width, 50))
+        self.myLabel = UILabel(frame: CGRectMake(0,self.scrollView.frame.height - 150, UIScreen.mainScreen().bounds.width, 70))
         self.myLabel.text = "Make sure lighting is as bright as Sun"
+        self.myLabel.numberOfLines = 2
         self.myLabel.textAlignment = NSTextAlignment.Center
 //        self.view.addSubview(myLabel)
         self.scrollView.backgroundColor = UIColor.whiteColor()
@@ -164,6 +171,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         print(self.cross.layer.frame)
         self.cross.layer.frame.size.height = 100
         self.cross.layer.frame.size.width = 100
+        
         
         
         print("Global number og garmnets")
@@ -475,6 +483,22 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     @IBAction func clicked (sender : UIButton) {  // main camera button clicked
         
+        
+        print("Global top and bottom ka count")
+        print(GlobalVariables.globalTopAndBottom.count)
+        print("Prepopulated wala")
+        print(GlobalVariables.globalStarterPack.count)
+        
+        if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenInstructions") == false)
+        {
+                displayInstructions()
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenInstructions")
+                NSUserDefaults.standardUserDefaults().synchronize()
+        }
+        else
+        {
+        
+        
          print(firstLaunchEver)
         self.flashIcon.hidden = true
         
@@ -509,7 +533,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         cameraButtonOutlet.hidden = true
         perimeterOutlet.hidden = true
         self.tickmarkOutlet.hidden = false
-        
+        }
         
     }
     @IBOutlet var optionCollectionView: UICollectionView!

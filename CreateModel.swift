@@ -26,9 +26,17 @@ class CreateModel: UIView {
         
         print("Seen Complexion")
         print(GlobalVariables.seenComplexion)
+        
+        
+        if GlobalVariables.seenComplexion == false
+        {
+            let alert = UIAlertView(title: "Fill all Specs", message: "Seems like you left a few specifications for your model. Please fill in all details.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
 
    
-        //
+        else
+        {
         let current_user_id = GlobalVariables.globalFacebookId!
         let bust = modelObject.bust
         let hip = modelObject.hip
@@ -82,8 +90,8 @@ class CreateModel: UIView {
             self.removeFromSuperview()
                 
                 
-             
-                
+            }
+            
         }
 
     }
