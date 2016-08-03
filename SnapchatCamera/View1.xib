@@ -7,6 +7,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View1" customModule="Udiva" customModuleProvider="target">
             <connections>
+                <outlet property="background" destination="Rox-JJ-N3c" id="qK1-ap-xgX"/>
+                <outlet property="bg" destination="Rox-JJ-N3c" id="eCP-y3-aY2"/>
                 <outlet property="bottomImageView" destination="qu2-Hf-bCx" id="ZJE-mu-IHi"/>
                 <outlet property="garmentCollectionView" destination="u1B-Qh-shm" id="3Pp-2n-TR3"/>
                 <outlet property="label2" destination="8bm-2g-i2O" id="bTo-48-x08"/>

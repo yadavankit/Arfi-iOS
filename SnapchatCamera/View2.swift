@@ -142,7 +142,12 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         super.viewDidLoad()
         
         
-        print("abhi garments ka count")
+        
+        self.panel.timeUntilDismiss = 0
+        self.panel.enableTapDismiss = true
+        self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Right for Model 😊")
+        
+                print("abhi garments ka count")
         print(GlobalVariables.globalTopAndBottom.count)
         
         
@@ -262,6 +267,9 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     func removeScrollView()
     {
         
+        self.panel.timeUntilDismiss = 3
+        self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left to see your wardrobe organized.")
+        
         self.scrollView.hidden = true
         self.scrollView.removeFromSuperview()
         self.pageControl.hidden = true
@@ -317,9 +325,23 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
   
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        
+      
+//        let triggerTime = (Int64(NSEC_PER_SEC) * 2)
+//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+//            
+//            
+//            
+//            
+//        })
+        
+        
         setPageViewInScroll()
         previewLayer?.frame = cameraView.bounds
     }
+    
+    
     
     override func viewWillAppear(animated: Bool) { //when the screen loads
         super.viewWillAppear(animated)
@@ -793,6 +815,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
     }
     
+        
     @IBAction func showthebutton(sender: AnyObject) {
         dropDown.show()
       

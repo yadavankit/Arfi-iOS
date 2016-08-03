@@ -10,21 +10,34 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import AlamofireImage
+import JKNotificationPanel
 
 class Prepopulated: UIView {
+    
+    let panel : JKNotificationPanel = JKNotificationPanel()
 
     class func instanceFromNib() -> UIView {
  
+        
         return UINib(nibName: "Prepopulated", bundle: nil).instantiateWithOwner(nil, options: nil)[0] as! UIView
     }
     @IBAction func releaseMe(sender: AnyObject) {
         GlobalVariables.startedUsingArfi = true
+        
+        
+        print("Starteffdhhdsfhdfvhfdhjdjhd")
+        
+        
+        
         let vc = View1()
         vc.getWardrobeStyle()
         vc.showTheModel()
+        
       
+        
     
         self.removeFromSuperview()
+       
         
     }
     

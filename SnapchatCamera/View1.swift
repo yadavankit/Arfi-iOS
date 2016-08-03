@@ -25,6 +25,7 @@ class View1: UIViewController  {
     var imageCacheForModel = [String : UIImage] ()
     var safe = false
 
+    @IBOutlet var clothesImage: UIImageView!
     @IBOutlet var botImageView: UIImageView!
     @IBOutlet var topImageView: UIImageView!
 
@@ -47,6 +48,11 @@ class View1: UIViewController  {
 
 
     @IBAction func refreshAction(sender: AnyObject) {
+        
+        panel.timeUntilDismiss = 5
+        panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on garments to see how they will look on you 😊")
+
+        
         
         print(GlobalVariables.globalTopAndBottom.count)
         
@@ -95,12 +101,15 @@ class View1: UIViewController  {
     }
     
    
+    @IBOutlet var bg: UIImageView!
+    
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
          self.refreshOutlet.hidden = true
-      
+        
+        
          self.label2.hidden = true
          self.tapToActivate.hidden = true
         
@@ -573,6 +582,12 @@ class View1: UIViewController  {
     func getWardrobeStyle(){
         
         var arrayCount : Int?
+        
+        
+    
+        
+            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view , message: "Tap on garments to see how they look on you 👍")
+        
         
         Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
             .responseJSON { response in
