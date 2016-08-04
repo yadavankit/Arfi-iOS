@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -9,7 +9,6 @@
             <connections>
                 <outlet property="HelloUser" destination="c3M-gm-Jn3" id="Q9i-2t-oQr"/>
                 <outlet property="emptyWardrobe" destination="r4I-6v-5uf" id="p7e-w1-vp2"/>
-                <outlet property="myTableView" destination="FiO-W5-ED1" id="bxZ-BJ-40J"/>
                 <outlet property="realTableView" destination="awN-K2-wSU" id="qPV-di-mDY"/>
                 <outlet property="view" destination="FiO-W5-ED1" id="Cwo-qp-QRf"/>
             </connections>
@@ -37,17 +36,10 @@
                     <rect key="frame" x="144" y="23" width="46" height="30"/>
                     <state key="normal" title="Button"/>
                 </button>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89k-JJ-Ihh">
-                    <rect key="frame" x="327" y="75" width="47" height="30"/>
-                    <state key="normal" title="Reload"/>
-                    <connections>
-                        <action selector="reload:" destination="-1" eventType="touchUpInside" id="l4s-bl-bls"/>
-                    </connections>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDI-5S-EIJ">
-                    <rect key="frame" x="19" y="122" width="264" height="23"/>
+                    <rect key="frame" x="19" y="122" width="130" height="23"/>
                     <attributedString key="attributedText">
-                        <fragment content="Your wardrobe will come here">
+                        <fragment content="Your wardrobe">
                             <attributes>
                                 <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <font key="NSFont" size="20" name="Helvetica-Light"/>
@@ -67,6 +59,13 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89k-JJ-Ihh">
+                    <rect key="frame" x="327" y="76" width="47" height="30"/>
+                    <state key="normal" title="Reload"/>
+                    <connections>
+                        <action selector="reload:" destination="-1" eventType="touchUpInside" id="l4s-bl-bls"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>
@@ -75,7 +74,7 @@
                 <constraint firstItem="awN-K2-wSU" firstAttribute="leading" secondItem="FiO-W5-ED1" secondAttribute="leading" id="C3D-Ck-I2O"/>
                 <constraint firstItem="89k-JJ-Ihh" firstAttribute="leading" secondItem="r4I-6v-5uf" secondAttribute="trailing" constant="61" id="DPl-Vr-685"/>
                 <constraint firstItem="dDI-5S-EIJ" firstAttribute="top" secondItem="r4I-6v-5uf" secondAttribute="bottom" constant="7" id="F9u-6N-hmc"/>
-                <constraint firstItem="dDI-5S-EIJ" firstAttribute="width" secondItem="c3M-gm-Jn3" secondAttribute="width" constant="-31" id="MWG-8Q-b8i"/>
+                <constraint firstItem="dDI-5S-EIJ" firstAttribute="width" secondItem="c3M-gm-Jn3" secondAttribute="width" constant="-165" id="MWG-8Q-b8i"/>
                 <constraint firstItem="c3M-gm-Jn3" firstAttribute="top" secondItem="FiO-W5-ED1" secondAttribute="top" constant="67" id="RLX-JD-Zfa"/>
                 <constraint firstItem="FcL-K5-4f1" firstAttribute="centerX" secondItem="c3M-gm-Jn3" secondAttribute="centerX" id="VS7-E2-y4G"/>
                 <constraint firstItem="dDI-5S-EIJ" firstAttribute="leading" secondItem="c3M-gm-Jn3" secondAttribute="leading" id="Zvc-nd-L3Z"/>

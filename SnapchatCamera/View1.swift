@@ -29,11 +29,11 @@ class View1: UIViewController  {
     @IBOutlet var botImageView: UIImageView!
     @IBOutlet var topImageView: UIImageView!
 
-    @IBOutlet var refreshOutlet: UIButton!
 
     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     @IBOutlet var label2: UILabel!
   
+    @IBOutlet var whiteView: UIView!
     let panel : JKNotificationPanel = JKNotificationPanel()
     @IBOutlet var garmentTop: NSLayoutConstraint!
     var test = 6
@@ -49,25 +49,36 @@ class View1: UIViewController  {
 
     @IBAction func refreshAction(sender: AnyObject) {
         
-        panel.timeUntilDismiss = 5
-        panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on garments to see how they will look on you 😊")
-
-        
-        
-        print(GlobalVariables.globalTopAndBottom.count)
-        
-        self.garmentCollectionView.reloadData()
-        showComplexion()
-        self.refreshOutlet.hidden = true
+        self.whiteView.hidden = true
         self.tapToActivate.hidden = true
         self.label2.hidden = true
+        self.view.addSubview(modelIndicator)
+        self.modelIndicator.hidden = false
+        self.modelIndicator.startAnimating()
+        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+            
+            self.panel.timeUntilDismiss = 5
+            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on garments to see how they will look on you 😊")
+            
+            
+            
+            print(GlobalVariables.globalTopAndBottom.count)
+            
+            self.garmentCollectionView.reloadData()
+            self.showComplexion()
+            self.getProperImages()
+            self.getBottomWearImages()
+            self.checkForPreviousModel()
+         
+            
+            
+        })
+        self.modelIndicator.stopAnimating()
+        self.modelIndicator.hidden = true
+        self.modelIndicator.removeFromSuperview()
+ 
 
-        
-
-
-
-
-    
     }
 
       var garments = [UIImage(named : "1Model"),UIImage(named : "2Model"),UIImage(named : "3Model"),UIImage(named : "4Model" ) , UIImage(named : "5Model" ) ]
@@ -107,7 +118,22 @@ class View1: UIViewController  {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-         self.refreshOutlet.hidden = true
+        
+        
+        let trigger = (Int64(NSEC_PER_SEC) * 4)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, trigger), dispatch_get_main_queue(), { () -> Void in
+      
+            if GlobalVariables.globalTopAndBottom.count > 0 {
+                
+               self.showTheModel()
+               self.checkForPreviousModel()
+            }
+            
+        })
+        
+       
+       
+         self.whiteView.hidden = true
         
         
          self.label2.hidden = true
@@ -146,7 +172,7 @@ class View1: UIViewController  {
             
             else
             {
-          
+                self.whiteView.hidden = false
                 self.label2.hidden = false
                 self.tapToActivate.hidden = false
 
@@ -282,6 +308,61 @@ class View1: UIViewController  {
         
         
     }
+    
+    func getProperImages(){
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=\(GlobalVariables.globalFacebookId!)&category=TopWear")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    print(arrayCount)
+                    print("This is arrayCount")
+                    NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["garments"][number]["wardrobe_url"].string{
+                            print(json["garments"][0]["wardrobe_url"].string)
+                            
+                            GlobalVariables.globalTopwearModelUrl.append(quote)
+                            
+                            
+                            number += 1
+                            print(number)
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            
+                        }
+                        
+                    }
+                    
+                }}
+        
+        
+   
+        
+        
+        
+        
+    }
+
     
     
     
@@ -466,6 +547,61 @@ class View1: UIViewController  {
     }
 
     }
+    
+    func getBottomWearImages(){
+        
+        
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=\(GlobalVariables.globalFacebookId!)&category=BottomWear")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    
+                    
+                    arrayCount = (json["garments"].count)
+                    print(arrayCount)
+                    print("This is arrayCount")
+                    
+                    
+                    var number = 0
+                    
+                    
+                    while number  < arrayCount! {
+                        if let quote = json["garments"][number]["wardrobe_url"].string{
+                            print(json["garments"][0]["wardrobe_url"].string)
+                            
+                            GlobalVariables.globalBottomWardrobe.append(quote)
+                            
+                            
+                            number += 1
+                            print("BottomWardrobe is here")
+                        }
+                        
+                        
+                        
+                        if number == arrayCount! {
+                            
+                            
+                            GlobalVariables.globalSafeToFetch = true
+                            
+                            print("Now TrUE")
+                            
+                        }
+                        
+                    }
+                    
+                }}
+        
+        
+        
+        
+        
+    }
+    
+
     
     var once : Bool = false
     
@@ -779,7 +915,7 @@ class View1: UIViewController  {
                             
                             GlobalVariables.globalSafeToFetch = true
                             
-                           // self.showComplexion()
+                            self.showComplexion()
                             
                             
                         }

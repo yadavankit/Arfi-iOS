@@ -103,8 +103,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     @IBOutlet weak var cameraButtonOutlet: UIButton!
     
     
-    @IBOutlet var myTableView: UITableView!
-    
+      
     
     @IBAction func tickmarkAction(sender: AnyObject) {    // when user clicks on the tick mark
         

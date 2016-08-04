@@ -42,13 +42,17 @@ class ViewController: UIViewController {
         v3Frame.origin.x = self.view.frame.width * 2
         v3.view.frame = v3Frame
         
-        if  GlobalVariables.prepopulatedComplete == false {
-      
-        self.scrollView.contentOffset.x = self.view.frame.size.width
-        self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+        if  GlobalVariables.globalTopAndBottom.count > 0 {
+            
+            
+            self.scrollView.contentOffset.x = self.view.frame.size.width
+            self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+            
+           
+     
         } else {
             
-            self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+       self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
             
         }
         

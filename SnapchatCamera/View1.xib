@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -13,10 +13,10 @@
                 <outlet property="garmentCollectionView" destination="u1B-Qh-shm" id="3Pp-2n-TR3"/>
                 <outlet property="label2" destination="8bm-2g-i2O" id="bTo-48-x08"/>
                 <outlet property="modelIndicator" destination="HPN-Hq-jWK" id="qLW-rq-l7v"/>
-                <outlet property="refreshOutlet" destination="Yp3-Kz-elI" id="6xq-xU-9Iz"/>
                 <outlet property="tapToActivate" destination="tt9-xa-Va6" id="Y7f-mX-Tz9"/>
                 <outlet property="topImageView" destination="bNh-HH-5FV" id="Joa-H3-7Oz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="whiteView" destination="sxn-gH-dQ4" id="jK5-wd-kJV"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -55,62 +55,98 @@
                     <rect key="frame" x="281" y="282" width="37" height="37"/>
                     <color key="color" red="1" green="0.18938105860000001" blue="0.35121165879999999" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your garments will appear here" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bm-2g-i2O">
-                    <rect key="frame" x="178" y="508" width="244" height="21"/>
-                    <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Yp3-Kz-elI">
-                    <rect key="frame" x="0.0" y="477" width="600" height="123"/>
-                    <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tt9-xa-Va6">
-                    <rect key="frame" x="209" y="540" width="183" height="31"/>
-                    <color key="backgroundColor" red="1" green="0.18938105860000001" blue="0.35121165879999999" alpha="1" colorSpace="calibratedRGB"/>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxn-gH-dQ4">
+                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What to wear tomorrow?" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8bm-2g-i2O">
+                            <rect key="frame" x="182" y="278" width="236" height="21"/>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="clothes" translatesAutoresizingMaskIntoConstraints="NO" id="3xq-Ss-ncY">
+                            <rect key="frame" x="182" y="60" width="236" height="194"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="194" id="uMW-By-UuH"/>
+                            </constraints>
+                        </imageView>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfd-yD-NJW">
+                            <rect key="frame" x="140" y="312" width="360" height="60.5"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="360" id="Fjp-DB-fyT"/>
+                            </constraints>
+                            <string key="text">unlock to see your model to experience the new way of deciding which outfit to wear 
+</string>
+                            <fontDescription key="fontDescription" name="HelveticaNeue-Thin" family="Helvetica Neue" pointSize="17"/>
+                            <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tt9-xa-Va6">
+                            <rect key="frame" x="209" y="375" width="183" height="31"/>
+                            <color key="backgroundColor" red="1" green="0.18938105860000001" blue="0.35121165879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="183" id="gCK-vb-0DI"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
+                            <state key="normal" title="Tap to activate model">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </state>
+                            <connections>
+                                <action selector="refreshAction:" destination="-1" eventType="touchUpInside" id="Em6-sI-TtM"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="183" id="G30-BS-NcB"/>
+                        <constraint firstItem="3xq-Ss-ncY" firstAttribute="width" secondItem="8bm-2g-i2O" secondAttribute="width" id="2pW-pJ-w9g"/>
+                        <constraint firstItem="tt9-xa-Va6" firstAttribute="top" secondItem="8bm-2g-i2O" secondAttribute="bottom" constant="76" id="9pc-78-ij2"/>
+                        <constraint firstItem="8bm-2g-i2O" firstAttribute="top" secondItem="3xq-Ss-ncY" secondAttribute="bottom" constant="24" id="CGF-8d-6O0"/>
+                        <constraint firstItem="8bm-2g-i2O" firstAttribute="centerX" secondItem="sxn-gH-dQ4" secondAttribute="centerX" id="FaF-6M-hMI"/>
+                        <constraint firstItem="Vfd-yD-NJW" firstAttribute="top" secondItem="8bm-2g-i2O" secondAttribute="bottom" constant="13" id="OZf-Xe-khW"/>
+                        <constraint firstItem="3xq-Ss-ncY" firstAttribute="centerX" secondItem="8bm-2g-i2O" secondAttribute="centerX" id="Vic-jl-L04"/>
+                        <constraint firstItem="Vfd-yD-NJW" firstAttribute="centerX" secondItem="8bm-2g-i2O" secondAttribute="centerX" constant="20" id="ct2-Kt-3GF"/>
+                        <constraint firstItem="8bm-2g-i2O" firstAttribute="centerY" secondItem="sxn-gH-dQ4" secondAttribute="centerY" constant="-11.5" id="g2Q-oL-UPl"/>
+                        <constraint firstItem="8bm-2g-i2O" firstAttribute="centerX" secondItem="tt9-xa-Va6" secondAttribute="centerX" id="qfv-cg-xX0"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
-                    <state key="normal" title="Tap to activate model">
-                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </state>
-                    <connections>
-                        <action selector="refreshAction:" destination="-1" eventType="touchUpInside" id="Em6-sI-TtM"/>
-                    </connections>
-                </button>
+                </view>
             </subviews>
             <gestureRecognizers/>
             <constraints>
-                <constraint firstItem="tt9-xa-Va6" firstAttribute="top" secondItem="8bm-2g-i2O" secondAttribute="bottom" constant="10" id="2HS-W7-bA9"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="leading" secondItem="Rox-JJ-N3c" secondAttribute="leading" id="5fP-js-VuV"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="trailing" secondItem="Rox-JJ-N3c" secondAttribute="trailing" id="8gt-ET-PeB"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="-55" id="8yI-eZ-aTP"/>
                 <constraint firstAttribute="bottom" secondItem="u1B-Qh-shm" secondAttribute="bottom" id="A6d-Yr-7Zr"/>
-                <constraint firstAttribute="trailing" secondItem="Yp3-Kz-elI" secondAttribute="trailing" id="GP8-Kd-PwW"/>
-                <constraint firstAttribute="bottom" secondItem="Yp3-Kz-elI" secondAttribute="bottom" id="GSE-Kp-6MH"/>
+                <constraint firstItem="sxn-gH-dQ4" firstAttribute="top" secondItem="Rox-JJ-N3c" secondAttribute="top" id="CDE-7B-uto"/>
                 <constraint firstItem="bNh-HH-5FV" firstAttribute="centerX" secondItem="qu2-Hf-bCx" secondAttribute="centerX" id="KMq-OT-4Ih"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="qu2-Hf-bCx" secondAttribute="bottom" constant="20" id="MZv-Hu-tF3"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mhd-jt-oRv"/>
                 <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-69" id="ONd-4z-QTe"/>
-                <constraint firstItem="8bm-2g-i2O" firstAttribute="centerX" secondItem="tt9-xa-Va6" secondAttribute="centerX" id="W2Q-Bf-CVp"/>
                 <constraint firstAttribute="bottom" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="68" id="baA-gG-A4X"/>
-                <constraint firstItem="Yp3-Kz-elI" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="fec-7x-zUZ"/>
-                <constraint firstItem="Yp3-Kz-elI" firstAttribute="width" secondItem="u1B-Qh-shm" secondAttribute="width" id="g5k-tF-C5b"/>
                 <constraint firstItem="HPN-Hq-jWK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i7p-8x-Ouf"/>
-                <constraint firstItem="Yp3-Kz-elI" firstAttribute="height" secondItem="u1B-Qh-shm" secondAttribute="height" id="jTa-kB-rSe"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kS7-au-6Tw"/>
+                <constraint firstItem="sxn-gH-dQ4" firstAttribute="trailing" secondItem="u1B-Qh-shm" secondAttribute="trailing" id="lzn-Lg-ZyP"/>
                 <constraint firstItem="HPN-Hq-jWK" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="nCc-lx-pAP"/>
-                <constraint firstItem="tt9-xa-Va6" firstAttribute="centerY" secondItem="Yp3-Kz-elI" secondAttribute="centerY" constant="16.5" id="osz-0K-gO4"/>
                 <constraint firstItem="qu2-Hf-bCx" firstAttribute="centerX" secondItem="u1B-Qh-shm" secondAttribute="centerX" id="pOe-75-Wbv"/>
                 <constraint firstAttribute="trailing" secondItem="Rox-JJ-N3c" secondAttribute="trailing" id="s2D-dQ-alB"/>
-                <constraint firstItem="tt9-xa-Va6" firstAttribute="centerX" secondItem="Yp3-Kz-elI" secondAttribute="centerX" id="tXa-xr-0xV"/>
+                <constraint firstItem="sxn-gH-dQ4" firstAttribute="leading" secondItem="u1B-Qh-shm" secondAttribute="leading" id="s94-fL-PAQ"/>
+                <constraint firstItem="sxn-gH-dQ4" firstAttribute="bottom" secondItem="u1B-Qh-shm" secondAttribute="bottom" id="zIb-1F-He1"/>
             </constraints>
         </view>
+        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" id="0Ny-gt-XW6">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fxy-gj-mQJ">
+                <size key="itemSize" width="50" height="50"/>
+                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+            </collectionViewFlowLayout>
+        </collectionView>
     </objects>
     <resources>
         <image name="achimodel" width="172" height="337"/>
         <image name="bg" width="640" height="1136"/>
+        <image name="clothes" width="236" height="295"/>
         <image name="gandimodel" width="172" height="337"/>
     </resources>
 </document>

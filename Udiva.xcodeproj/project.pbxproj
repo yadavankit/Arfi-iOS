@@ -382,8 +382,8 @@
 			children = (
 				48F058A61D450C4C002CE14B /* Prepopulated.swift */,
 				48F058A81D450C8E002CE14B /* Prepopulated.xib */,
-				48F058AA1D450E90002CE14B /* PrePopulatedCollectionViewCell.swift */,
 				48F058AB1D450E90002CE14B /* PrePopulatedCollectionViewCell.xib */,
+				48F058AA1D450E90002CE14B /* PrePopulatedCollectionViewCell.swift */,
 			);
 			name = Prepopulated;
 			sourceTree = "<group>";
@@ -478,6 +478,7 @@
 				AC94AD591B8E40BF002D9AD2 /* Resources */,
 				A145F43224EA8314690D9645 /* [CP] Embed Pods Frameworks */,
 				AEC46F2FE345B2A5144F226B /* [CP] Copy Pods Resources */,
+				493B489B8A6B51DF544E853F /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -605,6 +606,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		493B489B8A6B51DF544E853F /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Udiva/Pods-Udiva-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		4946DB7B3F144A2B353D6D6F /* [CP] Check Pods Manifest.lock */ = {
@@ -876,7 +892,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = Udiva;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/xcodeapps/udiva2/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -902,7 +918,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = Udiva;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/xcodeapps/udiva2/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

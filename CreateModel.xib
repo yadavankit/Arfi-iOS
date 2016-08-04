@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -78,6 +78,9 @@
                 <constraint firstItem="N45-y5-d5H" firstAttribute="centerX" secondItem="84d-1o-T8m" secondAttribute="centerX" id="k9n-5U-TWx"/>
                 <constraint firstAttribute="trailing" secondItem="84d-1o-T8m" secondAttribute="trailing" id="yOh-UT-YdQ"/>
             </constraints>
+            <connections>
+                <outlet property="doneOutlet" destination="UI2-cZ-9Id" id="ela-IW-7ZP"/>
+            </connections>
         </view>
     </objects>
 </document>

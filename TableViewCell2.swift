@@ -31,7 +31,7 @@ extension TableViewCell2 : UICollectionViewDataSource {
         
         if GlobalVariables.globalBottomWardrobe .count > 0 {
             
-            return GlobalVariables.globalBottomWardrobe .count
+            return GlobalVariables.globalBottomWardrobe.count
             
         } else {
             
@@ -51,7 +51,7 @@ extension TableViewCell2 : UICollectionViewDataSource {
         
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell2", forIndexPath: indexPath) as! CollectionViewCell2
         
-
+       
         
         if GlobalVariables.globalBottomWardrobe .count > 0 {
             print(GlobalVariables.globalBottomWardrobe .count)
@@ -61,19 +61,10 @@ extension TableViewCell2 : UICollectionViewDataSource {
             let URL = NSURL(string:URLString)!
             cell.garmentImage.hnk_setImageFromURL(URL)
             
-        } else {
-            
-            cell.garmentImage.image = UIImage(named: "Placeholder")
-            
         }
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            
-            self.myCollectionView.reloadData()
-            
-        })
         
+    
 
         
         return cell

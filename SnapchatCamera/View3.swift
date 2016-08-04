@@ -15,7 +15,6 @@ var categories = ["Top Wear" , "Bottom Wear" ]
     
     @IBOutlet var HelloUser: UILabel!
     
-    @IBOutlet var myTableView: UIView!
    
     @IBOutlet var realTableView: UITableView!
     
@@ -37,7 +36,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
             
                 self.HelloUser.text = "Hello \(userDetails.componentsSeparatedByString(" ")[0])!"
         
-            
+               
                       
             
         })

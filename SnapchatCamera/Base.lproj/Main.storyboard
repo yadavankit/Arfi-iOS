@@ -271,7 +271,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="women-fb-screen" translatesAutoresizingMaskIntoConstraints="NO" id="A0P-O5-0l2">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="facebook" translatesAutoresizingMaskIntoConstraints="NO" id="A0P-O5-0l2">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                             </imageView>
                         </subviews>
@@ -293,11 +293,11 @@
         </scene>
     </scenes>
     <resources>
+        <image name="facebook" width="640" height="1136"/>
         <image name="get_started" width="148" height="40"/>
         <image name="onboarding1" width="640" height="1136"/>
         <image name="onboarding2" width="640" height="1136"/>
         <image name="onboarding3" width="640" height="1136"/>
-        <image name="women-fb-screen" width="640" height="1136"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="TrW-IL-6u5"/>

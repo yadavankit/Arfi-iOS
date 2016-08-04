@@ -13,6 +13,7 @@ import JKNotificationPanel
 
 class CreateModel: UIView {
     
+    @IBOutlet var doneOutlet: UIButton!
     class func instanceFromNib() -> UIView {
         
         
@@ -23,6 +24,8 @@ class CreateModel: UIView {
      let panel : JKNotificationPanel = JKNotificationPanel()
 
     @IBAction func done(sender: AnyObject) {
+        
+        self.doneOutlet.hidden = true
         
         print("Seen Complexion")
         print(GlobalVariables.seenComplexion)
