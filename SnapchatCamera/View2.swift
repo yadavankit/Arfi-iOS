@@ -270,7 +270,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     {
         
         self.panel.timeUntilDismiss = 3
-        self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left to see your wardrobe organized.")
+       // self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left to see your wardrobe organized.")
         
         self.scrollView.hidden = true
         self.scrollView.removeFromSuperview()

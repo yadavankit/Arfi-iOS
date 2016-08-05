@@ -75,7 +75,7 @@ class CreateModel: UIView {
             
            
                     
-                    self.panel.showNotify(withStatus: .SUCCESS, inView: self, message: "Swipe Left 👈 and tap on Circle to know how you can upload more garments")
+                //    self.panel.showNotify(withStatus: .SUCCESS, inView: self, message: "Swipe Left 👈 and tap on Circle to know how you can upload more garments")
                     
                     
         

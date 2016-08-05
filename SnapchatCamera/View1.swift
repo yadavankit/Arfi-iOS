@@ -522,7 +522,7 @@ class View1: UIViewController  {
                 
                 
                 
-                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left 👈 and tap on Circle to know how you can upload more garments")
+            //    self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left 👈 and tap on Circle to know how you can upload more garments")
                 
                 
                 
