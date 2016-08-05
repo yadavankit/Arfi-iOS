@@ -18,33 +18,50 @@ var categories = ["Top Wear" , "Bottom Wear" ]
    
     @IBOutlet var realTableView: UITableView!
     
+    var GotUserName : Bool =  false
+    
 
     @IBOutlet var emptyWardrobe: UILabel!
     override func viewDidLoad() {
-        
-      //   hideAndUnhide()
-        
-        self.automaticallyAdjustsScrollViewInsets = false
-        
-        let userDetails = NSUserDefaults.standardUserDefaults().objectForKey("fb_user_name") as? String ?? "User"
-//        let userDetails = NSUserDefaults.standardUserDefaults().objectForKey("fb_user_name")
-        
-        self.HelloUser.text = "Hello User!"
-        
-        let triggerTime = (Int64(NSEC_PER_SEC) * 4)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            
-                self.HelloUser.text = "Hello \(userDetails.componentsSeparatedByString(" ")[0])!"
-        
-               
-                      
-            
-        })
+   
+        startTimer()
         
       
- 
         
     }
+    
+    var timer: dispatch_source_t!
+    
+    func startTimer() {
+        let queue = dispatch_queue_create("com.domain.app.timer", nil)
+        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
+        dispatch_source_set_event_handler(timer) {
+            
+            if GlobalVariables.globalTopAndBottom.count > 0 {
+                
+                self.HelloUser.text = "Hello \(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])!"
+                    self.HelloUser.reloadInputViews()
+                self.stopTimer()
+                
+            
+            } else {
+                
+                self.HelloUser.text = "Hello User!"
+            }
+          
+           
+        }
+        dispatch_resume(timer)
+    }
+    
+    func stopTimer() {
+        dispatch_source_cancel(timer)
+        timer = nil
+    }
+    
+    
+  
 
    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -123,38 +140,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
     @IBOutlet var testImage: UIImageView!
     var arrayCount : Int?
 
-    @IBOutlet var testa: UIButton!
-    @IBAction func testAction(sender: AnyObject) {
-    
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=1069249093136307&category=TopWear")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                        
-                   self.arrayCount = (json["garments"].count)
-                    print(self.arrayCount)
-                    
-                    var number = 0
-        
-                    while number  < self.arrayCount! {
-                    if let quote = json["garments"][number]["wardrobe_url"].string{
-                        
-                        print(quote)
-                  
-                        
-                        number += 1
-                       
-                    }
-                        
-                        GlobalVariables.globalSafeToFetch = true
-                }
-                }}
-        
 
-    }
     
     
 }

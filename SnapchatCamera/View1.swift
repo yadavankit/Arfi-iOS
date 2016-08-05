@@ -43,9 +43,15 @@ class View1: UIViewController  {
     @IBOutlet var tapToActivate: UIButton!
     @IBOutlet var doneOutlet: UIButton!
 
+    @IBAction func reloadCellss(sender: AnyObject) {
+        
+        self.garmentCollectionView.reloadData()
+        
+    }
     @IBOutlet var background: QuestionsCollectionView!
     @IBOutlet var garmentCollectionView: UICollectionView!
 
+    @IBOutlet var reloadCells: UIButton!
 
     @IBAction func refreshAction(sender: AnyObject) {
         
@@ -65,11 +71,15 @@ class View1: UIViewController  {
             
             print(GlobalVariables.globalTopAndBottom.count)
             
-            self.garmentCollectionView.reloadData()
-            self.showComplexion()
+            
+            
+            self.showTheModel()
+            self.checkForPreviousModel()
             self.getProperImages()
             self.getBottomWearImages()
             self.checkForPreviousModel()
+            
+            self.garmentCollectionView.reloadData()
          
             
             
@@ -111,6 +121,29 @@ class View1: UIViewController  {
 
     }
     
+    var timer: dispatch_source_t!
+    
+    func startTimer() {
+        let queue = dispatch_queue_create("com.domain.app.timer", nil)
+        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
+        dispatch_source_set_event_handler(timer) {
+            
+          self.garmentCollectionView.reloadData()
+          
+        }
+        dispatch_resume(timer)
+    }
+    
+    func stopTimer() {
+        dispatch_source_cancel(timer)
+        timer = nil
+    }
+    
+
+    
+  
+    
    
     @IBOutlet var bg: UIImageView!
     
@@ -118,8 +151,8 @@ class View1: UIViewController  {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        
-        
+  
+//         startTimer()
         let trigger = (Int64(NSEC_PER_SEC) * 4)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, trigger), dispatch_get_main_queue(), { () -> Void in
       
@@ -522,7 +555,7 @@ class View1: UIViewController  {
                 
                 
                 
-            //    self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left 👈 and tap on Circle to know how you can upload more garments")
+                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left 👈 and tap on Circle to know how you can upload more garments")
                 
                 
                 

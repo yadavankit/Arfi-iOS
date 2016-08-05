@@ -8,7 +8,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="arfi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -40,7 +40,7 @@
         <!--Main View Controller-->
         <scene sceneID="pDu-cU-xUF">
             <objects>
-                <viewController id="OyH-PP-HaG" customClass="mainViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="OyH-PP-HaG" customClass="mainViewController" customModule="arfi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2Qp-9d-dFT"/>
                         <viewControllerLayoutGuide type="bottom" id="rwu-CX-Ser"/>
@@ -63,7 +63,7 @@
         <!--Walkthrough View Controller-->
         <scene sceneID="26W-gy-tbT">
             <objects>
-                <viewController storyboardIdentifier="container" id="q5A-OQ-x9j" customClass="BWWalkthroughViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="container" id="q5A-OQ-x9j" customClass="BWWalkthroughViewController" customModule="arfi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="Egm-fM-dCr"/>
                         <viewControllerLayoutGuide type="bottom" id="wpF-cz-GhK"/>
@@ -81,7 +81,7 @@
         <!--Walkthrough Page View Controller-->
         <scene sceneID="fgS-wU-OIM">
             <objects>
-                <viewController storyboardIdentifier="page_1" id="ZdN-QA-B2T" customClass="BWWalkthroughPageViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="page_1" id="ZdN-QA-B2T" customClass="BWWalkthroughPageViewController" customModule="arfi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="77X-j9-2SF"/>
                         <viewControllerLayoutGuide type="bottom" id="ZQ3-tB-N49"/>
@@ -133,7 +133,7 @@
         <!--Walkthrough Page View Controller-->
         <scene sceneID="xVE-k0-br7">
             <objects>
-                <viewController storyboardIdentifier="page_2" id="1O3-0m-lSU" customClass="BWWalkthroughPageViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="page_2" id="1O3-0m-lSU" customClass="BWWalkthroughPageViewController" customModule="arfi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="z7c-Jf-19e"/>
                         <viewControllerLayoutGuide type="bottom" id="KPK-yX-Jyq"/>
@@ -184,7 +184,7 @@
         <!--Walkthrough Page View Controller-->
         <scene sceneID="UfW-w0-TQ1">
             <objects>
-                <viewController storyboardIdentifier="page_3" id="MQk-JG-n8f" customClass="BWWalkthroughPageViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="page_3" id="MQk-JG-n8f" customClass="BWWalkthroughPageViewController" customModule="arfi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pwq-Cu-rgY"/>
                         <viewControllerLayoutGuide type="bottom" id="62r-X6-heX"/>
@@ -262,7 +262,7 @@
         <!--Login Page View Controller-->
         <scene sceneID="q8n-UG-bwD">
             <objects>
-                <viewController id="lyg-0h-H5Y" customClass="loginPageViewController" customModule="Udiva" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="lyg-0h-H5Y" customClass="loginPageViewController" customModule="arfi" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GQo-pg-c1H"/>
                         <viewControllerLayoutGuide type="bottom" id="NS2-Jz-HSe"/>

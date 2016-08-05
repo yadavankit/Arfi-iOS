@@ -150,14 +150,14 @@
 		48F058AB1D450E90002CE14B /* PrePopulatedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrePopulatedCollectionViewCell.xib; sourceTree = "<group>"; };
 		6489797128E18CFA211E21C5 /* Pods-UdivaTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UdivaTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UdivaTests/Pods-UdivaTests.debug.xcconfig"; sourceTree = "<group>"; };
 		905469C221141741FFB5AFA6 /* Pods-Udiva.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Udiva.release.xcconfig"; path = "Pods/Target Support Files/Pods-Udiva/Pods-Udiva.release.xcconfig"; sourceTree = "<group>"; };
-		AC94AD5B1B8E40BF002D9AD2 /* Udiva.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Udiva.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC94AD5B1B8E40BF002D9AD2 /* arfi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arfi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC94AD5F1B8E40BF002D9AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SnapchatCamera/AppDelegate.swift; sourceTree = "<group>"; };
 		AC94AD621B8E40BF002D9AD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC94AD651B8E40BF002D9AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		AC94AD671B8E40BF002D9AD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SnapchatCamera/Images.xcassets; sourceTree = "<group>"; };
 		AC94AD6A1B8E40BF002D9AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		AC94AD701B8E40BF002D9AD2 /* Udiva.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Udiva.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		AC94AD701B8E40BF002D9AD2 /* arfi.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = arfi.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC94AD801B8E4174002D9AD2 /* View1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
 		AC94AD811B8E4174002D9AD2 /* View1.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View1.xib; sourceTree = "<group>"; };
 		AC94AD841B8E41A1002D9AD2 /* View2.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View2.swift; sourceTree = "<group>"; };
@@ -418,8 +418,8 @@
 		AC94AD5C1B8E40BF002D9AD2 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AC94AD5B1B8E40BF002D9AD2 /* Udiva.app */,
-				AC94AD701B8E40BF002D9AD2 /* Udiva.xctest */,
+				AC94AD5B1B8E40BF002D9AD2 /* arfi.app */,
+				AC94AD701B8E40BF002D9AD2 /* arfi.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -468,9 +468,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AC94AD5A1B8E40BF002D9AD2 /* Udiva */ = {
+		AC94AD5A1B8E40BF002D9AD2 /* arfi */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC94AD7A1B8E40BF002D9AD2 /* Build configuration list for PBXNativeTarget "Udiva" */;
+			buildConfigurationList = AC94AD7A1B8E40BF002D9AD2 /* Build configuration list for PBXNativeTarget "arfi" */;
 			buildPhases = (
 				09165E18E1F6BE6BBE063B31 /* [CP] Check Pods Manifest.lock */,
 				AC94AD571B8E40BF002D9AD2 /* Sources */,
@@ -484,14 +484,14 @@
 			);
 			dependencies = (
 			);
-			name = Udiva;
+			name = arfi;
 			productName = SnapchatCamera;
-			productReference = AC94AD5B1B8E40BF002D9AD2 /* Udiva.app */;
+			productReference = AC94AD5B1B8E40BF002D9AD2 /* arfi.app */;
 			productType = "com.apple.product-type.application";
 		};
-		AC94AD6F1B8E40BF002D9AD2 /* UdivaTests */ = {
+		AC94AD6F1B8E40BF002D9AD2 /* arfiTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AC94AD7D1B8E40BF002D9AD2 /* Build configuration list for PBXNativeTarget "UdivaTests" */;
+			buildConfigurationList = AC94AD7D1B8E40BF002D9AD2 /* Build configuration list for PBXNativeTarget "arfiTests" */;
 			buildPhases = (
 				4946DB7B3F144A2B353D6D6F /* [CP] Check Pods Manifest.lock */,
 				AC94AD6C1B8E40BF002D9AD2 /* Sources */,
@@ -505,9 +505,9 @@
 			dependencies = (
 				AC94AD721B8E40BF002D9AD2 /* PBXTargetDependency */,
 			);
-			name = UdivaTests;
+			name = arfiTests;
 			productName = SnapchatCameraTests;
-			productReference = AC94AD701B8E40BF002D9AD2 /* Udiva.xctest */;
+			productReference = AC94AD701B8E40BF002D9AD2 /* arfi.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -531,7 +531,7 @@
 					};
 				};
 			};
-			buildConfigurationList = AC94AD561B8E40BF002D9AD2 /* Build configuration list for PBXProject "Udiva" */;
+			buildConfigurationList = AC94AD561B8E40BF002D9AD2 /* Build configuration list for PBXProject "arfi" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -544,8 +544,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AC94AD5A1B8E40BF002D9AD2 /* Udiva */,
-				AC94AD6F1B8E40BF002D9AD2 /* UdivaTests */,
+				AC94AD5A1B8E40BF002D9AD2 /* arfi */,
+				AC94AD6F1B8E40BF002D9AD2 /* arfiTests */,
 			);
 		};
 /* End PBXProject section */
@@ -758,7 +758,7 @@
 /* Begin PBXTargetDependency section */
 		AC94AD721B8E40BF002D9AD2 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = AC94AD5A1B8E40BF002D9AD2 /* Udiva */;
+			target = AC94AD5A1B8E40BF002D9AD2 /* arfi */;
 			targetProxy = AC94AD711B8E40BF002D9AD2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -890,7 +890,7 @@
 					"$(PROJECT_DIR)/SnapchatCamera/Cloudinary",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
-				PRODUCT_NAME = Udiva;
+				PRODUCT_NAME = arfi;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -916,7 +916,7 @@
 					"$(PROJECT_DIR)/SnapchatCamera/Cloudinary",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
-				PRODUCT_NAME = Udiva;
+				PRODUCT_NAME = arfi;
 				PROVISIONING_PROFILE = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
@@ -938,8 +938,8 @@
 				);
 				INFOPLIST_FILE = SnapchatCameraTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = Udiva;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Udiva.app/Udiva";
+				PRODUCT_NAME = arfi;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arfi.app/arfi";
 			};
 			name = Debug;
 		};
@@ -954,15 +954,15 @@
 				);
 				INFOPLIST_FILE = SnapchatCameraTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = Udiva;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Udiva.app/Udiva";
+				PRODUCT_NAME = arfi;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/arfi.app/arfi";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		AC94AD561B8E40BF002D9AD2 /* Build configuration list for PBXProject "Udiva" */ = {
+		AC94AD561B8E40BF002D9AD2 /* Build configuration list for PBXProject "arfi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC94AD781B8E40BF002D9AD2 /* Debug */,
@@ -971,7 +971,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC94AD7A1B8E40BF002D9AD2 /* Build configuration list for PBXNativeTarget "Udiva" */ = {
+		AC94AD7A1B8E40BF002D9AD2 /* Build configuration list for PBXNativeTarget "arfi" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC94AD7B1B8E40BF002D9AD2 /* Debug */,
@@ -980,7 +980,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AC94AD7D1B8E40BF002D9AD2 /* Build configuration list for PBXNativeTarget "UdivaTests" */ = {
+		AC94AD7D1B8E40BF002D9AD2 /* Build configuration list for PBXNativeTarget "arfiTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				AC94AD7E1B8E40BF002D9AD2 /* Debug */,

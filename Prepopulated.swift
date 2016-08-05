@@ -31,7 +31,7 @@ class Prepopulated: UIView {
         
         let vc = View1()
         vc.getWardrobeStyle()
-        vc.showTheModel()
+       // vc.showTheModel()
         
       
         

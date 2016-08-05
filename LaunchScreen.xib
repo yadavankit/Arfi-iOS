@@ -15,7 +15,7 @@
                     <rect key="frame" x="282" y="405" width="37" height="37"/>
                     <color key="color" red="1" green="0.18938105863943733" blue="0.35121165877589866" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="udiva-logo-1536x1536" translatesAutoresizingMaskIntoConstraints="NO" id="34c-hd-OqA">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arfi-logo-1536x1536-1" translatesAutoresizingMaskIntoConstraints="NO" id="34c-hd-OqA">
                     <rect key="frame" x="197" y="164" width="207" height="221"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="221" id="CM3-ws-h4j"/>
@@ -33,6 +33,6 @@
         </view>
     </objects>
     <resources>
-        <image name="udiva-logo-1536x1536" width="1536" height="1536"/>
+        <image name="arfi-logo-1536x1536-1" width="1536" height="1536"/>
     </resources>
 </document>

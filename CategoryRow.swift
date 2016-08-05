@@ -26,6 +26,7 @@ class CategoryRow: UITableViewCell  {
     
     override func awakeFromNib() {
         super.awakeFromNib()
+        startTimer()
 
     }
     
@@ -42,6 +43,24 @@ class CategoryRow: UITableViewCell  {
         // Configure the view for the selected state
     }
     
+    
+    var timer: dispatch_source_t!
+    
+    func startTimer() {
+        let queue = dispatch_queue_create("com.domain.app.timer", nil)
+        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
+        dispatch_source_set_event_handler(timer) {
+           self.doThis()
+        }
+        dispatch_resume(timer)
+    }
+    
+    func stopTimer() {
+        dispatch_source_cancel(timer)
+        timer = nil
+    }
+  
     
     func doThis(){
         
@@ -77,7 +96,7 @@ extension CategoryRow : UICollectionViewDataSource {
 
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("garmentCell", forIndexPath: indexPath) as! garmentCell
         
-        print(GlobalVariables.modelStatus)
+      
       
         
         if GlobalVariables.globalTopwearModelUrl.count > 0 {

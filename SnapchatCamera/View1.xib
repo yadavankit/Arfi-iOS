@@ -13,6 +13,7 @@
                 <outlet property="garmentCollectionView" destination="u1B-Qh-shm" id="3Pp-2n-TR3"/>
                 <outlet property="label2" destination="8bm-2g-i2O" id="bTo-48-x08"/>
                 <outlet property="modelIndicator" destination="HPN-Hq-jWK" id="qLW-rq-l7v"/>
+                <outlet property="reloadCells" destination="wZg-2k-zdX" id="cEV-4d-ggo"/>
                 <outlet property="tapToActivate" destination="tt9-xa-Va6" id="Y7f-mX-Tz9"/>
                 <outlet property="topImageView" destination="bNh-HH-5FV" id="Joa-H3-7Oz"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -27,6 +28,18 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="Rox-JJ-N3c">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="532"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wZg-2k-zdX">
+                    <rect key="frame" x="529" y="51" width="35" height="35"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="35" id="Fwy-qH-ud1"/>
+                        <constraint firstAttribute="height" constant="35" id="ugX-6M-j98"/>
+                    </constraints>
+                    <state key="normal" image="refresh"/>
+                    <connections>
+                        <action selector="reloadCellss:" destination="-1" eventType="touchUpInside" id="SyM-B1-oKu"/>
+                    </connections>
+                </button>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="u1B-Qh-shm">
                     <rect key="frame" x="0.0" y="477" width="600" height="123"/>
                     <color key="backgroundColor" red="0.94509803920000002" green="0.94901960780000005" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -38,7 +51,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="achimodel" translatesAutoresizingMaskIntoConstraints="NO" id="bNh-HH-5FV">
-                    <rect key="frame" x="215" y="28" width="170" height="238"/>
+                    <rect key="frame" x="215" y="30" width="170" height="238"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="238" id="1cE-CS-aul"/>
                         <constraint firstAttribute="width" constant="170" id="RHy-iT-c3t"/>
@@ -83,7 +96,7 @@
                         </label>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tt9-xa-Va6">
                             <rect key="frame" x="209" y="375" width="183" height="31"/>
-                            <color key="backgroundColor" red="1" green="0.18938105860000001" blue="0.35121165879999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <color key="backgroundColor" red="1" green="0.18823529411764706" blue="0.3529411764705882" alpha="1" colorSpace="calibratedRGB"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="183" id="gCK-vb-0DI"/>
                             </constraints>
@@ -117,10 +130,12 @@
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="-55" id="8yI-eZ-aTP"/>
                 <constraint firstAttribute="bottom" secondItem="u1B-Qh-shm" secondAttribute="bottom" id="A6d-Yr-7Zr"/>
                 <constraint firstItem="sxn-gH-dQ4" firstAttribute="top" secondItem="Rox-JJ-N3c" secondAttribute="top" id="CDE-7B-uto"/>
+                <constraint firstItem="wZg-2k-zdX" firstAttribute="leading" secondItem="Rox-JJ-N3c" secondAttribute="trailing" constant="-71" id="IGQ-0P-bTg"/>
                 <constraint firstItem="bNh-HH-5FV" firstAttribute="centerX" secondItem="qu2-Hf-bCx" secondAttribute="centerX" id="KMq-OT-4Ih"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="qu2-Hf-bCx" secondAttribute="bottom" constant="20" id="MZv-Hu-tF3"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mhd-jt-oRv"/>
-                <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-69" id="ONd-4z-QTe"/>
+                <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-71" id="ONd-4z-QTe"/>
+                <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="wZg-2k-zdX" secondAttribute="bottom" constant="391" id="QeW-Rv-zLM"/>
                 <constraint firstAttribute="bottom" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="68" id="baA-gG-A4X"/>
                 <constraint firstItem="HPN-Hq-jWK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i7p-8x-Ouf"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kS7-au-6Tw"/>
@@ -148,5 +163,6 @@
         <image name="bg" width="640" height="1136"/>
         <image name="clothes" width="236" height="295"/>
         <image name="gandimodel" width="172" height="337"/>
+        <image name="refresh" width="64" height="64"/>
     </resources>
 </document>

@@ -25,7 +25,7 @@ class CreateModel: UIView {
 
     @IBAction func done(sender: AnyObject) {
         
-        self.doneOutlet.hidden = true
+       
         
         print("Seen Complexion")
         print(GlobalVariables.seenComplexion)
@@ -40,6 +40,7 @@ class CreateModel: UIView {
    
         else
         {
+             self.doneOutlet.hidden = true
         let current_user_id = GlobalVariables.globalFacebookId!
         let bust = modelObject.bust
         let hip = modelObject.hip
@@ -82,15 +83,12 @@ class CreateModel: UIView {
                 
                 
                 NSUserDefaults.standardUserDefaults().setObject("true", forKey: "freshLogin")
-             
-//                
-//                self.getGarmentInformation()
-//                self.getWardrobeStyle()
-//                self.getModelUrlForView1()
-//                self.garmentCollectionView.reloadData()
+
           
-            
-            self.removeFromSuperview()
+             self.removeFromSuperview()
+                    
+    
+        
                 
                 
             }

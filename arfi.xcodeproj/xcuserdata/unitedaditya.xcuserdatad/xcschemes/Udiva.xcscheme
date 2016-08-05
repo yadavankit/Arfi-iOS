@@ -16,8 +16,8 @@
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AC94AD5A1B8E40BF002D9AD2"
                BuildableName = "Udiva.app"
-               BlueprintName = "Udiva"
-               ReferencedContainer = "container:Udiva.xcodeproj">
+               BlueprintName = "arfi"
+               ReferencedContainer = "container:arfi.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "AC94AD6F1B8E40BF002D9AD2"
-               BuildableName = "Udiva.xctest"
-               BlueprintName = "UdivaTests"
-               ReferencedContainer = "container:Udiva.xcodeproj">
+               BuildableName = "arfi.xctest"
+               BlueprintName = "arfiTests"
+               ReferencedContainer = "container:arfi.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -44,8 +44,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC94AD5A1B8E40BF002D9AD2"
             BuildableName = "Udiva.app"
-            BlueprintName = "Udiva"
-            ReferencedContainer = "container:Udiva.xcodeproj">
+            BlueprintName = "arfi"
+            ReferencedContainer = "container:arfi.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -67,8 +67,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC94AD5A1B8E40BF002D9AD2"
             BuildableName = "Udiva.app"
-            BlueprintName = "Udiva"
-            ReferencedContainer = "container:Udiva.xcodeproj">
+            BlueprintName = "arfi"
+            ReferencedContainer = "container:arfi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -86,8 +86,8 @@
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "AC94AD5A1B8E40BF002D9AD2"
             BuildableName = "Udiva.app"
-            BlueprintName = "Udiva"
-            ReferencedContainer = "container:Udiva.xcodeproj">
+            BlueprintName = "arfi"
+            ReferencedContainer = "container:arfi.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
