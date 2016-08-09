@@ -16,6 +16,7 @@ import Toucan
 import FBSDKCoreKit
 import DropDown
 import Mixpanel
+import Social
 
 
 class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDelegate, UINavigationControllerDelegate{
@@ -559,6 +560,15 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.tickmarkOutlet.hidden = false
         }
         
+    }
+     var image = UIImage(named: "arfi-logo-1536x1536-1")
+    @IBAction func share(sender: AnyObject) {
+        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        vc.setInitialText("arfi is a 24/7 AI based assistant that helps women with their existing wardrobe. Follow the link to download the app.")
+        vc.addImage(image)
+        vc.addURL(NSURL(string: "https://appsto.re/in/teTIbb.i"))
+        presentViewController(vc, animated: true, completion: nil)
+    
     }
     @IBOutlet var optionCollectionView: UICollectionView!
     

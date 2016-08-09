@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View1" customModule="Udiva" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View1" customModule="arfi" customModuleProvider="target">
             <connections>
                 <outlet property="background" destination="Rox-JJ-N3c" id="qK1-ap-xgX"/>
                 <outlet property="bg" destination="Rox-JJ-N3c" id="eCP-y3-aY2"/>

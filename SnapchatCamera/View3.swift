@@ -6,7 +6,7 @@ import UIKit
 import Alamofire
 import SwiftyJSON
 import Kingfisher
-
+import Social
 
 class View3: UIViewController , UITableViewDataSource {
     
@@ -20,6 +20,10 @@ var categories = ["Top Wear" , "Bottom Wear" ]
     
     var GotUserName : Bool =  false
     
+   
+    
+ 
+
 
     @IBOutlet var emptyWardrobe: UILabel!
     override func viewDidLoad() {
