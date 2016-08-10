@@ -32,9 +32,7 @@ PODS:
   - libwebp/utils (0.5.0):
     - libwebp/core
   - libwebp/webp (0.5.0)
-  - Mixpanel (2.9.9):
-    - Mixpanel/Mixpanel (= 2.9.9)
-  - Mixpanel/Mixpanel (2.9.9)
+  - Mixpanel-swift (1.0.0)
   - PaperCollectionView (1.0.4):
     - pop
   - Petal (1.1.1)
@@ -61,7 +59,7 @@ DEPENDENCIES:
   - ImageCropView (~> 1.0)
   - JKNotificationPanel
   - Kingfisher (~> 2.4)
-  - Mixpanel (~> 2.9.9)
+  - Mixpanel-swift (~> 1.0.0)
   - PaperCollectionView
   - Petal (~> 1.1.1)
   - PopupController
@@ -94,7 +92,7 @@ SPEC CHECKSUMS:
   JKNotificationPanel: c45f60e6548cda03752d35b4bf479f44c12886c1
   Kingfisher: 41aed5b6c1ed8fa98cf6d75283ce89cf7890f517
   libwebp: 68ba2001ba6806ee52837ebd77a551a0b6567e4e
-  Mixpanel: 818d1940c2d9402453b349545022a86968097f57
+  Mixpanel-swift: f35c35756e2122a8dbd9bd2f0e27441fc7a02e33
   PaperCollectionView: e9792714a738c02c6fdcf2ae4f54e81ab8b2d441
   Petal: 6b2251a7df61c16e4bb37de19f7c372f1d1371ed
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
@@ -108,6 +106,6 @@ SPEC CHECKSUMS:
   YBAlertController: 68e8874813d1d9a5c76d72e5bb927e18f2d1afb8
   ZAlertView: 5ee0f447d067fe141aa278579e0b9b9f1ca83edb
 
-PODFILE CHECKSUM: db8a89fca138d26047495d37e03b0348a6fdbb87
+PODFILE CHECKSUM: e1e0c9c973eb31ab13d7f1e7235cec236b40a045
 
 COCOAPODS: 1.0.1

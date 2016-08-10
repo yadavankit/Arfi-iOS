@@ -22,7 +22,7 @@ import Social
 class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDelegate, UINavigationControllerDelegate{
     @IBOutlet var TypeOfGarment: UIButton!
     let myView = PremiumView.instanceFromNib()
-    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
+//    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     @IBOutlet var QuestionDone: UIButton!
     @IBOutlet var question4View: UIButton!
     @IBOutlet var questionView: UIView!
@@ -266,6 +266,11 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     //Removes ScrollView on touching Got It Button
     func removeScrollView()
     {
+        
+        
+        Mixpanel.mainInstance().track(event: "Clicked GotIt on Instruction Screen",
+                                      properties: ["SeenInstructions" : "Yes"])
+        
         self.scrollView.hidden = true
         self.scrollView.removeFromSuperview()
         self.pageControl.hidden = true
@@ -540,12 +545,15 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
             firstLaunchEver = false
             
         
+            Mixpanel.mainInstance().track(event: "Garment Upload Begin",
+                                          properties: ["Upload" : "Start"])
             
-            let mixpanel = Mixpanel.sharedInstance()
-            let properties = ["wardrobeUpoloaded": "Done"]
-            mixpanel.track("started uploading", properties: properties)
             
-        self.mixpanel.track("\(GlobalVariables.globalUserName!) has begun uploading a garment.")
+//            let mixpanel = Mixpanel.sharedInstance()
+//            let properties = ["wardrobeUpoloaded": "Done"]
+//            mixpanel.track("started uploading", properties: properties)
+            
+//        self.mixpanel.track("\(GlobalVariables.globalUserName!) has begun uploading a garment.")
             
  
         
@@ -669,12 +677,16 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                             
                             print("Pohocha diya bhaiya")
                             
-                            let mixpanel = Mixpanel.sharedInstance()
-                            let properties = ["LoginCompleted": "Done"]
-                            mixpanel.track("Finished uploading garment", properties: properties)
+                            Mixpanel.mainInstance().track(event: "Garment Upload Ended",
+                                properties: ["Uploaded Image Number" : value])
                             
                             
-                            self.mixpanel.track("\(GlobalVariables.globalUserName!) has finished uploading a garment.")
+//                            let mixpanel = Mixpanel.sharedInstance()
+//                            let properties = ["LoginCompleted": "Done"]
+//                            mixpanel.track("Finished uploading garment", properties: properties)
+                            
+                            
+//                            self.mixpanel.track("\(GlobalVariables.globalUserName!) has finished uploading a garment.")
                             
                             
                             

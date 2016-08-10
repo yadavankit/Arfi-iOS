@@ -19,7 +19,7 @@ import Mixpanel
 class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
     
     let kScreenSize = UIScreen.mainScreen().bounds.size
-     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
+//     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,9 +50,9 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
             GlobalVariables.freshLogin = true
             print(GlobalVariables.globalUserName)
             
-            let mixpanel = Mixpanel.sharedInstance()
+//            let mixpanel = Mixpanel.sharedInstance()
             let properties = ["LoginCompleted": "Done"]
-            mixpanel.track("Login Complete", properties: properties)
+//            mixpanel.track("Login Complete", properties: properties)
             returnUserData()
             
             } else {
@@ -102,8 +102,17 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 print(GlobalVariables.globalFacebookId)
                 print(userName)
                 
+                
+                Mixpanel.mainInstance().people.set(properties:
+                    ["user_id": userId, "email": email_id,"name": userName, "$region" : "Australia"])
+
+                
+                Mixpanel.mainInstance().track(event: "User Logged In",
+                    properties: ["Login" : "Done"])
+                
+                
                 //Track Login of user
-                self.mixpanel.track("\(GlobalVariables.globalUserName!) has Logged In")
+//                self.mixpanel.track("\(GlobalVariables.globalUserName!) has Logged In")
                 self.getProperImages()
                 self.checkForPreviousModel()
              

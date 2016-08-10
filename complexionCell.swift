@@ -36,6 +36,7 @@ class complexionCell: UICollectionViewCell
     
     @IBAction func darkClicked(sender: AnyObject)
     {
+        GlobalVariables.seenComplexion = true
         modelObject.complexion = "Dark"
         darkTick.hidden = false
         fairTick.hidden = true
@@ -45,6 +46,7 @@ class complexionCell: UICollectionViewCell
     }
     @IBAction func mediumClicked(sender: AnyObject)
     {
+        GlobalVariables.seenComplexion = true
         modelObject.complexion = "Medium"
         mediumTick.hidden = false
         darkTick.hidden = true
@@ -53,6 +55,7 @@ class complexionCell: UICollectionViewCell
     }
     @IBAction func fairClicked(sender: AnyObject)
     {
+        GlobalVariables.seenComplexion = true
         modelObject.complexion = "Fair"
         fairTick.hidden = false
         mediumTick.hidden = true

@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import Mixpanel
 import JKNotificationPanel
 
 class CreateModel: UIView {
@@ -26,6 +27,11 @@ class CreateModel: UIView {
     @IBAction func done(sender: AnyObject) {
         
        
+        
+        Mixpanel.mainInstance().track(event: "User Created Model",
+                                      properties: ["Model" : "Done"])
+
+        
         
         print("Seen Complexion")
         print(GlobalVariables.seenComplexion)

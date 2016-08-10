@@ -11,7 +11,7 @@ import Mixpanel
 
 class PremiumView: UIView {
     
-     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
+//     let mixpanel : Mixpanel = Mixpanel.sharedInstance()
 
     class func instanceFromNib() -> UIView {
         
@@ -23,7 +23,7 @@ class PremiumView: UIView {
         
         
        
-        mixpanel.track("\(GlobalVariables.globalUserName) has selected the premium option")
+//        mixpanel.track("\(GlobalVariables.globalUserName) has selected the premium option")
         self.removeFromSuperview()
         
         let alert = UIAlertView(title: "Thanks", message: "Someone from Udiva will contact you soon.", delegate: self, cancelButtonTitle: "Okay")

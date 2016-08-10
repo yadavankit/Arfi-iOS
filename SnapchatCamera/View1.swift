@@ -30,7 +30,7 @@ class View1: UIViewController  {
     @IBOutlet var topImageView: UIImageView!
 
 
-    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
+//    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     @IBOutlet var label2: UILabel!
   
     @IBOutlet var whiteView: UIView!
@@ -1160,9 +1160,9 @@ class View1: UIViewController  {
     @IBAction func getModelDetails(sender: AnyObject) {
         
         
-        let mixpanel = Mixpanel.sharedInstance()
+//        let mixpanel = Mixpanel.sharedInstance()
         let properties = ["Model Started": "Done"]
-        mixpanel.track("Started Creating Model", properties: properties)
+//        mixpanel.track("Started Creating Model", properties: properties)
         
               print("This is the Count \(GlobalVariables.finalGarmentCount)")
         
@@ -1177,7 +1177,7 @@ class View1: UIViewController  {
             
         } else {
         
-        self.mixpanel.track("\(GlobalVariables.globalUserName!) has has begun creating Model.")
+//        self.mixpanel.track("\(GlobalVariables.globalUserName!) has has begun creating Model.")
             
         self.modelButton.hidden = true
        // self.doneOutlet.hidden = false
@@ -1188,9 +1188,9 @@ class View1: UIViewController  {
         
         GlobalVariables.isBodyTypeSelected = true
             
-            let mixpanel = Mixpanel.sharedInstance()
+//            let mixpanel = Mixpanel.sharedInstance()
             let properties = ["LoginCompleted": "Done"]
-            mixpanel.track("Started Creating Model", properties: properties)
+//            mixpanel.track("Started Creating Model", properties: properties)
         
         }
     }
@@ -1280,9 +1280,9 @@ extension View1 : UICollectionViewDataSource {
        
         KingfisherManager.sharedManager.cache.clearMemoryCache()
         KingfisherManager.sharedManager.cache.clearDiskCache()
-        let mixpanel = Mixpanel.sharedInstance()
-        let properties = ["Tapped on models garment": "Done"]
-        mixpanel.track("tapped on model garment", properties: properties)
+//        let mixpanel = Mixpanel.sharedInstance()
+//        let properties = ["Tapped on models garment": "Done"]
+//        mixpanel.track("tapped on model garment", properties: properties)
         
         print(GlobalVariables.globalModelUrl[indexPath.row])
         print(GlobalVariables.garmentInformation[indexPath.row])
@@ -1292,11 +1292,18 @@ extension View1 : UICollectionViewDataSource {
         switch GlobalVariables.globalGarmentType[indexPath.row] {
             
         case "TopWear":
+            
+            Mixpanel.mainInstance().track(event: "User Tapped on TopWear",
+                                          properties: ["Cloth" : "TopWear"])
+            Mixpanel.mainInstance().people.increment(property: "Tap Count",
+                                                     by: 1)
+
+            
 
             if GlobalVariables.garmentInformation[indexPath.row].containsString("Long") {
                 
                 
-               self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Long Topwear on model.")
+//               self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Long Topwear on model.")
                topImageView.superview?.bringSubviewToFront(topImageView)
         
                 
@@ -1341,7 +1348,7 @@ extension View1 : UICollectionViewDataSource {
             } else if GlobalVariables.garmentInformation[indexPath.row].containsString("Waist") {
                
                 
-                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Waist Topwear on model.")
+//                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Waist Topwear on model.")
                 topImageView.superview?.bringSubviewToFront(topImageView)
                 if let image = imageCacheForModel[urlString]{
                     
@@ -1376,7 +1383,7 @@ extension View1 : UICollectionViewDataSource {
                 
             } else if GlobalVariables.garmentInformation[indexPath.row].containsString("Short"){
                 
-                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Short Topwear on model.")
+//                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Short Topwear on model.")
                 
                 bottomImageView.superview?.bringSubviewToFront(bottomImageView)
                 if let image = imageCacheForModel[urlString]{
@@ -1447,7 +1454,10 @@ extension View1 : UICollectionViewDataSource {
             else
             {
                 print("Else for topwear running")
-                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed Topwear on model.")
+//                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed Topwear on model.")
+                
+                
+                
                 if let image = imageCacheForModel[urlString]{
                     
                     self.topImageView.image = image
@@ -1517,7 +1527,16 @@ extension View1 : UICollectionViewDataSource {
          
             //self.bottomImageView.bringSubviewToFront(bottomImageView)
             
-                        self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Bottomwear on model.")
+//                        self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Bottomwear on model.")
+            
+            Mixpanel.mainInstance().track(event: "User Tapped on BottomWear",
+                                          properties: ["Cloth" : "BottomWear"])
+            Mixpanel.mainInstance().people.increment(property: "Tap Count",
+                                                     by: 1)
+
+
+            
+            
             
         default:
             print("Not found")

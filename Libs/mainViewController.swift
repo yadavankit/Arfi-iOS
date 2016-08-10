@@ -35,7 +35,7 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     var FacebookUserId : String = "58382010"
     var needWalkthrough:Bool = true
     var walkthrough:BWWalkthroughViewController!
-    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
+//    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     var isSignedUp = false
     var isLaunched : Bool = false
     
@@ -140,7 +140,7 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
         if FBSDKAccessToken.currentAccessToken() == nil {
             print("not logged in yet")
             
-          mixpanel.track("Walkthrough Started")
+//          mixpanel.track("Walkthrough Started")
             
            self.presentWalkthrough()
             

@@ -22,11 +22,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerForRemoteNotifications()
        
  
-        let mi = Mixpanel()
-        mi.showNotificationOnActive = false
-         application.statusBarHidden = true
+//        let mi = Mixpanel()
+//        mi.showNotificationOnActive = false
         
-        print(mi.distinctId)
+         application.statusBarHidden = true
+//        Mixpanel.initialize(token: "39a4a3d35dc02d8a158effdeddbacc85")
+        Mixpanel.initialize(token: "39a4a3d35dc02d8a158effdeddbacc85", launchOptions: launchOptions)
+//        print(mi.distinctId)
         print("Distinct iD printed")
 
         
@@ -35,19 +37,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
         
-        //pass the project token from mixpanel account
-        let mixpanel = Mixpanel.sharedInstanceWithToken("39a4a3d35dc02d8a158effdeddbacc85")
+//        Mixpanel.initialize(token: "39a4a3d35dc02d8a158effdeddbacc85")
+        let mixpanel = Mixpanel.mainInstance()
         
-      mixpanel.identify(mixpanel.distinctId)
+        print("here is the distinct iiiiiidd")
+        print(mixpanel.distinctId)
+        
+        //pass the project token from mixpanel account
+        
+        Mixpanel.mainInstance().identify(distinctId: mixpanel.distinctId)
+//        let mixpanel = Mixpanel.sharedInstanceWithToken("39a4a3d35dc02d8a158effdeddbacc85")
+        
+//      mixpanel.identify(mixpanel.distinctId)
     
            print("here is device token")
         print(deviceToken)
         mixpanel.people.addPushDeviceToken(deviceToken)
      
-        mixpanel.people.setOnce(["name": "your name", "$email": "email@email.com", "Plan": "Free", "$region" : "Australia"])
+//        Mixpanel.mainInstance().people.set(properties:
+//            ["name": "Ankit Yadav", "$email": "email@emadddddil.com", "Plan": "Free", "$region" : "Australiaaa"])
+        
     }
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        
+        Mixpanel.mainInstance().trackPushNotification(userInfo)
+
         
         var alert1: String = ""
         if let aps = userInfo["aps"] as? NSDictionary {

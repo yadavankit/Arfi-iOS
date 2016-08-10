@@ -2,10 +2,9 @@
 # platform :ios, '8.0'
 # Uncomment this line if you're using Swift
  use_frameworks!
-
 target 'arfi' do
 pod 'ZAlertView'
-pod ‘Mixpanel’, '~> 2.9.9’
+pod 'Mixpanel-swift', '~> 1.0.0'
 pod "JKNotificationPanel"
 pod 'Kingfisher', '~> 2.4'
 pod 'Alamofire', '~> 3.4'

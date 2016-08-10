@@ -6,6 +6,7 @@
 //  Copyright © 2016 Udiva. All rights reserved.
 //
 
+import Mixpanel
 import UIKit
 import CircleSlider
 
@@ -47,7 +48,14 @@ class QuestionsCollectionView: UICollectionView, UICollectionViewDataSource, UIC
         if indexPath.row == 0
         {
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("bustCell", forIndexPath: indexPath) as! BustCell
+            
+            Mixpanel.mainInstance().track(event: "User Started Creating Model",
+                                          properties: ["Model" : "Started"])
+
+            
             self.modelSize[1] = cell.valueLabel.text
+            
+            
             return cell
         }
         else if indexPath.row == 1
@@ -70,7 +78,7 @@ class QuestionsCollectionView: UICollectionView, UICollectionViewDataSource, UIC
         }
         else if indexPath.row == 4
         {
-            GlobalVariables.seenComplexion = true
+            
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("complexionCell", forIndexPath: indexPath) as! complexionCell
             return cell
         }
