@@ -1388,6 +1388,7 @@ extension View1 : UICollectionViewDataSource {
                 } else {
                     self.modelIndicator.hidden = false
                     
+                    
                     print(urlString)
                     Alamofire.request(.GET, urlString)
                         .responseImage { response in
@@ -1455,6 +1456,7 @@ extension View1 : UICollectionViewDataSource {
                     
                 } else {
                     self.modelIndicator.hidden = false
+                    self.view.bringSubviewToFront(modelIndicator)
                     
                     print(urlString)
                     Alamofire.request(.GET, urlString)
