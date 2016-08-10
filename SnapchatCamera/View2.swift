@@ -46,6 +46,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     @IBOutlet var label3: UILabel!
     @IBOutlet var type2View: UIView!
+    @IBOutlet var shareButton: UIButton!
     
     @IBOutlet var ActivityIndicator: activityIndicator!
     @IBOutlet weak var settingUpWardrobe: UILabel!
@@ -145,10 +146,6 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         super.viewDidLoad()
         
         
-        
-        self.panel.timeUntilDismiss = 0
-        self.panel.enableTapDismiss = true
-        self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Right for Model 😊")
         
                 print("abhi garments ka count")
         print(GlobalVariables.globalTopAndBottom.count)
@@ -269,10 +266,6 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     //Removes ScrollView on touching Got It Button
     func removeScrollView()
     {
-        
-        self.panel.timeUntilDismiss = 3
-        self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left to see your wardrobe organized.")
-        
         self.scrollView.hidden = true
         self.scrollView.removeFromSuperview()
         self.pageControl.hidden = true
@@ -287,7 +280,13 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.view.addSubview(cameraImage)
         self.view.addSubview(tickmarkOutlet)
         self.view.addSubview(cross)
+        self.view.addSubview(shareButton)
         self.flashIcon.hidden = false
+        
+        //Inapp after Got it Instruction screen
+        self.panel.timeUntilDismiss = 0
+        self.panel.enableTapDismiss = true
+        self.panel.showNotify(withStatus: .SUCCESS, inView: (self.parentViewController?.view)!, message: "Swipe Left to see your wardrobe organized. 👈 Tap to dismiss 🤗")
         
     }
     

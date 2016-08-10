@@ -10,12 +10,15 @@ import UIKit
 import Alamofire
 import AlamofireImage
 import SwiftyJSON
+import JKNotificationPanel
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UIScrollViewDelegate {
 
     @IBOutlet var scrollView: UIScrollView!
+    let panel : JKNotificationPanel = JKNotificationPanel()
     override func viewDidLoad() {
         super.viewDidLoad()
+        scrollView.delegate = self
         // Do any additional setup after loading the view, typically from a nib.z
         
         let v1 : View1 = View1(nibName: "View1", bundle: nil)
@@ -65,6 +68,47 @@ class ViewController: UIViewController {
 
 
 }
+    
+    
+    func scrollViewDidEndDecelerating(scrollView: UIScrollView) {
+        
+        //logic to find out on which page the user is
+        let pageWidth:CGFloat = CGRectGetWidth(scrollView.frame)
+        let page = Int(floor((scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1);
+        
+        
+        if(NSUserDefaults.standardUserDefaults().boolForKey("seenInapps") == false)
+        {
+            
+            
+            if page == 1
+            {
+                GlobalVariables.twoShown = true
+                self.panel.timeUntilDismiss = 3
+                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on Circle to know more 👍")
+            }
+            
+            if page == 2
+            {
+                GlobalVariables.threeShown = true
+                
+                self.panel.timeUntilDismiss = 3
+                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Here is your organized wardrobe 👇")
+            }
+            if GlobalVariables.twoShown == true && GlobalVariables.threeShown == true
+                
+            {
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "seenInapps")
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+        }
+        
+        
+        
+    }
+    
+    
+    
     
     func takeControl(){
         

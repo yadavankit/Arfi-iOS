@@ -42,5 +42,7 @@ struct GlobalVariables {
     static var seenComplexion : Bool? = false
     static var prepopulatedComplete : Bool = false
     static var startedUsingArfi : Bool = false
+    static var twoShown : Bool = false
+    static var threeShown : Bool = false
     
 }

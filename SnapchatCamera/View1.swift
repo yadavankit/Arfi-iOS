@@ -35,6 +35,8 @@ class View1: UIViewController  {
   
     @IBOutlet var whiteView: UIView!
     let panel : JKNotificationPanel = JKNotificationPanel()
+    let newpanel : JKNotificationPanel = JKNotificationPanel()
+    
     @IBOutlet var garmentTop: NSLayoutConstraint!
     var test = 6
     @IBOutlet var modelIndicator: UIActivityIndicatorView!
@@ -64,11 +66,10 @@ class View1: UIViewController  {
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
             
-            self.panel.timeUntilDismiss = 5
-            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on garments to see how they will look on you 😊")
-            
-            
-            
+            self.newpanel.timeUntilDismiss = 7
+            self.newpanel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left to know how to upload garments👈")
+            self.panel.timeUntilDismiss = 3
+            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on the garments to see how they look on you 😊")
             print(GlobalVariables.globalTopAndBottom.count)
             
             

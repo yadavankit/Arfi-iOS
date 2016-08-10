@@ -3,7 +3,7 @@
 # Uncomment this line if you're using Swift
  use_frameworks!
 
-target 'Udiva' do
+target 'arfi' do
 pod 'ZAlertView'
 pod ‘Mixpanel’, '~> 2.9.9’
 pod "JKNotificationPanel"
@@ -28,7 +28,7 @@ pod 'SDWebImage/WebP'
 
 end  
 
-target 'UdivaTests' do
+target 'arfiTests' do
 
 end
 

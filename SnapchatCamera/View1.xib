@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
@@ -51,7 +51,7 @@
                     </collectionViewFlowLayout>
                 </collectionView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="achimodel" translatesAutoresizingMaskIntoConstraints="NO" id="bNh-HH-5FV">
-                    <rect key="frame" x="215" y="30" width="170" height="238"/>
+                    <rect key="frame" x="215" y="35" width="170" height="238"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="238" id="1cE-CS-aul"/>
                         <constraint firstAttribute="width" constant="170" id="RHy-iT-c3t"/>
@@ -84,7 +84,7 @@
                             </constraints>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vfd-yD-NJW">
-                            <rect key="frame" x="140" y="312" width="360" height="60.5"/>
+                            <rect key="frame" x="140" y="312" width="360" height="61"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="360" id="Fjp-DB-fyT"/>
                             </constraints>
@@ -134,7 +134,7 @@
                 <constraint firstItem="bNh-HH-5FV" firstAttribute="centerX" secondItem="qu2-Hf-bCx" secondAttribute="centerX" id="KMq-OT-4Ih"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="qu2-Hf-bCx" secondAttribute="bottom" constant="20" id="MZv-Hu-tF3"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mhd-jt-oRv"/>
-                <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-71" id="ONd-4z-QTe"/>
+                <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-76" id="ONd-4z-QTe"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="wZg-2k-zdX" secondAttribute="bottom" constant="391" id="QeW-Rv-zLM"/>
                 <constraint firstAttribute="bottom" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="68" id="baA-gG-A4X"/>
                 <constraint firstItem="HPN-Hq-jWK" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="i7p-8x-Ouf"/>
