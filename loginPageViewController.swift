@@ -13,7 +13,7 @@ import Alamofire
 import AlamofireImage
 import SwiftyJSON
 import Mixpanel
-
+import Crashlytics
 
 
 class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
@@ -102,6 +102,10 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 print(GlobalVariables.globalFacebookId)
                 print(userName)
                 
+
+                // TODO: Move this to where you establish a user session
+                self.logUser(userId, userName: userName, email_id: email_id)
+
                 
                 Mixpanel.mainInstance().people.set(properties:
                     ["user_id": userId, "email": email_id,"name": userName, "$region" : "Australia"])
@@ -122,6 +126,16 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
         })
         
     }
+    
+    func logUser(userId: String, userName: String, email_id: String)
+    {
+        // TODO: Use the current user's information
+        // You can call any combination of these three methods
+        Crashlytics.sharedInstance().setUserEmail(email_id)
+        Crashlytics.sharedInstance().setUserIdentifier(userId)
+        Crashlytics.sharedInstance().setUserName(userName)
+    }
+
     
     func checkForPreviousModel(){
         

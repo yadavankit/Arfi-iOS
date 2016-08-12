@@ -478,6 +478,7 @@
 				AC94AD591B8E40BF002D9AD2 /* Resources */,
 				A145F43224EA8314690D9645 /* [CP] Embed Pods Frameworks */,
 				AEC46F2FE345B2A5144F226B /* [CP] Copy Pods Resources */,
+				F0148C301D5DE7B200838C69 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -681,6 +682,19 @@
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-arfiTests/Pods-arfiTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
+		};
+		F0148C301D5DE7B200838C69 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Fabric/run\" 40a269764c87287e82e02330b48c90fb7986cd15 e7ecee7352eb3a20c71db7b2b8cb7cb678cb5633ce8a9ea364943afcc50bb462";
 		};
 /* End PBXShellScriptBuildPhase section */
 

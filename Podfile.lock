@@ -3,7 +3,10 @@ PODS:
   - AlamofireImage (2.4.0):
     - Alamofire (~> 3.3)
   - CircleSlider (0.3.0)
+  - Crashlytics (3.7.2):
+    - Fabric (~> 1.6.3)
   - DropDown (1.0.1)
+  - Fabric (1.6.7)
   - HanekeSwift (0.10.1)
   - ImageCropView (1.0.1)
   - JKNotificationPanel (0.2.0)
@@ -54,7 +57,9 @@ DEPENDENCIES:
   - Alamofire (~> 3.4)
   - AlamofireImage (~> 2.0)
   - CircleSlider
+  - Crashlytics
   - DropDown
+  - Fabric
   - HanekeSwift
   - ImageCropView (~> 1.0)
   - JKNotificationPanel
@@ -86,7 +91,9 @@ SPEC CHECKSUMS:
   Alamofire: 01a82e2f6c0f860ade35534c8dd88be61bdef40c
   AlamofireImage: 87408b652e0f5ae5fe364035f15aea8b9b24c77e
   CircleSlider: d1787626e7b8f20b3448ba256aa8a38f072a2640
+  Crashlytics: 130ab943f8c78cda7a814b434f270b2e2c8a3cba
   DropDown: 335df9e9547e97a861a60aed8448821e239d3513
+  Fabric: caf7580c725e64db144f610ac65cd60956911dc7
   HanekeSwift: 08e47d3d0f2899ec58e5d257beba0de619aca9e8
   ImageCropView: cbe42a5c4c31677e3d7167f7fd00c63c30d20acf
   JKNotificationPanel: c45f60e6548cda03752d35b4bf479f44c12886c1
@@ -106,6 +113,6 @@ SPEC CHECKSUMS:
   YBAlertController: 68e8874813d1d9a5c76d72e5bb927e18f2d1afb8
   ZAlertView: 5ee0f447d067fe141aa278579e0b9b9f1ca83edb
 
-PODFILE CHECKSUM: e1e0c9c973eb31ab13d7f1e7235cec236b40a045
+PODFILE CHECKSUM: 132a14b4d8e482c5c41046d3985d01175a6d9e9c
 
 COCOAPODS: 1.0.1

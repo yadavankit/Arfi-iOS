@@ -18,6 +18,8 @@ pod "PaperCollectionView"
 pod "CircleSlider"
 pod 'DropDown'
 pod 'SwiftyJSON'
+pod 'Fabric'
+pod 'Crashlytics'
 pod 'HanekeSwift'
 pod 'Track'
 pod 'Spring', :git => 'https://github.com/MengTo/Spring.git', :branch => 'swift2'

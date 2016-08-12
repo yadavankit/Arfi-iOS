@@ -17,6 +17,7 @@ import FBSDKCoreKit
 import DropDown
 import Mixpanel
 import Social
+import Crashlytics
 
 
 class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDelegate, UINavigationControllerDelegate{
@@ -267,6 +268,8 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     func removeScrollView()
     {
         
+        //This crashes app (just uncomment if u want to see destruction)
+        //Crashlytics.sharedInstance().crash()
         
         Mixpanel.mainInstance().track(event: "Clicked GotIt on Instruction Screen",
                                       properties: ["SeenInstructions" : "Yes"])

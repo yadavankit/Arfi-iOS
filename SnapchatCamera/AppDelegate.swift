@@ -4,6 +4,9 @@ import UIKit
 import Mixpanel
 import Alamofire
 import AlamofireImage
+import Fabric
+import Crashlytics
+
 
 import FBSDKCoreKit
 @UIApplicationMain
@@ -16,6 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
+        
         
         let settings = UIUserNotificationSettings(forTypes: [.Alert, .Badge, .Sound], categories: nil)
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
@@ -31,6 +35,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        print(mi.distinctId)
         print("Distinct iD printed")
 
+        
+        
+        
+        Fabric.sharedSDK().debug = true
+        Fabric.with([Crashlytics.self()])
+        
+        
         
         return FBSDKApplicationDelegate.sharedInstance().application(application, didFinishLaunchingWithOptions: launchOptions)
     }
