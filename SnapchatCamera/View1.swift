@@ -30,7 +30,7 @@ class View1: UIViewController  {
     @IBOutlet var topImageView: UIImageView!
 
 
-//    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
+
     @IBOutlet var label2: UILabel!
   
     @IBOutlet var whiteView: UIView!
@@ -215,64 +215,8 @@ class View1: UIViewController  {
             
         })
         
-        
-    
-        if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
-        {
-            // app already launched
-            
-            print("The bool")
-            print(GlobalVariables.isBodyTypeSelected)
-            
-            
-            let mainString = NSUserDefaults.standardUserDefaults().objectForKey("garmentSelected")
-            
-            
-            
-            let mtString = mainString as? String
-            let topImageString = NSUserDefaults.standardUserDefaults().objectForKey("topImage")
-            let topImage = topImageString as? String
-            let botImageString = NSUserDefaults.standardUserDefaults().objectForKey("botImage")
-            let botImage = botImageString as? String
-            
-            if mainString != nil {
-                
-                
-                if mtString!.containsString("true"){
-                    
-                    self.topImageView.image = UIImage(named: topImage!)
-                    self.bottomImageView.image = UIImage(named: botImage!)
-                  
-                    
-                } else {
-                    
-               
-                }
-            }
-            else
-            {
-                
-              
-                
-            }
-
-                
-        } else {
-            
-            self.topImageView.image = UIImage(named: "fairtriangletop")
-            self.bottomImageView.image = UIImage(named: "fairtrianglebottom")
-            
-            
-            
-            
-        }
-       
-        
-        
- 
-        
-    
-        
+        self.topImageView.image = UIImage(named: "fairtriangletop")
+        self.bottomImageView.image = UIImage(named: "fairtrianglebottom")
         garmentCollectionView.delegate = self
         garmentCollectionView.dataSource = self
         
@@ -690,7 +634,7 @@ class View1: UIViewController  {
         
         var arrayCount : Int?
         
-        print("WARDROBEIMAGES RAN")
+        
         
         Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
             .responseJSON { response in
@@ -703,8 +647,7 @@ class View1: UIViewController  {
                     arrayCount = (json["garments"].count)
                     GlobalVariables.finalGarmentCount = arrayCount!
                     
-                    print(arrayCount!)
-                    print("final garment is")
+               
                     
                     var number = 0
                     
@@ -718,7 +661,7 @@ class View1: UIViewController  {
 
                             
                            
-                            print("appending now")
+             
                             
                             number += 1
                             print(number)
@@ -727,11 +670,7 @@ class View1: UIViewController  {
                         
                         
                         if number == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                            print("Now TrUE")
+                    
                         
              
                              self.showTheModel()
@@ -765,11 +704,10 @@ class View1: UIViewController  {
                     let json = JSON(jsonValue)
                     
                     
-                    print(json)
+           
                     arrayCount = (json["garments"].count)
                     
-                    print("Style wardrobe")
-                    
+               
                     
                     var number = 0
                     
@@ -784,7 +722,7 @@ class View1: UIViewController  {
                             
                             
                             number += 1
-                            print("garment Style Added \(number)")
+                          
                         }
                         
                         
@@ -815,7 +753,7 @@ class View1: UIViewController  {
     
     func getProcessedImageData(){
         
-        print("GETTING Processed INFORMATION")
+
         
         var arrayCount : Int?
         
@@ -824,15 +762,9 @@ class View1: UIViewController  {
                 if let jsonValue = response.result.value {
                     let json = JSON(jsonValue)
                     
-                    print(jsonValue)
-                    print("THis is  a json")
-                    
                     
                     
                     arrayCount = (json["garments"].count)
-                    
-                    print(json["garments"][1]["processed"].stringValue)
-                    print(arrayCount!)
                     
                     
                     var number = 0
@@ -841,13 +773,12 @@ class View1: UIViewController  {
                     while number  < arrayCount! {
                         let quote = json["garments"][1]["processed"].stringValue
                         
-                        print("printing quote")
-                        print(quote)
+                      
                         
                         GlobalVariables.processedImageStatus.append(quote)
                         
                         number += 1
-                        print("garment Processed \(number)")
+          
                         
                         
                         
@@ -865,11 +796,11 @@ class View1: UIViewController  {
     
 
 
-    @IBOutlet var garmentCollectionViewTop: NSLayoutConstraint!
+
     
     func showTheModel(){
         
-        //http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=1069249093136307
+ 
         var arrayCount : Int?
         
         Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
@@ -900,7 +831,7 @@ class View1: UIViewController  {
                         if number == arrayCount! {
                             
                             
-                            GlobalVariables.globalSafeToFetch = true
+      
                             self.getComplexion()
                         
 
@@ -939,15 +870,13 @@ class View1: UIViewController  {
                             
                             
                             number += 1
-                            print(number)
+             
                         }
                         
                         
                         
                         if number == arrayCount! {
                             
-                            
-                            GlobalVariables.globalSafeToFetch = true
                             
                             self.showComplexion()
                             
@@ -963,18 +892,12 @@ class View1: UIViewController  {
     
     func showComplexion(){
         
-        print("complexion running")
-        
-        print(GlobalVariables.complexionType! + GlobalVariables.modelBodyType!)
-        print("tp")
         
         if GlobalVariables.complexionType == "Medium" && GlobalVariables.modelBodyType == "Triangle" {
             
             self.topImageView.image = UIImage(named: "mediumtriangletop")
             self.bottomImageView.image = UIImage(named: "mediumtrianglebottom")
-            
-            NSUserDefaults.standardUserDefaults().setObject("mediumtriangletop", forKey: "topImage")
-             NSUserDefaults.standardUserDefaults().setObject("mediumtrianglebottom", forKey: "botImage")
+          
             
             
             print("triangle")
@@ -984,8 +907,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "fairtriangletop")
             self.bottomImageView.image = UIImage(named: "fairtrianglebottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("fairtriangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("fairtrianglebottom", forKey: "botImage")
+    
             
             
              print("triangle")
@@ -996,8 +918,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "darktriangletop")
             self.bottomImageView.image = UIImage(named: "darktrianglebottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("darktriangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("darktrianglebottom", forKey: "botImage")
+
             
              print("triangle")
             
@@ -1005,18 +926,14 @@ class View1: UIViewController  {
             
             self.topImageView.image = UIImage(named: "mediuminvertedtriangletop")
             self.bottomImageView.image = UIImage(named: "mediuminvertedtrianglebottom")
-            
-            NSUserDefaults.standardUserDefaults().setObject("mediuminvertedtriangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("mediuminvertedtrianglebottom", forKey: "botImage")
+   
              print("invertriangle")
             
             
         } else if GlobalVariables.complexionType == "Fair" && GlobalVariables.modelBodyType == "Inverted Triangle" {
             self.topImageView.image = UIImage(named: "fairinvertedtriangletop")
             self.bottomImageView.image = UIImage(named: "fairinvertedtrianglebottom")
-            
-            NSUserDefaults.standardUserDefaults().setObject("fairinvertedtriangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("fairinvertedtrianglebottom", forKey: "botImage")
+      
 
                 print("invertriangle")
             
@@ -1025,8 +942,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "darkinvertedtriangletop")
             self.bottomImageView.image = UIImage(named: "darkinvertedtrianglebottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("darkinvertedtriangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("darkinvertedtrianglebottom", forKey: "botImage")
+      
             
                 print("invertriangle")
             
@@ -1034,8 +950,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "mediumHourglasstop")
             self.bottomImageView.image = UIImage(named: "mediumHourglassbottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("mediumHourglasstop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("mediumHourglassbottom", forKey: "botImage")
+       
             
                 print("hour")
             
@@ -1045,8 +960,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "fairHourglasstop")
             self.bottomImageView.image = UIImage(named: "fairHourglassbottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("fairHourglasstop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("fairHourglassbottom", forKey: "botImage")
+
             
                 print("hour")
             
@@ -1054,8 +968,7 @@ class View1: UIViewController  {
             
             self.topImageView.image = UIImage(named: "darkHourglasstop")
             self.bottomImageView.image = UIImage(named: "darkHourglassbottom")
-            NSUserDefaults.standardUserDefaults().setObject("darkHourglasstop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("darkHourglassbottom", forKey: "botImage")
+            
             
                 print("hour")
             
@@ -1063,8 +976,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "mediumrectangletop")
             self.bottomImageView.image = UIImage(named: "mediumrectanglebottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("mediumrectangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("mediumrectanglebottom", forKey: "botImage")
+            
             
             
                 print("rect")
@@ -1073,8 +985,7 @@ class View1: UIViewController  {
             
             self.topImageView.image = UIImage(named: "fairrectangletop")
             self.bottomImageView.image = UIImage(named: "fairrectanglebottom")
-            NSUserDefaults.standardUserDefaults().setObject("fairrectangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("fairrectanglebottom", forKey: "botImage")
+        
                 print("rect")
             
             
@@ -1083,8 +994,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "darkrectangletop")
             self.bottomImageView.image = UIImage(named: "darkrectanglebottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("darkrectangletop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("darkrectanglebottom", forKey: "botImage")
+        
             
                 print("rect")
             
@@ -1093,8 +1003,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "mediumOvaltop")
             self.bottomImageView.image = UIImage(named: "mediumOvalbottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("mediumOvaltop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("mediumOvalbottom", forKey: "botImage")
+           
                 print("oval")
             
             
@@ -1103,8 +1012,7 @@ class View1: UIViewController  {
             self.topImageView.image = UIImage(named: "fairOvaltop")
             self.bottomImageView.image = UIImage(named: "fairOvalbottom")
             
-            NSUserDefaults.standardUserDefaults().setObject("fairOvaltop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("fairOvalbottom", forKey: "botImage")
+          
             
                 print("oval")
             
@@ -1113,92 +1021,21 @@ class View1: UIViewController  {
             
             self.topImageView.image = UIImage(named: "darkOvaltop")
             self.bottomImageView.image = UIImage(named: "darkOvalbottom")
-            
-            NSUserDefaults.standardUserDefaults().setObject("darkOvaltop", forKey: "topImage")
-            NSUserDefaults.standardUserDefaults().setObject("darkOvalbottom", forKey: "botImage")
+          
             
                 print("oval")
             
             
         }
 
-      GlobalVariables.isBodyTypeSelected = true
-    
-        
-        
-        
-    }
-    
-    
-    func doIt () {
-        
-        
-        if condition == false {
-            UIView.animateWithDuration(0.5) {
-                self.garmentTop.constant = 300
-                self.view.layoutIfNeeded()
-                self.condition = true
-            }
-        } else {
-            
-            UIView.animateWithDuration(0.5) {
-                self.garmentTop.constant = 532
-                self.view.layoutIfNeeded()
-                self.condition = false
-            }
-            
-            
-        }
-        
-    }
-     var items : [String] = []
-    
-    @IBOutlet var modelButton: UIButton!
-   
-    @IBOutlet var questionCollectionViewCell: QuestionsCollectionView!
-    
-    @IBAction func getModelDetails(sender: AnyObject) {
-        
-        
-//        let mixpanel = Mixpanel.sharedInstance()
-        let properties = ["Model Started": "Done"]
-//        mixpanel.track("Started Creating Model", properties: properties)
-        
-              print("This is the Count \(GlobalVariables.finalGarmentCount)")
-        
-        if GlobalVariables.finalGarmentCount! == 0{
-            
-      
-            
-            let alert = UIAlertView(title: "Cannot create model", message: "To create model you need to upload a garment", delegate: self, cancelButtonTitle: "Ok")
-            alert.show()
-            
-            
-            
-        } else {
-        
-//        self.mixpanel.track("\(GlobalVariables.globalUserName!) has has begun creating Model.")
-            
-        self.modelButton.hidden = true
-       // self.doneOutlet.hidden = false
-       
-        self.questionCollectionViewCell.hidden = false
-       
-        NSUserDefaults.standardUserDefaults().setObject("true", forKey: "garmentSelected")
-        
-        GlobalVariables.isBodyTypeSelected = true
-            
-//            let mixpanel = Mixpanel.sharedInstance()
-            let properties = ["LoginCompleted": "Done"]
-//            mixpanel.track("Started Creating Model", properties: properties)
-        
-        }
-    }
-    
-   
-    
 
-    @IBOutlet var CollectionViewMover: UIButton!
+    
+        
+        
+        
+    }
+    
+    
     
 }
 
@@ -1209,15 +1046,9 @@ extension View1 : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
   
-          let sectionKey = NSUserDefaults.standardUserDefaults()
-         _ = (sectionKey.objectForKey("section"))
-        // let mytest = test!.integerValue
-       
        
         if GlobalVariables.globalTopAndBottom.count > 0 {
             
-            
-            print(GlobalVariables.globalTopAndBottom.count)
             
             return GlobalVariables.globalTopAndBottom.count
          
@@ -1225,7 +1056,6 @@ extension View1 : UICollectionViewDataSource {
             
         } else {
             
-              print(GlobalVariables.globalTopAndBottom.count)
             
         return GlobalVariables.globalTopAndBottom.count
        
@@ -1280,13 +1110,7 @@ extension View1 : UICollectionViewDataSource {
        
         KingfisherManager.sharedManager.cache.clearMemoryCache()
         KingfisherManager.sharedManager.cache.clearDiskCache()
-//        let mixpanel = Mixpanel.sharedInstance()
-//        let properties = ["Tapped on models garment": "Done"]
-//        mixpanel.track("tapped on model garment", properties: properties)
-        
-        print(GlobalVariables.globalModelUrl[indexPath.row])
-        print(GlobalVariables.garmentInformation[indexPath.row])
-        
+
 
         let urlString = GlobalVariables.globalModelUrl[indexPath.row]
         switch GlobalVariables.globalGarmentType[indexPath.row] {
@@ -1298,12 +1122,10 @@ extension View1 : UICollectionViewDataSource {
             Mixpanel.mainInstance().people.increment(property: "Tap Count",
                                                      by: 1)
 
-            
 
             if GlobalVariables.garmentInformation[indexPath.row].containsString("Long") {
                 
-                
-//               self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Long Topwear on model.")
+        
                topImageView.superview?.bringSubviewToFront(topImageView)
         
                 
@@ -1338,17 +1160,11 @@ extension View1 : UICollectionViewDataSource {
                     }
                     
                 }
-
-              
-                
-            
                 
                 print("IndexPath : \(indexPath.row) + The top is long")
                 
             } else if GlobalVariables.garmentInformation[indexPath.row].containsString("Waist") {
                
-                
-//                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Waist Topwear on model.")
                 topImageView.superview?.bringSubviewToFront(topImageView)
                 if let image = imageCacheForModel[urlString]{
                     
@@ -1382,8 +1198,6 @@ extension View1 : UICollectionViewDataSource {
                 
                 
             } else if GlobalVariables.garmentInformation[indexPath.row].containsString("Short"){
-                
-//                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Short Topwear on model.")
                 
                 bottomImageView.superview?.bringSubviewToFront(bottomImageView)
                 if let image = imageCacheForModel[urlString]{
@@ -1453,11 +1267,8 @@ extension View1 : UICollectionViewDataSource {
             }
             else
             {
-                print("Else for topwear running")
-//                self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed Topwear on model.")
-                
-                
-                
+              
+
                 if let image = imageCacheForModel[urlString]{
                     
                     self.topImageView.image = image
@@ -1491,8 +1302,6 @@ extension View1 : UICollectionViewDataSource {
             
         case "BottomWear" :
             
-            print("This is a bottommmmmmm")
-    
             
             if let image = imageCacheForModel[urlString]{
                 
@@ -1501,11 +1310,9 @@ extension View1 : UICollectionViewDataSource {
                 self.modelIndicator.hidden = true
                 
             } else {
+                
                 self.modelIndicator.hidden = false
-                
-                print(urlString)
-                
-               
+       
                 self.modelIndicator.startAnimating()
                 Alamofire.request(.GET, urlString)
                     .responseImage { response in
@@ -1523,11 +1330,6 @@ extension View1 : UICollectionViewDataSource {
                 
             }
 
-            
-         
-            //self.bottomImageView.bringSubviewToFront(bottomImageView)
-            
-//                        self.mixpanel.track("\(GlobalVariables.globalUserName!) just viewed a Bottomwear on model.")
             
             Mixpanel.mainInstance().track(event: "User Tapped on BottomWear",
                                           properties: ["Cloth" : "BottomWear"])

@@ -23,7 +23,6 @@ import Crashlytics
 class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDelegate, UINavigationControllerDelegate{
     @IBOutlet var TypeOfGarment: UIButton!
     let myView = PremiumView.instanceFromNib()
-//    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     @IBOutlet var QuestionDone: UIButton!
     @IBOutlet var question4View: UIButton!
     @IBOutlet var questionView: UIView!
@@ -122,15 +121,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
 
     }
- 
-    @IBAction func towardsWardrobe(sender: AnyObject) {
-        
-   
-    }
-    
-    @IBAction func towardsModel(sender: AnyObject) {
-    }
-    
+
     @IBOutlet weak var perimeterOutlet: UIImageView!
     var captureSession : AVCaptureSession?
     var stillImageOutput : AVCaptureStillImageOutput?
@@ -146,34 +137,19 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
-        
-                print("abhi garments ka count")
-        print(GlobalVariables.globalTopAndBottom.count)
-        
-        
-        
         //Instruction screen scrollview & page control
         self.scrollView = UIScrollView(frame: CGRectMake(0,0, self.view.frame.size.width, UIScreen.mainScreen().bounds.height))
         self.myLabel = UILabel(frame: CGRectMake(0,self.scrollView.frame.height - 150, UIScreen.mainScreen().bounds.width, 70))
         self.myLabel.text = "Make sure lighting is as bright as Sun"
         self.myLabel.numberOfLines = 2
         self.myLabel.textAlignment = NSTextAlignment.Center
-//        self.view.addSubview(myLabel)
+
         self.scrollView.backgroundColor = UIColor.whiteColor()
         self.pageControl = UIPageControl(frame: CGRectMake((UIScreen.mainScreen().bounds.width / 2) - 25, UIScreen.mainScreen().bounds.height - 100, 50, 50))
-        //Set Scrollview delegate
+
         scrollView.delegate = self
         configurePageControl()
-        
-//        self.view.addSubview(scrollView)
-//        self.pageControl = UIPageControl(frame: CGRectMake(0,self.scrollView.frame.height - 200, UIScreen.mainScreen().bounds.width, 50))
-//        self.view.addSubview(pageControl)
-        
-//        self.view.bringSubviewToFront(myLabel)
-//        self.view.bringSubviewToFront(pageControl)
-        
-        //Increase insets of cross button Frame
+
         print(self.cross.layer.frame)
         self.cross.layer.frame.size.height = 100
         self.cross.layer.frame.size.width = 100
@@ -182,10 +158,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         print("Global number og garmnets")
         print(GlobalVariables.globalTopAndBottom.count)
-        
-        
-        
-        
+
         
         self.mainQuestionsView.hidden = true
         self.QuestionDone.hidden = true
@@ -337,16 +310,6 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         super.viewDidAppear(animated)
         
         
-      
-//        let triggerTime = (Int64(NSEC_PER_SEC) * 2)
-//        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-//            
-//            
-//            
-//            
-//        })
-        
-        
         setPageViewInScroll()
         previewLayer?.frame = cameraView.bounds
     }
@@ -421,7 +384,6 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.view.addSubview(myLabel)
         self.view.addSubview(scrollView)
         self.view.addSubview(pageControl)
-//        self.view.bringSubviewToFront(scrollView)
         
         self.view.bringSubviewToFront(myLabel)
         self.view.bringSubviewToFront(pageControl)
@@ -550,20 +512,11 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
             Mixpanel.mainInstance().track(event: "Garment Upload Begin",
                                           properties: ["Upload" : "Start"])
-            
-            
-//            let mixpanel = Mixpanel.sharedInstance()
-//            let properties = ["wardrobeUpoloaded": "Done"]
-//            mixpanel.track("started uploading", properties: properties)
-            
-//        self.mixpanel.track("\(GlobalVariables.globalUserName!) has begun uploading a garment.")
-            
+
  
         
         didPressTakePhoto()
-     //  didPressTakeAnother()
-        
-      //  self.tempImageView.hidden = false
+
         self.cross.hidden = false
         cameraButtonOutlet.hidden = true
         perimeterOutlet.hidden = true
@@ -682,28 +635,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                             
                             Mixpanel.mainInstance().track(event: "Garment Upload Ended",
                                 properties: ["Uploaded Image Number" : value])
-                            
-                            
-//                            let mixpanel = Mixpanel.sharedInstance()
-//                            let properties = ["LoginCompleted": "Done"]
-//                            mixpanel.track("Finished uploading garment", properties: properties)
-                            
-                            
-//                            self.mixpanel.track("\(GlobalVariables.globalUserName!) has finished uploading a garment.")
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-                                                        
-                            
-                            
-                            
-                            
-                            
+          
                             
                                                   })
                     }
@@ -721,10 +653,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
 
     }
     
-    func skipForNow(){
-        
-    
-    }
+
     
     
     
@@ -1357,8 +1286,7 @@ func loadDropDown() {
         
         if GlobalVariables.finalGarmentCount == 0
         {
-//            let alert = UIAlertView(title: "Create Your Model", message: "To have your first garment uploaded swipe right to create your model 😊", delegate: self, cancelButtonTitle: "OK")
-//            alert.show()
+
         }
         else
         {

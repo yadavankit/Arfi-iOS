@@ -17,48 +17,26 @@ import Mixpanel
 import ReachabilitySwift
 import CoreTelephony
 
-func getDocumentsURL() -> NSURL {
-    let documentsURL = NSFileManager.defaultManager().URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask)[0]
-    return documentsURL
-}
 
-func fileInDocumentsDirectory(filename: String) -> String {
-    
-    let fileURL = getDocumentsURL().URLByAppendingPathComponent(filename)
-    return fileURL.path!
-    
-}
-
-
-class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate {
+class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate , UIAlertViewDelegate {
     
     var FacebookUserId : String = "58382010"
     var needWalkthrough:Bool = true
     var walkthrough:BWWalkthroughViewController!
-//    let mixpanel : Mixpanel = Mixpanel.sharedInstance()
     var isSignedUp = false
     var isLaunched : Bool = false
     
-    func showQuestions(){
-        
-        
-       self.navigationController?.pushViewController(QuestionViewController(), animated: true)
-        
-    }
+   
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
-   
-        
-        
+
     }
     
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
-       
-        
+
         let launchView = LaunchScreen.instanceFromNib()
         launchView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         self.view.addSubview(launchView)
@@ -73,74 +51,10 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
         
         
         
-    
-        var networkConnectivity = "Offline"
         
-        print("Network Status")
-        
-            //Check the internet connectivity of User
-            do
-            {
-                let reachability:Reachability = try Reachability.reachabilityForInternetConnection()
-                do
-                {
-                    try reachability.startNotifier()
-                    let status = reachability.currentReachabilityStatus
-                    if(status == .NotReachable)
-                    {
-                        networkConnectivity = "Offline"
-                    }
-                    else if (status == .ReachableViaWiFi)
-                    {
-                        networkConnectivity = "WiFi"
-                    }
-                    else if (status == .ReachableViaWWAN)
-                    {
-                        let networkInfo = CTTelephonyNetworkInfo()
-                        let carrierType = networkInfo.currentRadioAccessTechnology
-                        switch carrierType
-                        {
-                        case CTRadioAccessTechnologyGPRS?,CTRadioAccessTechnologyEdge?,CTRadioAccessTechnologyCDMA1x?:
-                            networkConnectivity = "Edge"
-                        case CTRadioAccessTechnologyWCDMA?,CTRadioAccessTechnologyHSDPA?,CTRadioAccessTechnologyHSUPA?,CTRadioAccessTechnologyCDMAEVDORev0?,CTRadioAccessTechnologyCDMAEVDORevA?,CTRadioAccessTechnologyCDMAEVDORevB?,CTRadioAccessTechnologyeHRPD?:
-                            networkConnectivity = "3G"
-                        case CTRadioAccessTechnologyLTE?:
-                            networkConnectivity = "4G"
-                        default:
-                            networkConnectivity = "Offline"
-                        }
-                    }
-                    else
-                    {
-                        print("Error")
-                    }
-                }
-                catch
-                {
-                    print("Error")
-                }
-            }
-            catch
-            {
-                print("Error")
-            }
-        
-        if networkConnectivity == "Offline"
-        {
-            let alert = UIAlertView(title: "No Internet Connection", message: "Seems like you are Offline. Please Connect to WiFi or 3G.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
-        else if networkConnectivity == "Edge"
-        {
-            let alert = UIAlertView(title: "Slow Internet Connection", message: "Seems you are on Edge connection. Please switch to WiFi or 3G.", delegate: nil, cancelButtonTitle: "OK")
-            alert.show()
-        }
-
-     
         if FBSDKAccessToken.currentAccessToken() == nil {
             print("not logged in yet")
-            
-//          mixpanel.track("Walkthrough Started")
+
             
            self.presentWalkthrough()
             
@@ -150,13 +64,89 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
                 isSignedUp = true
 
           returnUserData()
-            
-        
-        
-           
+
         }
     }
     
+    func checkConnectivity(){
+        
+        var networkConnectivity = "Offline"
+        
+
+        
+        //Check the internet connectivity of User
+        do
+        {
+            let reachability:Reachability = try Reachability.reachabilityForInternetConnection()
+            do
+            {
+                try reachability.startNotifier()
+                let status = reachability.currentReachabilityStatus
+                if(status == .NotReachable)
+                {
+                    networkConnectivity = "Offline"
+                }
+                else if (status == .ReachableViaWiFi)
+                {
+                    networkConnectivity = "WiFi"
+                }
+                else if (status == .ReachableViaWWAN)
+                {
+                    let networkInfo = CTTelephonyNetworkInfo()
+                    let carrierType = networkInfo.currentRadioAccessTechnology
+                    switch carrierType
+                    {
+                    case CTRadioAccessTechnologyGPRS?,CTRadioAccessTechnologyEdge?,CTRadioAccessTechnologyCDMA1x?:
+                        networkConnectivity = "Edge"
+                    case CTRadioAccessTechnologyWCDMA?,CTRadioAccessTechnologyHSDPA?,CTRadioAccessTechnologyHSUPA?,CTRadioAccessTechnologyCDMAEVDORev0?,CTRadioAccessTechnologyCDMAEVDORevA?,CTRadioAccessTechnologyCDMAEVDORevB?,CTRadioAccessTechnologyeHRPD?:
+                        networkConnectivity = "3G"
+                    case CTRadioAccessTechnologyLTE?:
+                        networkConnectivity = "4G"
+                    default:
+                        networkConnectivity = "Offline"
+                    }
+                }
+                else
+                {
+                    print("Error")
+                }
+            }
+            catch
+            {
+                print("Error")
+            }
+        }
+        catch
+        {
+            print("Error")
+        }
+        
+        if networkConnectivity == "Offline"
+        {
+            let alert = UIAlertView(title: "No Internet Connection", message: "Seems like you are Offline. Please Connect to WiFi or 3G.", delegate: nil, cancelButtonTitle: "OK" )
+            
+           
+            alert.show()
+        }
+        else if networkConnectivity == "Edge"
+        {
+            let alert = UIAlertView(title: "Slow Internet Connection", message: "Seems you are on Edge connection. Please switch to WiFi or 3G.", delegate: nil, cancelButtonTitle: "OK")
+            alert.show()
+        }
+        
+
+        
+    }
+    
+    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
+        
+        checkConnectivity()
+        
+    }
+    
+    
+    
+   
     @IBAction func presentWalkthrough(){
         
         let stb = UIStoryboard(name: "Main", bundle: nil)
@@ -308,7 +298,7 @@ func getGarments(){
    
 }
 
-let imageCache = NSCache()
+
 
 
 func getBottomWearImages(){

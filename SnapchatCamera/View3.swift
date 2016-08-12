@@ -3,38 +3,30 @@
 //
 
 import UIKit
-import Alamofire
-import SwiftyJSON
-import Kingfisher
-import Social
+
 
 class View3: UIViewController , UITableViewDataSource {
     
     
 var categories = ["Top Wear" , "Bottom Wear" ]
     
-    @IBOutlet var HelloUser: UILabel!
+var timer: dispatch_source_t!
     
-   
-    @IBOutlet var realTableView: UITableView!
+@IBOutlet var HelloUser: UILabel!
     
-    var GotUserName : Bool =  false
+@IBOutlet var realTableView: UITableView!
     
-   
-    
- 
+@IBOutlet var emptyWardrobe: UILabel!
 
-
-    @IBOutlet var emptyWardrobe: UILabel!
-    override func viewDidLoad() {
+    
+    
+override func viewDidLoad() {
    
-        startTimer()
-        
-      
-        
+        startTimer() // refresh the tableView every 10 second.
+
     }
     
-    var timer: dispatch_source_t!
+ 
     
     func startTimer() {
         let queue = dispatch_queue_create("com.domain.app.timer", nil)
@@ -64,7 +56,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
         timer = nil
     }
     
-    
+ // TableView Methods :
   
 
    
@@ -82,11 +74,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
         return 1
     }
     
-    @IBAction func reload(sender: AnyObject) {
-   
-        
-        
-    }
+
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
@@ -127,6 +115,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
         return 150
     }
     
+    
     func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int)
     {
         let title = UILabel()
@@ -141,8 +130,7 @@ var categories = ["Top Wear" , "Bottom Wear" ]
        
     }
     
-    @IBOutlet var testImage: UIImageView!
-    var arrayCount : Int?
+ 
 
 
     

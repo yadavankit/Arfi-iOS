@@ -479,6 +479,7 @@
 				A145F43224EA8314690D9645 /* [CP] Embed Pods Frameworks */,
 				AEC46F2FE345B2A5144F226B /* [CP] Copy Pods Resources */,
 				F0148C301D5DE7B200838C69 /* ShellScript */,
+				D9707802A324C5C6052C9EAC /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -681,6 +682,21 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-arfiTests/Pods-arfiTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D9707802A324C5C6052C9EAC /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-arfi/Pods-arfi-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		F0148C301D5DE7B200838C69 /* ShellScript */ = {
@@ -890,7 +906,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = arfi;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/xcodeapps/arfi/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -916,7 +932,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = arfi;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/xcodeapps/arfi/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
