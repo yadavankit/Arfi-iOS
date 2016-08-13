@@ -72,14 +72,7 @@ class View1: UIViewController  {
             self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on the garments to see how they look on you 😊")
             print(GlobalVariables.globalTopAndBottom.count)
             
-            
-            
-            self.showTheModel()
-            self.checkForPreviousModel()
-            self.getProperImages()
-            self.getBottomWearImages()
-            self.checkForPreviousModel()
-            
+
             self.garmentCollectionView.reloadData()
          
             
@@ -179,39 +172,20 @@ class View1: UIViewController  {
         let triggerTime = (Int64(NSEC_PER_SEC) * 4)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
             
-           // self.garmentCollectionView.hidden = false
-            print("Totla number of garments")
-            print(GlobalVariables.globalNumberOfGarments)
-            print(GlobalVariables.modelStatus)
-          
-            if GlobalVariables.globalTopAndBottom.count > 0 {
-                print("greater than zero is running")
-
-                print(GlobalVariables.modelStatus)
-                let myModelStatus = GlobalVariables.modelStatus
+            if GlobalVariables.wardrobeUrl.count > 0 {
                 
-            if   (myModelStatus == "nil"){
-                                    
-            print("greater than zero and model nil is running")
-            print(GlobalVariables.modelStatus)
+                self.whiteView.hidden = true
+                self.label2.hidden = true
+                self.tapToActivate.hidden = true
                 
-                }else{
-               
-                self.checkForPreviousModel()
-            print("greater than zero else is running")
-                                  
-                                    
-                                }
-            }
-            
-            else
-            {
+                
+            } else {
                 self.whiteView.hidden = false
                 self.label2.hidden = false
                 self.tapToActivate.hidden = false
-
-     
+                
             }
+          
             
         })
         
@@ -1047,20 +1021,7 @@ extension View1 : UICollectionViewDataSource {
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
   
        
-        if GlobalVariables.globalTopAndBottom.count > 0 {
-            
-            
-            return GlobalVariables.globalTopAndBottom.count
-         
-            
-            
-        } else {
-            
-            
-        return GlobalVariables.globalTopAndBottom.count
-       
-
-        }
+       return GlobalVariables.modelUrl.count
         
     }
     
@@ -1079,7 +1040,7 @@ extension View1 : UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("modelCell", forIndexPath: indexPath) as! ModelGarmentCollectionViewCell
         
         
-        let urlString = GlobalVariables.globalTopAndBottom[indexPath.row]
+        let urlString = GlobalVariables.wardrobeUrl[indexPath.row]
  
         
         if let image = imageCache[urlString]{
@@ -1112,8 +1073,8 @@ extension View1 : UICollectionViewDataSource {
         KingfisherManager.sharedManager.cache.clearDiskCache()
 
 
-        let urlString = GlobalVariables.globalModelUrl[indexPath.row]
-        switch GlobalVariables.globalGarmentType[indexPath.row] {
+        let urlString = GlobalVariables.modelUrl[indexPath.row]
+        switch GlobalVariables.garmentInfo[indexPath.row] {
             
         case "TopWear":
             
@@ -1123,7 +1084,7 @@ extension View1 : UICollectionViewDataSource {
                                                      by: 1)
 
 
-            if GlobalVariables.garmentInformation[indexPath.row].containsString("Long") {
+            if GlobalVariables.garmentStyle[indexPath.row].containsString("Long") {
                 
         
                topImageView.superview?.bringSubviewToFront(topImageView)
@@ -1163,7 +1124,7 @@ extension View1 : UICollectionViewDataSource {
                 
                 print("IndexPath : \(indexPath.row) + The top is long")
                 
-            } else if GlobalVariables.garmentInformation[indexPath.row].containsString("Waist") {
+            } else if GlobalVariables.garmentStyle[indexPath.row].containsString("Waist") {
                
                 topImageView.superview?.bringSubviewToFront(topImageView)
                 if let image = imageCacheForModel[urlString]{
@@ -1197,7 +1158,7 @@ extension View1 : UICollectionViewDataSource {
                 print("IndexPath : \(indexPath.row) + The top is waist")
                 
                 
-            } else if GlobalVariables.garmentInformation[indexPath.row].containsString("Short"){
+            } else if GlobalVariables.garmentStyle[indexPath.row].containsString("Short"){
                 
                 bottomImageView.superview?.bringSubviewToFront(bottomImageView)
                 if let image = imageCacheForModel[urlString]{
@@ -1232,7 +1193,7 @@ extension View1 : UICollectionViewDataSource {
                 
                 
                 
-            }else if GlobalVariables.garmentInformation[indexPath.row].containsString("Crop"){
+            }else if GlobalVariables.garmentStyle[indexPath.row].containsString("Crop"){
                 
                 bottomImageView.superview?.bringSubviewToFront(bottomImageView)
                 if let image = imageCacheForModel[urlString]{

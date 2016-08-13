@@ -556,14 +556,11 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         let imageData = UIImageJPEGRepresentation(self.finalImage! , 1 )
         
-        let testValue = GlobalVariables.finalGarmentCount
+        let testValue = Int(GlobalVariables.numberOfGarments!)
         
        let value = testValue! + 1
-        print("This is my \(value)")
+
         
-        
-        print(GlobalVariables.globalFacebookId!)
-        print(GlobalVariables.globalUserName!)
         
       
     let typeOFGarment = GlobalVariables.mainDetail + "," + GlobalVariables.detail1 + "," + GlobalVariables.detail2 + "," + GlobalVariables.detail3
@@ -585,7 +582,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                 
                 multipartFormData.appendBodyPart(data: typeOFGarment.dataUsingEncoding(NSUTF8StringEncoding , allowLossyConversion: false)!, name: "style") // style
                 
-                GlobalVariables.finalGarmentCount = value
+                GlobalVariables.numberOfGarments = String(value)
                 print("Total number of garments \(value)")
                 print("The user id is \(GlobalVariables.globalFacebookId!)")
                 print("The user name is \(GlobalVariables.globalUserName)")

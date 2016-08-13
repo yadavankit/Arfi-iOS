@@ -113,12 +113,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 
                 Mixpanel.mainInstance().track(event: "User Logged In",
                     properties: ["Login" : "Done"])
-                
-                
-                //Track Login of user
-//                self.mixpanel.track("\(GlobalVariables.globalUserName!) has Logged In")
-                self.getProperImages()
-                self.checkForPreviousModel()
+
              
                 
                 
@@ -135,272 +130,131 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
         Crashlytics.sharedInstance().setUserIdentifier(userId)
         Crashlytics.sharedInstance().setUserName(userName)
     }
-
     
-    func checkForPreviousModel(){
+    
+    func setup () {
         
-        dispatch_async(dispatch_get_main_queue(), {
-            
-            
-            var arrayCount : Int?
-            
-            Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/model_status?user_id=\(GlobalVariables.globalFacebookId!)")
-                .responseJSON { response in
-                    if let jsonValue = response.result.value {
-                        let json = JSON(jsonValue)
-                        
-                        print(jsonValue)
-                        print("JSON VALUE")
-                        
-                        
-                        
-                        arrayCount = (json["model"].count)
-                        // NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
-                        
-                        
-                        var number = 0
-                        
-                        
-                        while number  < arrayCount! {
-                            if let quote = json["model"][number]["model_status"].string{
-                                
-                                print(quote)
-                                GlobalVariables.modelStatus = quote
-                                
-                                number += 1
-                                print(number)
-                            }
-                            
-                            
-                            
-                            if number == arrayCount! {
-                                
-                                
-                                GlobalVariables.globalSafeToFetch = true
-                                
-                                print("Now TrUE")
-                                
-                                
-                                
-                                
-                            }
-                            
-                        }
-                        
-                        
-                        
-                    }}
-            
- 
-            
-            
-        })
         
-       
+        var number = 0
+        
+        while number < GlobalVariables.wardrobeUrl.count {
+            
+            if GlobalVariables.garmentInfo[number].containsString("BottomWear"){
+                
+                GlobalVariables.bottomwear.append(GlobalVariables.wardrobeUrl[number])
+                
+                
+            } else {
+                
+                GlobalVariables.topwear.append(GlobalVariables.wardrobeUrl[number])
+                
+            }
+            
+            number += 1
+            
+            
+        }
+        
+        
         
         
     }
-
-    func getProperImages(){
+    
+    func getUserDetails(){
         
         var arrayCount : Int?
         
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=\(GlobalVariables.globalFacebookId!)&category=TopWear")
+        Alamofire.request(.GET, "http://backend.arfi.in:7000/processing_panel/user_api?user_id=1069249093136307")
             .responseJSON { response in
                 if let jsonValue = response.result.value {
                     let json = JSON(jsonValue)
                     
+                    let nakedModelTop = json["naked_model_top"].string
+                    let nakedModelBottom = json["naked_model_bottom"].string
+                    let modelBody = json["model_body"].string
+                    let numberOfGarments = json["number_of_garments"].string
+                    let complexion = json["complexion"].string
+                    let userName = json["user_name"].string
+                    
+                    GlobalVariables.nakedModelTop = nakedModelTop
+                    GlobalVariables.nakedModelBottom = nakedModelBottom
+                    GlobalVariables.modelBody = modelBody
+                    GlobalVariables.numberOfGarments = numberOfGarments
+                    GlobalVariables.complexion = complexion
+                    GlobalVariables.userName = userName
                     
                     
-                    arrayCount = (json["garments"].count)
-                    NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
+                    
+                    arrayCount = (json["user_garments"].count)
+                    
+                    var modelUrlCount = 0
+                    var wardrobeUrlCount = 0
+                    var garmentInfoCount = 0
+                    var garmentStyleCount = 0
                     
                     
-                    var number = 0
                     
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["wardrobe_url"].string{
+                    while modelUrlCount  < arrayCount! {
+                        if let model_url = json["user_garments"][modelUrlCount]["model_url"].string{
                             
+                            GlobalVariables.modelUrl.append(model_url)
                             
-                            GlobalVariables.globalTopwearModelUrl.append(quote)
-                            
-                            
-                            number += 1
-                            print(number)
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                            print("Now TrUE")
-                            
-                            
-                            
+                            modelUrlCount += 1
                             
                         }
                         
                     }
                     
-                    var number2 = 0
-                    
-                    while number2 < arrayCount! {
-                        
-                        if let quote2 = json["garments"][number2]["model_url"].string {
+                    while wardrobeUrlCount  < arrayCount! {
+                        if let wardrobe_Url = json["user_garments"][wardrobeUrlCount]["wardrobe_url"].string{
                             
-                            GlobalVariables.globalModelUrl.append(quote2)
+                            GlobalVariables.wardrobeUrl.append(wardrobe_Url)
                             
-                            number2 += 1
-                        }
-                        
-                        
-                        if number2 == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                            print("Now Model TrUE")
-                            
-                            
+                            wardrobeUrlCount += 1
                             
                         }
-                        
-                        
                         
                     }
                     
                     
+                    while garmentInfoCount  < arrayCount! {
+                        if let garment_info = json["user_garments"][garmentInfoCount]["garment_info"].string{
+                            
+                            GlobalVariables.garmentInfo.append(garment_info)
+                            
+                            garmentInfoCount += 1
+                            
+                        }
+                        
+                    }
                     
-                }}
-        
-        
-        getModelWardrobeImages()
-        
-        
-        
-        
-        
+                    
+                    while garmentStyleCount  < arrayCount! {
+                        if let garment_style = json["user_garments"][garmentStyleCount]["garment_style"].string{
+                            
+                            GlobalVariables.garmentStyle.append(garment_style)
+                            
+                            garmentStyleCount += 1
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    self.setup()
+                    
+                    
+                    
+                }
+        }
         
     }
     
-    func getModelWardrobeImages(){
-        
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    
-                    arrayCount = (json["garments"].count)
-                    GlobalVariables.finalGarmentCount = arrayCount!
-                    
-                    
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["wardrobe_url"].string{
-                            
-                            
-                            GlobalVariables.globalTopAndBottom.append(quote)
-                            
-                            print(GlobalVariables.globalTopAndBottom.count)
+    
+    
+    
 
-                            
-                            number += 1
-                            print(number)
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                            print("Now TrUE")
-                            
-                            
-                        }
-                        
-                    }
-                    
-                    
-                    
-                }}
-        
-        
-        getWardrobeStyle()
-        
-        
-        
-        
-        
-        
-        
-        
-        
-    }
-    
-    func getWardrobeStyle(){
-        
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    
-                    arrayCount = (json["garments"].count)
-                    
-                    print("Style wardrobe")
-                    
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["garment_info"].string{
-                            
-                            
-                            GlobalVariables.globalGarmentType.append(quote)
-                            
-                            print(GlobalVariables.globalGarmentType)
-                            
-                            
-                            number += 1
-                            print("garment Style Added \(number)")
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                            print("Now TrUE")
-                            
-                            
-                        }
-                        
-                    }
-                    
-                    
-                    
-                }}
 
-    }
-    
+      
 
 }

@@ -56,7 +56,9 @@ struct GlobalVariables {
     static var modelUrl : [String] = []
     static var wardrobeUrl : [String] = []
     static var garmentInfo : [String] = []
-    
+    static var garmentStyle : [String] = []
+    static var topwear : [String] = []
+    static var bottomwear : [String] = []
     
     
     

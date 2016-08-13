@@ -73,16 +73,8 @@ extension CategoryRow : UICollectionViewDataSource {
     
     func collectionView(collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
-        print(GlobalVariables.globalTopwearModelUrl)
-        if GlobalVariables.globalTopwearModelUrl.count > 0 {
-            
-          return GlobalVariables.globalTopwearModelUrl.count
-            
-            
-        } else {
-            
-            return 1
-        }
+        return GlobalVariables.topwear.count
+        
 
     }
     
@@ -99,12 +91,12 @@ extension CategoryRow : UICollectionViewDataSource {
       
       
         
-        if GlobalVariables.globalTopwearModelUrl.count > 0 {
+        if GlobalVariables.topwear.count > 0 {
             print("This is the topwearUrl")
             
             
             
-            let URLString = GlobalVariables.globalTopwearModelUrl[indexPath.row]
+            let URLString = GlobalVariables.topwear[indexPath.row]
             
             if let image = imageCache[URLString] {
                 

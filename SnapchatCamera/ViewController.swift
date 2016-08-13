@@ -45,7 +45,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         v3Frame.origin.x = self.view.frame.width * 2
         v3.view.frame = v3Frame
         
-        if  GlobalVariables.globalTopAndBottom.count > 0 {
+        if  GlobalVariables.modelUrl.count > 0 {
             
             
             self.scrollView.contentOffset.x = self.view.frame.size.width
@@ -60,9 +60,31 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         }
         
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 1)
+        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-               self.checkForPreviousModel()
+            
+            
+            if GlobalVariables.modelUrl.count < 0 {
+                
+                
+                let starterPackScreen = Prepopulated.instanceFromNib()
+                starterPackScreen.frame = CGRectMake(0 ,0 , self.view.frame.width , self.view.frame.height)
+                self.view.addSubview(starterPackScreen)
+                
+                //self.scrollView.contentOffset.x = self.view.frame.size.width
+                self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+                
+                
+            } else {
+                
+                self.scrollView.contentOffset.x = self.view.frame.size.width
+                self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+            }
+            
+
+                
+                
+            
         })
      
 
@@ -122,71 +144,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             
         }
     }
-    
-    func checkForPreviousModel(){
-        
-        if GlobalVariables.globalFacebookId != nil {
-        
-        dispatch_async(dispatch_get_main_queue(), {
-            
-            
-            var arrayCount : Int?
-            
-            Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/model_status?user_id=\(GlobalVariables.globalFacebookId!)")
-                .responseJSON { response in
-                    if let jsonValue = response.result.value {
-                        let json = JSON(jsonValue)
-                        
-                        print(jsonValue)
-                        print("JSON VALUE")
-                        
-                        
-                        
-                        arrayCount = (json["model"].count)
-                        // NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
-                        
-                        
-                        var number = 0
-                        
-                        
-                        while number  < arrayCount! {
-                            if let quote = json["model"][number]["model_status"].string{
-                                
-                                print(quote)
-                                GlobalVariables.modelStatus = quote
-                                number += 1
-                                print(number)
-                            }
-                            
-                            
-                            
-                            if number == arrayCount! {
-                                
-                                
-                                GlobalVariables.globalSafeToFetch = true
-                                
-                                self.checkForPrepopulation()
-                                
-                                
-                                
-                                
-                            }
-                            
-                        }
-                        
-                        
-                        
-                    }}
-            
-
-        })
-        
-        
-        }
-        
-    }
-    
-
+  
 
 
     func checkForPrepopulation(){
