@@ -45,4 +45,19 @@ struct GlobalVariables {
     static var twoShown : Bool = false
     static var threeShown : Bool = false
     
+    ////// ------- NEW API --------
+    
+    static var nakedModelTop : String?
+    static var nakedModelBottom : String?
+    static var modelBody : String?
+    static var numberOfGarments : String?
+    static var complexion : String?
+    static var userName : String?
+    static var modelUrl : [String] = []
+    static var wardrobeUrl : [String] = []
+    static var garmentInfo : [String] = []
+    
+    
+    
+    
 }

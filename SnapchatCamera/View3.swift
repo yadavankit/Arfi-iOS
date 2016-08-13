@@ -29,6 +29,7 @@ override func viewDidLoad() {
  
     
     func startTimer() {
+        
         let queue = dispatch_queue_create("com.domain.app.timer", nil)
         timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
         dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
