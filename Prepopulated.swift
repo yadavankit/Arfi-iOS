@@ -28,10 +28,7 @@ class Prepopulated: UIView {
         print("Starteffdhhdsfhdfvhfdhjdjhd")
         
         
-        
-        let vc = View1()
-        vc.getWardrobeStyle()
-       // vc.showTheModel()
+       self.getUserDetails()
         
       
         
@@ -47,6 +44,125 @@ class Prepopulated: UIView {
         self.removeFromSuperview()
         
     }
+    
+    func setup () {
+        
+        
+        var number = 0
+        
+        while number < GlobalVariables.wardrobeUrl.count {
+            
+            if GlobalVariables.garmentInfo[number].containsString("BottomWear"){
+                
+                GlobalVariables.bottomwear.append(GlobalVariables.wardrobeUrl[number])
+                
+                
+            } else {
+                
+                GlobalVariables.topwear.append(GlobalVariables.wardrobeUrl[number])
+                
+            }
+            
+            number += 1
+            
+            
+        }
+        
+        
+        
+        
+    }
+    
+    
+    
+    func getUserDetails(){
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://backend.arfi.in:4000/processing_panel/user_api?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    let json = JSON(jsonValue)
+                    
+                    let nakedModelTop = json["naked_model_top"].string
+                    let nakedModelBottom = json["naked_model_bottom"].string
+                    let modelBody = json["model_body"].string
+                    let numberOfGarments = json["number_of_garments"].string
+                    let complexion = json["complexion"].string
+                    let userName = json["user_name"].string
+                    
+                    GlobalVariables.nakedModelTop = nakedModelTop
+                    GlobalVariables.nakedModelBottom = nakedModelBottom
+                    GlobalVariables.modelBody = modelBody
+                    GlobalVariables.numberOfGarments = numberOfGarments
+                    GlobalVariables.complexion = complexion
+                    GlobalVariables.userName = userName
+                    
+                    
+                    
+                    arrayCount = (json["user_garments"].count)
+                    
+                    var modelUrlCount = 0
+                    var wardrobeUrlCount = 0
+                    var garmentInfoCount = 0
+                    var garmentStyleCount = 0
+                    
+                    
+                    
+                    while modelUrlCount  < arrayCount! {
+                        if let model_url = json["user_garments"][modelUrlCount]["model_url"].string{
+                            
+                            GlobalVariables.modelUrl.append(model_url)
+                            
+                            modelUrlCount += 1
+                            
+                        }
+                        
+                    }
+                    
+                    while wardrobeUrlCount  < arrayCount! {
+                        if let wardrobe_Url = json["user_garments"][wardrobeUrlCount]["wardrobe_url"].string{
+                            
+                            GlobalVariables.wardrobeUrl.append(wardrobe_Url)
+                            
+                            wardrobeUrlCount += 1
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    while garmentInfoCount  < arrayCount! {
+                        if let garment_info = json["user_garments"][garmentInfoCount]["garment_info"].string{
+                            
+                            GlobalVariables.garmentInfo.append(garment_info)
+                            
+                            garmentInfoCount += 1
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    while garmentStyleCount  < arrayCount! {
+                        if let garment_style = json["user_garments"][garmentStyleCount]["garment_style"].string{
+                            
+                            GlobalVariables.garmentStyle.append(garment_style)
+                            
+                            garmentStyleCount += 1
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    self.setup()
+                    
+                }
+                
+                }
+        }
+        
     
     @IBOutlet var prepopulatedBottom: NSLayoutConstraint!
     

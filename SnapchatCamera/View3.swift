@@ -22,43 +22,41 @@ var timer: dispatch_source_t!
     
 override func viewDidLoad() {
    
-    if let userName = GlobalVariables.userName {
+    if let userName = GlobalVariables.globalUserName {
         
-        self.HelloUser.text = "Hello \(userName)"
+        self.HelloUser.text = "Hello \(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])!"
     }
 
     }
     
  
     
-//    func startTimer() {
-//        
-//        let queue = dispatch_queue_create("com.domain.app.timer", nil)
-//        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-//        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
-//        dispatch_source_set_event_handler(timer) {
-//            
-//            if GlobalVariables.globalTopAndBottom.count > 0 {
-//                
-//                self.HelloUser.text = "Hello \(GlobalVariables.userName)"
-//                    self.HelloUser.reloadInputViews()
-//                self.stopTimer()
-//                
-//            
-//            } else {
-//                
-//                self.HelloUser.text = "Hello User!"
-//            }
-//          
-//           
-//        }
-//        dispatch_resume(timer)
-//    }
-//    
-//    func stopTimer() {
-//        dispatch_source_cancel(timer)
-//        timer = nil
-//    }
+   func startTimer() {
+    
+        let queue = dispatch_queue_create("com.domain.app.timer", nil)
+        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+      dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
+       dispatch_source_set_event_handler(timer) {
+        
+            if GlobalVariables.globalTopAndBottom.count > 0 {
+                
+                self.HelloUser.text = "Hello \(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])!"
+                 self.HelloUser.reloadInputViews()
+                self.stopTimer()
+               
+                       } else {
+               
+            self.HelloUser.text = "Hello User!"
+           }
+        
+        
+      }
+       dispatch_resume(timer)
+  }
+       func stopTimer() {
+       dispatch_source_cancel(timer)
+        timer = nil
+    }
     
  // TableView Methods :
   

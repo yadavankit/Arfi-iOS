@@ -246,7 +246,7 @@ func getUserDetails(){
     
     var arrayCount : Int?
     
-    Alamofire.request(.GET, "http://backend.arfi.in:7000/processing_panel/user_api?user_id=1069249093136307")
+    Alamofire.request(.GET, "http://backend.arfi.in:4000/processing_panel/user_api?user_id=\(GlobalVariables.globalFacebookId!)")
         .responseJSON { response in
             if let jsonValue = response.result.value {
                 let json = JSON(jsonValue)
