@@ -59,6 +59,11 @@ struct GlobalVariables {
     static var garmentStyle : [String] = []
     static var topwear : [String] = []
     static var bottomwear : [String] = []
+    static var prepopulatedCompleted : Bool?
+    static var nakedModelTopImage : UIImage?
+    static var nakedModelBottomImage : UIImage?
+    static var ModelValuesAdded : Bool?
+    
     
     
     

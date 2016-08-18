@@ -23,6 +23,8 @@ class View1: UIViewController  {
     
     var imageCache = [String : UIImage]()
     var imageCacheForModel = [String : UIImage] ()
+    var modelCache = [String : UIImage] ()
+    var modelCache2 = [String : UIImage] ()
     var safe = false
 
     @IBOutlet var clothesImage: UIImageView!
@@ -103,17 +105,11 @@ class View1: UIViewController  {
         let triggerTime = (Int64(NSEC_PER_SEC) * 2)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
             
- 
-
+                  self.startTimer()
+   
         })
     }
-    @IBAction func showprepopulated(sender: AnyObject) {
 
-        let test = Prepopulated.instanceFromNib()
-        test.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-        self.view.addSubview(test)
-
-    }
     
     var timer: dispatch_source_t!
     
@@ -123,7 +119,9 @@ class View1: UIViewController  {
         dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
         dispatch_source_set_event_handler(timer) {
             
-          self.garmentCollectionView.reloadData()
+            var setImage = false
+            
+       
           
         }
         dispatch_resume(timer)
@@ -150,10 +148,10 @@ class View1: UIViewController  {
         let trigger = (Int64(NSEC_PER_SEC) * 4)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, trigger), dispatch_get_main_queue(), { () -> Void in
       
-            if GlobalVariables.globalTopAndBottom.count > 0 {
+            if GlobalVariables.modelUrl.count > 0 {
+               
                 
-               self.showTheModel()
-               self.checkForPreviousModel()
+               
             }
             
         })
@@ -198,816 +196,149 @@ class View1: UIViewController  {
     }
 
 
-    
-    func checkForPreviousModel(){
+    func setup () {
         
-        dispatch_async(dispatch_get_main_queue(), {
+        
+        
+        var number = 0
+        
+        while number < GlobalVariables.wardrobeUrl.count {
             
-            
-            var arrayCount : Int?
-            
-            Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/model_status?user_id=\(GlobalVariables.globalFacebookId!)")
-                .responseJSON { response in
-                    if let jsonValue = response.result.value {
-                        let json = JSON(jsonValue)
-                        
-                        print(jsonValue)
-                        print("JSON VALUE")
-                        
-                        
-                        
-                        arrayCount = (json["model"].count)
-                        // NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
-                        
-                        
-                        var number = 0
-                        
-                        
-                        while number  < arrayCount! {
-                            if let quote = json["model"][number]["model_status"].string{
-                                
-                                print(quote)
-                                GlobalVariables.modelStatus = quote
-                                number += 1
-                                print(number)
-                            }
-                            
-                            
-                            
-                            if number == arrayCount! {
-                                
-                                
-                                GlobalVariables.globalSafeToFetch = true
-                                
-                                
-                                
-                                
-                                
-                            }
-                            
-                        }
-                        
-                        
-                        
-                    }}
-            
-            
-            
-            
-        })
-        
-        
-        
-        
-    }
-    
-    func getProperImages(){
-        
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=\(GlobalVariables.globalFacebookId!)&category=TopWear")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    
-                    arrayCount = (json["garments"].count)
-                    print(arrayCount)
-                    print("This is arrayCount")
-                    NSUserDefaults.standardUserDefaults().setObject(arrayCount!, forKey: "section")
-                    
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["wardrobe_url"].string{
-                            print(json["garments"][0]["wardrobe_url"].string)
-                            
-                            GlobalVariables.globalTopwearModelUrl.append(quote)
-                            
-                            
-                            number += 1
-                            print(number)
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                            print("Now TrUE")
-                            
-                        }
-                        
-                    }
-                    
-                }}
-        
-        
-   
-        
-        
-        
-        
-    }
-
-    
-    
-    
-    func getModelUrlForView1(){
-        
-        
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    
-                    arrayCount = (json["garments"].count)
-                    GlobalVariables.finalGarmentCount = arrayCount!
-                    
-                    print(arrayCount!)
-                    
-                    
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["model_url"].string{
-                            
-                            
-                            GlobalVariables.globalModelUrl.append(quote)
-                            
-                            
-                            
-                            number += 1
-                            print(number)
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                          self.getGarmentInformation()
-                            
-                            
-                        }
-                        
-                    }
-                    
-                    
-                    
-                }}
-        
-    }
-
-
-
-
-    @IBAction func doThis (sender : AnyObject) {
-        
-        print("doin it")
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:8000/GarmentUpload/receive")
-            .responseImage { response in
-                debugPrint(response)
+            if GlobalVariables.garmentInfo[number].containsString("BottomWear"){
                 
-                print(response.request)
-                print(response.response)
-                debugPrint(response.result)
-                
-                if let image = response.result.value {
-                    print("image downloaded: \(image)")
-               
-                    if self.topUploaded == false {
-                        
-                        self.topImageView.image = image
-                        self.topUploaded = true
-                    } else {
-                        
-                        self.botImageView.image = image
-                    }
-  
-          }
- 
-    }
-
-        
-    }
-    
-    
-   
-    @IBAction func doneAction(sender: AnyObject) {
-        
-        
-        print("Seen Complexion")
-        print(GlobalVariables.seenComplexion)
-        
-       
-     
-        safe = true
-//     
-    let current_user_id = GlobalVariables.globalFacebookId!
-    let bust = modelObject.bust
-    let hip = modelObject.hip
-    let waist = modelObject.waist
-    let height = modelObject.height
-    let complexion = modelObject.complexion
-    NSUserDefaults.standardUserDefaults().setObject(current_user_id, forKey: "usr_id")
-    NSUserDefaults.standardUserDefaults().setObject(bust, forKey: "bust")
-    NSUserDefaults.standardUserDefaults().setObject(hip, forKey: "hip")
-    NSUserDefaults.standardUserDefaults().setObject(waist, forKey: "waist")
-    NSUserDefaults.standardUserDefaults().setObject(height, forKey: "height")
-    NSUserDefaults.standardUserDefaults().setObject(complexion, forKey: "complexion")
-        
- 
-      
-       var garmentSelectedString = "["
-        for garment in GlobalVariables.globalStarterPack
-        {
-            print("selected garmenst")
-            garmentSelectedString = garmentSelectedString + String(garment) + ","
-        }
-        garmentSelectedString = garmentSelectedString.substringToIndex(garmentSelectedString.endIndex.predecessor())
-        garmentSelectedString = garmentSelectedString + "]"
-        
-      print(GlobalVariables.globalTopAndBottom.count)
-
-       Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=\(GlobalVariables.globalFacebookId!)&garments_selected=\(garmentSelectedString)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
-          .validate()
-          .responseJSON { response in
-                print(response)
-            
-                print("Model Garment in saved on Server")
-                self.panel.timeUntilDismiss = 4
-//                let mixpanel = Mixpanel.sharedInstance()
-//                let properties = ["LoginCompleted": "Done"]
-//                mixpanel.track("Completed Model", properties: properties)
-            
-            
-            let triggerTime = (Int64(NSEC_PER_SEC) * 6)
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-              
+                GlobalVariables.bottomwear.append(GlobalVariables.wardrobeUrl[number])
                 
                 
+            } else {
                 
-                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on garments to see how they look on you 👍")
+                GlobalVariables.topwear.append(GlobalVariables.wardrobeUrl[number])
                 
-              
-                
-            })
+            }
             
-//            self.panel.timeUntilDismiss = 6
-            let taptriggerTime = (Int64(NSEC_PER_SEC) * 12)
-            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, taptriggerTime), dispatch_get_main_queue(), { () -> Void in
-                
-                
-                
-                
-                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left 👈 and tap on Circle to know how you can upload more garments")
-                
-                
-                
-            })
-    
-        
-        
-         NSUserDefaults.standardUserDefaults().setObject("true", forKey: "freshLogin")
-   
-        
-       self.getGarmentInformation()
-       self.getWardrobeStyle()
-        self.getModelUrlForView1()
-       self.garmentCollectionView.reloadData()
-        
-        let set = settingWardrobe.instanceFromNib()
-        set.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-
-        self.view.addSubview(set)
-        
-        
-    }
-
-    }
-    
-    func getBottomWearImages(){
-        
-        
-        
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_categorized_garments?user_id=\(GlobalVariables.globalFacebookId!)&category=BottomWear")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    
-                    arrayCount = (json["garments"].count)
-                    print(arrayCount)
-                    print("This is arrayCount")
-                    
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["wardrobe_url"].string{
-                            print(json["garments"][0]["wardrobe_url"].string)
-                            
-                            GlobalVariables.globalBottomWardrobe.append(quote)
-                            
-                            
-                            number += 1
-                            print("BottomWardrobe is here")
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                            print("Now TrUE")
-                            
-                        }
-                        
-                    }
-                    
-                }}
-        
-        
-        
-        
-        
-    }
-    
-
-    
-    var once : Bool = false
-    
-    func getGarmentInformation(){
-        
-        print("GETTING GARMENT INFORMATION")
-        
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    arrayCount = (json["garments"].count)
-                    
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["garment_style"].string{
-                            
-                            
-                            GlobalVariables.garmentInformation.append(quote)
-                            print(GlobalVariables.garmentInformation[number])
-                            
-                            
-                            
-                            number += 1
-                            print("garment info Added \(number)")
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                            
-                   
-                           self.getModelWardrobeImages()
-                        }
-                    }
-                    
-                    
-                }}
-    }
-    
-    func getModelWardrobeImages(){ //VIEW 1
-        
-        var arrayCount : Int?
-        
-        
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    
-                    
-                    arrayCount = (json["garments"].count)
-                    GlobalVariables.finalGarmentCount = arrayCount!
-                    
-               
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["wardrobe_url"].string{
-                            
-                            
-                            GlobalVariables.globalTopAndBottom.append(quote)
-                            print(GlobalVariables.globalTopAndBottom.count)
-
-                            
-                           
-             
-                            
-                            number += 1
-                            print(number)
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                    
-                        
-             
-                             self.showTheModel()
-                  
-                            
-                            
-                        }
-                        
-                    }
-                    
-                    
-                }}
-    
-        
-        
-    }
-    
-    func getWardrobeStyle(){
-        
-        var arrayCount : Int?
-        
-        
-    
-        
-            self.panel.showNotify(withStatus: .SUCCESS, inView: self.view , message: "Tap on garments to see how they look on you 👍")
-        
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-           
-                    arrayCount = (json["garments"].count)
-                    
-               
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["garment_info"].string{
-                            
-                            
-                            GlobalVariables.globalGarmentType.append(quote)
-                            
-                            print(GlobalVariables.globalGarmentType)
-                            
-                            
-                            number += 1
-                          
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                      self.getModelUrlForView1()
-                            
-                            
-                        }
-                        
-                    }
-                    
-                    
-                    
-                }}
-        
-    }
-    
-    
-
-
-
-
-    
-    func getProcessedImageData(){
-        
-
-        
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    
-                    arrayCount = (json["garments"].count)
-                    
-                    
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        let quote = json["garments"][1]["processed"].stringValue
-                        
-                      
-                        
-                        GlobalVariables.processedImageStatus.append(quote)
-                        
-                        number += 1
-          
-                        
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            GlobalVariables.globalSafeToFetch = true
-                            
-                           
-                        }
-                    }
-                }}
-        
-    }
-    
-
-
-
-    
-    func showTheModel(){
-        
- 
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    print(json)
-                    
-                    arrayCount = (json["garments"].count)
-                    GlobalVariables.finalGarmentCount = arrayCount!
-                    
-                    print(arrayCount!)
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["model_body_type"].string{
-                            
-                            GlobalVariables.modelBodyType = quote
-                         
-                    
-                            
-                            number += 1
-                            print(number)
-                        }
- 
-                        if number == arrayCount! {
-                            
-                            
-      
-                            self.getComplexion()
-                        
-
-                        }
-                        
-                    }
-   
-                }}
-  
-    }
-    
-    func getComplexion(){
-        
-        var arrayCount : Int?
-        
-        Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_all_user_garments?user_id=\(GlobalVariables.globalFacebookId!)")
-            .responseJSON { response in
-                if let jsonValue = response.result.value {
-                    let json = JSON(jsonValue)
-                    
-                    
-                    
-                    arrayCount = (json["garments"].count)
-                    GlobalVariables.finalGarmentCount = arrayCount!
-                    
-                    
-                    print(arrayCount!)
-                    var number = 0
-                    
-                    
-                    while number  < arrayCount! {
-                        if let quote = json["garments"][number]["other_info"].string{
-                            
-                            GlobalVariables.complexionType = quote
-                            
-                            
-                            
-                            number += 1
-             
-                        }
-                        
-                        
-                        
-                        if number == arrayCount! {
-                            
-                            
-                            self.showComplexion()
-                            
-                            
-                        }
-                        
-                    }
- 
-                }}
-
-    }
-    
-    
-    func showComplexion(){
-        
-        
-        if GlobalVariables.complexionType == "Medium" && GlobalVariables.modelBodyType == "Triangle" {
-            
-            self.topImageView.image = UIImage(named: "mediumtriangletop")
-            self.bottomImageView.image = UIImage(named: "mediumtrianglebottom")
-          
-            
-            
-            print("triangle")
-            
-        }else if GlobalVariables.complexionType == "Fair" && GlobalVariables.modelBodyType == "Triangle" {
-            
-            self.topImageView.image = UIImage(named: "fairtriangletop")
-            self.bottomImageView.image = UIImage(named: "fairtrianglebottom")
-            
-    
-            
-            
-             print("triangle")
-            
-            
-        } else if GlobalVariables.complexionType == "Dark" && GlobalVariables.modelBodyType == "Triangle" {
-            
-            self.topImageView.image = UIImage(named: "darktriangletop")
-            self.bottomImageView.image = UIImage(named: "darktrianglebottom")
-            
-
-            
-             print("triangle")
-            
-        }else if GlobalVariables.complexionType == "Medium" && GlobalVariables.modelBodyType == "Inverted Triangle" {
-            
-            self.topImageView.image = UIImage(named: "mediuminvertedtriangletop")
-            self.bottomImageView.image = UIImage(named: "mediuminvertedtrianglebottom")
-   
-             print("invertriangle")
-            
-            
-        } else if GlobalVariables.complexionType == "Fair" && GlobalVariables.modelBodyType == "Inverted Triangle" {
-            self.topImageView.image = UIImage(named: "fairinvertedtriangletop")
-            self.bottomImageView.image = UIImage(named: "fairinvertedtrianglebottom")
-      
-
-                print("invertriangle")
-            
-            
-        }else if GlobalVariables.complexionType == "Dark"  && GlobalVariables.modelBodyType == "Inverted Triangle" {
-            self.topImageView.image = UIImage(named: "darkinvertedtriangletop")
-            self.bottomImageView.image = UIImage(named: "darkinvertedtrianglebottom")
-            
-      
-            
-                print("invertriangle")
-            
-        }else if GlobalVariables.complexionType == "Medium" && GlobalVariables.modelBodyType == "Hour Glass"{
-            self.topImageView.image = UIImage(named: "mediumHourglasstop")
-            self.bottomImageView.image = UIImage(named: "mediumHourglassbottom")
-            
-       
-            
-                print("hour")
-            
-            
-        } else if GlobalVariables.complexionType == "Fair" && GlobalVariables.modelBodyType == "Hour Glass" {
-            
-            self.topImageView.image = UIImage(named: "fairHourglasstop")
-            self.bottomImageView.image = UIImage(named: "fairHourglassbottom")
-            
-
-            
-                print("hour")
-            
-        } else if GlobalVariables.complexionType == "Dark" && GlobalVariables.modelBodyType == "Hour Glass" {
-            
-            self.topImageView.image = UIImage(named: "darkHourglasstop")
-            self.bottomImageView.image = UIImage(named: "darkHourglassbottom")
-            
-            
-                print("hour")
-            
-        }else if GlobalVariables.complexionType == "Medium" && GlobalVariables.modelBodyType == "Rectangular" {
-            self.topImageView.image = UIImage(named: "mediumrectangletop")
-            self.bottomImageView.image = UIImage(named: "mediumrectanglebottom")
-            
-            
-            
-            
-                print("rect")
-            
-        } else if GlobalVariables.complexionType == "Fair" && GlobalVariables.modelBodyType == "Rectangular" {
-            
-            self.topImageView.image = UIImage(named: "fairrectangletop")
-            self.bottomImageView.image = UIImage(named: "fairrectanglebottom")
-        
-                print("rect")
-            
-            
-        }else if GlobalVariables.complexionType == "Dark" && GlobalVariables.modelBodyType == "Rectangular" {
-            
-            self.topImageView.image = UIImage(named: "darkrectangletop")
-            self.bottomImageView.image = UIImage(named: "darkrectanglebottom")
-            
-        
-            
-                print("rect")
-            
-            
-        }else if GlobalVariables.complexionType == "Medium" && GlobalVariables.modelBodyType == "Oval" {
-            self.topImageView.image = UIImage(named: "mediumOvaltop")
-            self.bottomImageView.image = UIImage(named: "mediumOvalbottom")
-            
-           
-                print("oval")
-            
-            
-        }else if GlobalVariables.complexionType == "Fair" && GlobalVariables.modelBodyType == "Oval" {
-            
-            self.topImageView.image = UIImage(named: "fairOvaltop")
-            self.bottomImageView.image = UIImage(named: "fairOvalbottom")
-            
-          
-            
-                print("oval")
-            
-            
-        }else if GlobalVariables.complexionType == "Dark" && GlobalVariables.modelBodyType == "Oval" {
-            
-            self.topImageView.image = UIImage(named: "darkOvaltop")
-            self.bottomImageView.image = UIImage(named: "darkOvalbottom")
-          
-            
-                print("oval")
+            number += 1
             
             
         }
+        
 
-
-    
         
         
         
     }
+    
+   
+    
+    
+    
+    func getUserDetails(){
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://backend.arfi.in:4000/processing_panel/user_api?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    
+                    let json = JSON(jsonValue)
+                    
+                    let nakedModelTop = json["naked_model_top"].string
+                    let nakedModelBottom = json["naked_model_bottom"].string
+                    let modelBody = json["model_body"].string
+                    let numberOfGarments = json["number_of_garments"].string
+                    let complexion = json["complexion"].string
+                    let userName = json["user_name"].string
+                    
+                    GlobalVariables.nakedModelTop = nakedModelTop
+                    GlobalVariables.nakedModelBottom = nakedModelBottom
+                    GlobalVariables.modelBody = modelBody
+                    GlobalVariables.numberOfGarments = numberOfGarments
+                    GlobalVariables.complexion = complexion
+                    GlobalVariables.userName = userName
+                    
+                    
+                    
+                    arrayCount = (json["user_garments"].count)
+                    
+                    var modelUrlCount = 0
+                    var wardrobeUrlCount = 0
+                    var garmentInfoCount = 0
+                    var garmentStyleCount = 0
+                    
+                    
+                    
+                    while modelUrlCount  < arrayCount! {
+                        if let model_url = json["user_garments"][modelUrlCount]["model_url"].string{
+                            
+                            GlobalVariables.modelUrl.append(model_url)
+                            
+                            modelUrlCount += 1
+                            
+                        }
+                        
+                    }
+                    
+                    while wardrobeUrlCount  < arrayCount! {
+                        if let wardrobe_Url = json["user_garments"][wardrobeUrlCount]["wardrobe_url"].string{
+                            
+                            GlobalVariables.wardrobeUrl.append(wardrobe_Url)
+                            
+                            wardrobeUrlCount += 1
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    while garmentInfoCount  < arrayCount! {
+                        if let garment_info = json["user_garments"][garmentInfoCount]["garment_info"].string{
+                            
+                            GlobalVariables.garmentInfo.append(garment_info)
+                            
+                            garmentInfoCount += 1
+                            
+                        }
+                        
+                    }
+                    
+                    
+                    while garmentStyleCount  < arrayCount! {
+                        if let garment_style = json["user_garments"][garmentStyleCount]["garment_style"].string{
+                            
+                            GlobalVariables.garmentStyle.append(garment_style)
+                            
+                            garmentStyleCount += 1
+                            
+                        }
+                        
+                    }
+                    
+                    self.setup()
+                    
+                    
+                    
+                } else {
+                    
+                    
+                    let starterPackScreen = Prepopulated.instanceFromNib()
+                    starterPackScreen.frame = CGRectMake(0 ,0 , self.view.frame.width , self.view.frame.height)
+                    self.view.addSubview(starterPackScreen)
+                    
+                    
+                    
+                    
+                    
+                    
+                }
+        }
+        
+        
+        
+        
+    }
+
+
+   
+   
+      
     
     
     
@@ -1052,9 +383,12 @@ extension View1 : UICollectionViewDataSource {
                 .responseImage { response in
                     
                     if let image = response.result.value {
-                     
+                        
+
                         cell.garmentImage.image = image
                         self.imageCache[urlString] = image
+                        print(urlString)
+                        print("")
                     }
             }
             

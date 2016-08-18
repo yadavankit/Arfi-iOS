@@ -73,12 +73,13 @@ class CreateModel: UIView {
         
         print(GlobalVariables.globalTopAndBottom.count)
         
-        Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/populate?user_id=\(GlobalVariables.globalFacebookId!)&garments_selected=\(garmentSelectedString)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
+        Alamofire.request(.POST, "http://backend.arfi.in:4000/processing_panel/populate?user_id=\(GlobalVariables.globalFacebookId!)&garments_selected=\(garmentSelectedString)&user_name=\(GlobalVariables.globalUserName!.componentsSeparatedByString(" ")[0])&bust=\(bust)&hip=\(hip)&waist=\(waist)&height=\(height)&complexion=\(complexion)")
             .validate()
             .responseJSON { response in
                 print(response)
                 
                 print("Model Garment in saved on Server")
+                
             
            
                     

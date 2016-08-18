@@ -23,16 +23,12 @@ class Prepopulated: UIView {
     }
     @IBAction func releaseMe(sender: AnyObject) {
         GlobalVariables.startedUsingArfi = true
+          GlobalVariables.prepopulatedComplete = true
         
-        
-        print("Starteffdhhdsfhdfvhfdhjdjhd")
-        
-        
+     
        self.getUserDetails()
         
-      
-        
-    
+
         self.removeFromSuperview()
        
         
@@ -68,10 +64,11 @@ class Prepopulated: UIView {
             
         }
         
-        
+    
         
         
     }
+    
     
     
     
@@ -220,7 +217,7 @@ class Prepopulated: UIView {
     @IBAction func DoneAction(sender: AnyObject) {
      
          self.doneOutlet.hidden = true
-        GlobalVariables.prepopulatedComplete = true
+  
         
         let starterPackScreen = CreateModel.instanceFromNib()
         starterPackScreen.frame = CGRectMake(0 ,0 , self.frame.width , self.frame.height)

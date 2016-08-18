@@ -30,6 +30,7 @@
 		482FE8161D2FC59100B78B0C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 482FE8151D2FC59100B78B0C /* LaunchViewController.swift */; };
 		483575021D128D7000A0AEBE /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483575011D128D7000A0AEBE /* Mixpanel.framework */; };
 		484BDA161D17CEE7002D287E /* UIDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484BDA151D17CEE7002D287E /* UIDropDown.swift */; };
+		4853D6F41D65F0B400FA0059 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4853D6F31D65F0B400FA0059 /* Images.xcassets */; };
 		488C9A391D2A4FD40014B992 /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C9A381D2A4FD40014B992 /* PremiumView.swift */; };
 		488C9A3B1D2A4FF40014B992 /* PremiumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488C9A3A1D2A4FF40014B992 /* PremiumView.xib */; };
 		488E9BB11D50C80C0075A96A /* CreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488E9BB01D50C80C0075A96A /* CreateModel.swift */; };
@@ -66,7 +67,6 @@
 		AC94AD611B8E40BF002D9AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */; };
 		AC94AD631B8E40BF002D9AD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94AD621B8E40BF002D9AD2 /* ViewController.swift */; };
 		AC94AD661B8E40BF002D9AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD641B8E40BF002D9AD2 /* Main.storyboard */; };
-		AC94AD681B8E40BF002D9AD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD671B8E40BF002D9AD2 /* Images.xcassets */; };
 		AC94AD6B1B8E40BF002D9AD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD691B8E40BF002D9AD2 /* LaunchScreen.xib */; };
 		AC94AD821B8E4174002D9AD2 /* View1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94AD801B8E4174002D9AD2 /* View1.swift */; };
 		AC94AD831B8E4174002D9AD2 /* View1.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD811B8E4174002D9AD2 /* View1.xib */; };
@@ -113,6 +113,7 @@
 		483575011D128D7000A0AEBE /* Mixpanel.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mixpanel.framework; path = "../../../Library/Developer/Xcode/DerivedData/Udiva-csqxvkfllsiotabbolfobeiborop/Build/Products/Debug-iphoneos/Mixpanel.framework"; sourceTree = "<group>"; };
 		483575031D128DE500A0AEBE /* Udiva-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Udiva-Bridging-Header.h"; sourceTree = "<group>"; };
 		484BDA151D17CEE7002D287E /* UIDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDropDown.swift; path = ../UIDropDown.swift; sourceTree = "<group>"; };
+		4853D6F31D65F0B400FA0059 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		488C9A381D2A4FD40014B992 /* PremiumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
 		488C9A3A1D2A4FF40014B992 /* PremiumView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PremiumView.xib; sourceTree = "<group>"; };
 		488E9BB01D50C80C0075A96A /* CreateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateModel.swift; sourceTree = "<group>"; };
@@ -154,7 +155,6 @@
 		AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SnapchatCamera/AppDelegate.swift; sourceTree = "<group>"; };
 		AC94AD621B8E40BF002D9AD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		AC94AD651B8E40BF002D9AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		AC94AD671B8E40BF002D9AD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SnapchatCamera/Images.xcassets; sourceTree = "<group>"; };
 		AC94AD6A1B8E40BF002D9AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		AC94AD701B8E40BF002D9AD2 /* arfi.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = arfi.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC94AD801B8E4174002D9AD2 /* View1.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View1.swift; sourceTree = "<group>"; };
@@ -305,6 +305,7 @@
 		48C2F47C1D264D3C00CEE0DD /* View3CollectionView */ = {
 			isa = PBXGroup;
 			children = (
+				4853D6F31D65F0B400FA0059 /* Images.xcassets */,
 				48937AE21D246B6300F31F34 /* ModelGarmentCollectionViewCell.swift */,
 				48937AE31D246B6300F31F34 /* ModelGarmentCollectionViewCell.xib */,
 			);
@@ -402,7 +403,6 @@
 				4815968D1D229E5C002F1D56 /* Global Data */,
 				48D6313C1D2154AD00F4905B /* TableViewFiles */,
 				AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */,
-				AC94AD671B8E40BF002D9AD2 /* Images.xcassets */,
 				48EA7D311D1D4341005D6B81 /* FBFrameworks */,
 				48EA7D2E1D1D3C09005D6B81 /* login */,
 				48EA7D2B1D1D23FE005D6B81 /* walkthrough */,
@@ -557,6 +557,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				48E98DA01D484F53002E4266 /* settingWardrobe.xib in Resources */,
+				4853D6F41D65F0B400FA0059 /* Images.xcassets in Resources */,
 				488E9BB61D50DC630075A96A /* PerfectPicture.xib in Resources */,
 				48D7A72B1D41C6380099F8E7 /* LaunchScreen.xib in Resources */,
 				482FE8071D2D3CF300B78B0C /* HeightCell.xib in Resources */,
@@ -579,7 +580,6 @@
 				482FE8111D2D3D4600B78B0C /* WaistCell.xib in Resources */,
 				48C2F4801D264EE800CEE0DD /* TableViewCell2.xib in Resources */,
 				488E9BB31D50C8190075A96A /* CreateModel.xib in Resources */,
-				AC94AD681B8E40BF002D9AD2 /* Images.xcassets in Resources */,
 				482FE80D1D2D3CF300B78B0C /* submitCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -897,7 +897,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SnapchatCamera/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -923,7 +923,7 @@
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = SnapchatCamera/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",

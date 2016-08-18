@@ -186,7 +186,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
            
             self.firstLaunchEver = true
             panel.timeUntilDismiss = 6
-           perimeterOutlet.hidden = true
+           perimeterOutlet.hidden = false
             panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on the circle to know more 👇")
             
             
@@ -497,7 +497,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.flashIcon.hidden = true
         
    
-            perimeterOutlet.hidden = true
+            perimeterOutlet.hidden = false
             
         let triggerTime = (Int64(NSEC_PER_SEC) * 3)
                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
@@ -519,7 +519,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
 
         self.cross.hidden = false
         cameraButtonOutlet.hidden = true
-        perimeterOutlet.hidden = true
+        perimeterOutlet.hidden = false
         self.tickmarkOutlet.hidden = false
         }
         

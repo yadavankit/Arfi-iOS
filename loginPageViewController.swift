@@ -53,7 +53,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
 //            let mixpanel = Mixpanel.sharedInstance()
             let properties = ["LoginCompleted": "Done"]
 //            mixpanel.track("Login Complete", properties: properties)
-            returnUserData()
+          
             
             } else {
             
@@ -163,11 +163,13 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
     
     func getUserDetails(){
         
+        
         var arrayCount : Int?
         
-        Alamofire.request(.GET, "http://backend.arfi.in:7000/processing_panel/user_api?user_id=\(GlobalVariables.globalFacebookId!)")
+        Alamofire.request(.GET, "http://backend.arfi.in:4000/processing_panel/user_api?user_id=\(GlobalVariables.globalFacebookId!)")
             .responseJSON { response in
                 if let jsonValue = response.result.value {
+                    
                     let json = JSON(jsonValue)
                     
                     let nakedModelTop = json["naked_model_top"].string
@@ -178,6 +180,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                     let userName = json["user_name"].string
                     
                     GlobalVariables.nakedModelTop = nakedModelTop
+                    print(GlobalVariables.nakedModelTop)
                     GlobalVariables.nakedModelBottom = nakedModelBottom
                     GlobalVariables.modelBody = modelBody
                     GlobalVariables.numberOfGarments = numberOfGarments
@@ -210,6 +213,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                         if let wardrobe_Url = json["user_garments"][wardrobeUrlCount]["wardrobe_url"].string{
                             
                             GlobalVariables.wardrobeUrl.append(wardrobe_Url)
+                            print(GlobalVariables.wardrobeUrl[0])
                             
                             wardrobeUrlCount += 1
                             
@@ -241,13 +245,25 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                         
                     }
                     
-                    
                     self.setup()
+                    
+                    
+                    
+                } else {
+                    
+                    
+                    let starterPackScreen = Prepopulated.instanceFromNib()
+                    starterPackScreen.frame = CGRectMake(0 ,0 , self.view.frame.width , self.view.frame.height)
+                    self.view.addSubview(starterPackScreen)
+                    
+                    
+                    
                     
                     
                     
                 }
         }
+        
         
     }
     

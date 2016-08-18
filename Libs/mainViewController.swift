@@ -18,20 +18,22 @@ import ReachabilitySwift
 import CoreTelephony
 
 
-class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate , UIAlertViewDelegate {
+class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate {
     
     var FacebookUserId : String = "58382010"
     var needWalkthrough:Bool = true
     var walkthrough:BWWalkthroughViewController!
     var isSignedUp = false
     var isLaunched : Bool = false
-    
+    var gotTheData : Bool = false
+    var timer: dispatch_source_t!
    
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -40,17 +42,9 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
         let launchView = LaunchScreen.instanceFromNib()
         launchView.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
         self.view.addSubview(launchView)
+        startTimer()
         
-        let triggerTime = (Int64(NSEC_PER_SEC) * 4)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            
-            self.performSegueWithIdentifier("loginDone", sender: self)
-            
-        })
-        
-        
-        
-        
+
         
         if FBSDKAccessToken.currentAccessToken() == nil {
             print("not logged in yet")
@@ -67,8 +61,7 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
 
         }
     }
-    
-    
+
  
     
     func checkConnectivity(){
@@ -141,16 +134,10 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
         
     }
     
-    func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
-        
-        checkConnectivity()
-        
-    }
-    
-    
-    
+  
    
     @IBAction func presentWalkthrough(){
+        
         
         let stb = UIStoryboard(name: "Main", bundle: nil)
         walkthrough = stb.instantiateViewControllerWithIdentifier("container") as! BWWalkthroughViewController
@@ -165,7 +152,7 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
         walkthrough.addViewController(page_one)
         walkthrough.addViewController(page_two)
         walkthrough.addViewController(page_three)
-        
+    
         
         
         self.presentViewController(walkthrough, animated: true) {
@@ -175,7 +162,7 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     }
     
     
-}
+
 
 
 
@@ -201,8 +188,8 @@ func returnUserData()  { //get user id and username
            
             GlobalVariables.globalFacebookId = userId
             GlobalVariables.globalUserName = userName
-            getUserDetails()
-
+            self.getUserDetails()
+        
             
             
             
@@ -213,6 +200,7 @@ func returnUserData()  { //get user id and username
 }
 
 func setup () {
+
     
     
     var number = 0
@@ -221,7 +209,11 @@ func setup () {
         
         if GlobalVariables.garmentInfo[number].containsString("BottomWear"){
             
+            
+            
             GlobalVariables.bottomwear.append(GlobalVariables.wardrobeUrl[number])
+            print(GlobalVariables.bottomwear[0])
+            print("")
             
             
         } else {
@@ -236,9 +228,72 @@ func setup () {
     }
     
     
+
+        
+        Alamofire.request(.GET, GlobalVariables.nakedModelTop!)
+            .responseImage { response in
+                debugPrint(response)
+              
+                
+                if let image = response.result.value {
+                    
+                    GlobalVariables.nakedModelTopImage = image
+                      GlobalVariables.ModelValuesAdded  = true
+                  
+                
+        }
+    }
+    
+    
+        Alamofire.request(.GET, GlobalVariables.nakedModelBottom!)
+            .responseImage { response in
+                debugPrint(response)
+                
+                
+                if let image = response.result.value {
+                    
+                    GlobalVariables.nakedModelTopImage = image
+                    GlobalVariables.ModelValuesAdded  = true
+                    
+                
+        }
+    }
+    
+    self.performSegueWithIdentifier("loginDone", sender: self)
+
     
     
 }
+    
+    func startTimer() {
+        
+        let queue = dispatch_queue_create("com.domain.app.timer", nil)
+        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 1 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
+        dispatch_source_set_event_handler(timer) {
+            
+            if GlobalVariables.prepopulatedComplete == true {
+                
+                let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+                    
+                self.performSegueWithIdentifier("loginDone", sender: self)
+                })
+                
+                
+                
+                
+                
+            }
+            
+        }
+        dispatch_resume(timer)
+    }
+    func stopTimer() {
+        dispatch_source_cancel(timer)
+        timer = nil
+    }
+
 
 
 
@@ -249,6 +304,7 @@ func getUserDetails(){
     Alamofire.request(.GET, "http://backend.arfi.in:4000/processing_panel/user_api?user_id=\(GlobalVariables.globalFacebookId!)")
         .responseJSON { response in
             if let jsonValue = response.result.value {
+              
                 let json = JSON(jsonValue)
                 
                 let nakedModelTop = json["naked_model_top"].string
@@ -259,6 +315,7 @@ func getUserDetails(){
                 let userName = json["user_name"].string
                 
                 GlobalVariables.nakedModelTop = nakedModelTop
+                print(GlobalVariables.nakedModelTop)
                 GlobalVariables.nakedModelBottom = nakedModelBottom
                 GlobalVariables.modelBody = modelBody
                 GlobalVariables.numberOfGarments = numberOfGarments
@@ -291,6 +348,7 @@ func getUserDetails(){
                     if let wardrobe_Url = json["user_garments"][wardrobeUrlCount]["wardrobe_url"].string{
                         
                         GlobalVariables.wardrobeUrl.append(wardrobe_Url)
+                        print(GlobalVariables.wardrobeUrl[0])
                         
                         wardrobeUrlCount += 1
                         
@@ -322,10 +380,21 @@ func getUserDetails(){
                     
                 }
                 
+               self.setup()
                 
-               setup()
                 
                 
+            } else {
+                
+                
+                let starterPackScreen = Prepopulated.instanceFromNib()
+                starterPackScreen.frame = CGRectMake(0 ,0 , self.view.frame.width , self.view.frame.height)
+                self.view.addSubview(starterPackScreen)
+            
+                
+               
+                
+
                 
             }
     }
@@ -338,7 +407,7 @@ func getUserDetails(){
 
 
 
-
+}
 
 
 //extenstion
