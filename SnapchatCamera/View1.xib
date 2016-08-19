@@ -64,7 +64,7 @@
                     </constraints>
                 </imageView>
                 <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" animating="YES" style="white" translatesAutoresizingMaskIntoConstraints="NO" id="HPN-Hq-jWK">
-                    <rect key="frame" x="29" y="58" width="20" height="20"/>
+                    <rect key="frame" x="29" y="50.5" width="35" height="35"/>
                     <color key="color" red="1" green="0.18938105860000001" blue="0.35121165879999999" alpha="1" colorSpace="calibratedRGB"/>
                 </activityIndicatorView>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sxn-gH-dQ4">
@@ -135,12 +135,14 @@
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mhd-jt-oRv"/>
                 <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-76" id="ONd-4z-QTe"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="wZg-2k-zdX" secondAttribute="bottom" constant="391" id="QeW-Rv-zLM"/>
+                <constraint firstItem="wZg-2k-zdX" firstAttribute="height" secondItem="HPN-Hq-jWK" secondAttribute="height" id="ZRY-Tu-mGf"/>
                 <constraint firstAttribute="bottom" secondItem="Rox-JJ-N3c" secondAttribute="bottom" constant="68" id="baA-gG-A4X"/>
                 <constraint firstItem="HPN-Hq-jWK" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="29" id="dcU-yH-D3D"/>
                 <constraint firstItem="HPN-Hq-jWK" firstAttribute="centerY" secondItem="wZg-2k-zdX" secondAttribute="centerY" id="etw-FS-EsK"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kS7-au-6Tw"/>
                 <constraint firstItem="sxn-gH-dQ4" firstAttribute="trailing" secondItem="u1B-Qh-shm" secondAttribute="trailing" id="lzn-Lg-ZyP"/>
                 <constraint firstItem="qu2-Hf-bCx" firstAttribute="centerX" secondItem="u1B-Qh-shm" secondAttribute="centerX" id="pOe-75-Wbv"/>
+                <constraint firstItem="wZg-2k-zdX" firstAttribute="width" secondItem="HPN-Hq-jWK" secondAttribute="width" id="rzm-qF-f92"/>
                 <constraint firstAttribute="trailing" secondItem="Rox-JJ-N3c" secondAttribute="trailing" id="s2D-dQ-alB"/>
                 <constraint firstItem="sxn-gH-dQ4" firstAttribute="leading" secondItem="u1B-Qh-shm" secondAttribute="leading" id="s94-fL-PAQ"/>
                 <constraint firstItem="sxn-gH-dQ4" firstAttribute="bottom" secondItem="u1B-Qh-shm" secondAttribute="bottom" id="zIb-1F-He1"/>

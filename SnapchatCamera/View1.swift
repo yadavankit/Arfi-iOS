@@ -198,6 +198,8 @@ class View1: UIViewController  {
 
     func setup () {
         
+        GlobalVariables.numberOfGarments = String(GlobalVariables.wardrobeUrl.count)
+        
         
         
         var number = 0

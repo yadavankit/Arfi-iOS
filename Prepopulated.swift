@@ -43,6 +43,8 @@ class Prepopulated: UIView {
     
     func setup () {
         
+        GlobalVariables.numberOfGarments = String(GlobalVariables.wardrobeUrl.count)
+        
         
         var number = 0
         

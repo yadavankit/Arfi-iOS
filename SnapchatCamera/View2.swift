@@ -815,12 +815,7 @@ func loadDropDown() {
             self.label2.text = "Style"
             self.label3.text = "Fitting/Rise"
             
-            //        case "Dress":
-            //
-            //            self.label2.text = "Style"
-            //            self.label3.text = "Length"
-            
-            
+      
         case "Trouser":
             
             self.label2.text = "Rise"
@@ -855,23 +850,7 @@ func loadDropDown() {
             self.label2.text = "Rise"
             self.label3.text = "Length"
             
-            //        case "Stockings":
-            //
-            //            self.label2.text = "Rise"
-            //            self.label3.text = "Length"
-            
-            //        case "Dungarees Shorts":
-            //
-            //            self.label2.text = "Rise"
-            //            self.label3.text = "Length"
-            //
-            //        case "Dunagrees Trouser":
-            //
-            //            self.label2.text = "Rise"
-            //            self.label3.text = "Length"
-            //            
-            
-            
+
         default:
             print("Fucked")
             

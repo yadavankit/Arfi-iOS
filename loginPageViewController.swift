@@ -163,6 +163,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
     
     func getUserDetails(){
         
+        GlobalVariables.numberOfGarments = String(GlobalVariables.wardrobeUrl.count)
         
         var arrayCount : Int?
         
@@ -171,7 +172,7 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
                 if let jsonValue = response.result.value {
                     
                     let json = JSON(jsonValue)
-                    
+
                     let nakedModelTop = json["naked_model_top"].string
                     let nakedModelBottom = json["naked_model_bottom"].string
                     let modelBody = json["model_body"].string

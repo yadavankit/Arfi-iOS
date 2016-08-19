@@ -201,7 +201,7 @@ func returnUserData()  { //get user id and username
 
 func setup () {
 
-    
+    GlobalVariables.numberOfGarments = String(GlobalVariables.wardrobeUrl.count)
     
     var number = 0
     
@@ -306,19 +306,18 @@ func getUserDetails(){
             if let jsonValue = response.result.value {
               
                 let json = JSON(jsonValue)
+                print(json)
                 
                 let nakedModelTop = json["naked_model_top"].string
                 let nakedModelBottom = json["naked_model_bottom"].string
                 let modelBody = json["model_body"].string
-                let numberOfGarments = json["number_of_garments"].string
                 let complexion = json["complexion"].string
                 let userName = json["user_name"].string
                 
                 GlobalVariables.nakedModelTop = nakedModelTop
-                print(GlobalVariables.nakedModelTop)
                 GlobalVariables.nakedModelBottom = nakedModelBottom
                 GlobalVariables.modelBody = modelBody
-                GlobalVariables.numberOfGarments = numberOfGarments
+                
                 GlobalVariables.complexion = complexion
                 GlobalVariables.userName = userName
                 
