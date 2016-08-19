@@ -567,7 +567,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
        
         Alamofire.upload(
             .POST,
-            "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/upload",
+            "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:4000/processing_panel/upload",
             multipartFormData: { multipartFormData in
                 
                 

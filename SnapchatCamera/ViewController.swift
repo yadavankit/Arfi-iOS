@@ -47,46 +47,20 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         if  GlobalVariables.modelUrl.count > 0 {
             
+            if GlobalVariables.prepopulatedComplete == true {
+                
+                 self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
+                
+                
+            }else {
+            
             
             self.scrollView.contentOffset.x = self.view.frame.size.width
             self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
             
-           
-     
-        } else {
-            
-       self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
-            
-        }
-        
-        
-        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
-        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-            
-            
-            if GlobalVariables.modelUrl.count < 0 {
-                
-                
-                let starterPackScreen = Prepopulated.instanceFromNib()
-                starterPackScreen.frame = CGRectMake(0 ,0 , self.view.frame.width , self.view.frame.height)
-                self.view.addSubview(starterPackScreen)
-                
-                //self.scrollView.contentOffset.x = self.view.frame.size.width
-                self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
-                
-                
-            } else {
-                
-                self.scrollView.contentOffset.x = self.view.frame.size.width
-                self.scrollView.contentSize = CGSizeMake(self.view.frame.width * 3, self.view.frame.height)
             }
-            
-
-                
-                
-            
-        })
      
+        }
 
 
 }
