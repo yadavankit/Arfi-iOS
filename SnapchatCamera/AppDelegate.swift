@@ -1,5 +1,4 @@
 
-
 import UIKit
 import Mixpanel
 import Alamofire
@@ -25,9 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(settings)
         UIApplication.sharedApplication().registerForRemoteNotifications()
        
- 
-//        let mi = Mixpanel()
-//        mi.showNotificationOnActive = false
+
         
          application.statusBarHidden = true
 //        Mixpanel.initialize(token: "39a4a3d35dc02d8a158effdeddbacc85")

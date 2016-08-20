@@ -31,8 +31,15 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.80296336206896557" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDI-5S-EIJ">
-                    <rect key="frame" x="19" y="122" width="130" height="23"/>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89k-JJ-Ihh">
+                    <rect key="frame" x="327" y="76" width="47" height="30"/>
+                    <state key="normal" title="Reload"/>
+                    <connections>
+                        <action selector="reload:" destination="-1" eventType="touchUpInside" id="l4s-bl-bls"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dDI-5S-EIJ">
+                    <rect key="frame" x="19" y="119" width="130" height="23"/>
                     <attributedString key="attributedText">
                         <fragment content="Your wardrobe">
                             <attributes>
@@ -44,8 +51,8 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your wardrobe is empty. Let's start by uploading your wardrobe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4I-6v-5uf">
-                    <rect key="frame" x="-22" y="43" width="288" height="72"/>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Your wardrobe is empty. Let's start by uploading your wardrobe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="r4I-6v-5uf">
+                    <rect key="frame" x="-22" y="40" width="288" height="72"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="72" id="eGt-8v-vGS"/>
                         <constraint firstAttribute="width" constant="288" id="oot-Jz-cNw"/>
@@ -54,13 +61,6 @@
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="89k-JJ-Ihh">
-                    <rect key="frame" x="327" y="76" width="47" height="30"/>
-                    <state key="normal" title="Reload"/>
-                    <connections>
-                        <action selector="reload:" destination="-1" eventType="touchUpInside" id="l4s-bl-bls"/>
-                    </connections>
-                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <constraints>

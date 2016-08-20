@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View4" customModule="arfi" customModuleProvider="target">
+            <connections>
+                <outlet property="HelloUser" destination="56s-vp-tDE" id="vj1-IF-sHc"/>
+                <outlet property="midCollectionView" destination="zRL-ge-9X3" id="jHw-Ws-lfO"/>
+                <outlet property="middleLabel" destination="7yf-T9-8gv" id="SDC-2E-Usg"/>
+                <outlet property="topCollectionView" destination="Stt-Ub-96I" id="g3t-w8-ybS"/>
+                <outlet property="topSpace" destination="nil-co-Ol2" id="Y8n-TC-c0V"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="Stt-Ub-96I">
+                    <rect key="frame" x="0.0" y="205" width="600" height="142"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="xSf-3m-eNl">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="zRL-ge-9X3">
+                    <rect key="frame" x="0.0" y="180" width="600" height="170"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="170" id="0kO-Lh-gKX"/>
+                        <constraint firstAttribute="width" constant="600" id="h4O-zo-hjt"/>
+                    </constraints>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="RTK-eo-5kZ">
+                        <size key="itemSize" width="50" height="50"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="20" minY="0.0" maxX="20" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Nr-r6-rtd">
+                    <rect key="frame" x="19" y="80" width="134" height="23"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Where to next?">
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="20" name="Helvetica-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hello, Aditya." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="56s-vp-tDE">
+                    <rect key="frame" x="19" y="25" width="245" height="47"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="39"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="0.80296336209999997" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_____________________________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yf-T9-8gv">
+                    <rect key="frame" x="177" y="365" width="246.5" height="21"/>
+                    <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
+                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhx-zN-Ltc">
+                    <rect key="frame" x="19" y="136" width="130" height="23"/>
+                    <attributedString key="attributedText">
+                        <fragment content="Your wardrobe">
+                            <attributes>
+                                <color key="NSColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <font key="NSFont" size="20" name="Helvetica-Light"/>
+                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                            </attributes>
+                        </fragment>
+                    </attributedString>
+                    <nil key="highlightedColor"/>
+                </label>
+            </subviews>
+            <constraints>
+                <constraint firstItem="7yf-T9-8gv" firstAttribute="centerX" secondItem="zRL-ge-9X3" secondAttribute="centerX" id="0TY-Hs-XIm"/>
+                <constraint firstItem="7yf-T9-8gv" firstAttribute="top" secondItem="zRL-ge-9X3" secondAttribute="bottom" constant="15" id="18q-lG-cjx"/>
+                <constraint firstItem="zRL-ge-9X3" firstAttribute="top" secondItem="Qhx-zN-Ltc" secondAttribute="bottom" constant="21" id="3ho-1w-MNO"/>
+                <constraint firstAttribute="trailing" secondItem="zRL-ge-9X3" secondAttribute="trailing" id="7tC-U9-O7i"/>
+                <constraint firstAttribute="trailing" secondItem="Stt-Ub-96I" secondAttribute="trailing" id="7z1-Ed-QfJ"/>
+                <constraint firstItem="Stt-Ub-96I" firstAttribute="width" secondItem="zRL-ge-9X3" secondAttribute="width" id="P7H-9L-oix"/>
+                <constraint firstItem="Stt-Ub-96I" firstAttribute="centerX" secondItem="zRL-ge-9X3" secondAttribute="centerX" id="Qbe-qm-lVJ"/>
+                <constraint firstItem="4Nr-r6-rtd" firstAttribute="top" secondItem="56s-vp-tDE" secondAttribute="bottom" constant="8" id="QpQ-H2-cM9"/>
+                <constraint firstItem="zRL-ge-9X3" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="RXB-7u-Ibf"/>
+                <constraint firstItem="Stt-Ub-96I" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="S37-Jo-xSj"/>
+                <constraint firstItem="56s-vp-tDE" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="25" id="U5t-LJ-iL3"/>
+                <constraint firstItem="Stt-Ub-96I" firstAttribute="height" secondItem="zRL-ge-9X3" secondAttribute="height" constant="-28" id="UEb-Br-Sui"/>
+                <constraint firstItem="zRL-ge-9X3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UiK-27-Soo"/>
+                <constraint firstItem="4Nr-r6-rtd" firstAttribute="leading" secondItem="56s-vp-tDE" secondAttribute="leading" id="VIl-1a-B4p"/>
+                <constraint firstItem="Qhx-zN-Ltc" firstAttribute="top" secondItem="4Nr-r6-rtd" secondAttribute="bottom" constant="33" id="c5a-vU-zxk"/>
+                <constraint firstItem="56s-vp-tDE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="fh6-1b-yLN"/>
+                <constraint firstItem="Qhx-zN-Ltc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="136" id="hJI-Ei-lIb"/>
+                <constraint firstItem="Stt-Ub-96I" firstAttribute="top" secondItem="zRL-ge-9X3" secondAttribute="bottom" constant="-145" id="nil-co-Ol2"/>
+                <constraint firstItem="Qhx-zN-Ltc" firstAttribute="leading" secondItem="4Nr-r6-rtd" secondAttribute="leading" id="ub0-BR-RJj"/>
+            </constraints>
+            <point key="canvasLocation" x="228" y="216"/>
+        </view>
+    </objects>
+</document>

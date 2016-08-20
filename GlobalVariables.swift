@@ -63,6 +63,25 @@ struct GlobalVariables {
     static var nakedModelTopImage : UIImage?
     static var nakedModelBottomImage : UIImage?
     static var ModelValuesAdded : Bool?
+    static var CategorySection : [String] = []
+    
+    // GarmentArrays
+    
+        static var shirtArray : [String] = []
+        static var topArray : [String] = []
+        static var tshirtArray : [String] = []
+        static var palazzoArray : [String] = []
+        static var trouserArray : [String] = []
+        static var shortsArray : [String] = []
+        static var jeansArray : [String] = []
+        static var capriArray : [String] = []
+        static var leggingArray : [String] = []
+        static var culotteArray : [String] = []
+        static var skirtArray : [String] = []
+        static var cargoArray : [String] = []
+    
+    
+    
     
     
     

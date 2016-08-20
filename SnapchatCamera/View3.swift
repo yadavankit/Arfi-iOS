@@ -8,7 +8,7 @@ import UIKit
 class View3: UIViewController , UITableViewDataSource {
     
     
-var categories = ["Top Wear" , "Bottom Wear" ]
+var categories = ["Top Wear" , "Bottom Wear"  , "Style inspiration"]
     
 var timer: dispatch_source_t!
     
@@ -100,7 +100,14 @@ override func viewDidLoad() {
             
             return cell
 
-        }  else {
+        }  else if indexPath.section == 2 {
+            
+            let cell : UITableViewCell = tableView.dequeueReusableCellWithIdentifier("cell") as! CategoryRow
+            print("section : \(indexPath.section)")
+            return cell
+            
+            
+        }else {
             
             let cell = tableView.dequeueReusableCellWithIdentifier("TableViewCell3") as! TableViewCell2
             

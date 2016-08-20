@@ -27,7 +27,18 @@ class mainViewController: UIViewController , BWWalkthroughViewControllerDelegate
     var isLaunched : Bool = false
     var gotTheData : Bool = false
     var timer: dispatch_source_t!
-   
+    var addedALready = false
+    var topAdded = false
+    var tshirtAdded = false
+    var palazzoAdded = false
+    var trouserAdded = false
+    var shortsAdded = false
+    var jeansAdded = false
+    var capriAdded = false
+    var leggingsAdded = false
+    var cargoAdded = false
+    var culottesAdded = false
+    var skirtAdded = false
 
     
     override func viewDidLoad() {
@@ -188,6 +199,7 @@ func returnUserData()  { //get user id and username
            
             GlobalVariables.globalFacebookId = userId
             GlobalVariables.globalUserName = userName
+            print(GlobalVariables.globalUserName!)
             self.getUserDetails()
         
             
@@ -206,10 +218,8 @@ func setup () {
     var number = 0
     
     while number < GlobalVariables.wardrobeUrl.count {
-        
+    
         if GlobalVariables.garmentInfo[number].containsString("BottomWear"){
-            
-            
             
             GlobalVariables.bottomwear.append(GlobalVariables.wardrobeUrl[number])
             print(GlobalVariables.bottomwear[0])
@@ -258,6 +268,247 @@ func setup () {
                 
         }
     }
+    
+  var number2 = 0
+    
+    while number2 < GlobalVariables.wardrobeUrl.count {
+      
+        if GlobalVariables.garmentStyle[number2].containsString("Shirt") {
+            
+        
+            
+            if addedALready == false {
+            
+            GlobalVariables.CategorySection.append("Shirts")
+
+             addedALready = true
+                
+            }
+    
+        } else if GlobalVariables.garmentStyle[number2].containsString("Top") {
+            
+            
+            
+            if topAdded == false {
+                
+                GlobalVariables.CategorySection.append("Top")
+                topAdded = true
+                
+            }
+            
+        } else if GlobalVariables.garmentStyle[number2].containsString("TShirt") {
+            
+            
+            
+            if tshirtAdded == false {
+                
+                GlobalVariables.CategorySection.append("TShirt")
+                tshirtAdded = true
+                
+            }
+            
+        }else if GlobalVariables.garmentStyle[number2].containsString("Palazzo") {
+            
+            
+            
+            if palazzoAdded == false {
+                
+                GlobalVariables.CategorySection.append("Palazzo")
+                palazzoAdded = true
+                
+            }
+            
+        }else if GlobalVariables.garmentStyle[number2].containsString("Trouser") {
+            
+            
+            
+            if trouserAdded == false {
+                
+                GlobalVariables.CategorySection.append("Trouser")
+                trouserAdded = true
+                
+            }
+            
+        }else if GlobalVariables.garmentStyle[number2].containsString("Shorts") {
+            
+            
+            
+            if shortsAdded == false {
+                
+                GlobalVariables.CategorySection.append("Shorts")
+                shortsAdded = true
+                
+            }
+            
+        }else if GlobalVariables.garmentStyle[number2].containsString("Jeans") {
+            
+            
+            
+            if jeansAdded == false {
+                
+                GlobalVariables.CategorySection.append("Jeans")
+                jeansAdded = true
+                
+            }
+            
+        }else if GlobalVariables.garmentStyle[number2].containsString("Capri") {
+            
+            
+            
+            if capriAdded == false {
+                
+                GlobalVariables.CategorySection.append("Capri")
+                capriAdded = true
+                
+            }
+            
+        }else if GlobalVariables.garmentStyle[number2].containsString("Leggings") {
+            
+            
+            
+            if leggingsAdded == false {
+                
+                GlobalVariables.CategorySection.append("Leggings")
+                leggingsAdded = true
+                
+            }
+            
+        }else if GlobalVariables.garmentStyle[number2].containsString("Cargos") {
+            
+            
+            
+            if cargoAdded == false {
+                
+                GlobalVariables.CategorySection.append("Cargos")
+                cargoAdded = true
+                
+            }
+            
+        }else if GlobalVariables.garmentStyle[number2].containsString("Culottes") {
+            
+            
+            
+            if culottesAdded == false {
+                
+                GlobalVariables.CategorySection.append("Culottes")
+                culottesAdded = true
+                
+            }
+            
+        }else if GlobalVariables.garmentStyle[number2].containsString("Skirt") {
+            
+            
+            
+            if skirtAdded == false {
+                
+                GlobalVariables.CategorySection.append("Skirt")
+                skirtAdded = true
+                
+            }
+            
+        }
+        
+        
+        
+        number2 += 1
+        
+    }
+    
+    var number3 = 0
+    
+    while number3 < GlobalVariables.wardrobeUrl.count {
+        
+        if GlobalVariables.garmentStyle[number3].containsString("Shirt") {
+            
+        
+                GlobalVariables.shirtArray.append(GlobalVariables.wardrobeUrl[number3])
+            
+            
+        } else if GlobalVariables.garmentStyle[number3].containsString("Top") {
+            
+            
+            GlobalVariables.topArray.append(GlobalVariables.wardrobeUrl[number3])
+        
+            
+        } else if GlobalVariables.garmentStyle[number3].containsString("TShirt") {
+            
+            
+            GlobalVariables.tshirtArray.append(GlobalVariables.wardrobeUrl[number3])
+            
+            
+      
+        }else if GlobalVariables.garmentStyle[number3].containsString("Palazzo") {
+            
+            
+            GlobalVariables.palazzoArray.append(GlobalVariables.wardrobeUrl[number3])
+            
+          
+            
+        }else if GlobalVariables.garmentStyle[number3].containsString("Trouser") {
+            
+            
+            GlobalVariables.trouserArray.append(GlobalVariables.wardrobeUrl[number3])
+        
+            
+        }else if GlobalVariables.garmentStyle[number3].containsString("Shorts") {
+            
+            GlobalVariables.shortsArray.append(GlobalVariables.wardrobeUrl[number3])
+            
+            
+        
+        }else if GlobalVariables.garmentStyle[number3].containsString("Jeans") {
+            
+            
+            GlobalVariables.jeansArray.append(GlobalVariables.wardrobeUrl[number3])
+            
+            
+         
+            
+        }else if GlobalVariables.garmentStyle[number3].containsString("Capri") {
+            
+            
+            
+            GlobalVariables.capriArray.append(GlobalVariables.wardrobeUrl[number3])
+        
+            
+        }else if GlobalVariables.garmentStyle[number3].containsString("Leggings") {
+            
+            
+            
+            GlobalVariables.leggingArray.append(GlobalVariables.wardrobeUrl[number3])
+         
+            
+        }else if GlobalVariables.garmentStyle[number3].containsString("Cargos") {
+            
+            
+            GlobalVariables.cargoArray.append(GlobalVariables.wardrobeUrl[number3])
+            
+         
+            
+        }else if GlobalVariables.garmentStyle[number3].containsString("Culottes") {
+            
+            
+            GlobalVariables.culotteArray.append(GlobalVariables.wardrobeUrl[number3])
+            
+            
+          
+            
+        }else if GlobalVariables.garmentStyle[number3].containsString("Skirt") {
+            
+            
+            
+            GlobalVariables.skirtArray.append(GlobalVariables.wardrobeUrl[number3])
+          
+            
+        }
+        
+        
+        
+        number3 += 1
+        
+    }
+    
+
     
     self.performSegueWithIdentifier("loginDone", sender: self)
 

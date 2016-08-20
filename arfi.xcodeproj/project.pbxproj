@@ -31,6 +31,12 @@
 		483575021D128D7000A0AEBE /* Mixpanel.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 483575011D128D7000A0AEBE /* Mixpanel.framework */; };
 		484BDA161D17CEE7002D287E /* UIDropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 484BDA151D17CEE7002D287E /* UIDropDown.swift */; };
 		4853D6F41D65F0B400FA0059 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4853D6F31D65F0B400FA0059 /* Images.xcassets */; };
+		4875DBDB1D673A6A00B7343C /* View4.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4875DBD91D673A6A00B7343C /* View4.swift */; };
+		4875DBDC1D673A6A00B7343C /* View4.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4875DBDA1D673A6A00B7343C /* View4.xib */; };
+		4875DBE01D673AE900B7343C /* TopCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4875DBDE1D673AE900B7343C /* TopCollectionViewCell.swift */; };
+		4875DBE11D673AE900B7343C /* TopCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4875DBDF1D673AE900B7343C /* TopCollectionViewCell.xib */; };
+		4875DBE41D673F0400B7343C /* MidCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4875DBE21D673F0400B7343C /* MidCollectionViewCell.swift */; };
+		4875DBE51D673F0400B7343C /* MidCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4875DBE31D673F0400B7343C /* MidCollectionViewCell.xib */; };
 		488C9A391D2A4FD40014B992 /* PremiumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488C9A381D2A4FD40014B992 /* PremiumView.swift */; };
 		488C9A3B1D2A4FF40014B992 /* PremiumView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 488C9A3A1D2A4FF40014B992 /* PremiumView.xib */; };
 		488E9BB11D50C80C0075A96A /* CreateModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 488E9BB01D50C80C0075A96A /* CreateModel.swift */; };
@@ -114,6 +120,12 @@
 		483575031D128DE500A0AEBE /* Udiva-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Udiva-Bridging-Header.h"; sourceTree = "<group>"; };
 		484BDA151D17CEE7002D287E /* UIDropDown.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UIDropDown.swift; path = ../UIDropDown.swift; sourceTree = "<group>"; };
 		4853D6F31D65F0B400FA0059 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4875DBD91D673A6A00B7343C /* View4.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View4.swift; sourceTree = "<group>"; };
+		4875DBDA1D673A6A00B7343C /* View4.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View4.xib; sourceTree = "<group>"; };
+		4875DBDE1D673AE900B7343C /* TopCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TopCollectionViewCell.swift; sourceTree = "<group>"; };
+		4875DBDF1D673AE900B7343C /* TopCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TopCollectionViewCell.xib; sourceTree = "<group>"; };
+		4875DBE21D673F0400B7343C /* MidCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MidCollectionViewCell.swift; sourceTree = "<group>"; };
+		4875DBE31D673F0400B7343C /* MidCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MidCollectionViewCell.xib; sourceTree = "<group>"; };
 		488C9A381D2A4FD40014B992 /* PremiumView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PremiumView.swift; sourceTree = "<group>"; };
 		488C9A3A1D2A4FF40014B992 /* PremiumView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PremiumView.xib; sourceTree = "<group>"; };
 		488E9BB01D50C80C0075A96A /* CreateModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateModel.swift; sourceTree = "<group>"; };
@@ -237,6 +249,7 @@
 				AC94AD8B1B8E436D002D9AD2 /* View3.xib */,
 				AC94AD641B8E40BF002D9AD2 /* Main.storyboard */,
 				48DAA8C11D12C56300494180 /* nn.xib */,
+				4875DBDA1D673A6A00B7343C /* View4.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -248,9 +261,21 @@
 				AC94AD801B8E4174002D9AD2 /* View1.swift */,
 				AC94AD841B8E41A1002D9AD2 /* View2.swift */,
 				AC94AD8A1B8E436D002D9AD2 /* View3.swift */,
+				4875DBD91D673A6A00B7343C /* View4.swift */,
 				48DAA8C31D12C59300494180 /* nn.swift */,
 			);
 			name = Controller;
+			sourceTree = "<group>";
+		};
+		4875DBDD1D673AB700B7343C /* View3CollectionView */ = {
+			isa = PBXGroup;
+			children = (
+				4875DBDE1D673AE900B7343C /* TopCollectionViewCell.swift */,
+				4875DBDF1D673AE900B7343C /* TopCollectionViewCell.xib */,
+				4875DBE21D673F0400B7343C /* MidCollectionViewCell.swift */,
+				4875DBE31D673F0400B7343C /* MidCollectionViewCell.xib */,
+			);
+			name = View3CollectionView;
 			sourceTree = "<group>";
 		};
 		488C9A371D2A4FB60014B992 /* Premium */ = {
@@ -392,6 +417,7 @@
 		AC94AD521B8E40BF002D9AD2 = {
 			isa = PBXGroup;
 			children = (
+				4875DBDD1D673AB700B7343C /* View3CollectionView */,
 				488E9BB41D50DC490075A96A /* Take a Perfect picture */,
 				488E9BAF1D50C7F40075A96A /* Create Your Model */,
 				48E98D9E1D484F37002E4266 /* setting wardrobe */,
@@ -561,6 +587,8 @@
 				488E9BB61D50DC630075A96A /* PerfectPicture.xib in Resources */,
 				48D7A72B1D41C6380099F8E7 /* LaunchScreen.xib in Resources */,
 				482FE8071D2D3CF300B78B0C /* HeightCell.xib in Resources */,
+				4875DBDC1D673A6A00B7343C /* View4.xib in Resources */,
+				4875DBE11D673AE900B7343C /* TopCollectionViewCell.xib in Resources */,
 				AC94AD661B8E40BF002D9AD2 /* Main.storyboard in Resources */,
 				48F058A91D450C8E002CE14B /* Prepopulated.xib in Resources */,
 				AC94AD6B1B8E40BF002D9AD2 /* LaunchScreen.xib in Resources */,
@@ -577,6 +605,7 @@
 				AC94AD831B8E4174002D9AD2 /* View1.xib in Resources */,
 				482FE8051D2D3CF300B78B0C /* complexionCell.xib in Resources */,
 				AC94AD871B8E41A1002D9AD2 /* View2.xib in Resources */,
+				4875DBE51D673F0400B7343C /* MidCollectionViewCell.xib in Resources */,
 				482FE8111D2D3D4600B78B0C /* WaistCell.xib in Resources */,
 				48C2F4801D264EE800CEE0DD /* TableViewCell2.xib in Resources */,
 				488E9BB31D50C8190075A96A /* CreateModel.xib in Resources */,
@@ -732,6 +761,7 @@
 				48D7A72D1D41C6B00099F8E7 /* LaunchScreen.swift in Sources */,
 				482FE8061D2D3CF300B78B0C /* HeightCell.swift in Sources */,
 				48EC04741D16A99C00026584 /* activityIndicator.swift in Sources */,
+				4875DBE41D673F0400B7343C /* MidCollectionViewCell.swift in Sources */,
 				AC94AD8C1B8E436D002D9AD2 /* View3.swift in Sources */,
 				48EA7D291D1D2195005D6B81 /* BWWalkthroughPageViewController.swift in Sources */,
 				48EA7D2D1D1D2419005D6B81 /* mainViewController.swift in Sources */,
@@ -747,9 +777,11 @@
 				4824689E1D154FB400DAB95C /* Just.swift in Sources */,
 				AC94AD821B8E4174002D9AD2 /* View1.swift in Sources */,
 				488E9BB11D50C80C0075A96A /* CreateModel.swift in Sources */,
+				4875DBDB1D673A6A00B7343C /* View4.swift in Sources */,
 				488E9BB81D50DC770075A96A /* PerfectPicture.swift in Sources */,
 				482FE8161D2FC59100B78B0C /* LaunchViewController.swift in Sources */,
 				482FE80C1D2D3CF300B78B0C /* submitCell.swift in Sources */,
+				4875DBE01D673AE900B7343C /* TopCollectionViewCell.swift in Sources */,
 				AC94AD611B8E40BF002D9AD2 /* AppDelegate.swift in Sources */,
 				48C2F4831D26502A00CEE0DD /* CollectionViewCell2.swift in Sources */,
 				482FE8041D2D3CF300B78B0C /* complexionCell.swift in Sources */,

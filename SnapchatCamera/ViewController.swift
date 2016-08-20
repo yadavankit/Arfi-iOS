@@ -19,7 +19,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         
         let v1 : View1 = View1(nibName: "View1", bundle: nil)
         let v2 : View2 = View2(nibName: "View2", bundle: nil)
-        let v3 : View3 = View3(nibName: "View3", bundle: nil)
+        let v3 : View4 = View4(nibName: "View4", bundle: nil)
         
         self.addChildViewController(v1)
         self.scrollView.addSubview(v1.view)
