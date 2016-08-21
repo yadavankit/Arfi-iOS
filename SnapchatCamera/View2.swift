@@ -83,6 +83,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     var currentIndex : Int?
     var finalImage : UIImage?
     var userUniqueIdentifier : String?
+    var ScoreNib : UIView?
     var mainCamera : AVCaptureDevice?
     var facebookId = "404"
     var facebookUser = "Mark Zuckerberg"
@@ -164,7 +165,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         
         //Setup level score whatever
-        self.LevelLabel.text = "LEVEL : " + String(GlobalVariables.is_on_level!)
+        self.LevelLabel.text = "Level : " + String(GlobalVariables.is_on_level!)
         let camera_uploads = String(GlobalVariables.camera_uploads!)
         let first_level_status = String(GlobalVariables.first_level_status!)
         let second_level_status = String(GlobalVariables.second_level_status!)
@@ -205,10 +206,24 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     func screenSwiped(gesture: UISwipeGestureRecognizer)
     {
         
+        let test = GamifyScore.instanceFromNib()
+        ScoreNib = test
+        test.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+        self.view.addSubview(test)
         
         
         
     }
+    
+    func removeScoreView(gesture: UISwipeGestureRecognizer)
+    {
+        
+        ScoreNib?.removeFromSuperview()
+        
+    }
+    
+    
+    
     
     
     override func viewDidLoad() {
@@ -220,7 +235,10 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         swipeUp.direction = .Up
         self.view.addGestureRecognizer(swipeUp)
 
-        
+        //Down Swipe to Remove
+        let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(View2.removeScoreView(_:)))
+        swipeDown.direction = .Down
+        self.view.addGestureRecognizer(swipeDown)
         
         self.refreshScore()
 
