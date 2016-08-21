@@ -21,6 +21,21 @@ import Crashlytics
 
 
 class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDelegate, UINavigationControllerDelegate{
+    
+    
+    //For Scoring Purposes only
+    
+    @IBOutlet var scoreView: UIView!
+    
+    @IBOutlet var LevelLabel: UILabel!
+    
+    @IBOutlet var ScoreLabel: UILabel!
+    
+    @IBOutlet var ProgressView: UIProgressView!
+    
+    
+    
+    
     @IBOutlet var TypeOfGarment: UIButton!
     let myView = PremiumView.instanceFromNib()
     @IBOutlet var QuestionDone: UIButton!
@@ -31,6 +46,13 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     @IBOutlet var questionView2: UIButton!
     
     @IBOutlet var cubeCamera: UIView!
+    
+    
+    
+    
+    
+    
+    
     
     //when Back Button on Garment Questions View is Pressed
     @IBAction func backPressed(sender: AnyObject)

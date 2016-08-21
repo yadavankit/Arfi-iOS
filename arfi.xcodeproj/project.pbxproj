@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1CBF22C2949326FF06B7FFF3 /* Pods_arfi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BE1EE9B22BDC2B37752563D /* Pods_arfi.framework */; };
+		24262B691E860D1E67BE743E /* Pods_arfiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BB044F99E6F4E0EB30FD8152 /* Pods_arfiTests.framework */; };
+		3483BD88E7C91CB89BC5C181 /* Pods_arfi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 61441CFE86DBC555645F88EF /* Pods_arfi.framework */; };
 		4800F8711D231B7F00DB51DA /* GlobalVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4800F8701D231B7F00DB51DA /* GlobalVariables.swift */; };
 		4815968B1D225A2F002F1D56 /* garmentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 481596891D225A2F002F1D56 /* garmentCell.swift */; };
 		4815968C1D225A2F002F1D56 /* garmentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4815968A1D225A2F002F1D56 /* garmentCell.xib */; };
@@ -80,7 +81,6 @@
 		AC94AD871B8E41A1002D9AD2 /* View2.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD851B8E41A1002D9AD2 /* View2.xib */; };
 		AC94AD8C1B8E436D002D9AD2 /* View3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94AD8A1B8E436D002D9AD2 /* View3.swift */; };
 		AC94AD8D1B8E436D002D9AD2 /* View3.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD8B1B8E436D002D9AD2 /* View3.xib */; };
-		E21E132E5006EFE1DBA67570 /* Pods_arfiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 04DDA536941A97F5EB2504BD /* Pods_arfiTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -94,8 +94,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		04DDA536941A97F5EB2504BD /* Pods_arfiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arfiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		391F2F713D1F458BB2231B8B /* Pods-arfi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arfi.release.xcconfig"; path = "Pods/Target Support Files/Pods-arfi/Pods-arfi.release.xcconfig"; sourceTree = "<group>"; };
+		0320437383F55FC105B106ED /* Pods-arfiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arfiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-arfiTests/Pods-arfiTests.debug.xcconfig"; sourceTree = "<group>"; };
+		1CC30DCD27548E194DA4C21F /* Pods-arfiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arfiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-arfiTests/Pods-arfiTests.release.xcconfig"; sourceTree = "<group>"; };
 		4800F8701D231B7F00DB51DA /* GlobalVariables.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GlobalVariables.swift; sourceTree = "<group>"; };
 		481596891D225A2F002F1D56 /* garmentCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = garmentCell.swift; sourceTree = "<group>"; };
 		4815968A1D225A2F002F1D56 /* garmentCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = garmentCell.xib; sourceTree = "<group>"; };
@@ -159,9 +159,8 @@
 		48F058A81D450C8E002CE14B /* Prepopulated.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Prepopulated.xib; sourceTree = "<group>"; };
 		48F058AA1D450E90002CE14B /* PrePopulatedCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PrePopulatedCollectionViewCell.swift; sourceTree = "<group>"; };
 		48F058AB1D450E90002CE14B /* PrePopulatedCollectionViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PrePopulatedCollectionViewCell.xib; sourceTree = "<group>"; };
-		6BE1EE9B22BDC2B37752563D /* Pods_arfi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arfi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		82D65524C087AB279E758AA9 /* Pods-arfiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arfiTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-arfiTests/Pods-arfiTests.debug.xcconfig"; sourceTree = "<group>"; };
-		87C825760D9DBA6544A36B38 /* Pods-arfiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arfiTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-arfiTests/Pods-arfiTests.release.xcconfig"; sourceTree = "<group>"; };
+		61441CFE86DBC555645F88EF /* Pods_arfi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arfi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A10CA2D54D6A251C075BD7EC /* Pods-arfi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arfi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-arfi/Pods-arfi.debug.xcconfig"; sourceTree = "<group>"; };
 		AC94AD5B1B8E40BF002D9AD2 /* arfi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = arfi.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC94AD5F1B8E40BF002D9AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = SnapchatCamera/AppDelegate.swift; sourceTree = "<group>"; };
@@ -175,7 +174,8 @@
 		AC94AD851B8E41A1002D9AD2 /* View2.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View2.xib; sourceTree = "<group>"; };
 		AC94AD8A1B8E436D002D9AD2 /* View3.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = View3.swift; sourceTree = "<group>"; };
 		AC94AD8B1B8E436D002D9AD2 /* View3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View3.xib; sourceTree = "<group>"; };
-		BCD138F83E8F5A8D2773F01A /* Pods-arfi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arfi.debug.xcconfig"; path = "Pods/Target Support Files/Pods-arfi/Pods-arfi.debug.xcconfig"; sourceTree = "<group>"; };
+		BB044F99E6F4E0EB30FD8152 /* Pods_arfiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arfiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C25A182FED0D072E4BAF740B /* Pods-arfi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arfi.release.xcconfig"; path = "Pods/Target Support Files/Pods-arfi/Pods-arfi.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,7 +186,7 @@
 				483575021D128D7000A0AEBE /* Mixpanel.framework in Frameworks */,
 				48EA7D341D1D435E005D6B81 /* FBSDKCoreKit.framework in Frameworks */,
 				48EA7D351D1D435E005D6B81 /* FBSDKLoginKit.framework in Frameworks */,
-				1CBF22C2949326FF06B7FFF3 /* Pods_arfi.framework in Frameworks */,
+				3483BD88E7C91CB89BC5C181 /* Pods_arfi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +194,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E21E132E5006EFE1DBA67570 /* Pods_arfiTests.framework in Frameworks */,
+				24262B691E860D1E67BE743E /* Pods_arfiTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -330,7 +330,6 @@
 		48C2F47C1D264D3C00CEE0DD /* View3CollectionView */ = {
 			isa = PBXGroup;
 			children = (
-				4853D6F31D65F0B400FA0059 /* Images.xcassets */,
 				48937AE21D246B6300F31F34 /* ModelGarmentCollectionViewCell.swift */,
 				48937AE31D246B6300F31F34 /* ModelGarmentCollectionViewCell.xib */,
 			);
@@ -414,6 +413,17 @@
 			name = Prepopulated;
 			sourceTree = "<group>";
 		};
+		978A5BACEBC7674B9648C362 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A10CA2D54D6A251C075BD7EC /* Pods-arfi.debug.xcconfig */,
+				C25A182FED0D072E4BAF740B /* Pods-arfi.release.xcconfig */,
+				0320437383F55FC105B106ED /* Pods-arfiTests.debug.xcconfig */,
+				1CC30DCD27548E194DA4C21F /* Pods-arfiTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		AC94AD521B8E40BF002D9AD2 = {
 			isa = PBXGroup;
 			children = (
@@ -429,6 +439,7 @@
 				4815968D1D229E5C002F1D56 /* Global Data */,
 				48D6313C1D2154AD00F4905B /* TableViewFiles */,
 				AC94AD601B8E40BF002D9AD2 /* AppDelegate.swift */,
+				4853D6F31D65F0B400FA0059 /* Images.xcassets */,
 				48EA7D311D1D4341005D6B81 /* FBFrameworks */,
 				48EA7D2E1D1D3C09005D6B81 /* login */,
 				48EA7D2B1D1D23FE005D6B81 /* walkthrough */,
@@ -437,7 +448,7 @@
 				AC94AD5C1B8E40BF002D9AD2 /* Products */,
 				AC94AD5E1B8E40BF002D9AD2 /* Supporting Files */,
 				ECA78FAB106D239C665A1DBB /* Frameworks */,
-				E6615A4D84A440CEF8B9358B /* Pods */,
+				978A5BACEBC7674B9648C362 /* Pods */,
 			);
 			sourceTree = "<group>";
 		};
@@ -470,23 +481,12 @@
 			path = SnapchatCamera;
 			sourceTree = "<group>";
 		};
-		E6615A4D84A440CEF8B9358B /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				BCD138F83E8F5A8D2773F01A /* Pods-arfi.debug.xcconfig */,
-				391F2F713D1F458BB2231B8B /* Pods-arfi.release.xcconfig */,
-				82D65524C087AB279E758AA9 /* Pods-arfiTests.debug.xcconfig */,
-				87C825760D9DBA6544A36B38 /* Pods-arfiTests.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
 		ECA78FAB106D239C665A1DBB /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
 				483575011D128D7000A0AEBE /* Mixpanel.framework */,
-				6BE1EE9B22BDC2B37752563D /* Pods_arfi.framework */,
-				04DDA536941A97F5EB2504BD /* Pods_arfiTests.framework */,
+				61441CFE86DBC555645F88EF /* Pods_arfi.framework */,
+				BB044F99E6F4E0EB30FD8152 /* Pods_arfiTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -505,7 +505,6 @@
 				A145F43224EA8314690D9645 /* [CP] Embed Pods Frameworks */,
 				AEC46F2FE345B2A5144F226B /* [CP] Copy Pods Resources */,
 				F0148C301D5DE7B200838C69 /* ShellScript */,
-				D9707802A324C5C6052C9EAC /* Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -713,21 +712,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-arfiTests/Pods-arfiTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		D9707802A324C5C6052C9EAC /* Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-arfi/Pods-arfi-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		F0148C301D5DE7B200838C69 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -919,7 +903,7 @@
 		};
 		AC94AD7B1B8E40BF002D9AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BCD138F83E8F5A8D2773F01A /* Pods-arfi.debug.xcconfig */;
+			baseConfigurationReference = A10CA2D54D6A251C075BD7EC /* Pods-arfi.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -938,14 +922,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = arfi;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/xcodeapps/arfi7/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		AC94AD7C1B8E40BF002D9AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 391F2F713D1F458BB2231B8B /* Pods-arfi.release.xcconfig */;
+			baseConfigurationReference = C25A182FED0D072E4BAF740B /* Pods-arfi.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -964,14 +948,14 @@
 				PRODUCT_BUNDLE_IDENTIFIER = in.Udiva.in;
 				PRODUCT_NAME = arfi;
 				PROVISIONING_PROFILE = "";
-				SWIFT_OBJC_BRIDGING_HEADER = "/Users/unitedaditya/Movies/UdivaCurrent/udivareborn/Udiva-Bridging-Header.h";
+				SWIFT_OBJC_BRIDGING_HEADER = "/Users/WARL0CK/Desktop/xcodeapps/arfi7/udivareborn/Udiva-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
 		AC94AD7E1B8E40BF002D9AD2 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 82D65524C087AB279E758AA9 /* Pods-arfiTests.debug.xcconfig */;
+			baseConfigurationReference = 0320437383F55FC105B106ED /* Pods-arfiTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -991,7 +975,7 @@
 		};
 		AC94AD7F1B8E40BF002D9AD2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 87C825760D9DBA6544A36B38 /* Pods-arfiTests.release.xcconfig */;
+			baseConfigurationReference = 1CC30DCD27548E194DA4C21F /* Pods-arfiTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

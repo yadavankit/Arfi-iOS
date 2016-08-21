@@ -68,6 +68,37 @@ class View1: UIViewController  {
     @IBOutlet var background: QuestionsCollectionView!
     @IBOutlet var garmentCollectionView: UICollectionView!
 
+    
+//GAmify and Cupvoard
+    
+    @IBOutlet var GamifyView: UIView!
+    @IBOutlet var CupboardView: UIView!
+    @IBAction func GamifyNextButtonPressed(sender: AnyObject) {
+        
+        self.GamifyView.hidden = true
+        self.GamifyView.removeFromSuperview()
+        
+        self.newpanel.timeUntilDismiss = 4
+        self.newpanel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left to know how to upload garments👈")
+        
+        GlobalVariables.seenGamify = true
+
+        
+    }
+    
+    @IBOutlet var CupboardNextButton: UIButton!
+    @IBAction func CupboardNextButtonPressed(sender: AnyObject) {
+        
+        
+        self.CupboardView.hidden = true
+        self.CupboardView.removeFromSuperview()
+        self.GamifyView.hidden = false
+        self.view.bringSubviewToFront(self.GamifyView)
+        
+
+        
+    }
+    
     @IBOutlet var reloadCells: UIButton!
 
     @IBAction func refreshAction(sender: AnyObject) {
@@ -121,6 +152,28 @@ class View1: UIViewController  {
                   self.startTimer()
    
         })
+        
+        
+        
+        //For Gamify View
+        let newtriggerTime = (Int64(NSEC_PER_SEC) * 8)
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, newtriggerTime), dispatch_get_main_queue(), { () -> Void in
+            
+            
+            if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenGamify") == false)
+            {
+                
+                self.CupboardView.hidden = false
+                self.view.bringSubviewToFront(self.CupboardView)
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenGamify")
+                NSUserDefaults.standardUserDefaults().synchronize()
+            }
+            
+            
+        })
+        
+        
+        
     }
 
     

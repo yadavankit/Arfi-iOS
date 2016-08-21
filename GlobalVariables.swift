@@ -65,6 +65,17 @@ struct GlobalVariables {
     static var ModelValuesAdded : Bool?
     static var CategorySection : [String] = []
     
+    
+    //New ones
+    static var seenGamify : Bool?
+    static var third_level_status : String?
+    static var second_level_status : String?
+    static var first_level_status : String?
+    static var is_on_level : String?
+    static var camera_uploads: String?
+    
+    
+    
     // GarmentArrays
     
         static var shirtArray : [String] = []
