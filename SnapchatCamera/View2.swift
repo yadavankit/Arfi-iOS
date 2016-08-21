@@ -15,6 +15,7 @@ import ImageCropView
 import Toucan
 import FBSDKCoreKit
 import DropDown
+import SwiftyJSON
 import Mixpanel
 import Social
 import Crashlytics
@@ -156,8 +157,76 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     @IBOutlet var myLabel: UILabel!
     var myButton: UIButton!
     
+    
+    
+    func refreshScore()
+    {
+        
+        
+        //Setup level score whatever
+        self.LevelLabel.text = "LEVEL : " + String(GlobalVariables.is_on_level!)
+        let camera_uploads = String(GlobalVariables.camera_uploads!)
+        let first_level_status = String(GlobalVariables.first_level_status!)
+        let second_level_status = String(GlobalVariables.second_level_status!)
+        let third_level_status = String(GlobalVariables.third_level_status!)
+        var out_of = ""
+        var uploads_for_level = ""
+        var progress : Float = 0.0
+        
+        let is_on_level = String(GlobalVariables.is_on_level!)
+        if is_on_level == "1"
+        {
+            out_of = "10"
+            uploads_for_level = camera_uploads
+            progress = Float(uploads_for_level)! / 10
+            
+        }
+        else if is_on_level == "2"
+        {
+            out_of = "15"
+            uploads_for_level = String(Int(camera_uploads)! - 10)
+            progress = Float(uploads_for_level)! / 15
+            
+        }
+        else if is_on_level == "3"
+        {
+            out_of = "15"
+            uploads_for_level = String(Int(camera_uploads)! - 25)
+            progress = Float(uploads_for_level)! / 15
+            
+        }
+        self.ScoreLabel.text = uploads_for_level + "/" + out_of
+        self.ProgressView.progress = progress
+        print("progresssssss")
+        print(progress)
+    }
+    
+    
+    func screenSwiped(gesture: UISwipeGestureRecognizer)
+    {
+        
+        
+        
+        
+    }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+        //Add Upward Swipe Gesture Recognizer
+        let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(View2.screenSwiped(_:)))
+        swipeUp.direction = .Up
+        self.view.addGestureRecognizer(swipeUp)
+
+        
+        
+        self.refreshScore()
+
+        
+        
+        
         
         //Instruction screen scrollview & page control
         self.scrollView = UIScrollView(frame: CGRectMake(0,0, self.view.frame.size.width, UIScreen.mainScreen().bounds.height))
@@ -325,6 +394,42 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.height)
     }
 
+    
+    
+    
+    
+    func getUserDetails()
+    {
+        
+        var arrayCount : Int?
+        
+        Alamofire.request(.GET, "http://backend.arfi.in:4000/processing_panel/user_api?user_id=\(GlobalVariables.globalFacebookId!)")
+            .responseJSON { response in
+                if let jsonValue = response.result.value {
+                    
+                    let json = JSON(jsonValue)
+                    print(json)
+                    
+                    let is_on_level = json["is_on_level"].string
+                    let first_level_status = json["first_level_status"].string
+                    let second_level_status = json["second_level_status"].string
+                    let third_level_status = json["third_level_status"].string
+                    let camera_uploads = json["camera_uploads"].string
+                    
+                    GlobalVariables.is_on_level = is_on_level
+                    GlobalVariables.camera_uploads = camera_uploads
+                    GlobalVariables.first_level_status = first_level_status
+                    GlobalVariables.second_level_status = second_level_status
+                    GlobalVariables.third_level_status = third_level_status
+                }
+        
+    }
+        
+    }
+
+    
+    
+    
     
     
   
@@ -652,9 +757,29 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                             
                             print("Pohocha diya bhaiya")
                             
+                            
+                            
+                            
                             Mixpanel.mainInstance().track(event: "Garment Upload Ended",
                                 properties: ["Uploaded Image Number" : value])
+                            
+                            
+                            
+                            self.getUserDetails()
+                            
+                            
+                            let triggerTime = (Int64(NSEC_PER_SEC) * 5)
+                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+                                
+                                self.refreshScore()
+                                
+                            })
+                            
+                            
+                            
+                            
           
+                            
                             
                                                   })
                     }

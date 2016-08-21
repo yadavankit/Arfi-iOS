@@ -81,6 +81,8 @@
 		AC94AD871B8E41A1002D9AD2 /* View2.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD851B8E41A1002D9AD2 /* View2.xib */; };
 		AC94AD8C1B8E436D002D9AD2 /* View3.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC94AD8A1B8E436D002D9AD2 /* View3.swift */; };
 		AC94AD8D1B8E436D002D9AD2 /* View3.xib in Resources */ = {isa = PBXBuildFile; fileRef = AC94AD8B1B8E436D002D9AD2 /* View3.xib */; };
+		F01D284B1D69ED75005C4081 /* GamifyScore.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01D284A1D69ED75005C4081 /* GamifyScore.xib */; };
+		F01D284D1D69EDCF005C4081 /* GamifyScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D284C1D69EDCF005C4081 /* GamifyScore.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -176,6 +178,8 @@
 		AC94AD8B1B8E436D002D9AD2 /* View3.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = View3.xib; sourceTree = "<group>"; };
 		BB044F99E6F4E0EB30FD8152 /* Pods_arfiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_arfiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C25A182FED0D072E4BAF740B /* Pods-arfi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-arfi.release.xcconfig"; path = "Pods/Target Support Files/Pods-arfi/Pods-arfi.release.xcconfig"; sourceTree = "<group>"; };
+		F01D284A1D69ED75005C4081 /* GamifyScore.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GamifyScore.xib; sourceTree = "<group>"; };
+		F01D284C1D69EDCF005C4081 /* GamifyScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamifyScore.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -250,6 +254,7 @@
 				AC94AD641B8E40BF002D9AD2 /* Main.storyboard */,
 				48DAA8C11D12C56300494180 /* nn.xib */,
 				4875DBDA1D673A6A00B7343C /* View4.xib */,
+				F01D284A1D69ED75005C4081 /* GamifyScore.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -263,6 +268,7 @@
 				AC94AD8A1B8E436D002D9AD2 /* View3.swift */,
 				4875DBD91D673A6A00B7343C /* View4.swift */,
 				48DAA8C31D12C59300494180 /* nn.swift */,
+				F01D284C1D69EDCF005C4081 /* GamifyScore.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -589,6 +595,7 @@
 				4875DBDC1D673A6A00B7343C /* View4.xib in Resources */,
 				4875DBE11D673AE900B7343C /* TopCollectionViewCell.xib in Resources */,
 				AC94AD661B8E40BF002D9AD2 /* Main.storyboard in Resources */,
+				F01D284B1D69ED75005C4081 /* GamifyScore.xib in Resources */,
 				48F058A91D450C8E002CE14B /* Prepopulated.xib in Resources */,
 				AC94AD6B1B8E40BF002D9AD2 /* LaunchScreen.xib in Resources */,
 				48D631461D218FC700F4905B /* CategoryRow.xib in Resources */,
@@ -759,6 +766,7 @@
 				4815968B1D225A2F002F1D56 /* garmentCell.swift in Sources */,
 				482FE80A1D2D3CF300B78B0C /* Model.swift in Sources */,
 				4824689E1D154FB400DAB95C /* Just.swift in Sources */,
+				F01D284D1D69EDCF005C4081 /* GamifyScore.swift in Sources */,
 				AC94AD821B8E4174002D9AD2 /* View1.swift in Sources */,
 				488E9BB11D50C80C0075A96A /* CreateModel.swift in Sources */,
 				4875DBDB1D673A6A00B7343C /* View4.swift in Sources */,
