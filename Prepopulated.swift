@@ -27,7 +27,7 @@ class Prepopulated: UIView {
     var cargoAdded = false
     var culottesAdded = false
     var skirtAdded = false
-
+        var dressAdded = false
 
     class func instanceFromNib() -> UIView {
  
@@ -248,6 +248,14 @@ class Prepopulated: UIView {
                     
                 }
                 
+            }else if GlobalVariables.garmentStyle[number2].containsString("Dress") {
+                
+                
+                if dressAdded == false {
+                    
+                    GlobalVariables.CategorySection.append("Dress")
+                    dressAdded = true
+                }
             }
             
             
@@ -342,7 +350,12 @@ class Prepopulated: UIView {
                 GlobalVariables.skirtArray.append(GlobalVariables.wardrobeUrl[number3])
                 
                 
+            }else if GlobalVariables.garmentStyle[number3].containsString("Dress") {
+                
+                GlobalVariables.dressArray.append(GlobalVariables.wardrobeUrl[number3])
+                
             }
+            
             
             
             

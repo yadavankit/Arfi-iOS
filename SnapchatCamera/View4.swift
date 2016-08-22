@@ -114,7 +114,11 @@ extension View4 : UICollectionViewDataSource {
                 return GlobalVariables.topArray.count
                 
                 
-            }  else {
+            } else if garmentType == "Dress" {
+                
+                return GlobalVariables.dressArray.count
+                
+            }else {
                 
                 return 5
             }
@@ -541,7 +545,41 @@ extension View4 : UICollectionViewDataSource {
                 
                 
                 
-            }  else {
+            }  else  if garmentType == "Dress" {
+                
+                
+                let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell2", forIndexPath: indexPath) as! CollectionViewCell2
+                
+                
+                let URLString = GlobalVariables.dressArray[indexPath.row]
+                
+                if let image = imageCache[URLString] {
+                    
+                    cell.garmentImage.image = image
+                    
+                    
+                } else {
+                    
+                    Alamofire.request(.GET, URLString)
+                        .responseImage { response in
+                            
+                            if let image = response.result.value {
+                                
+                                cell.garmentImage.image = image
+                                self.imageCache[URLString] = image
+                                
+                            }
+                    }
+                    
+                }
+                
+                return cell
+                
+                
+                
+                
+                
+            }else {
                 
             let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell2", forIndexPath: indexPath) as! CollectionViewCell2 
                 
@@ -611,6 +649,10 @@ extension View4 : UICollectionViewDataSource {
                 
                 
                  cell.PhotoView.image = UIImage(named: "Shorts")
+            } else if GlobalVariables.CategorySection[indexPath.row] == "Dress" {
+                
+                
+                cell.PhotoView.image = UIImage(named: "Dress")
             }
 
             

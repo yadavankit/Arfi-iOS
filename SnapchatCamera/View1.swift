@@ -39,6 +39,7 @@ class View1: UIViewController  {
     var cargoAdded = false
     var culottesAdded = false
     var skirtAdded = false
+        var dressAdded = false
 
 
     @IBOutlet var clothesImage: UIImageView!
@@ -477,6 +478,14 @@ class View1: UIViewController  {
                     
                 }
                 
+            }else if GlobalVariables.garmentStyle[number2].containsString("Dress") {
+                
+                
+                if dressAdded == false {
+                    
+                    GlobalVariables.CategorySection.append("Dress")
+                    dressAdded = true
+                }
             }
             
             
@@ -570,6 +579,10 @@ class View1: UIViewController  {
                 
                 GlobalVariables.skirtArray.append(GlobalVariables.wardrobeUrl[number3])
                 
+                
+            }else if GlobalVariables.garmentStyle[number3].containsString("Dress") {
+                
+                GlobalVariables.dressArray.append(GlobalVariables.wardrobeUrl[number3])
                 
             }
             

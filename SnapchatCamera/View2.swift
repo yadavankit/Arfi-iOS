@@ -805,6 +805,8 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                                                   })
                     }
                     
+                  
+                    
                 case .Failure( _):
                     //Show Alert in UI
                     print("Avatar failed");
@@ -947,7 +949,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
 func loadDropDown() {
     
     dropDown.anchorView = self.questionView
-    dropDown.dataSource = ["Shirt" , "Top" ,"TShirt", "Skirt" , "Jeans" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo"]
+    dropDown.dataSource = ["Shirt" , "Top" ,"TShirt", "Skirt" , "Jeans" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo" , "Dress"]
     
     dropDown.selectionAction = { (index: Int, item: String) in
         print("Selected item: \(item) at index: \(index)")
@@ -1018,6 +1020,13 @@ func loadDropDown() {
             self.label2.text = "Rise"
             self.label3.text = "Length"
             
+            
+        case "Dress" :
+            
+            self.label2.text = "Style"
+            self.label3.text = "Length"
+            
+            
 
         default:
             print("Fucked")
@@ -1035,6 +1044,11 @@ func loadDropDown() {
         dropDown2.anchorView = self.type2View
         dropDown2.show()
         switch GlobalVariables.globalGarmentSelected! {
+            
+            
+        case "Dress" :
+            
+            dropDown2.dataSource = ["Sheath Dress" , "Shift Dress" , "Blouson Dress" , "Bodycon Dress" , "Skater Dress" , "Maxi Dress", "Shirt Dress" , "Peplum Dress" , "Aline Dress" , "Wrapped Dress" , "Gown" , "Pop over dress" , "Pencil Dress" , "Tshirt Dress" , "Fit and Flare Dress"]
             
         case "Shirt":
             
@@ -1059,9 +1073,6 @@ func loadDropDown() {
         case "Jeans":
             dropDown2.dataSource = ["Jogger/Jeggings" , "Straight" , "Loose/Relaxed" , "Bootcut" , "Crop Jeans" , "Skinny Jeans" ]
             
-            
-            //        case "Dress":
-            //            dropDown2.dataSource = ["Sheath Dress" , "Shift dress" , "Blouson dress" , "Bodycon dress" , "Skater dress" , "Maxi dress" ,"Shirt dress", "Peplum dress" , "A-Line dress" , "Wrap dress" , "draped dress" , "Pop over dress" ,"Pencil dress", "T-Shirt dress" , "Fit and Flare dress" , "Gown" ]
             
             
         case "Trouser":
@@ -1138,9 +1149,7 @@ func loadDropDown() {
                 
                 self.question3View.hidden = false
                 
-                //            case "Dress":
-                //
-                //                self.question3View.hidden = false
+         
                 
             case "Trouser":
                 
@@ -1173,11 +1182,9 @@ func loadDropDown() {
                 
                 self.QuestionDone.hidden = false
                 
+            case "Dress" :
                 
-                //            case "Stockings":
-                //          
-                //                self.QuestionDone.hidden = false
-                
+                self.question3View.hidden = false
                 
             default:
                 print("done")
@@ -1199,6 +1206,7 @@ func loadDropDown() {
        
         dropDown3.anchorView = self.question3View
         dropDown3.show()
+        
         
         if GlobalVariables.globalGarmentSelected == "Jeans" && self.label2.text == "Straight" {
             
@@ -1293,11 +1301,7 @@ func loadDropDown() {
             dropDown3.dataSource = ["Calf Length" , "Full Length"]
             
         }
-            //        else   if GlobalVariables.globalGarmentSelected == "Dress" {
-            //
-            //            dropDown3.dataSource = ["Mini" , "Midi" ,"Calf" , "Full"]
-            //
-            //        }
+          
         else   if GlobalVariables.globalGarmentSelected == "Skirt" && self.label2.text == "Balloon" {
             
             dropDown3.dataSource = ["Mini" , "Midi"]
@@ -1307,7 +1311,67 @@ func loadDropDown() {
             
             dropDown3.dataSource = ["Mini" , "Midi", "Maxi", "Calf"]
             
+        } else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Sheath Dress" {
+            
+            dropDown3.dataSource = ["Above knees" , "Below Knees"]
+            
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Shift Dress" {
+            
+            dropDown3.dataSource = ["Mini Length" , "Midi Length"]
+            
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Blouson Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" , "Long"]
+            
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Pop over dress" {
+            
+               dropDown3.dataSource = ["Mini" , "Midi" , "Calf" , "Long"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Bodycon Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Pencil Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Skater Dress" {
+            
+            dropDown3.dataSource = ["Mini"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Maxi Dress" {
+            
+            dropDown3.dataSource = ["Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Shirt Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ,"Full"]
         }
+        else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Tshirt Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ,"Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Peplum Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Aline Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf", "Full" ]
+        }
+        else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Fit and Flare Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf"  , "Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Wrap Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf"  , "Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Drape Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf"  , "Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Gown" {
+            
+            dropDown3.dataSource = [ "Full"]
+        }
+
+       
+        
+        
+        
+
+
         
         dropDown3.selectionAction = { (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")

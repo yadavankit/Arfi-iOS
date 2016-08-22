@@ -90,7 +90,7 @@ struct GlobalVariables {
         static var culotteArray : [String] = []
         static var skirtArray : [String] = []
         static var cargoArray : [String] = []
-    
+    static var dressArray : [String] = []
     
     
     
