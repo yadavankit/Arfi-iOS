@@ -17,9 +17,12 @@ class View4: UIViewController {
     var garmentType : String?
     var imageCache : [String : UIImage] = [String : UIImage] ()
     
+    @IBOutlet var spinner: UIActivityIndicatorView!
     @IBOutlet var HelloUser: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+      spinner.hidden = true
         
         if let userName = GlobalVariables.globalUserName {
             
@@ -633,7 +636,17 @@ extension View4 : UICollectionViewDataSource {
         self.middleLabel.hidden = false
         
         if collectionView == midCollectionView {
+                        spinner.hidden = false
             
+            let triggerTime = (Int64(NSEC_PER_SEC) * 1/3)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+                
+                self.spinner.hidden = true
+                
+            })
+            
+
+            spinner.startAnimating()
             if GlobalVariables.CategorySection[indexPath.row] == "Shirts"{
                 
               garmentType = "Shirts"
@@ -686,6 +699,8 @@ extension View4 : UICollectionViewDataSource {
             }
             
           topCollectionView.reloadData()
+          spinner.stopAnimating()
+//          spinner.hidden = true
             
             UIView.animateWithDuration(1.2, animations: {
                 

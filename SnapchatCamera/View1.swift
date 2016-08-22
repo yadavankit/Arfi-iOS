@@ -25,6 +25,7 @@ class View1: UIViewController  {
     var imageCacheForModel = [String : UIImage] ()
     var modelCache = [String : UIImage] ()
     var modelCache2 = [String : UIImage] ()
+    let modelCache3 = [String : UIImage] ()
     var safe = false
     var addedALready = false
     var topAdded = false
@@ -175,7 +176,9 @@ class View1: UIViewController  {
         
         
     }
-
+    
+    var topImageAdded = false
+    var botImageAdded = false
     
     var timer: dispatch_source_t!
     
@@ -185,8 +188,57 @@ class View1: UIViewController  {
         dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 5 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
         dispatch_source_set_event_handler(timer) {
             
-         
+            if let myImage = GlobalVariables.nakedModelTop {
+                
+                if self.topImageAdded == false {
+             
+             
+                Alamofire.request(.GET, myImage)
+                    .responseImage { response in
+                        debugPrint(response)
+                        
+                        
+                        if let image = response.result.value {
+                            
+                           self.topImageView.image = image
+                           self.topImageAdded = true
+                            
+                        }
+                }
+                
+                
+            }
             
+            }
+            if let myImage2 = GlobalVariables.nakedModelBottom {
+                
+                
+                if self.botImageAdded == false {
+                
+             
+                
+                Alamofire.request(.GET, myImage2)
+                    .responseImage { response in
+                        debugPrint(response)
+                        
+                        
+                        if let image = response.result.value {
+                            
+                           self.bottomImageView.image = image
+                            self.botImageAdded = true
+                            
+                            
+                        }
+                }
+                
+                
+                
+                }
+                
+            }
+          
+            
+          
        
           
         }
@@ -252,9 +304,7 @@ class View1: UIViewController  {
           
             
         })
-        
-        self.topImageView.image = UIImage(named: "fairtriangletop")
-        self.bottomImageView.image = UIImage(named: "fairtrianglebottom")
+
         garmentCollectionView.delegate = self
         garmentCollectionView.dataSource = self
         
@@ -287,6 +337,8 @@ class View1: UIViewController  {
             
             
         }
+        
+        
         
         var number2 = 0
         
@@ -562,6 +614,21 @@ class View1: UIViewController  {
                     GlobalVariables.numberOfGarments = numberOfGarments
                     GlobalVariables.complexion = complexion
                     GlobalVariables.userName = userName
+                    
+                    
+                    
+                    let is_on_level = json["is_on_level"].string
+                    let first_level_status = json["first_level_status"].string
+                    let second_level_status = json["second_level_status"].string
+                    let third_level_status = json["third_level_status"].string
+                    let camera_uploads = json["camera_uploads"].string
+                    
+                    GlobalVariables.is_on_level = is_on_level
+                    GlobalVariables.camera_uploads = camera_uploads
+                    GlobalVariables.first_level_status = first_level_status
+                    GlobalVariables.second_level_status = second_level_status
+                    GlobalVariables.third_level_status = third_level_status
+
                     
                     
                     

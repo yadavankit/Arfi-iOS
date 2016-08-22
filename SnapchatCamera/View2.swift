@@ -158,6 +158,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     @IBOutlet var myLabel: UILabel!
     var myButton: UIButton!
     
+
     
     
     func refreshScore()
@@ -167,9 +168,6 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         //Setup level score whatever
         self.LevelLabel.text = "Level : " + String(GlobalVariables.is_on_level!)
         let camera_uploads = String(GlobalVariables.camera_uploads!)
-        let first_level_status = String(GlobalVariables.first_level_status!)
-        let second_level_status = String(GlobalVariables.second_level_status!)
-        let third_level_status = String(GlobalVariables.third_level_status!)
         var out_of = ""
         var uploads_for_level = ""
         var progress : Float = 0.0
@@ -239,6 +237,8 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(View2.removeScoreView(_:)))
         swipeDown.direction = .Down
         self.view.addGestureRecognizer(swipeDown)
+        
+
         
         self.refreshScore()
 
@@ -671,11 +671,14 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     }
      var image = UIImage(named: "arfi-logo-1536x1536-1")
     @IBAction func share(sender: AnyObject) {
-        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        
+   
+        
+       let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         vc.setInitialText("arfi is a 24/7 AI based assistant that helps women with their existing wardrobe. Follow the link to download the app.")
-        vc.addImage(image)
-        vc.addURL(NSURL(string: "https://appsto.re/in/teTIbb.i"))
-        presentViewController(vc, animated: true, completion: nil)
+       vc.addImage(image)
+       vc.addURL(NSURL(string: "https://appsto.re/in/teTIbb.i"))
+       presentViewController(vc, animated: true, completion: nil)
     
     }
     @IBOutlet var optionCollectionView: UICollectionView!

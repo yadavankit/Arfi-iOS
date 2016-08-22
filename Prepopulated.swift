@@ -80,6 +80,37 @@ class Prepopulated: UIView {
         }
         
         
+        Alamofire.request(.GET, GlobalVariables.nakedModelTop!)
+            .responseImage { response in
+                debugPrint(response)
+                
+                
+                if let image = response.result.value {
+                    
+                    GlobalVariables.nakedModelTopImage = image
+                    GlobalVariables.ModelValuesAdded  = true
+                    
+                    
+                }
+        }
+        
+        
+        Alamofire.request(.GET, GlobalVariables.nakedModelBottom!)
+            .responseImage { response in
+                debugPrint(response)
+                
+                
+                if let image = response.result.value {
+                    
+                    GlobalVariables.nakedModelTopImage = image
+                    GlobalVariables.ModelValuesAdded  = true
+                    
+                    
+                }
+        }
+
+        
+        
         var number2 = 0
         
         while number2 < GlobalVariables.wardrobeUrl.count {
@@ -351,6 +382,22 @@ class Prepopulated: UIView {
                     GlobalVariables.numberOfGarments = numberOfGarments
                     GlobalVariables.complexion = complexion
                     GlobalVariables.userName = userName
+                    
+                    
+                    
+                    
+                    let is_on_level = json["is_on_level"].string
+                    let first_level_status = json["first_level_status"].string
+                    let second_level_status = json["second_level_status"].string
+                    let third_level_status = json["third_level_status"].string
+                    let camera_uploads = json["camera_uploads"].string
+                    
+                    GlobalVariables.is_on_level = is_on_level
+                    GlobalVariables.camera_uploads = camera_uploads
+                    GlobalVariables.first_level_status = first_level_status
+                    GlobalVariables.second_level_status = second_level_status
+                    GlobalVariables.third_level_status = third_level_status
+
                     
                     
                     

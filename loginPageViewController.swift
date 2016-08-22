@@ -168,6 +168,37 @@ class loginPageViewController: UIViewController , FBSDKLoginButtonDelegate{
             
         }
         
+        
+        Alamofire.request(.GET, GlobalVariables.nakedModelTop!)
+            .responseImage { response in
+                debugPrint(response)
+                
+                
+                if let image = response.result.value {
+                    
+                    GlobalVariables.nakedModelTopImage = image
+                    GlobalVariables.ModelValuesAdded  = true
+                    
+                    
+                }
+        }
+        
+        
+        Alamofire.request(.GET, GlobalVariables.nakedModelBottom!)
+            .responseImage { response in
+                debugPrint(response)
+                
+                
+                if let image = response.result.value {
+                    
+                    GlobalVariables.nakedModelTopImage = image
+                    GlobalVariables.ModelValuesAdded  = true
+                    
+                    
+                }
+        }
+
+        
         var number2 = 0
         
         while number2 < GlobalVariables.wardrobeUrl.count {

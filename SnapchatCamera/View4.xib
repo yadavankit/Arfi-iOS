@@ -9,6 +9,7 @@
                 <outlet property="HelloUser" destination="56s-vp-tDE" id="vj1-IF-sHc"/>
                 <outlet property="midCollectionView" destination="zRL-ge-9X3" id="jHw-Ws-lfO"/>
                 <outlet property="middleLabel" destination="7yf-T9-8gv" id="SDC-2E-Usg"/>
+                <outlet property="spinner" destination="haj-fK-zae" id="SmI-Kt-DRI"/>
                 <outlet property="topCollectionView" destination="Stt-Ub-96I" id="g3t-w8-ybS"/>
                 <outlet property="topSpace" destination="nil-co-Ol2" id="Y8n-TC-c0V"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -65,7 +66,7 @@
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="_____________________________" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7yf-T9-8gv">
                     <rect key="frame" x="177" y="365" width="246.5" height="21"/>
                     <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="17"/>
-                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qhx-zN-Ltc">
@@ -81,6 +82,10 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="haj-fK-zae">
+                    <rect key="frame" x="537" y="138" width="20" height="20"/>
+                    <color key="color" red="1" green="0.18823529410000001" blue="0.35294117650000001" alpha="1" colorSpace="calibratedRGB"/>
+                </activityIndicatorView>
             </subviews>
             <constraints>
                 <constraint firstItem="7yf-T9-8gv" firstAttribute="centerX" secondItem="zRL-ge-9X3" secondAttribute="centerX" id="0TY-Hs-XIm"/>
@@ -88,6 +93,8 @@
                 <constraint firstItem="zRL-ge-9X3" firstAttribute="top" secondItem="Qhx-zN-Ltc" secondAttribute="bottom" constant="21" id="3ho-1w-MNO"/>
                 <constraint firstAttribute="trailing" secondItem="zRL-ge-9X3" secondAttribute="trailing" id="7tC-U9-O7i"/>
                 <constraint firstAttribute="trailing" secondItem="Stt-Ub-96I" secondAttribute="trailing" id="7z1-Ed-QfJ"/>
+                <constraint firstAttribute="trailing" secondItem="haj-fK-zae" secondAttribute="trailing" constant="43" id="DRb-fd-LRd"/>
+                <constraint firstItem="zRL-ge-9X3" firstAttribute="top" secondItem="haj-fK-zae" secondAttribute="bottom" constant="-8" id="N1u-eR-pVl"/>
                 <constraint firstItem="Stt-Ub-96I" firstAttribute="width" secondItem="zRL-ge-9X3" secondAttribute="width" id="P7H-9L-oix"/>
                 <constraint firstItem="Stt-Ub-96I" firstAttribute="centerX" secondItem="zRL-ge-9X3" secondAttribute="centerX" id="Qbe-qm-lVJ"/>
                 <constraint firstItem="4Nr-r6-rtd" firstAttribute="top" secondItem="56s-vp-tDE" secondAttribute="bottom" constant="8" id="QpQ-H2-cM9"/>
@@ -97,12 +104,18 @@
                 <constraint firstItem="Stt-Ub-96I" firstAttribute="height" secondItem="zRL-ge-9X3" secondAttribute="height" constant="-28" id="UEb-Br-Sui"/>
                 <constraint firstItem="zRL-ge-9X3" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="UiK-27-Soo"/>
                 <constraint firstItem="4Nr-r6-rtd" firstAttribute="leading" secondItem="56s-vp-tDE" secondAttribute="leading" id="VIl-1a-B4p"/>
+                <constraint firstItem="haj-fK-zae" firstAttribute="centerY" secondItem="Qhx-zN-Ltc" secondAttribute="centerY" id="WSF-TK-Mmd"/>
                 <constraint firstItem="Qhx-zN-Ltc" firstAttribute="top" secondItem="4Nr-r6-rtd" secondAttribute="bottom" constant="33" id="c5a-vU-zxk"/>
                 <constraint firstItem="56s-vp-tDE" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="19" id="fh6-1b-yLN"/>
                 <constraint firstItem="Qhx-zN-Ltc" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="136" id="hJI-Ei-lIb"/>
                 <constraint firstItem="Stt-Ub-96I" firstAttribute="top" secondItem="zRL-ge-9X3" secondAttribute="bottom" constant="-145" id="nil-co-Ol2"/>
                 <constraint firstItem="Qhx-zN-Ltc" firstAttribute="leading" secondItem="4Nr-r6-rtd" secondAttribute="leading" id="ub0-BR-RJj"/>
             </constraints>
+            <variation key="default">
+                <mask key="constraints">
+                    <exclude reference="N1u-eR-pVl"/>
+                </mask>
+            </variation>
             <point key="canvasLocation" x="228" y="216"/>
         </view>
     </objects>
