@@ -1,27 +1,26 @@
  //
-//  View2.swift
-// 
-//
-
-
-import UIKit
-import AVFoundation
-import ZAlertView
-import JKNotificationPanel
-import Alamofire
-import Petal
-import YBAlertController
-import ImageCropView
-import Toucan
-import FBSDKCoreKit
-import DropDown
-import SwiftyJSON
-import Mixpanel
-import Social
-import Crashlytics
-
-
-class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDelegate, UINavigationControllerDelegate{
+ //  View2.swift
+ //
+ //
+ import UIKit
+ import AVFoundation
+ import ZAlertView
+ import JKNotificationPanel
+ import Alamofire
+ import Petal
+ import YBAlertController
+ import ImageCropView
+ import Toucan
+ import FBSDKCoreKit
+ import DropDown
+ import SwiftyJSON
+ import Mixpanel
+ import Social
+ import Crashlytics
+ import PopupDialog
+ 
+ 
+ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDelegate, UINavigationControllerDelegate{
     
     
     //For Scoring Purposes only
@@ -55,6 +54,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     
     
+    
     //when Back Button on Garment Questions View is Pressed
     @IBAction func backPressed(sender: AnyObject)
     {
@@ -70,6 +70,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     @IBOutlet var label3: UILabel!
     @IBOutlet var type2View: UIView!
     @IBOutlet var shareButton: UIButton!
+    
     
     @IBOutlet var ActivityIndicator: activityIndicator!
     @IBOutlet weak var settingUpWardrobe: UILabel!
@@ -90,7 +91,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     var instructionsShown : Bool = false
     var numberOfGarmentsUploaded = 0
     let clothes : NSMutableArray = ["Top", "Shorts", "Shirt", "Jeans", "TShirt", "Trousers", "Capris", "Culottes" , "Leggings" , "Cargos" ,"Palazzo" ,  "Skirt" , "Kurta" , "Jackets" , "Sweaters" ,"Sweatshirt" ,"Shrugs"]
-
+    
     var instructionsImages: [UIImage] = [
         UIImage(named: "rule1")!,
         UIImage(named: "rule2")!,
@@ -99,22 +100,22 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     var frame:CGRect = CGRectMake(0,0,0,0)
     
-
+    
     
     var myGarments = [ "Tshirt" , "shirt" , "Top"]
- 
+    
     @IBOutlet var cameraImage: UIImageView!
     
     @IBOutlet var flashIcon: UIButton!
     
-     let alertController = YBAlertController(title: "Add garment type", message: "Help us identify your garment typee", style: .Alert)
+    let alertController = YBAlertController(title: "Add garment type", message: "Help us identify your garment typee", style: .Alert)
     
     @IBAction func crossClicked(sender: AnyObject) { //when cross button is clicked
         
         
         
         self.cross.hidden = true
-       self.cameraImage.hidden = true
+        self.cameraImage.hidden = true
         self.cameraButtonOutlet.hidden = false
         self.perimeterOutlet.hidden = false
         self.tickmarkOutlet.hidden = true
@@ -124,57 +125,102 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     
     @IBOutlet weak var cross: UIButton!
-
- 
+    
+    
     @IBOutlet weak var cameraButtonOutlet: UIButton!
     
     
-      
+    
     
     @IBAction func tickmarkAction(sender: AnyObject) {    // when user clicks on the tick mark
         
         self.view.addSubview(self.mainQuestionsView)
-
+        
         tickmarkOutlet.hidden = true
         cross.hidden = true
         self.questionView2.hidden = true
         self.question3View.hidden = true
         self.QuestionDone.hidden = true
-  
-      self.mainQuestionsView.hidden = false
         
-
+        self.mainQuestionsView.hidden = false
+        
+        
     }
-
+    
     @IBOutlet weak var perimeterOutlet: UIImageView!
     var captureSession : AVCaptureSession?
     var stillImageOutput : AVCaptureStillImageOutput?
     var previewLayer : AVCaptureVideoPreviewLayer?
     @IBOutlet var cameraView: UIView!
-
+    
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
     
     @IBOutlet var myLabel: UILabel!
     var myButton: UIButton!
     
-
+    
+    func showCustomDialog() {
+        
+        
+        print("showingggggggg")
+        // Create a custom view controller
+        let ratingVC = RatingViewController(nibName: "RatingViewController", bundle: nil)
+        
+        // Create the dialog
+        let popup = PopupDialog(viewController: ratingVC, transitionStyle: .BounceDown, buttonAlignment: .Horizontal, gestureDismissal: true)
+        
+        // Create first button
+        let buttonOne = CancelButton(title: "CONFIRM") {
+            
+            //            print(ratingVC.commentTextField.text!)
+            if let number = ratingVC.commentTextField.text
+            {
+                Alamofire.request(.GET, "http://backend.arfi.in:4000/processing_panel/set_paytm", parameters: ["user_id": GlobalVariables.globalFacebookId!,"paytm_number": number])
+                    .validate()
+                    .responseJSON { response in
+                        
+                        
+                }
+                
+            }
+            
+        }
+        
+        // Add buttons to dialog
+        popup.addButtons([buttonOne])
+        
+        // Present dialog
+        presentViewController(popup, animated: true, completion: nil)
+    }
+    
     
     
     func refreshScore()
     {
         
-        
         //Setup level score whatever
         self.LevelLabel.text = "Level : " + String(GlobalVariables.is_on_level!)
         let camera_uploads = String(GlobalVariables.camera_uploads!)
+        let first_level_status = String(GlobalVariables.first_level_status!)
+        let second_level_status = String(GlobalVariables.second_level_status!)
+        let third_level_status = String(GlobalVariables.third_level_status!)
         var out_of = ""
         var uploads_for_level = ""
         var progress : Float = 0.0
         
+        
         let is_on_level = String(GlobalVariables.is_on_level!)
         if is_on_level == "1"
         {
+            if first_level_status == "7"
+            {
+                self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 1 and earn ₹ 100", image_name: "camera_iconn")
+            }
+            if first_level_status == "3"
+            {
+                self.showPopup("GREAT, ALMOST THERE", message: "Upload 3 more Garments to clear LEVEL 1 and earn ₹ 100", image_name: "camera_iconn")
+            }
             out_of = "10"
             uploads_for_level = camera_uploads
             progress = Float(uploads_for_level)! / 10
@@ -182,22 +228,59 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         }
         else if is_on_level == "2"
         {
-            out_of = "15"
+            if second_level_status == "15"
+            {
+                self.showCustomDialog()
+            }
+            if second_level_status == "4"
+            {
+                self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 2 and earn ₹ 150", image_name: "camera_iconn")
+            }
+            if second_level_status == "8"
+            {
+                self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 2 and earn ₹ 150", image_name: "camera_iconn")
+            }
+            
+            out_of = "25"
             uploads_for_level = String(Int(camera_uploads)! - 10)
             progress = Float(uploads_for_level)! / 15
             
         }
         else if is_on_level == "3"
         {
-            out_of = "15"
+            if third_level_status == "4"
+            {
+                self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 3 and earn ₹ 200", image_name: "camera_iconn")
+            }
+            if third_level_status == "8"
+            {
+                self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 3 and earn ₹ 200", image_name: "camera_iconn")
+            }
+            
+            
+            if third_level_status == "15"
+            {
+                self.showPopup("GREAT YOU CLEARED LEVEL 2", message: "₹ 200 will be transferred to your paytm wallet. :)", image_name: "cup2")
+            }
+            out_of = "40"
             uploads_for_level = String(Int(camera_uploads)! - 25)
             progress = Float(uploads_for_level)! / 15
             
         }
-        self.ScoreLabel.text = uploads_for_level + "/" + out_of
+        self.ScoreLabel.text = camera_uploads + "/" + out_of
         self.ProgressView.progress = progress
+        self.ProgressView.layer.cornerRadius = 7.0
+        self.ProgressView.clipsToBounds = true
         print("progresssssss")
         print(progress)
+        self.ProgressView.setNeedsDisplay()
+        self.scoreView.setNeedsDisplay()
+        self.setNeedsFocusUpdate()
+        
+        var left_uploads = Int(out_of)! - Int(camera_uploads)!
+        self.panel.timeUntilDismiss = 5
+        self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "\(left_uploads) uploads left for next level 😀")
+        
     }
     
     
@@ -228,20 +311,26 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         super.viewDidLoad()
         
         
+        self.refreshScore()
+        
+        self.startTimer()
+        
+        
+        
+        
         //Add Upward Swipe Gesture Recognizer
         let swipeUp = UISwipeGestureRecognizer(target: self, action: #selector(View2.screenSwiped(_:)))
         swipeUp.direction = .Up
         self.view.addGestureRecognizer(swipeUp)
-
+        
         //Down Swipe to Remove
         let swipeDown = UISwipeGestureRecognizer(target: self, action: #selector(View2.removeScoreView(_:)))
         swipeDown.direction = .Down
         self.view.addGestureRecognizer(swipeDown)
         
-
         
-        self.refreshScore()
-
+        
+        
         
         
         
@@ -252,13 +341,13 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.myLabel.text = "Make sure lighting is as bright as Sun"
         self.myLabel.numberOfLines = 2
         self.myLabel.textAlignment = NSTextAlignment.Center
-
+        
         self.scrollView.backgroundColor = UIColor.whiteColor()
         self.pageControl = UIPageControl(frame: CGRectMake((UIScreen.mainScreen().bounds.width / 2) - 25, UIScreen.mainScreen().bounds.height - 100, 50, 50))
-
+        
         scrollView.delegate = self
         configurePageControl()
-
+        
         print(self.cross.layer.frame)
         self.cross.layer.frame.size.height = 100
         self.cross.layer.frame.size.width = 100
@@ -267,7 +356,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         print("Global number og garmnets")
         print(GlobalVariables.globalTopAndBottom.count)
-
+        
         
         self.mainQuestionsView.hidden = true
         self.QuestionDone.hidden = true
@@ -280,22 +369,22 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.settingUpWardrobe.hidden = true
         self.ActivityIndicator.hidden = true
         ActivityIndicator.strokeColor = UIColor(red:0.98, green:0.13, blue:0.25, alpha:1.0)
-  
+        
         
         if(NSUserDefaults.standardUserDefaults().boolForKey("HasLaunchedOnce"))
         {
             print("App is already launchedd")
-          
+            
             // app already launched
             
         }
         else
         {
             print("App is launching for first tym")
-           
+            
             self.firstLaunchEver = true
             panel.timeUntilDismiss = 6
-           perimeterOutlet.hidden = false
+            perimeterOutlet.hidden = false
             panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on the circle to know more 👇")
             
             
@@ -306,9 +395,9 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: "HasLaunchedOnce")
             NSUserDefaults.standardUserDefaults().synchronize()
         }
-    self.cross.hidden = true
-    self.tickmarkOutlet.hidden = true
- 
+        self.cross.hidden = true
+        self.tickmarkOutlet.hidden = true
+        
     }
     
     
@@ -363,9 +452,10 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.myButton.hidden = true
         self.view.addSubview(cameraView)
         self.view.addSubview(flashIcon)
+        self.view.addSubview(shareButton)
         self.view.addSubview(cameraButtonOutlet)
         self.view.addSubview(mainQuestionsView)
-     
+        
         self.view.addSubview(perimeterOutlet)
         self.view.addSubview(cameraImage)
         self.view.addSubview(tickmarkOutlet)
@@ -404,14 +494,14 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
             
             let imageView = UIImageView(image: instructionsImages[index])
             imageView.center = CGPointMake(self.view.frame.size.width  / 2,
-                                         self.view.frame.size.height / 2);
+                                           self.view.frame.size.height / 2);
             
             subView.addSubview(imageView)
             self.scrollView.addSubview(subView)
         }
         self.scrollView.contentSize = CGSizeMake(self.scrollView.frame.size.width * 3, self.scrollView.frame.height)
     }
-
+    
     
     
     
@@ -440,17 +530,17 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                     GlobalVariables.second_level_status = second_level_status
                     GlobalVariables.third_level_status = third_level_status
                 }
+                
+        }
         
     }
-        
-    }
-
     
     
     
     
     
-  
+    
+    
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
         
@@ -470,9 +560,9 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         let backCamera = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         mainCamera = backCamera
         
-       // configure()
+        // configure()
         
-     
+        
         var error : NSError?
         var input: AVCaptureDeviceInput!
         do {
@@ -495,8 +585,8 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                 previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
                 previewLayer?.videoGravity = AVLayerVideoGravityResizeAspect
                 previewLayer?.connection.videoOrientation = AVCaptureVideoOrientation.Portrait
-               cameraView.layer.addSublayer(previewLayer!)
-              
+                cameraView.layer.addSublayer(previewLayer!)
+                
                 
                 dispatch_async(dispatch_get_main_queue(), {
                     
@@ -515,7 +605,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     func textFieldDidBeginEditing(textField: UITextField) {
         print("TextField did begin editing method called")
     }
-
+    
     
     
     
@@ -529,16 +619,15 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         self.view.addSubview(myLabel)
         self.view.addSubview(scrollView)
         self.view.addSubview(pageControl)
-        
         self.view.bringSubviewToFront(myLabel)
         self.view.bringSubviewToFront(pageControl)
     }
     
     func didPressTakePhoto(){  //image capture mechanism
-
+        
         print("photo li gyi hai")
         
-  if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo){
+        if let videoConnection = stillImageOutput?.connectionWithMediaType(AVMediaTypeVideo){
             videoConnection.videoOrientation = AVCaptureVideoOrientation.Portrait
             stillImageOutput?.captureStillImageAsynchronouslyFromConnection(videoConnection, completionHandler: {
                 (sampleBuffer, error) in
@@ -552,18 +641,18 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                     
                     let image = UIImage(CGImage: cgImageRef!, scale: 1.0, orientation: UIImageOrientation.Right)
                     
-                
+                    
                     self.cameraImage.hidden = false
-                self.cameraImage.image = image
-                self.view.addSubview(self.cameraImage)
-                self.view.addSubview(self.tickmarkOutlet)
-                self.view.addSubview(self.cross)
+                    self.cameraImage.image = image
+                    self.view.addSubview(self.cameraImage)
+                    self.view.addSubview(self.tickmarkOutlet)
+                    self.view.addSubview(self.cross)
                     
                     
                     self.finalImage = Toucan(image: image).resizeByCropping(CGSizeMake(300, 300)).image
                     
-               
-        
+                    
+                    
                 }
                 
                 
@@ -582,7 +671,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
     
     func didPressTakeAnother(){
         if didTakePhoto == true{
-           cameraImage.hidden = true
+            cameraImage.hidden = true
             didTakePhoto = false
             
         }
@@ -614,10 +703,8 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                 
         }
         
-        
-        
     }
-
+    
     
     
     @IBAction func clicked (sender : UIButton) {  // main camera button clicked
@@ -630,56 +717,91 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenInstructions") == false)
         {
-                displayInstructions()
-                NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenInstructions")
-                NSUserDefaults.standardUserDefaults().synchronize()
+            displayInstructions()
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenInstructions")
+            NSUserDefaults.standardUserDefaults().synchronize()
         }
         else
         {
-        
-        
-         print(firstLaunchEver)
-        self.flashIcon.hidden = true
-        
-   
+            
+            
+            print(firstLaunchEver)
+            self.flashIcon.hidden = true
+            
+            
             perimeterOutlet.hidden = false
             
-        let triggerTime = (Int64(NSEC_PER_SEC) * 3)
-                dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-                    
-                    self.perimeterOutlet.hidden = false
-            
-                })
+            let triggerTime = (Int64(NSEC_PER_SEC) * 3)
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
+                
+                self.perimeterOutlet.hidden = false
+                
+            })
             
             
             firstLaunchEver = false
             
-        
+            
             Mixpanel.mainInstance().track(event: "Garment Upload Begin",
                                           properties: ["Upload" : "Start"])
-
- 
-        
-        didPressTakePhoto()
-
-        self.cross.hidden = false
-        cameraButtonOutlet.hidden = true
-        perimeterOutlet.hidden = false
-        self.tickmarkOutlet.hidden = false
+            
+            
+            
+            didPressTakePhoto()
+            
+            self.cross.hidden = false
+            cameraButtonOutlet.hidden = true
+            perimeterOutlet.hidden = false
+            self.tickmarkOutlet.hidden = false
         }
         
     }
-     var image = UIImage(named: "arfi-logo-1536x1536-1")
+    
+    
+    func showPopup(title: String, message: String, image_name: String)
+    {
+        // Prepare the popup assets
+        let title = title
+        let message = message
+        let image = UIImage(named: image_name)
+        
+        // Create the dialog
+        let popup = PopupDialog(title: title, message: message, image: image)
+        
+        // Create buttons
+        let buttonOne = CancelButton(title: "UPLOAD MORE") {
+            print("You canceled the car dialog.")
+        }
+        
+        // Add buttons to dialog
+        // Alternatively, you can use popup.addButton(buttonOne)
+        // to add a single button
+        popup.addButtons([buttonOne])
+        
+        // Present dialog
+        self.presentViewController(popup, animated: true, completion: nil)
+        
+        
+    }
+    
+    
+    var image = UIImage(named: "arfi-logo-1536x1536-1")
     @IBAction func share(sender: AnyObject) {
         
-   
+        //self.showCustomDialog()
         
-       let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
+        
+        
+        
+        //FACEBOOK SHARE CODE
+        //displayInstructions()
+        
+        let vc = SLComposeViewController(forServiceType: SLServiceTypeFacebook)
         vc.setInitialText("arfi is a 24/7 AI based assistant that helps women with their existing wardrobe. Follow the link to download the app.")
-       vc.addImage(image)
-       vc.addURL(NSURL(string: "https://appsto.re/in/teTIbb.i"))
-       presentViewController(vc, animated: true, completion: nil)
-    
+        vc.addImage(image)
+        vc.addURL(NSURL(string: "https://appsto.re/in/teTIbb.i"))
+        presentViewController(vc, animated: true, completion: nil)
+        
     }
     @IBOutlet var optionCollectionView: UICollectionView!
     
@@ -689,7 +811,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         
     }
- 
+    
     
     func removeView () {
         permanentView?.removeFromSuperview()
@@ -706,13 +828,13 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         let testValue = Int(GlobalVariables.numberOfGarments!)
         
-       let value = testValue! + 1
-
+        let value = testValue! + 1
         
         
-      
-    let typeOFGarment = GlobalVariables.mainDetail + "," + GlobalVariables.detail1 + "," + GlobalVariables.detail2 + "," + GlobalVariables.detail3
-       
+        
+        
+        let typeOFGarment = GlobalVariables.mainDetail + "," + GlobalVariables.detail1 + "," + GlobalVariables.detail2 + "," + GlobalVariables.detail3
+        
         Alamofire.upload(
             .POST,
             "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:4000/processing_panel/upload",
@@ -738,25 +860,25 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                 
                 let premium = PremiumView.instanceFromNib()
                 premium.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
-
-             
+                
+                
             },
             encodingCompletion: { encodingResult in
                 switch encodingResult {
                 case .Success(let upload, _, _):
-                   
+                    
                     upload.progress { (bytesWritten, totalBytesWritten, totalBytesExpectedToWrite) in
                         print("Uploading Avatar \(totalBytesWritten) / \(totalBytesExpectedToWrite)")
                         
-                 
+                        
                         dispatch_async(dispatch_get_main_queue(),{
                             
                             
                             self.crossClicked(self)
                             self.settingUpWardrobe.hidden = true
                             self.flashIcon.hidden = false
-                           
-                          
+                            
+                            
                             let bustObject = NSUserDefaults.standardUserDefaults().objectForKey("bust")
                             
                             if bustObject != nil {
@@ -765,7 +887,7 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                                 self.sendModelDetails()
                                 
                             }
-
+                            
                             /**
                              *  Update UI Thread about the progress
                              */
@@ -788,24 +910,18 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                             
                             self.getUserDetails()
                             
-                            
-                            let triggerTime = (Int64(NSEC_PER_SEC) * 5)
-                            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, triggerTime), dispatch_get_main_queue(), { () -> Void in
-                                
-                                self.refreshScore()
-                                
-                            })
+                            self.refreshScore()
                             
                             
                             
                             
-          
                             
                             
-                                                  })
+                            
+                            
+                            
+                        })
                     }
-                    
-                  
                     
                 case .Failure( _):
                     //Show Alert in UI
@@ -813,14 +929,14 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
                 }
             }
         );
-      
         
-      
         
-
+        
+        
+        
     }
     
-
+    
     
     
     
@@ -842,17 +958,39 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         }
         
         if device.torchMode == AVCaptureTorchMode.Off {
-        if let image = UIImage(named:"no-flash") {
-            sender.setImage(image, forState: .Normal)
-        }
+            if let image = UIImage(named:"no-flash") {
+                sender.setImage(image, forState: .Normal)
+            }
         } else if device.torchMode == AVCaptureTorchMode.On {
-          
+            
             if let image = UIImage(named:"flash-1") {
                 sender.setImage(image, forState: .Normal)
             }
             
         }
     }
+    
+    var timer: dispatch_source_t!
+    
+    func startTimer() {
+        let queue = dispatch_queue_create("com.domain.app.timer", nil)
+        timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
+        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
+        dispatch_source_set_event_handler(timer) {
+            
+            self.getUserDetails()
+        }
+        dispatch_resume(timer)
+    }
+    
+    func stopTimer() {
+        dispatch_source_cancel(timer)
+        timer = nil
+    }
+    
+    
+    
+    
     
     func removePremiumView(){
         
@@ -861,20 +999,20 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
     }
     
- 
+    
     func configure(){ // autofocus code (not used)
         
         let device = AVCaptureDevice.defaultDeviceWithMediaType(AVMediaTypeVideo)
         if (device.hasTorch) {
             do {
                 try device.lockForConfiguration()
-                 device.focusMode = .AutoFocus
+                device.focusMode = .AutoFocus
                 device.unlockForConfiguration()
             } catch {
                 print(error)
             }
         }
-
+        
         
     }
     
@@ -892,15 +1030,15 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
             {
                 
                 let userId : String = result.valueForKey("id") as! String
-              
-               self.facebookId = userId
-    
                 
-            
+                self.facebookId = userId
+                
+                
+                
                 let userName : String = result.valueForKey("name") as! String
-              
+                
                 self.facebookUser = userName
-               GlobalVariables.globalFacebookId = userId
+                GlobalVariables.globalFacebookId = userId
                 
                 
                 
@@ -914,129 +1052,122 @@ class View2 : UIViewController, UIImagePickerControllerDelegate, UIScrollViewDel
         
         Alamofire.request(.GET, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/get_garments", parameters: ["user_id": self.facebookId])
             .responseJSON { response in
-               
+                
                 
                 if let JSON = response.result.value {
-
-                 
-                     print (Int(JSON as! NSNumber))
+                    
+                    
+                    print (Int(JSON as! NSNumber))
                     
                     self.numberOfGarmentsUploaded = (Int(JSON as! NSNumber))
-                   // GlobalVariables.globalNumberOfGarments = String((Int(JSON as! NSNumber)))
+                    // GlobalVariables.globalNumberOfGarments = String((Int(JSON as! NSNumber)))
                     
                 }
         }
-      
+        
         
     }
     
-        
+    
     @IBAction func showthebutton(sender: AnyObject) {
         dropDown.show()
-      
+        
         loadDropDown()
     }
-   
+    
     
     let dropDown = DropDown()
     let dropDown2 = DropDown()
     let dropDown3 = DropDown()
     let dropDown4 = DropDown()
     
-
     
-   
-func loadDropDown() {
     
-    dropDown.anchorView = self.questionView
-    dropDown.dataSource = ["Shirt" , "Top" ,"TShirt", "Skirt" , "Jeans" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo" , "Dress"]
     
-    dropDown.selectionAction = { (index: Int, item: String) in
-        print("Selected item: \(item) at index: \(index)")
+    func loadDropDown() {
         
-        self.label1.text = item
-        self.question3View.hidden = true
-        GlobalVariables.globalGarmentSelected = item
-        GlobalVariables.detail1 = item
+        dropDown.anchorView = self.questionView
+        dropDown.dataSource = ["Shirt" , "Top" ,"TShirt", "Skirt" , "Jeans" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo"]
         
-        switch item {
+        dropDown.selectionAction = { (index: Int, item: String) in
+            print("Selected item: \(item) at index: \(index)")
             
-        case "Shirt":
+            self.label1.text = item
+            self.question3View.hidden = true
+            GlobalVariables.globalGarmentSelected = item
+            GlobalVariables.detail1 = item
             
-            self.label2.text = "Type of Fitting"
-            
-            
-        case "Top":
-            self.label2.text = "Style"
-            self.label3.text = "Length"
-            
-            
-        case "TShirt":
-            self.label2.text = "Length"
-            
-            
-            
-        case "Skirt":
-            
-            self.label2.text = "Skirt Style"
-            self.label3.text = "Length"
-            
-        case "Jeans":
-            self.label2.text = "Style"
-            self.label3.text = "Fitting/Rise"
-            
-      
-        case "Trouser":
-            
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
-            
-        case "Capri":
-            
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
-            
-        case "Culottes":
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
-            
-        case "Leggings":
-            
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
-            
-        case "Cargos":
-            
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
-            
-        case "Shorts":
-            
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
-            
-        case "Palazzo":
-            
-            self.label2.text = "Rise"
-            self.label3.text = "Length"
-            
-            
-        case "Dress" :
-            
-            self.label2.text = "Style"
-            self.label3.text = "Length"
-            
-            
-
-        default:
-            print("Fucked")
+            switch item {
+                
+            case "Shirt":
+                
+                self.label2.text = "Type of Fitting"
+                
+                
+            case "Top":
+                self.label2.text = "Style"
+                self.label3.text = "Length"
+                
+                
+            case "TShirt":
+                self.label2.text = "Length"
+                
+                
+                
+            case "Skirt":
+                
+                self.label2.text = "Skirt Style"
+                self.label3.text = "Length"
+                
+            case "Jeans":
+                self.label2.text = "Style"
+                self.label3.text = "Fitting/Rise"
+                
+                
+            case "Trouser":
+                
+                self.label2.text = "Rise"
+                self.label3.text = "Length"
+                
+            case "Capri":
+                
+                self.label2.text = "Rise"
+                self.label3.text = "Length"
+                
+            case "Culottes":
+                self.label2.text = "Rise"
+                self.label3.text = "Length"
+                
+            case "Leggings":
+                
+                self.label2.text = "Rise"
+                self.label3.text = "Length"
+                
+            case "Cargos":
+                
+                self.label2.text = "Rise"
+                self.label3.text = "Length"
+                
+            case "Shorts":
+                
+                self.label2.text = "Rise"
+                self.label3.text = "Length"
+                
+            case "Palazzo":
+                
+                self.label2.text = "Rise"
+                self.label3.text = "Length"
+                
+                
+            default:
+                print("Fucked")
+                
+            }
+            self.questionView2.hidden = false
             
         }
-        self.questionView2.hidden = false
         
     }
-   
-       }
     
     
     @IBAction func type2Action(sender: AnyObject) {
@@ -1044,11 +1175,6 @@ func loadDropDown() {
         dropDown2.anchorView = self.type2View
         dropDown2.show()
         switch GlobalVariables.globalGarmentSelected! {
-            
-            
-        case "Dress" :
-            
-            dropDown2.dataSource = ["Sheath Dress" , "Shift Dress" , "Blouson Dress" , "Bodycon Dress" , "Skater Dress" , "Maxi Dress", "Shirt Dress" , "Peplum Dress" , "Aline Dress" , "Wrapped Dress" , "Gown" , "Pop over dress" , "Pencil Dress" , "Tshirt Dress" , "Fit and Flare Dress"]
             
         case "Shirt":
             
@@ -1073,6 +1199,9 @@ func loadDropDown() {
         case "Jeans":
             dropDown2.dataSource = ["Jogger/Jeggings" , "Straight" , "Loose/Relaxed" , "Bootcut" , "Crop Jeans" , "Skinny Jeans" ]
             
+            
+            //        case "Dress":
+            //            dropDown2.dataSource = ["Sheath Dress" , "Shift dress" , "Blouson dress" , "Bodycon dress" , "Skater dress" , "Maxi dress" ,"Shirt dress", "Peplum dress" , "A-Line dress" , "Wrap dress" , "draped dress" , "Pop over dress" ,"Pencil dress", "T-Shirt dress" , "Fit and Flare dress" , "Gown" ]
             
             
         case "Trouser":
@@ -1149,7 +1278,9 @@ func loadDropDown() {
                 
                 self.question3View.hidden = false
                 
-         
+                //            case "Dress":
+                //
+                //                self.question3View.hidden = false
                 
             case "Trouser":
                 
@@ -1182,9 +1313,11 @@ func loadDropDown() {
                 
                 self.QuestionDone.hidden = false
                 
-            case "Dress" :
                 
-                self.question3View.hidden = false
+                //            case "Stockings":
+                //
+                //                self.QuestionDone.hidden = false
+                
                 
             default:
                 print("done")
@@ -1199,14 +1332,13 @@ func loadDropDown() {
         
     }
     @IBOutlet var question3View: UIButton!
-
+    
     @IBAction func question3Action(sender: AnyObject) {
         
         
-       
+        
         dropDown3.anchorView = self.question3View
         dropDown3.show()
-        
         
         if GlobalVariables.globalGarmentSelected == "Jeans" && self.label2.text == "Straight" {
             
@@ -1301,7 +1433,11 @@ func loadDropDown() {
             dropDown3.dataSource = ["Calf Length" , "Full Length"]
             
         }
-          
+            //        else   if GlobalVariables.globalGarmentSelected == "Dress" {
+            //
+            //            dropDown3.dataSource = ["Mini" , "Midi" ,"Calf" , "Full"]
+            //
+            //        }
         else   if GlobalVariables.globalGarmentSelected == "Skirt" && self.label2.text == "Balloon" {
             
             dropDown3.dataSource = ["Mini" , "Midi"]
@@ -1311,67 +1447,7 @@ func loadDropDown() {
             
             dropDown3.dataSource = ["Mini" , "Midi", "Maxi", "Calf"]
             
-        } else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Sheath Dress" {
-            
-            dropDown3.dataSource = ["Above knees" , "Below Knees"]
-            
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Shift Dress" {
-            
-            dropDown3.dataSource = ["Mini Length" , "Midi Length"]
-            
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Blouson Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" , "Long"]
-            
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Pop over dress" {
-            
-               dropDown3.dataSource = ["Mini" , "Midi" , "Calf" , "Long"]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Bodycon Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Pencil Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Skater Dress" {
-            
-            dropDown3.dataSource = ["Mini"]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Maxi Dress" {
-            
-            dropDown3.dataSource = ["Full"]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Shirt Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ,"Full"]
         }
-        else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Tshirt Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ,"Full"]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Peplum Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Aline Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf", "Full" ]
-        }
-        else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Fit and Flare Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf"  , "Full"]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Wrap Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf"  , "Full"]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Drape Dress" {
-            
-            dropDown3.dataSource = ["Mini" , "Midi" , "Calf"  , "Full"]
-        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Gown" {
-            
-            dropDown3.dataSource = [ "Full"]
-        }
-
-       
-        
-        
-        
-
-
         
         dropDown3.selectionAction = { (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
@@ -1494,7 +1570,7 @@ func loadDropDown() {
         
         if GlobalVariables.finalGarmentCount == 0
         {
-
+            
         }
         else
         {
@@ -1524,7 +1600,7 @@ func loadDropDown() {
         let waistObject = NSUserDefaults.standardUserDefaults().objectForKey("waist")
         let heightObject = NSUserDefaults.standardUserDefaults().objectForKey("height")
         let complexionObject = NSUserDefaults.standardUserDefaults().objectForKey("complexion")
-
+        
         
         
         let current_user_id = currentUseridObject as! String
@@ -1533,18 +1609,18 @@ func loadDropDown() {
         let waist = waistObject as! String
         let height = heightObject as! String
         let complexion = complexionObject as! String
-   
+        
         
         Alamofire.request(.POST, "http://ec2-52-35-225-149.us-west-2.compute.amazonaws.com:7000/processing_panel/set_model_size", parameters: ["user_id": GlobalVariables.globalFacebookId!,"bust_size": bust,"height_size": height,"complexion": complexion,"waist_size": waist, "hip_size": hip])
             .validate()
             .responseJSON { response in
                 print(current_user_id)
                 print("Model Garment in saved on Server")
-               
+                
         }
-
+        
     }
     
-
-}
-
+    
+ }
+ 

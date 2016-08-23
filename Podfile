@@ -17,6 +17,7 @@ pod ’Toucan’
 pod "PaperCollectionView"
 pod "CircleSlider"
 pod 'DropDown'
+pod ‘PopupDialog’
 pod 'SwiftyJSON'
 pod 'Fabric'
 pod 'Crashlytics'

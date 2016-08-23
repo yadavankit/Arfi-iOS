@@ -41,6 +41,7 @@ PODS:
   - Petal (1.1.1)
   - pop (1.0.9)
   - PopupController (0.1.0)
+  - PopupDialog (0.3.2)
   - ReachabilitySwift (2.3.3)
   - SDWebImage/Core (3.8.1)
   - SDWebImage/WebP (3.8.1):
@@ -68,6 +69,7 @@ DEPENDENCIES:
   - PaperCollectionView
   - Petal (~> 1.1.1)
   - PopupController
+  - PopupDialog
   - ReachabilitySwift
   - SDWebImage/WebP
   - Spring (from `https://github.com/MengTo/Spring.git`, branch `swift2`)
@@ -104,6 +106,7 @@ SPEC CHECKSUMS:
   Petal: 6b2251a7df61c16e4bb37de19f7c372f1d1371ed
   pop: f667631a5108a2e60d9e8797c9b32ddaf2080bce
   PopupController: fb329de274ab0cf9bf1f2758074287600082de1d
+  PopupDialog: 8575b6974bfe39be1735011ea3e8c72efc28e9e1
   ReachabilitySwift: e0f6b6f280effb47731acfaaa2d5ffe223703793
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   Spring: 3f02b5dc3308572ef177b3cad0fa7bbc4b0706f7
@@ -113,4 +116,6 @@ SPEC CHECKSUMS:
   YBAlertController: 68e8874813d1d9a5c76d72e5bb927e18f2d1afb8
   ZAlertView: 5ee0f447d067fe141aa278579e0b9b9f1ca83edb
 
-COCOAPODS: 0.39.0
+PODFILE CHECKSUM: df47f6e1805f1e4696a1863e578f8956b70c3cc9
+
+COCOAPODS: 1.0.1
