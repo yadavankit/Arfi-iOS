@@ -116,7 +116,7 @@
         
         self.cross.hidden = true
         self.cameraImage.hidden = true
-        self.cameraButtonOutlet.hidden = false
+        self.cameraButtonOutlet.hidden = true
         self.perimeterOutlet.hidden = false
         self.tickmarkOutlet.hidden = true
         self.flashIcon.hidden = false
@@ -215,11 +215,24 @@
         {
             if first_level_status == "7"
             {
-                self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 1 and earn ₹ 100", image_name: "camera_iconn")
+                if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenFirstSeven") == false)
+                {
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 7 more Garments to clear LEVEL 1 and earn ₹ 100", image_name: "camera_trans")
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenFirstSeven")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+                
+                
             }
             if first_level_status == "3"
             {
-                self.showPopup("GREAT, ALMOST THERE", message: "Upload 3 more Garments to clear LEVEL 1 and earn ₹ 100", image_name: "camera_iconn")
+                if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenFirstThree") == false)
+                {
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 3 more Garments to clear LEVEL 1 and earn ₹ 100", image_name: "camera_trans")
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenFirstThree")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+                
             }
             out_of = "10"
             uploads_for_level = camera_uploads
@@ -230,15 +243,34 @@
         {
             if second_level_status == "15"
             {
-                self.showCustomDialog()
+                if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenFirstDone") == false)
+                {
+                        self.showCustomDialog()
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenFirstDone")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+
             }
             if second_level_status == "4"
             {
-                self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 2 and earn ₹ 150", image_name: "camera_iconn")
+                if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenSecondFour") == false)
+                {
+                self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 2 and earn ₹ 150", image_name: "camera_trans")
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenSecondFour")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+
+
             }
             if second_level_status == "8"
             {
-                self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 2 and earn ₹ 150", image_name: "camera_iconn")
+                if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenSecondEight") == false)
+                {
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 2 and earn ₹ 150", image_name: "camera_trans")
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenSecondEight")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+                
             }
             
             out_of = "25"
@@ -250,17 +282,49 @@
         {
             if third_level_status == "4"
             {
-                self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 3 and earn ₹ 200", image_name: "camera_iconn")
+                if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenThirdFour") == false)
+                {
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 3 and earn ₹ 200", image_name: "camera_trans")
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenThirdFour")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+                
             }
             if third_level_status == "8"
             {
-                self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 3 and earn ₹ 200", image_name: "camera_iconn")
+                if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenThirdEight") == false)
+                {
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 3 and earn ₹ 200", image_name: "camera_trans")
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenThirdEight")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+                
+                
+            }
+            
+            if third_level_status == "0"
+            {
+                if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenThirdDone") == false)
+                {
+                      self.showPopup("GREAT YOU CLEARED LEVEL 2", message: "₹ 200 will be transferred to your paytm wallet. :)", image_name: "cup3")
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenThirdDone")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+                
+                
             }
             
             
             if third_level_status == "15"
             {
-                self.showPopup("GREAT YOU CLEARED LEVEL 2", message: "₹ 200 will be transferred to your paytm wallet. :)", image_name: "cup2")
+                if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenSecondDone") == false)
+                {
+                    self.showPopup("GREAT YOU CLEARED LEVEL 2", message: "₹ 150 will be transferred to your paytm wallet. :)", image_name: "cup2")
+                 
+                    NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenSecondDone")
+                    NSUserDefaults.standardUserDefaults().synchronize()
+                }
+                
             }
             out_of = "40"
             uploads_for_level = String(Int(camera_uploads)! - 25)
@@ -277,9 +341,19 @@
         self.scoreView.setNeedsDisplay()
         self.setNeedsFocusUpdate()
         
-        var left_uploads = Int(out_of)! - Int(camera_uploads)!
-        self.panel.timeUntilDismiss = 5
-        self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "\(left_uploads) uploads left for next level 😀")
+        let left_uploads = Int(out_of)! - Int(camera_uploads)!
+        
+        let key_name = "seenUpload" + String(left_uploads) + "onLevel" + is_on_level
+        if(NSUserDefaults.standardUserDefaults().boolForKey(key_name) == false)
+        {
+
+            self.panel.timeUntilDismiss = 5
+            self.panel.showNotify(withStatus: .SUCCESS, inView: (self.parentViewController?.view)!, message: "\(left_uploads) uploads left for next level 😀")
+            
+            
+            NSUserDefaults.standardUserDefaults().setBool(true, forKey: key_name)
+            NSUserDefaults.standardUserDefaults().synchronize()
+        }
         
     }
     
@@ -311,7 +385,7 @@
         super.viewDidLoad()
         
         
-        self.refreshScore()
+        //self.refreshScore()
         
         self.startTimer()
         
@@ -455,7 +529,7 @@
         self.view.addSubview(shareButton)
         self.view.addSubview(cameraButtonOutlet)
         self.view.addSubview(mainQuestionsView)
-        
+        self.view.addSubview(scoreView)
         self.view.addSubview(perimeterOutlet)
         self.view.addSubview(cameraImage)
         self.view.addSubview(tickmarkOutlet)
@@ -529,10 +603,14 @@
                     GlobalVariables.first_level_status = first_level_status
                     GlobalVariables.second_level_status = second_level_status
                     GlobalVariables.third_level_status = third_level_status
+                    
+                    
+                    
                 }
                 
         }
         
+        self.refreshScore()
     }
     
     
@@ -709,7 +787,7 @@
     
     @IBAction func clicked (sender : UIButton) {  // main camera button clicked
         
-        
+        self.cameraButtonOutlet.hidden = true
         print("Global top and bottom ka count")
         print(GlobalVariables.globalTopAndBottom.count)
         print("Prepopulated wala")
@@ -770,7 +848,7 @@
         
         // Create buttons
         let buttonOne = CancelButton(title: "UPLOAD MORE") {
-            print("You canceled the car dialog.")
+            
         }
         
         // Add buttons to dialog
@@ -819,6 +897,7 @@
     
     
     func sendImageToServer(){  // backend code to send image to server
+        
         
         tickmarkOutlet.hidden = true
         cross.hidden = true
@@ -899,7 +978,9 @@
                             
                             
                             print("Pohocha diya bhaiya")
-                            
+                            self.cameraButtonOutlet.hidden = false
+                            self.refreshScore()
+                            self.scoreView.setNeedsDisplay()
                             
                             
                             
@@ -975,10 +1056,11 @@
     func startTimer() {
         let queue = dispatch_queue_create("com.domain.app.timer", nil)
         timer = dispatch_source_create(DISPATCH_SOURCE_TYPE_TIMER, 0, 0, queue)
-        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 10 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
+        dispatch_source_set_timer(timer, DISPATCH_TIME_NOW, 3 * NSEC_PER_SEC, 1 * NSEC_PER_SEC) // every 60 seconds, with leeway of 1 second
         dispatch_source_set_event_handler(timer) {
             
             self.getUserDetails()
+//            self.refreshScore()
         }
         dispatch_resume(timer)
     }
@@ -1585,6 +1667,7 @@
         
         
         self.mainQuestionsView.hidden = true
+        
         self.sendImageToServer()
         self.label1.text = "Type of Garment"
         self.label2.text = "Size of Garment"

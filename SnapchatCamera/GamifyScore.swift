@@ -18,6 +18,11 @@ class GamifyScore : UIView {
     @IBOutlet var ScoreLabel: UILabel!
     @IBOutlet var ProgressView: UIProgressView!
     
+    @IBAction func crossbuttonclicked(sender: AnyObject) {
+        
+        self.hidden = true
+        
+    }
     
     
     override func awakeFromNib() {
@@ -40,12 +45,24 @@ class GamifyScore : UIView {
             progress = Float(uploads_for_level)! / 10
             self.SecondLevelView.alpha = 0.3
             self.ThirdLevelView.alpha = 0.3
+            self.FirstLevelView.layer.cornerRadius = 15.0
+            self.FirstLevelView.clipsToBounds = true
+            
+            self.FirstLevelView.layer.borderWidth = 5
+            self.FirstLevelView.layer.borderColor = UIColor.redColor().CGColor
             
             
         }
         else if is_on_level == "2"
         {
-            out_of = "15"
+            self.SecondLevelView.layer.cornerRadius = 15.0
+            self.SecondLevelView.clipsToBounds = true
+            
+            self.SecondLevelView.layer.borderWidth = 5
+            self.SecondLevelView.layer.borderColor = UIColor.redColor().CGColor
+            
+            
+            out_of = "25"
             uploads_for_level = String(Int(camera_uploads)! - 10)
             progress = Float(uploads_for_level)! / 15
             self.FirstLevelView.alpha = 0.3
@@ -55,26 +72,35 @@ class GamifyScore : UIView {
         }
         else if is_on_level == "3"
         {
+            self.ThirdLevelView.layer.cornerRadius = 15.0
+            self.ThirdLevelView.clipsToBounds = true
+            
+            self.ThirdLevelView.layer.borderWidth = 5
+            self.ThirdLevelView.layer.borderColor = UIColor.redColor().CGColor
+            
+            
             self.FirstLevelView.alpha = 0.3
             self.SecondLevelView.alpha = 0.3
             
-            out_of = "15"
+            out_of = "40"
             uploads_for_level = String(Int(camera_uploads)! - 25)
             progress = Float(uploads_for_level)! / 15
             
-    
+            
             
         }
-        ScoreLabel.text = uploads_for_level + "/" + out_of
+        ScoreLabel.text =  camera_uploads + "/" + out_of
+        ProgressView.layer.cornerRadius = 7.0
+        ProgressView.clipsToBounds = true
         ProgressView.progress = progress
         print("progresssssss")
         print(progress)
         
         
         
-        self.ThirdLevelView.alpha = 0.5
         
-
+        
+        
         
     }
     

@@ -6,12 +6,12 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View2" customModule="arfi" customModuleProvider="target">
             <connections>
+                <outlet property="ActivityIndicator" destination="u2V-XH-HqZ" id="zKW-E0-kai"/>
                 <outlet property="LevelLabel" destination="Dnj-GD-vn5" id="EhM-k9-22k"/>
                 <outlet property="ProgressView" destination="rkx-Cw-OEY" id="1ZT-yq-9dH"/>
                 <outlet property="QuestionDone" destination="reN-i4-djn" id="6Ov-ys-FUs"/>
                 <outlet property="ScoreLabel" destination="TZ7-i1-Qbf" id="H6g-FN-1Zc"/>
                 <outlet property="TypeOfGarment" destination="GRo-aq-p2j" id="bDS-2l-Jdy"/>
-                <outlet property="activityIndicator" destination="u2V-XH-HqZ" id="gby-an-NmW"/>
                 <outlet property="cameraButtonOutlet" destination="xUV-cS-W4k" id="dgH-zI-sjg"/>
                 <outlet property="cameraImage" destination="aLM-rG-o9c" id="wul-e3-giv"/>
                 <outlet property="cameraView" destination="BFv-jj-PTj" id="Kks-jO-8tK"/>
@@ -388,6 +388,12 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Swipe Up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pfh-uw-BQk">
+                            <rect key="frame" x="238" y="0.0" width="137" height="24"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                         <progressView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="750" ambiguous="YES" misplaced="YES" progress="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="rkx-Cw-OEY">
                             <rect key="frame" x="225" y="22" width="150" height="7"/>
                             <constraints>
@@ -401,6 +407,7 @@
                     <constraints>
                         <constraint firstAttribute="bottom" secondItem="rkx-Cw-OEY" secondAttribute="bottom" constant="10" id="1v8-Qc-M1n"/>
                         <constraint firstAttribute="bottom" secondItem="TZ7-i1-Qbf" secondAttribute="bottom" id="ApI-wp-oix"/>
+                        <constraint firstItem="pfh-uw-BQk" firstAttribute="top" secondItem="y3b-Rv-Yhl" secondAttribute="top" constant="-90" id="F7z-EF-G4a"/>
                         <constraint firstAttribute="bottom" secondItem="Dnj-GD-vn5" secondAttribute="bottom" id="nTp-h6-toX"/>
                         <constraint firstAttribute="trailing" secondItem="TZ7-i1-Qbf" secondAttribute="trailing" constant="8" id="w1I-Vf-oVn"/>
                         <constraint firstItem="Dnj-GD-vn5" firstAttribute="leading" secondItem="y3b-Rv-Yhl" secondAttribute="leading" constant="8" id="y0o-pQ-nXd"/>
@@ -423,6 +430,7 @@
                 <constraint firstItem="BFv-jj-PTj" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="CAE-Ix-255"/>
                 <constraint firstItem="3cH-yJ-FfW" firstAttribute="top" secondItem="YCb-14-gFu" secondAttribute="bottom" constant="67" id="HA8-JP-k1z"/>
                 <constraint firstItem="2qS-hq-GLP" firstAttribute="trailing" secondItem="BFv-jj-PTj" secondAttribute="trailing" id="IQ1-57-Ndn"/>
+                <constraint firstItem="pfh-uw-BQk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" constant="6.5" id="M2h-aQ-X35"/>
                 <constraint firstItem="2qS-hq-GLP" firstAttribute="centerX" secondItem="dAH-iT-Rrc" secondAttribute="centerX" id="Rlu-aB-rY8"/>
                 <constraint firstItem="7GL-Ef-N3g" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="VXE-P8-NWf"/>
                 <constraint firstItem="aLM-rG-o9c" firstAttribute="width" secondItem="BFv-jj-PTj" secondAttribute="width" id="WSX-7v-s5C"/>
