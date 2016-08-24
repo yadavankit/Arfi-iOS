@@ -71,6 +71,7 @@
     @IBOutlet var type2View: UIView!
     @IBOutlet var shareButton: UIButton!
     
+    @IBOutlet var swipeup: UILabel!
     
     @IBOutlet var ActivityIndicator: activityIndicator!
     @IBOutlet weak var settingUpWardrobe: UILabel!
@@ -113,10 +114,11 @@
     @IBAction func crossClicked(sender: AnyObject) { //when cross button is clicked
         
         
-        
+        self.swipeup.text = "Wait"
         self.cross.hidden = true
         self.cameraImage.hidden = true
-        self.cameraButtonOutlet.hidden = true
+        self.cameraButtonOutlet.hidden = false
+        self.cameraButtonOutlet.alpha = 0.3
         self.perimeterOutlet.hidden = false
         self.tickmarkOutlet.hidden = true
         self.flashIcon.hidden = false
@@ -217,7 +219,7 @@
             {
                 if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenFirstSeven") == false)
                 {
-                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 7 more Garments to clear LEVEL 1 and earn ₹ 100", image_name: "camera_trans")
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 7 more Garments to clear LEVEL 1 and see your paytm wallet getting fatter by ₹ 100", image_name: "camera_trans")
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenFirstSeven")
                     NSUserDefaults.standardUserDefaults().synchronize()
                 }
@@ -228,7 +230,7 @@
             {
                 if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenFirstThree") == false)
                 {
-                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 3 more Garments to clear LEVEL 1 and earn ₹ 100", image_name: "camera_trans")
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 3 more Garments to clear LEVEL 1 and see your paytm wallet getting fatter by ₹ 100", image_name: "camera_trans")
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenFirstThree")
                     NSUserDefaults.standardUserDefaults().synchronize()
                 }
@@ -255,7 +257,7 @@
             {
                 if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenSecondFour") == false)
                 {
-                self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 2 and earn ₹ 150", image_name: "camera_trans")
+                self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 2 and see your paytm wallet getting fatter by ₹ 150", image_name: "camera_trans")
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenSecondFour")
                     NSUserDefaults.standardUserDefaults().synchronize()
                 }
@@ -266,7 +268,7 @@
             {
                 if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenSecondEight") == false)
                 {
-                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 2 and earn ₹ 150", image_name: "camera_trans")
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 2 and see your paytm wallet getting fatter by ₹ 150", image_name: "camera_trans")
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenSecondEight")
                     NSUserDefaults.standardUserDefaults().synchronize()
                 }
@@ -284,7 +286,7 @@
             {
                 if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenThirdFour") == false)
                 {
-                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 3 and earn ₹ 200", image_name: "camera_trans")
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 4 more Garments to clear LEVEL 3 and see your paytm wallet getting fatter by ₹ 200", image_name: "camera_trans")
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenThirdFour")
                     NSUserDefaults.standardUserDefaults().synchronize()
                 }
@@ -294,7 +296,7 @@
             {
                 if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenThirdEight") == false)
                 {
-                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 3 and earn ₹ 200", image_name: "camera_trans")
+                    self.showPopup("GREAT, ALMOST THERE", message: "Upload 8 more Garments to clear LEVEL 3 and see your paytm wallet getting fatter by ₹ 200", image_name: "camera_trans")
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenThirdEight")
                     NSUserDefaults.standardUserDefaults().synchronize()
                 }
@@ -306,7 +308,7 @@
             {
                 if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenThirdDone") == false)
                 {
-                      self.showPopup("GREAT YOU CLEARED LEVEL 2", message: "₹ 200 will be transferred to your paytm wallet. :)", image_name: "cup3")
+                      self.showPopup("GREAT YOU CLEARED LEVEL 3", message: "₹ 200 will be transferred to your paytm wallet. :)", image_name: "cup3")
                     NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenThirdDone")
                     NSUserDefaults.standardUserDefaults().synchronize()
                 }
@@ -339,7 +341,7 @@
         print(progress)
         self.ProgressView.setNeedsDisplay()
         self.scoreView.setNeedsDisplay()
-        self.setNeedsFocusUpdate()
+//        self.setNeedsFocusUpdate()
         
         let left_uploads = Int(out_of)! - Int(camera_uploads)!
         
@@ -348,7 +350,7 @@
         {
 
             self.panel.timeUntilDismiss = 5
-            self.panel.showNotify(withStatus: .SUCCESS, inView: (self.parentViewController?.view)!, message: "\(left_uploads) uploads left for next level 😀")
+            self.panel.showNotify(withStatus: .SUCCESS, inView: (self.parentViewController?.view)!, message: "You are just \(left_uploads) uploads away from the next level and a great reward 😀")
             
             
             NSUserDefaults.standardUserDefaults().setBool(true, forKey: key_name)
@@ -457,10 +459,10 @@
             print("App is launching for first tym")
             
             self.firstLaunchEver = true
-            panel.timeUntilDismiss = 6
-            perimeterOutlet.hidden = false
-            panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on the circle to know more 👇")
-            
+//            panel.timeUntilDismiss = 6
+//            perimeterOutlet.hidden = false
+//            panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on the circle to upload garments 👇")
+//            
             
             userUniqueIdentifier = UIDevice.currentDevice().identifierForVendor!.UUIDString
             print(userUniqueIdentifier)
@@ -518,7 +520,7 @@
         
         Mixpanel.mainInstance().track(event: "Clicked GotIt on Instruction Screen",
                                       properties: ["SeenInstructions" : "Yes"])
-        
+        self.cameraButtonOutlet.hidden = false
         self.scrollView.hidden = true
         self.scrollView.removeFromSuperview()
         self.pageControl.hidden = true
@@ -828,7 +830,7 @@
             didPressTakePhoto()
             
             self.cross.hidden = false
-            cameraButtonOutlet.hidden = true
+//            cameraButtonOutlet.hidden = true
             perimeterOutlet.hidden = false
             self.tickmarkOutlet.hidden = false
         }
@@ -979,8 +981,12 @@
                             
                             print("Pohocha diya bhaiya")
                             self.cameraButtonOutlet.hidden = false
+                            self.swipeup.text = "Swipe Up"
+                            self.cameraButtonOutlet.alpha = 1.0
                             self.refreshScore()
                             self.scoreView.setNeedsDisplay()
+                            self.ProgressView.setNeedsDisplay()
+                            
                             
                             
                             
@@ -1169,7 +1175,7 @@
     func loadDropDown() {
         
         dropDown.anchorView = self.questionView
-        dropDown.dataSource = ["Shirt" , "Top" ,"TShirt", "Skirt" , "Jeans" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo"]
+        dropDown.dataSource = ["Shirt" , "Top" ,"TShirt", "Skirt" , "Jeans" , "Trouser" , "Capri" , "Culottes" , "Leggings" , "Cargos" , "Shorts" , "Palazzo", "Dress"]
         
         dropDown.selectionAction = { (index: Int, item: String) in
             print("Selected item: \(item) at index: \(index)")
@@ -1240,6 +1246,10 @@
                 self.label2.text = "Rise"
                 self.label3.text = "Length"
                 
+            case "Dress" :
+                
+                self.label2.text = "Style"
+                self.label3.text = "Length"
                 
             default:
                 print("Fucked")
@@ -1257,6 +1267,10 @@
         dropDown2.anchorView = self.type2View
         dropDown2.show()
         switch GlobalVariables.globalGarmentSelected! {
+            
+        case "Dress" :
+            
+            dropDown2.dataSource = ["Sheath Dress" , "Shift Dress" , "Blouson Dress" , "Bodycon Dress" , "Skater Dress" , "Maxi Dress", "Shirt Dress" , "Peplum Dress" , "Aline Dress" , "Wrapped Dress" , "Gown" , "Pop over dress" , "Pencil Dress" , "Tshirt Dress" , "Fit and Flare Dress"]
             
         case "Shirt":
             
@@ -1282,8 +1296,6 @@
             dropDown2.dataSource = ["Jogger/Jeggings" , "Straight" , "Loose/Relaxed" , "Bootcut" , "Crop Jeans" , "Skinny Jeans" ]
             
             
-            //        case "Dress":
-            //            dropDown2.dataSource = ["Sheath Dress" , "Shift dress" , "Blouson dress" , "Bodycon dress" , "Skater dress" , "Maxi dress" ,"Shirt dress", "Peplum dress" , "A-Line dress" , "Wrap dress" , "draped dress" , "Pop over dress" ,"Pencil dress", "T-Shirt dress" , "Fit and Flare dress" , "Gown" ]
             
             
         case "Trouser":
@@ -1359,10 +1371,7 @@
             case "Jeans":
                 
                 self.question3View.hidden = false
-                
-                //            case "Dress":
-                //
-                //                self.question3View.hidden = false
+            
                 
             case "Trouser":
                 
@@ -1395,6 +1404,9 @@
                 
                 self.QuestionDone.hidden = false
                 
+            case "Dress" :
+                
+                self.question3View.hidden = false
                 
                 //            case "Stockings":
                 //
@@ -1514,12 +1526,62 @@
             
             dropDown3.dataSource = ["Calf Length" , "Full Length"]
             
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Sheath Dress" {
+            
+            dropDown3.dataSource = ["Above knees" , "Below Knees"]
+            
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Shift Dress" {
+            
+            dropDown3.dataSource = ["Mini Length" , "Midi Length"]
+            
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Blouson Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" , "Long"]
+            
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Pop over dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" , "Long"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Bodycon Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Pencil Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Skater Dress" {
+            
+            dropDown3.dataSource = ["Mini"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Maxi Dress" {
+            
+            dropDown3.dataSource = ["Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Shirt Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ,"Full"]
         }
-            //        else   if GlobalVariables.globalGarmentSelected == "Dress" {
-            //
-            //            dropDown3.dataSource = ["Mini" , "Midi" ,"Calf" , "Full"]
-            //
-            //        }
+        else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Tshirt Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ,"Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Peplum Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf" ]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Aline Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf", "Full" ]
+        }
+        else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Fit and Flare Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf"  , "Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Wrap Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf"  , "Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Drape Dress" {
+            
+            dropDown3.dataSource = ["Mini" , "Midi" , "Calf"  , "Full"]
+        }else  if GlobalVariables.globalGarmentSelected == "Dress" && self.label2.text == "Gown" {
+            
+            dropDown3.dataSource = [ "Full"]
+        }
+            
+          
         else   if GlobalVariables.globalGarmentSelected == "Skirt" && self.label2.text == "Balloon" {
             
             dropDown3.dataSource = ["Mini" , "Midi"]
@@ -1595,9 +1657,7 @@
         case "Jeans":
             GlobalVariables.mainDetail = "BottomWear"
             
-            //        case "Dress":
-            //
-            //          GlobalVariables.mainDetail = "TopWear"
+           
             
             
         case "Trouser":
@@ -1626,6 +1686,8 @@
             
         case "Palazzo":
             GlobalVariables.mainDetail = "BottomWear"
+            
+       
             
             //        case "Stockings":
             //

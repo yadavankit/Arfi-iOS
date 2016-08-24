@@ -77,7 +77,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
             {
                 GlobalVariables.twoShown = true
                 self.panel.timeUntilDismiss = 3
-                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on Circle to know more 👍")
+                self.panel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Tap on the circle to upload garments 👇")
             }
             
             if page == 2

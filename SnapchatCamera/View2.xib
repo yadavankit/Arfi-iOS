@@ -33,6 +33,7 @@
                 <outlet property="scrollView" destination="2qS-hq-GLP" id="U0H-H7-29i"/>
                 <outlet property="settingUpWardrobe" destination="YCb-14-gFu" id="p83-Za-4el"/>
                 <outlet property="shareButton" destination="OjY-jX-wJZ" id="dpR-XM-HMc"/>
+                <outlet property="swipeup" destination="pfh-uw-BQk" id="fRg-oE-pAS"/>
                 <outlet property="tickmarkOutlet" destination="3cH-yJ-FfW" id="Gw7-jd-lVZ"/>
                 <outlet property="type2View" destination="3OO-oB-EEc" id="6iT-Mh-K5G"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="6QF-E1-Hye"/>

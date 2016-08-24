@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10116" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="10117" systemVersion="15G31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
     </dependencies>
@@ -162,7 +162,7 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="₹ 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gX-fI-0WF">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Earn ₹ 100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2gX-fI-0WF">
                                     <rect key="frame" x="167" y="92" width="145" height="36"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -206,7 +206,7 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="₹ 150" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvo-RS-Jnd">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Earn ₹ 150" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dvo-RS-Jnd">
                                     <rect key="frame" x="166" y="92" width="145" height="36"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -250,7 +250,7 @@
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="₹ 200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcF-SC-ARs">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Earn ₹ 200" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LcF-SC-ARs">
                                     <rect key="frame" x="166" y="90" width="145" height="36"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -338,10 +338,13 @@
                                 <constraint firstAttribute="height" constant="240" id="pJF-T9-AKw"/>
                             </constraints>
                         </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiD-eD-X1I">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiD-eD-X1I">
                             <rect key="frame" x="8" y="331" width="584" height="125"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="125" id="X1A-L0-ccw"/>
+                            </constraints>
                             <attributedString key="attributedText">
-                                <fragment content="Now see your wardrobe organized and decide what to wear by uploading more garments!">
+                                <fragment content="Upload rest of your wardrobe and see your wardrobe organised and easily decide what to wear!">
                                     <attributes>
                                         <color key="NSColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                         <font key="NSFont" size="19" name="HelveticaNeue"/>
@@ -351,7 +354,7 @@
                             </attributedString>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Swipe left from model screen to upload more" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLu-wK-5s4">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now earn rewards for uploading your wardrobe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLu-wK-5s4">
                             <rect key="frame" x="8" y="480" width="584" height="46"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                             <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
@@ -379,9 +382,9 @@
                         <constraint firstItem="vWv-XY-yeG" firstAttribute="centerX" secondItem="TS1-qc-lQ8" secondAttribute="centerX" id="Guc-Af-ROZ"/>
                         <constraint firstItem="QLu-wK-5s4" firstAttribute="top" secondItem="NiD-eD-X1I" secondAttribute="bottom" constant="24" id="IK3-zN-XoQ"/>
                         <constraint firstAttribute="trailing" secondItem="QLu-wK-5s4" secondAttribute="trailing" constant="8" id="Jb3-nE-amJ"/>
-                        <constraint firstAttribute="trailing" secondItem="NiD-eD-X1I" secondAttribute="trailing" constant="12" id="WDO-RS-iNs"/>
+                        <constraint firstAttribute="trailing" secondItem="NiD-eD-X1I" secondAttribute="trailing" constant="8" id="WDO-RS-iNs"/>
                         <constraint firstItem="NiD-eD-X1I" firstAttribute="top" secondItem="vWv-XY-yeG" secondAttribute="bottom" constant="14" id="dQB-SS-aRe"/>
-                        <constraint firstItem="NiD-eD-X1I" firstAttribute="leading" secondItem="TS1-qc-lQ8" secondAttribute="leading" constant="12" id="h0E-tP-ekL"/>
+                        <constraint firstItem="NiD-eD-X1I" firstAttribute="leading" secondItem="TS1-qc-lQ8" secondAttribute="leading" constant="8" id="h0E-tP-ekL"/>
                         <constraint firstItem="4mw-q7-glT" firstAttribute="leading" secondItem="TS1-qc-lQ8" secondAttribute="leading" id="hA3-M3-mAo"/>
                         <constraint firstItem="QLu-wK-5s4" firstAttribute="centerY" secondItem="NiD-eD-X1I" secondAttribute="centerY" constant="109.5" id="ixG-lK-hPl"/>
                         <constraint firstItem="vWv-XY-yeG" firstAttribute="top" secondItem="TS1-qc-lQ8" secondAttribute="top" constant="77" id="jUb-y1-hdm"/>

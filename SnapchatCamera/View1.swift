@@ -80,6 +80,9 @@ class View1: UIViewController  {
         self.GamifyView.hidden = true
         self.GamifyView.removeFromSuperview()
         
+        Mixpanel.mainInstance().track(event: "Clicked Next on Gamify screen",
+                                      properties: ["Lets upload" : "Yes"])
+        
         self.newpanel.timeUntilDismiss = 4
         self.newpanel.showNotify(withStatus: .SUCCESS, inView: self.view, message: "Swipe Left to know how to upload garments👈")
         
@@ -158,7 +161,7 @@ class View1: UIViewController  {
         
         
         //For Gamify View
-        let newtriggerTime = (Int64(NSEC_PER_SEC) * 8)
+        let newtriggerTime = (Int64(NSEC_PER_SEC) * 10)
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, newtriggerTime), dispatch_get_main_queue(), { () -> Void in
             
             
