@@ -85,7 +85,7 @@
                         </mask>
                     </variation>
                 </view>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cup1" translatesAutoresizingMaskIntoConstraints="NO" id="uYg-JT-NRa">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="cup1" translatesAutoresizingMaskIntoConstraints="NO" id="uYg-JT-NRa">
                     <rect key="frame" x="30" y="0.0" width="230" height="204"/>
                 </imageView>
             </subviews>

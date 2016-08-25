@@ -6,8 +6,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="View1" customModule="arfi" customModuleProvider="target">
             <connections>
-                <outlet property="CupboardNextButton" destination="4mw-q7-glT" id="Bgb-Oy-iZy"/>
-                <outlet property="CupboardView" destination="TS1-qc-lQ8" id="Zu4-dH-F8B"/>
                 <outlet property="GamifyView" destination="TKo-3D-RJr" id="UBp-Cp-qji"/>
                 <outlet property="background" destination="Rox-JJ-N3c" id="qK1-ap-xgX"/>
                 <outlet property="bg" destination="Rox-JJ-N3c" id="eCP-y3-aY2"/>
@@ -156,7 +154,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Upload 10 garments." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGj-S6-8bR">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Upload total of 10 garments." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pGj-S6-8bR">
                                     <rect key="frame" x="167" y="60" width="351" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -200,7 +198,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Upload 25 garments." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQb-0L-Vwn">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Upload total of 25 garments." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BQb-0L-Vwn">
                                     <rect key="frame" x="166" y="60" width="351" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -244,7 +242,7 @@
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Upload 40 garments." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IT-V1-uu7">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Upload total of 40 garments." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3IT-V1-uu7">
                                     <rect key="frame" x="166" y="60" width="351" height="24"/>
                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -329,75 +327,6 @@
                         <constraint firstItem="TjI-Oa-VOB" firstAttribute="top" secondItem="TKo-3D-RJr" secondAttribute="top" constant="7" id="vd3-II-q6F"/>
                     </constraints>
                 </view>
-                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="TS1-qc-lQ8" userLabel="CupboardView">
-                    <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                    <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cupboardimage" translatesAutoresizingMaskIntoConstraints="NO" id="vWv-XY-yeG">
-                            <rect key="frame" x="0.0" y="77" width="600" height="240"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="240" id="pJF-T9-AKw"/>
-                            </constraints>
-                        </imageView>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NiD-eD-X1I">
-                            <rect key="frame" x="8" y="331" width="584" height="125"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="125" id="X1A-L0-ccw"/>
-                            </constraints>
-                            <attributedString key="attributedText">
-                                <fragment content="Upload rest of your wardrobe and see your wardrobe organised and easily decide what to wear!">
-                                    <attributes>
-                                        <color key="NSColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
-                                        <font key="NSFont" size="19" name="HelveticaNeue"/>
-                                        <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" lineHeightMultiple="1.3" tighteningFactorForTruncation="0.0"/>
-                                    </attributes>
-                                </fragment>
-                            </attributedString>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Now earn rewards for uploading your wardrobe" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QLu-wK-5s4">
-                            <rect key="frame" x="8" y="480" width="584" height="46"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <color key="textColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4mw-q7-glT">
-                            <rect key="frame" x="0.0" y="543" width="600" height="57"/>
-                            <color key="backgroundColor" red="0.96078431369999995" green="0.01176470588" blue="0.01176470588" alpha="1" colorSpace="calibratedRGB"/>
-                            <constraints>
-                                <constraint firstAttribute="height" constant="57" id="Awc-1k-pBn"/>
-                            </constraints>
-                            <state key="normal" title="NEXT">
-                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </state>
-                            <connections>
-                                <action selector="CupboardNextButtonPressed:" destination="-1" eventType="touchUpInside" id="Xps-Qe-gdZ"/>
-                            </connections>
-                        </button>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    <constraints>
-                        <constraint firstAttribute="trailing" secondItem="4mw-q7-glT" secondAttribute="trailing" id="4Sq-0T-HeC"/>
-                        <constraint firstAttribute="bottom" secondItem="4mw-q7-glT" secondAttribute="bottom" id="69m-xa-taM"/>
-                        <constraint firstItem="QLu-wK-5s4" firstAttribute="leading" secondItem="TS1-qc-lQ8" secondAttribute="leading" constant="8" id="EFk-92-BtY"/>
-                        <constraint firstItem="vWv-XY-yeG" firstAttribute="centerX" secondItem="TS1-qc-lQ8" secondAttribute="centerX" id="Guc-Af-ROZ"/>
-                        <constraint firstItem="QLu-wK-5s4" firstAttribute="top" secondItem="NiD-eD-X1I" secondAttribute="bottom" constant="24" id="IK3-zN-XoQ"/>
-                        <constraint firstAttribute="trailing" secondItem="QLu-wK-5s4" secondAttribute="trailing" constant="8" id="Jb3-nE-amJ"/>
-                        <constraint firstAttribute="trailing" secondItem="NiD-eD-X1I" secondAttribute="trailing" constant="8" id="WDO-RS-iNs"/>
-                        <constraint firstItem="NiD-eD-X1I" firstAttribute="top" secondItem="vWv-XY-yeG" secondAttribute="bottom" constant="14" id="dQB-SS-aRe"/>
-                        <constraint firstItem="NiD-eD-X1I" firstAttribute="leading" secondItem="TS1-qc-lQ8" secondAttribute="leading" constant="8" id="h0E-tP-ekL"/>
-                        <constraint firstItem="4mw-q7-glT" firstAttribute="leading" secondItem="TS1-qc-lQ8" secondAttribute="leading" id="hA3-M3-mAo"/>
-                        <constraint firstItem="QLu-wK-5s4" firstAttribute="centerY" secondItem="NiD-eD-X1I" secondAttribute="centerY" constant="109.5" id="ixG-lK-hPl"/>
-                        <constraint firstItem="vWv-XY-yeG" firstAttribute="top" secondItem="TS1-qc-lQ8" secondAttribute="top" constant="77" id="jUb-y1-hdm"/>
-                        <constraint firstItem="vWv-XY-yeG" firstAttribute="leading" secondItem="TS1-qc-lQ8" secondAttribute="leading" id="oMJ-1M-aa7"/>
-                        <constraint firstItem="QLu-wK-5s4" firstAttribute="top" secondItem="NiD-eD-X1I" secondAttribute="bottom" constant="8" id="uAX-WC-rlw"/>
-                        <constraint firstItem="vWv-XY-yeG" firstAttribute="width" secondItem="TS1-qc-lQ8" secondAttribute="width" id="yM3-4e-Mti"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="uAX-WC-rlw"/>
-                        </mask>
-                    </variation>
-                </view>
             </subviews>
             <gestureRecognizers/>
             <constraints>
@@ -409,7 +338,6 @@
                 <constraint firstItem="sxn-gH-dQ4" firstAttribute="top" secondItem="Rox-JJ-N3c" secondAttribute="top" id="CDE-7B-uto"/>
                 <constraint firstItem="wZg-2k-zdX" firstAttribute="leading" secondItem="Rox-JJ-N3c" secondAttribute="trailing" constant="-71" id="IGQ-0P-bTg"/>
                 <constraint firstItem="bNh-HH-5FV" firstAttribute="centerX" secondItem="qu2-Hf-bCx" secondAttribute="centerX" id="KMq-OT-4Ih"/>
-                <constraint firstItem="TS1-qc-lQ8" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="M6g-yo-kzF"/>
                 <constraint firstItem="u1B-Qh-shm" firstAttribute="top" secondItem="qu2-Hf-bCx" secondAttribute="bottom" constant="20" id="MZv-Hu-tF3"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="Mhd-jt-oRv"/>
                 <constraint firstItem="qu2-Hf-bCx" firstAttribute="top" secondItem="bNh-HH-5FV" secondAttribute="bottom" constant="-76" id="ONd-4z-QTe"/>
@@ -422,11 +350,8 @@
                 <constraint firstItem="HPN-Hq-jWK" firstAttribute="centerY" secondItem="wZg-2k-zdX" secondAttribute="centerY" id="etw-FS-EsK"/>
                 <constraint firstItem="TKo-3D-RJr" firstAttribute="bottom" secondItem="u1B-Qh-shm" secondAttribute="bottom" id="gy8-Xd-ABg"/>
                 <constraint firstItem="Rox-JJ-N3c" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="kS7-au-6Tw"/>
-                <constraint firstItem="TS1-qc-lQ8" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="lIT-P4-gQ8"/>
                 <constraint firstItem="sxn-gH-dQ4" firstAttribute="trailing" secondItem="u1B-Qh-shm" secondAttribute="trailing" id="lzn-Lg-ZyP"/>
-                <constraint firstAttribute="bottom" secondItem="TS1-qc-lQ8" secondAttribute="bottom" id="mqg-Vl-fbB"/>
                 <constraint firstItem="qu2-Hf-bCx" firstAttribute="centerX" secondItem="u1B-Qh-shm" secondAttribute="centerX" id="pOe-75-Wbv"/>
-                <constraint firstAttribute="trailing" secondItem="TS1-qc-lQ8" secondAttribute="trailing" id="pfd-86-BRy"/>
                 <constraint firstItem="wZg-2k-zdX" firstAttribute="width" secondItem="HPN-Hq-jWK" secondAttribute="width" id="rzm-qF-f92"/>
                 <constraint firstAttribute="trailing" secondItem="Rox-JJ-N3c" secondAttribute="trailing" id="s2D-dQ-alB"/>
                 <constraint firstItem="sxn-gH-dQ4" firstAttribute="leading" secondItem="u1B-Qh-shm" secondAttribute="leading" id="s94-fL-PAQ"/>
@@ -459,7 +384,6 @@
         <image name="achimodel" width="172" height="337"/>
         <image name="bg" width="640" height="1136"/>
         <image name="clothes" width="236" height="295"/>
-        <image name="cupboardimage" width="640" height="390"/>
         <image name="gandimodel" width="172" height="337"/>
         <image name="level1" width="230" height="204"/>
         <image name="level2" width="230" height="204"/>

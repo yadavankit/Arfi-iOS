@@ -113,16 +113,13 @@
     
     @IBAction func crossClicked(sender: AnyObject) { //when cross button is clicked
         
-        
-        self.swipeup.text = "Wait"
-        self.cross.hidden = true
+                self.cross.hidden = true
         self.cameraImage.hidden = true
         self.cameraButtonOutlet.hidden = false
-        self.cameraButtonOutlet.alpha = 0.3
         self.perimeterOutlet.hidden = false
         self.tickmarkOutlet.hidden = true
         self.flashIcon.hidden = false
-        
+
     }
     
     
@@ -954,8 +951,20 @@
                         
                         dispatch_async(dispatch_get_main_queue(),{
                             
-                            
-                            self.crossClicked(self)
+                            self.cross.hidden = true
+                            self.cameraImage.hidden = true
+                            self.cameraButtonOutlet.hidden = false
+                            self.cameraButtonOutlet.alpha = 0.3
+                            self.perimeterOutlet.hidden = false
+                            self.tickmarkOutlet.hidden = true
+                            self.flashIcon.hidden = false
+                            self.cameraButtonOutlet.hidden = false
+                            self.cameraButtonOutlet.alpha = 0.3
+                            self.swipeup.text = "Wait"
+                            self.cameraButtonOutlet.userInteractionEnabled = false
+
+
+//                            self.crossClicked(self)
                             self.settingUpWardrobe.hidden = true
                             self.flashIcon.hidden = false
                             
@@ -986,6 +995,7 @@
                             self.refreshScore()
                             self.scoreView.setNeedsDisplay()
                             self.ProgressView.setNeedsDisplay()
+                            self.cameraButtonOutlet.userInteractionEnabled = true
                             
                             
                             

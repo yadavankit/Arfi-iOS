@@ -85,6 +85,8 @@
 		F01D284D1D69EDCF005C4081 /* GamifyScore.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D284C1D69EDCF005C4081 /* GamifyScore.swift */; };
 		F01D285D1D6B9DF9005C4081 /* RatingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01D285C1D6B9DF9005C4081 /* RatingViewController.swift */; };
 		F01D285F1D6B9E06005C4081 /* RatingViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F01D285E1D6B9E06005C4081 /* RatingViewController.xib */; };
+		F08640BC1D6EE8C000F4C5DC /* cupboard.xib in Resources */ = {isa = PBXBuildFile; fileRef = F08640BB1D6EE8C000F4C5DC /* cupboard.xib */; };
+		F08640BE1D6EE8D900F4C5DC /* cupboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = F08640BD1D6EE8D900F4C5DC /* cupboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -184,6 +186,8 @@
 		F01D284C1D69EDCF005C4081 /* GamifyScore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GamifyScore.swift; sourceTree = "<group>"; };
 		F01D285C1D6B9DF9005C4081 /* RatingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingViewController.swift; sourceTree = "<group>"; };
 		F01D285E1D6B9E06005C4081 /* RatingViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RatingViewController.xib; sourceTree = "<group>"; };
+		F08640BB1D6EE8C000F4C5DC /* cupboard.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = cupboard.xib; sourceTree = "<group>"; };
+		F08640BD1D6EE8D900F4C5DC /* cupboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = cupboard.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -264,6 +268,7 @@
 			isa = PBXGroup;
 			children = (
 				AC94AD811B8E4174002D9AD2 /* View1.xib */,
+				F08640BB1D6EE8C000F4C5DC /* cupboard.xib */,
 				F01D285E1D6B9E06005C4081 /* RatingViewController.xib */,
 				AC94AD851B8E41A1002D9AD2 /* View2.xib */,
 				AC94AD8B1B8E436D002D9AD2 /* View3.xib */,
@@ -286,6 +291,7 @@
 				F01D285C1D6B9DF9005C4081 /* RatingViewController.swift */,
 				48DAA8C31D12C59300494180 /* nn.swift */,
 				F01D284C1D69EDCF005C4081 /* GamifyScore.swift */,
+				F08640BD1D6EE8D900F4C5DC /* cupboard.swift */,
 			);
 			name = Controller;
 			sourceTree = "<group>";
@@ -615,6 +621,7 @@
 				F01D285F1D6B9E06005C4081 /* RatingViewController.xib in Resources */,
 				48DAA8C21D12C56300494180 /* nn.xib in Resources */,
 				488C9A3B1D2A4FF40014B992 /* PremiumView.xib in Resources */,
+				F08640BC1D6EE8C000F4C5DC /* cupboard.xib in Resources */,
 				AC94AD831B8E4174002D9AD2 /* View1.xib in Resources */,
 				482FE8051D2D3CF300B78B0C /* complexionCell.xib in Resources */,
 				AC94AD871B8E41A1002D9AD2 /* View2.xib in Resources */,
@@ -775,6 +782,7 @@
 				482FE80A1D2D3CF300B78B0C /* Model.swift in Sources */,
 				4824689E1D154FB400DAB95C /* Just.swift in Sources */,
 				F01D284D1D69EDCF005C4081 /* GamifyScore.swift in Sources */,
+				F08640BE1D6EE8D900F4C5DC /* cupboard.swift in Sources */,
 				AC94AD821B8E4174002D9AD2 /* View1.swift in Sources */,
 				488E9BB11D50C80C0075A96A /* CreateModel.swift in Sources */,
 				4875DBDB1D673A6A00B7343C /* View4.swift in Sources */,

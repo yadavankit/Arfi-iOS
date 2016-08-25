@@ -40,7 +40,7 @@ class View1: UIViewController  {
     var culottesAdded = false
     var skirtAdded = false
         var dressAdded = false
-
+ var cupboardNib : UIView?
 
     @IBOutlet var clothesImage: UIImageView!
     @IBOutlet var botImageView: UIImageView!
@@ -74,7 +74,7 @@ class View1: UIViewController  {
 //GAmify and Cupvoard
     
     @IBOutlet var GamifyView: UIView!
-    @IBOutlet var CupboardView: UIView!
+
     @IBAction func GamifyNextButtonPressed(sender: AnyObject) {
         
         self.GamifyView.hidden = true
@@ -91,12 +91,9 @@ class View1: UIViewController  {
         
     }
     
-    @IBOutlet var CupboardNextButton: UIButton!
+
     @IBAction func CupboardNextButtonPressed(sender: AnyObject) {
         
-        
-        self.CupboardView.hidden = true
-        self.CupboardView.removeFromSuperview()
         self.GamifyView.hidden = false
         self.view.bringSubviewToFront(self.GamifyView)
         
@@ -168,8 +165,11 @@ class View1: UIViewController  {
             if(NSUserDefaults.standardUserDefaults().boolForKey("hasSeenGamify") == false)
             {
                 
-                self.CupboardView.hidden = false
-                self.view.bringSubviewToFront(self.CupboardView)
+                let test = cupboard.instanceFromNib()
+                self.cupboardNib = test
+                test.frame = CGRectMake(0, 0, self.view.frame.width, self.view.frame.height)
+                self.view.addSubview(test)
+                self.GamifyView.hidden = false
                 NSUserDefaults.standardUserDefaults().setBool(true, forKey: "hasSeenGamify")
                 NSUserDefaults.standardUserDefaults().synchronize()
             }
